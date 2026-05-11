@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise Science Fundamentals with Dr. Liz Warren | Charleston Strength Club</title>
+<meta name="description" content="Learn exercise science fundamentals with Coach Adam Oliver and Dr. Liz Warren. Energy systems, muscle fibers, and nutrition for adults and seniors in North Charleston, SC.">
+<link rel="canonical" href="https://www.chsstrengthclub.com/post/exercise-science-fundamentals">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--red:#c0170f;--red-bright:#e82017;--red-dark:#8a0f0a;--black:#0d0d0d;--near-black:#141414;--charcoal:#1e1e1e;--muted:#777;--cream:#f0ece4;--white:#ffffff;--border:rgba(255,255,255,0.08);--border-red:rgba(192,23,15,0.35)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--cream);font-family:"DM Sans",sans-serif;font-weight:300;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;background:rgba(13,13,13,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-red)}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
+.nav-logo-text{font-family:"Oswald",sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);line-height:1}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(240,236,228,0.55);text-decoration:none;font-family:"Oswald",sans-serif;font-size:0.72rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--red-bright)}
+.nav-cta{border:1px solid var(--red)!important;color:var(--red-bright)!important;padding:0.5rem 1.4rem}
+.nav-cta:hover{background:var(--red)!important;color:var(--white)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--cream)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:99;padding:6rem 2rem 2rem;flex-direction:column;gap:1.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--cream);text-decoration:none;font-family:"Oswald",sans-serif;font-size:1.4rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:1rem}
+
+/* POST LAYOUT */
+.post-header{padding:9rem 3rem 4rem;background:var(--black);position:relative;overflow:hidden;border-bottom:1px solid var(--border-red)}
+.post-header-inner{max-width:800px;margin:0 auto}
+.breadcrumb{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1.5rem}
+.breadcrumb a{color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s}
+.breadcrumb a:hover{color:var(--red-bright)}
+.post-tag{font-family:"Oswald",sans-serif;font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
+.post-tag::before{content:"";display:inline-block;width:20px;height:1px;background:var(--red)}
+h1{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:400;text-transform:uppercase;line-height:0.95;color:var(--white);margin-bottom:1.5rem}
+.post-byline{display:flex;align-items:center;gap:1.5rem;font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.post-byline strong{color:var(--cream)}
+.post-byline-dot{width:3px;height:3px;border-radius:50%;background:var(--red);opacity:0.5}
+
+/* ARTICLE BODY */
+.post-body{max-width:800px;margin:0 auto;padding:4rem 3rem 5rem}
+.post-body p{font-size:1rem;line-height:1.9;color:rgba(240,236,228,0.65);margin-bottom:1.4rem}
+.post-body h2{font-family:"Black Han Sans",sans-serif;font-size:1.6rem;font-weight:400;text-transform:uppercase;color:var(--white);margin:2.5rem 0 1rem;line-height:1.1}
+.post-body h3{font-family:"Oswald",sans-serif;font-size:1rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--red-bright);margin:2rem 0 0.7rem}
+.post-body ul{list-style:none;margin-bottom:1.4rem;padding-left:0}
+.post-body ul li{font-size:0.92rem;line-height:1.75;color:rgba(240,236,228,0.55);padding:0.35rem 0 0.35rem 1.4rem;border-bottom:1px solid rgba(255,255,255,0.04);position:relative}
+.post-body ul li::before{content:"";position:absolute;left:0;top:0.85rem;width:5px;height:5px;background:var(--red);transform:rotate(45deg)}
+.post-body ol{list-style:none;margin-bottom:1.4rem;counter-reset:ol-counter}
+.post-body ol li{font-size:0.92rem;line-height:1.75;color:rgba(240,236,228,0.55);padding:0.4rem 0 0.4rem 2rem;border-bottom:1px solid rgba(255,255,255,0.04);position:relative;counter-increment:ol-counter}
+.post-body ol li::before{content:counter(ol-counter);position:absolute;left:0;font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:600;color:var(--red);top:0.55rem}
+.post-body a{color:var(--red-bright);text-decoration:none;border-bottom:1px solid rgba(192,23,15,0.3);transition:border-color 0.2s}
+.post-body a:hover{border-color:var(--red-bright)}
+.post-body em{font-style:italic;color:rgba(240,236,228,0.5)}
+.post-body strong{font-weight:500;color:var(--cream)}
+.post-rule{width:60px;height:2px;background:var(--red);margin:2.5rem 0}
+
+/* PULL QUOTE */
+.pull-quote{border-left:3px solid var(--red);padding:1.2rem 1.8rem;margin:2rem 0;background:rgba(192,23,15,0.05)}
+.pull-quote p{font-family:"Playfair Display",serif;font-size:1.1rem;font-style:italic;color:var(--cream);margin:0;line-height:1.7}
+
+/* CTA BOX */
+.cta-box{background:var(--near-black);border:1px solid var(--border-red);padding:2.5rem;margin-top:3rem}
+.cta-box h3{font-family:"Oswald",sans-serif;font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem}
+.cta-box p{font-size:0.88rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem}
+.btn{font-family:"Oswald",sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;padding:0.85rem 2rem;text-decoration:none;display:inline-block;transition:all 0.25s;border:none;cursor:pointer}
+.btn-red{background:var(--red);color:var(--white)}
+.btn-red:hover{background:var(--red-bright);transform:translateY(-2px)}
+
+/* BACK LINK */
+.back-bar{background:var(--near-black);border-top:1px solid var(--border-red);padding:1.5rem 3rem}
+.back-link{font-family:"Oswald",sans-serif;font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;display:inline-flex;align-items:center;gap:0.5rem}
+.back-link:hover{color:var(--red-bright)}
+
+footer{background:var(--near-black);border-top:1px solid var(--border-red);padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:"Oswald",sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white)}
+.footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.2);font-family:"Oswald",sans-serif;letter-spacing:0.1em}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .post-header{padding:7rem 1.5rem 3rem}
+  .post-body{padding:3rem 1.5rem 4rem}
+  .back-bar{padding:1.2rem 1.5rem}
+  footer{padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <span class="nav-logo-text">Charleston<br>Strength Club</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../tuesday.html">Tuesday Class</a></li>
+    <li><a href="index.html">Blog</a></li>
+    <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Get Started</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html" onclick="toggleMenu()">Home</a>
+  <a href="../tuesday.html" onclick="toggleMenu()">Tuesday Class</a>
+  <a href="index.html" onclick="toggleMenu()">Blog</a>
+  <a href="mailto:chsstrengthclub@gmail.com">Email Adam</a>
+</div>
+
+<header class="post-header">
+  <div class="post-header-inner">
+    <div class="breadcrumb"><a href="index.html">Blog</a> &nbsp;/&nbsp; Sport Performance</div>
+    <div class="post-tag">Sport Performance</div>
+    <h1>From the Classroom to the Club: Breaking Down Exercise Science Fundamentals with Dr. Liz Warren</h1>
+    <div class="post-byline">
+      <strong>Adam Oliver</strong>
+      <span class="post-byline-dot"></span>
+      <span>March 14, 2026</span>
+      <span class="post-byline-dot"></span>
+      <span>2 min read</span>
+    </div>
+  </div>
+</header>
+
+<article class="post-body">
+
+  <p>If you've spent any time training with us at Charleston Strength Club, you know we aren't just about "lifting heavy things." We're about moving with purpose and understanding the <em>why</em> behind the work.</p>
+
+  <p>Recently, I had the pleasure of catching up with a very special guest on our podcast: Dr. Liz Warren, an Associate Dean and Exercise Physiologist at Northern Michigan University. Dr. Warren was my professor back at Norwich University, and she played a huge role in shaping the science-based approach I bring to our sessions every day.</p>
+
+  <p>We took a deep dive into the physiology of performance. Here are the three biggest exercise science fundamentals to take away from the episode.</p>
+
+  <div class="post-rule"></div>
+
+  <h2>Exercise Science 101: You Have Three "Engines" — Are You Training All of Them?</h2>
+
+  <p>Dr. Warren explained that our bodies use three distinct energy systems. Think of it like a hybrid car:</p>
+
+  <ul>
+    <li><strong>The Sprint Engine (ATP-PC):</strong> For those 10-second bursts of max power.</li>
+    <li><strong>The Mid-Range Engine (Glycolytic):</strong> For intense efforts lasting about a minute.</li>
+    <li><strong>The Endurance Engine (Oxidative):</strong> For long-term movement fueled by oxygen and fat.</li>
+  </ul>
+
+  <p>Whether you are part of our adult program or training for <a href="https://www.chsstrengthclub.com/sport-performance" target="_blank">Sport Performance</a>, we structure our workouts to ensure these systems are firing efficiently.</p>
+
+  <div class="pull-quote">
+    <p>"Fat burns in a carbohydrate flame" — which is why we always talk about the importance of fueling your workouts with quality nutrition, not skipping meals.</p>
+  </div>
+
+  <h2>The "Use It or Lose It" Rule for Power</h2>
+
+  <p>One of the most important parts of our conversation focused on exercise science for aging. As we get older, we naturally lose our "Type 2" fast-twitch muscle fibers first. These are the fibers responsible for power, speed, and — most importantly — catching yourself if you trip.</p>
+
+  <p>This is exactly why we prioritize functional strength and power in our Senior Fitness and Adult Strength programs. It's not just about looking better; it's about maintaining the capability to carry your groceries, play with your grandkids, and stay independent.</p>
+
+  <h2>Do You Really Need That Supplement?</h2>
+
+  <p>We get a lot of questions about creatine, electrolytes, and "superfood" powders. Dr. Warren's take? Food first.</p>
+
+  <h3>On Creatine</h3>
+  <p>It's great for high-level athletes, but if you're eating a well-rounded diet with quality protein, you're likely getting what you need.</p>
+
+  <h3>On Electrolytes</h3>
+  <p>Unless you're crushing a high-intensity session in the South Carolina humidity, plain water and a balanced meal are often your best friends.</p>
+
+  <h2>Bringing the Science Home</h2>
+
+  <p>My goal at Charleston Strength Club has always been to take the complex science I learned from experts like Dr. Warren and make it accessible, enjoyable, and effective for everybody. Whether you're a former athlete or someone looking to get started for the first time, understanding how your "engine" works is the first step toward better results.</p>
+
+  <div class="cta-box">
+    <h3>Ready to Train Smarter?</h3>
+    <p>CSCS-certified coaching for adults, seniors, and athletes in North Charleston, SC. Watch Adam coaching the group in action on <a href="https://youtu.be/LhL2_8rtCnA" target="_blank">YouTube</a>, or reach out directly.</p>
+    <a href="mailto:chsstrengthclub@gmail.com" class="btn btn-red">Email Adam to Get Started</a>
+  </div>
+
+</article>
+
+<div class="back-bar">
+  <a href="index.html" class="back-link">← Back to Blog</a>
+</div>
+
+<footer>
+  <div class="footer-logo">Charleston Strength Club</div>
+  <span class="footer-copy">© 2026 Charleston Strength Club &nbsp;·&nbsp; (978) 604-5920 &nbsp;·&nbsp; North Charleston, SC</span>
+
+  <div style="display:flex;gap:1.5rem;">
+    <a href="https://www.facebook.com/ChsStrengthClub" target="_blank" style="color:rgba(240,236,228,0.4);font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-decoration:none;text-transform:uppercase;">Facebook</a>
+    <a href="https://www.instagram.com/chsstrengthclub/" target="_blank" style="color:rgba(240,236,228,0.4);font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-decoration:none;text-transform:uppercase;">Instagram</a>
+    <a href="https://www.youtube.com/@chsstrengthclub/" target="_blank" style="color:rgba(240,236,228,0.4);font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-decoration:none;text-transform:uppercase;">YouTube</a>
+  </div>
+</footer>
+
+<script>function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}</script>
+</body>
+</html>
