@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chsstrengthclub.com/sitemap.xml
