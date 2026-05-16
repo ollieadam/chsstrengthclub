@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training Locations | Charleston Strength Club | North Charleston SC</title>
+  <meta name="description" content="Charleston Strength Club trains at Paramount Drive and three North Charleston Senior Centers. Find us at Dorchester Road, Northwood, and Carner Avenue.">
+  <meta property="og:title" content="Training Locations | Charleston Strength Club">
+  <meta property="og:description" content="Find Charleston Strength Club at Paramount Drive and the North Charleston Senior Centers — Dorchester Road, Northwood, and Carner Avenue.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Charleston Strength Club">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Oswald:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #c0170f;
+      --red-bright: #e82017;
+      --cream: #f0ece4;
+      --black: #0d0d0d;
+      --charcoal: #161616;
+      --near-black: #111;
+      --border: rgba(255,255,255,0.06);
+      --border-red: rgba(192,23,15,0.25);
+      --muted: rgba(240,236,228,0.45);
+      --white: #fff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: rgba(13,13,13,0.95); border-bottom: 1px solid var(--border-red); backdrop-filter: blur(8px); }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo-text { font-family: 'Oswald', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); line-height: 1.2; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: 'Oswald', sans-serif; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(240,236,228,0.6); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-cta { border: 1px solid var(--red) !important; color: var(--red-bright) !important; padding: 0.5rem 1.4rem; }
+    .nav-cta:hover { background: var(--red) !important; color: var(--white) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--cream); }
+    .mob-menu { display: none; position: fixed; inset: 0; background: var(--black); z-index: 101; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+    .mob-menu a:hover { color: var(--red-bright); }
+
+    /* PAGE HEADER */
+    .page-header { padding: 8rem 3rem 4rem; border-bottom: 1px solid var(--border-red); }
+    .page-header-inner { max-width: 900px; margin: 0 auto; }
+    .page-tag { font-family: 'Oswald', sans-serif; font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red-bright); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+    .page-tag::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--red); }
+    h1 { font-family: 'Black Han Sans', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 400; text-transform: uppercase; line-height: 0.95; color: var(--white); margin-bottom: 1.25rem; }
+    .page-sub { font-size: 1rem; color: var(--muted); max-width: 520px; line-height: 1.7; }
+
+    /* LOCATIONS GRID */
+    .locations-section { max-width: 900px; margin: 0 auto; padding: 5rem 3rem; }
+    .section-label { font-family: 'Oswald', sans-serif; font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red-bright); margin-bottom: 2.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border-red); }
+
+    .loc-card { border: 1px solid var(--border-red); background: var(--near-black); margin-bottom: 1px; display: grid; grid-template-columns: 4px 1fr; overflow: hidden; transition: border-color 0.25s; }
+    .loc-card:hover { border-color: rgba(192,23,15,0.55); }
+    .loc-accent { background: var(--red); }
+    .loc-body { padding: 2.5rem 2.5rem 2.5rem 2.5rem; }
+    .loc-type { font-family: 'Oswald', sans-serif; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red-bright); margin-bottom: 0.6rem; }
+    .loc-name { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); margin-bottom: 0.5rem; }
+    .loc-address { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.5; }
+    .loc-hours { font-family: 'Oswald', sans-serif; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(240,236,228,0.3); margin-bottom: 1.5rem; }
+    .loc-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .loc-btn { font-family: 'Oswald', sans-serif; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.6rem 1.4rem; text-decoration: none; border: 1px solid var(--border-red); color: var(--muted); transition: all 0.2s; display: inline-block; }
+    .loc-btn:hover { border-color: var(--red); color: var(--red-bright); }
+    .loc-btn.primary { background: var(--red); border-color: var(--red); color: var(--white); }
+    .loc-btn.primary:hover { background: var(--red-bright); border-color: var(--red-bright); }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* MEMBERSHIP NOTE */
+    .membership-box { border: 1px solid var(--border-red); background: var(--near-black); padding: 2.5rem; margin-top: 4rem; }
+    .membership-box h3 { font-family: 'Oswald', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red-bright); margin-bottom: 1rem; }
+    .pricing-row { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .price-item { text-align: center; }
+    .price-val { font-family: 'Black Han Sans', sans-serif; font-size: 2rem; color: var(--white); line-height: 1; }
+    .price-label { font-family: 'Oswald', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
+    .membership-box p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+    /* CTA */
+    .cta-band { background: var(--charcoal); border-top: 1px solid var(--border-red); border-bottom: 1px solid var(--border-red); padding: 4rem 3rem; text-align: center; }
+    .cta-band h2 { font-family: 'Black Han Sans', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 400; text-transform: uppercase; color: var(--white); margin-bottom: 0.75rem; }
+    .cta-band p { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; }
+    .btn-red { font-family: 'Oswald', sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; padding: 1rem 2.5rem; background: var(--red); color: var(--white); text-decoration: none; display: inline-block; transition: all 0.25s; border: none; cursor: pointer; }
+    .btn-red:hover { background: var(--red-bright); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: var(--near-black); border-top: 1px solid var(--border-red); padding: 2.5rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .foot-logo { font-family: 'Oswald', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); }
+    .foot-copy { font-size: 0.7rem; color: rgba(255,255,255,0.2); font-family: 'Oswald', sans-serif; letter-spacing: 0.1em; }
+    .foot-links { display: flex; gap: 1.5rem; }
+    .foot-links a { color: rgba(240,236,228,0.4); font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+    .foot-links a:hover { color: var(--red-bright); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s, transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media(max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .page-header { padding: 7rem 1.5rem 3rem; }
+      .locations-section { padding: 3rem 1.5rem; }
+      .loc-body { padding: 1.75rem; }
+      .cta-band { padding: 3rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/index.html" class="nav-logo">
+    <span class="nav-logo-text">CHS Strength Club</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/index.html#programs">Programs</a></li>
+    <li><a href="/index.html#about">The Coach</a></li>
+    <li><a href="/tuesday.html">Tuesday Class</a></li>
+    <li><a href="/blog/index.html">Blog</a></li>
+    <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Get Started</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="/index.html#programs" onclick="toggleMenu()">Programs</a>
+  <a href="/index.html#about" onclick="toggleMenu()">The Coach</a>
+  <a href="/tuesday.html" onclick="toggleMenu()">Tuesday Class</a>
+  <a href="/blog/index.html" onclick="toggleMenu()">Blog</a>
+  <a href="mailto:chsstrengthclub@gmail.com" onclick="toggleMenu()">Get Started</a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="page-tag">Where We Train</div>
+    <h1>Locations</h1>
+    <p class="page-sub">Charleston Strength Club operates out of Paramount Drive and three North Charleston Senior Centers — bringing CSCS-certified coaching to your neighborhood.</p>
+  </div>
+</header>
+
+<!-- LOCATIONS -->
+<div class="locations-section">
+
+  <div class="section-label">All Locations</div>
+
+  <!-- Paramount Drive -->
+  <div class="loc-card reveal">
+    <div class="loc-accent"></div>
+    <div class="loc-body">
+      <div class="loc-type">Adult &amp; Sport Performance Training</div>
+      <div class="loc-name">Paramount Drive — I-526 Corridor</div>
+      <div class="loc-address">Paramount Drive, North Charleston, SC 29405</div>
+      <div class="loc-hours">Adult Strength · Sport Performance · 1-on-1 &amp; Group</div>
+      <div class="loc-actions">
+        <a href="https://www.google.com/maps/search/Paramount+Drive+North+Charleston+SC" target="_blank" class="loc-btn">Get Directions →</a>
+        <a href="mailto:chsstrengthclub@gmail.com" class="loc-btn primary">Book a Session</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dorchester Road -->
+  <div class="loc-card reveal" style="transition-delay:0.08s">
+    <div class="loc-accent"></div>
+    <div class="loc-body">
+      <div class="loc-type">Senior Fitness</div>
+      <div class="loc-name">Senior Center at Dorchester Road</div>
+      <div class="loc-address">6255 Dorchester Rd, North Charleston, SC 29418</div>
+      <div class="loc-hours">Mon–Thu 7:30 AM – 5:00 PM · Fri 7:30 AM – 4:00 PM</div>
+      <div class="loc-actions">
+        <a href="https://www.google.com/maps/place/6255+Dorchester+Rd,+North+Charleston,+SC+29418" target="_blank" class="loc-btn">Get Directions →</a>
+        <a href="https://www.facebook.com/seniorcenteratdorchester" target="_blank" class="loc-btn">Facebook Page →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Northwood -->
+  <div class="loc-card reveal" style="transition-delay:0.16s">
+    <div class="loc-accent"></div>
+    <div class="loc-body">
+      <div class="loc-type">Senior Fitness</div>
+      <div class="loc-name">Senior Center at Northwood</div>
+      <div class="loc-address">8708 Antler Dr, North Charleston, SC 29406</div>
+      <div class="loc-hours">Mon–Thu 7:30 AM – 5:00 PM · Fri 7:30 AM – 4:00 PM</div>
+      <div class="loc-actions">
+        <a href="https://www.google.com/maps/place/8708+Antler+Dr,+North+Charleston,+SC+29406" target="_blank" class="loc-btn">Get Directions →</a>
+        <a href="https://www.facebook.com/seniorcenteratnorthwood" target="_blank" class="loc-btn">Facebook Page →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carner Avenue -->
+  <div class="loc-card reveal" style="transition-delay:0.24s">
+    <div class="loc-accent"></div>
+    <div class="loc-body">
+      <div class="loc-type">Senior Fitness</div>
+      <div class="loc-name">Senior Center at Carner Avenue</div>
+      <div class="loc-address">2900 Carner Ave, North Charleston, SC 29405</div>
+      <div class="loc-hours">Mon–Thu 7:30 AM – 5:00 PM · Fri 7:30 AM – 4:00 PM</div>
+      <div class="loc-actions">
+        <a href="https://www.google.com/maps/place/2900+Carner+Ave,+North+Charleston,+SC+29405" target="_blank" class="loc-btn">Get Directions →</a>
+        <a href="https://www.facebook.com/seniorcenteratcarner" target="_blank" class="loc-btn">Facebook Page →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Membership note -->
+  <div class="membership-box reveal" style="transition-delay:0.32s">
+    <h3>Senior Center Membership Pricing</h3>
+    <div class="pricing-row">
+      <div class="price-item">
+        <div class="price-val">$10</div>
+        <div class="price-label">NC Residents / month</div>
+      </div>
+      <div class="price-item">
+        <div class="price-val">$30</div>
+        <div class="price-label">Non-Residents / month</div>
+      </div>
+      <div class="price-item">
+        <div class="price-val">$0</div>
+        <div class="price-label">With SilverSneakers</div>
+      </div>
+    </div>
+    <p>One membership covers all three senior centers and every class at each location. <a href="/blog/senior-gym-orientation.html" style="color:var(--red-bright);text-decoration:none;">Read the full gym orientation guide →</a></p>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>Not Sure Where to Start?</h2>
+  <p>Email Adam and he'll point you to the right location and program for your goals.</p>
+  <a href="mailto:chsstrengthclub@gmail.com" class="btn-red">Email Adam</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Charleston Strength Club</div>
+  <span class="foot-copy">© 2026 Charleston Strength Club · (978) 604-5920 · North Charleston, SC</span>
+  <div class="foot-links">
+    <a href="https://www.facebook.com/ChsStrengthClub" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/chsstrengthclub/" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/@chsstrengthclub/" target="_blank">YouTube</a>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('mobMenu').classList.toggle('open'); }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
