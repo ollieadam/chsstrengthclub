@@ -35,7 +35,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;o
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;transition:all 0.4s;background:rgba(13,13,13,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-red)}
-nav.scrolled{background:rgba(13,13,13,0.97);backdrop-filter:blur(10px);padding:0.9rem 3rem;border-bottom:1px solid var(--border-red)}
+
 .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
 .nav-logo img{height:38px;width:auto}
 @media(max-width:960px){.nav-logo img{height:32px}}
@@ -608,8 +608,7 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
 </div>
 
 <script>
-const nav=document.getElementById("nav");
-window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",window.scrollY>60));
+
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}})},{threshold:0.08});
 document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
 function openModal(e){e.preventDefault();document.getElementById("modal").classList.add("open");document.body.style.overflow="hidden"}
