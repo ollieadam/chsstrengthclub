@@ -150,7 +150,9 @@ section{padding:7rem 3rem}
 .yt-embed{position:relative;width:100%;padding-bottom:56.25%;overflow:hidden;border:1px solid var(--border-red)}
 .yt-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
 .yt-caption{font-family:"Oswald",sans-serif;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:0.75rem}
-.ig-item .instagram-media{max-width:100%!important;min-width:0!important;width:100%!important}
+.ig-item{overflow:hidden;min-width:0}
+.ig-item .ig-wrap{position:relative;width:100%;overflow:hidden}
+.ig-item .ig-wrap iframe,.ig-item .instagram-media{max-width:100%!important;min-width:0!important;width:100%!important;transform-origin:top left}
 .prog-link:hover{gap:0.9rem;color:var(--white)}
 
 /* ABOUT */
@@ -460,8 +462,10 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
         <p class="yt-caption">Adult Strength Group — North Charleston, SC</p>
       </div>
       <div class="yt-item ig-item">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DUWY_o9jEpX/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:0;padding:0;width:100%;"></blockquote>
-        <script async src="//www.instagram.com/embed.js"></script>
+        <div class="ig-wrap">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DUWY_o9jEpX/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%!important;min-width:0!important;padding:0;width:100%!important;"></blockquote>
+          <script async src="//www.instagram.com/embed.js"></script>
+        </div>
         <p class="yt-caption">Adult Bench Press — @chsstrengthclub</p>
       </div>
     </div>
