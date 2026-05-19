@@ -176,6 +176,26 @@ footer{background:var(--near-black);padding:2rem 4rem;display:flex;align-items:c
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s cubic-bezier(0.16,1,0.3,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
+/* RATES */
+.rates{background:var(--black);padding:6rem 4rem;border-top:1px solid var(--border-red)}
+.rates-inner{max-width:1100px;margin:0 auto}
+.rates-header{margin-bottom:3rem}
+.rates-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04)}
+.rate-card{background:var(--near-black);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background 0.3s}
+.rate-card:hover{background:#1a1414}
+.rate-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--red-bright));transform:scaleX(0);transform-origin:left;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1)}
+.rate-card:hover::before{transform:scaleX(1)}
+.rate-card.highlight::before{transform:scaleX(1)}
+.rate-label{font-family:"Oswald",sans-serif;font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem}
+.rate-title{font-family:"Black Han Sans",sans-serif;font-size:1.4rem;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:1.2rem;letter-spacing:0.01em}
+.rate-price{font-family:"Black Han Sans",sans-serif;font-size:3.5rem;color:var(--red);line-height:1;letter-spacing:-0.02em}
+.rate-price sup{font-size:1.4rem;vertical-align:super;color:var(--red-bright)}
+.rate-unit{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin:0.4rem 0 1.5rem}
+.rate-divider{height:1px;background:rgba(255,255,255,0.06);margin:1.2rem 0}
+.rate-features{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.rate-features li{font-size:0.84rem;color:rgba(240,236,228,0.55);display:flex;align-items:flex-start;gap:0.7rem}
+.rate-features li::before{content:"→";color:var(--red-bright);font-family:"Oswald",sans-serif;font-weight:600;flex-shrink:0}
+.rate-features li strong{color:var(--cream);font-weight:400}
 /* MOBILE */
 @media(max-width:768px){
   .hero{padding:3rem 1.5rem 4rem}
@@ -202,26 +222,6 @@ footer{background:var(--near-black);padding:2rem 4rem;display:flex;align-items:c
   .rate-unit{letter-spacing:0.15em}
   .rate-price{font-size:2.8rem}
 }
-/* RATES */
-.rates{background:var(--black);padding:6rem 4rem;border-top:1px solid var(--border-red)}
-.rates-inner{max-width:1100px;margin:0 auto}
-.rates-header{margin-bottom:3rem}
-.rates-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04)}
-.rate-card{background:var(--near-black);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background 0.3s}
-.rate-card:hover{background:#1a1414}
-.rate-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--red-bright));transform:scaleX(0);transform-origin:left;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1)}
-.rate-card:hover::before{transform:scaleX(1)}
-.rate-card.highlight::before{transform:scaleX(1)}
-.rate-label{font-family:"Oswald",sans-serif;font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem}
-.rate-title{font-family:"Black Han Sans",sans-serif;font-size:1.4rem;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:1.2rem;letter-spacing:0.01em}
-.rate-price{font-family:"Black Han Sans",sans-serif;font-size:3.5rem;color:var(--red);line-height:1;letter-spacing:-0.02em}
-.rate-price sup{font-size:1.4rem;vertical-align:super;color:var(--red-bright)}
-.rate-unit{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin:0.4rem 0 1.5rem}
-.rate-divider{height:1px;background:rgba(255,255,255,0.06);margin:1.2rem 0}
-.rate-features{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
-.rate-features li{font-size:0.84rem;color:rgba(240,236,228,0.55);display:flex;align-items:flex-start;gap:0.7rem}
-.rate-features li::before{content:"→";color:var(--red-bright);font-family:"Oswald",sans-serif;font-weight:600;flex-shrink:0}
-.rate-features li strong{color:var(--cream);font-weight:400}
 </style>
 </head>
 <body>
