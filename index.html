@@ -270,11 +270,11 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
 .form-note a{color:var(--red-bright)}
 
 /* MOBILE MENU */
-.mob-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:101;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;padding-top:4rem}
+.mob-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:101;flex-direction:column;align-items:center;justify-content:flex-start;gap:1.6rem;padding:5rem 2rem 3rem;overflow-y:auto}
 .mob-menu.open{display:flex}
-.mob-menu a{font-family:"Oswald",sans-serif;font-size:2.5rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color 0.2s}
+.mob-menu a{font-family:"Oswald",sans-serif;font-size:clamp(1.6rem,7vw,2.5rem);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color 0.2s}
 .mob-menu a:hover{color:var(--red-bright)}
-.mob-menu a.mob-cta{background:var(--red);color:var(--white);padding:0.75rem 2.5rem;margin-top:0.5rem;font-size:2rem}
+.mob-menu a.mob-cta{background:var(--red);color:var(--white);padding:0.75rem 2.5rem;margin-top:0.5rem;font-size:clamp(1.4rem,6vw,2rem)}
 .mob-menu a.mob-cta:hover{background:var(--red-bright);color:var(--white)}
 
 /* REVEAL */
