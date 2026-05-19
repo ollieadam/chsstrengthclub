@@ -307,6 +307,35 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
   .hero-bg-word{display:none}
   .hero-corner{width:45px;height:45px}
 }
+
+/* PRICING */
+.pricing{background:var(--near-black);padding:7rem 4rem;border-top:1px solid var(--border-red)}
+.pricing-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3.5rem;flex-wrap:wrap;gap:1.5rem}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.04);margin-bottom:1px}
+.price-card{background:var(--charcoal);padding:2.8rem 2.5rem;position:relative;overflow:hidden}
+.price-card.featured{background:#1a1212}
+.price-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),var(--red-bright))}
+.price-card-label{font-family:"Oswald",sans-serif;font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1.2rem}
+.price-card-title{font-family:"Black Han Sans",sans-serif;font-size:1.6rem;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:0.5rem;letter-spacing:0.01em}
+.price-amount{font-family:"Black Han Sans",sans-serif;font-size:3.8rem;color:var(--red);line-height:1;letter-spacing:-0.02em}
+.price-amount sup{font-size:1.6rem;vertical-align:super;color:var(--red-bright)}
+.price-unit{font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin:0.3rem 0 1.5rem}
+.price-divider{height:1px;background:rgba(255,255,255,0.06);margin:1.5rem 0}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem}
+.price-features li{font-size:0.85rem;color:rgba(240,236,228,0.55);display:flex;align-items:flex-start;gap:0.7rem}
+.price-features li::before{content:"→";color:var(--red-bright);font-family:"Oswald",sans-serif;font-weight:600;flex-shrink:0}
+.price-features li strong{color:var(--cream);font-weight:400}
+.price-badge-special{display:inline-block;background:var(--red);color:var(--white);font-family:"Oswald",sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;padding:0.25rem 0.8rem;margin-bottom:1.2rem}
+.price-link{font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--red-bright);text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.2s}
+.price-link:hover{gap:0.9rem}
+.price-tuesday{background:var(--black);border:1px solid var(--border-red);border-top:2px solid var(--red);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.price-tuesday-left{}
+.price-tuesday-tag{font-family:"Oswald",sans-serif;font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--red-bright);margin-bottom:0.5rem}
+.price-tuesday-title{font-family:"Black Han Sans",sans-serif;font-size:1.4rem;text-transform:uppercase;color:var(--white);letter-spacing:0.01em}
+.price-tuesday-sub{font-size:0.82rem;color:var(--muted);margin-top:0.3rem}
+.price-tuesday-price{font-family:"Black Han Sans",sans-serif;font-size:4rem;color:var(--red);line-height:1;letter-spacing:-0.02em;flex-shrink:0}
+.price-tuesday-price small{font-size:1rem;color:var(--muted);font-family:"Oswald",sans-serif;font-weight:400;letter-spacing:0.1em}
+@media(max-width:960px){.pricing{padding:5rem 1.5rem}.pricing-grid{grid-template-columns:1fr}.pricing-header{flex-direction:column;align-items:flex-start}}
 </style>
 <script type="application/ld+json">
 {
@@ -579,6 +608,94 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
     <div class="proc-step reveal" style="transition-delay:0.24s"><div class="proc-num">03</div><div class="proc-title">Your Program</div><p class="proc-desc">A custom plan built for your body, your goals, your schedule. Not borrowed from someone else's.</p></div>
     <div class="proc-step reveal" style="transition-delay:0.32s"><div class="proc-num">04</div><div class="proc-title">Do the Work</div><p class="proc-desc">Show up, train hard, track progress. Adam adjusts your program so you never stop getting stronger.</p></div>
   </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-header reveal">
+    <div>
+      <p class="eyebrow">Pricing</p>
+      <h2 class="sec-title">Straight <em>Rates.</em></h2>
+    </div>
+    <a href="mailto:chsstrengthclub@gmail.com" class="btn btn-outline-red">Get Started</a>
+  </div>
+
+  <div class="pricing-grid">
+
+    <div class="price-card reveal">
+      <div class="price-card-label">1-on-1 Personal Training</div>
+      <div class="price-card-title">Single Session</div>
+      <div class="price-amount"><sup>$</sup>85</div>
+      <div class="price-unit">Per Session</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Full hour with Adam</li>
+        <li>CSCS-programmed, coached live</li>
+        <li>FMS assessment on first session</li>
+        <li>Any location in North Charleston</li>
+      </ul>
+      <a href="mailto:chsstrengthclub@gmail.com" class="price-link">Book a Session →</a>
+    </div>
+
+    <div class="price-card featured reveal" style="transition-delay:0.1s">
+      <div class="price-card-label">1-on-1 Personal Training</div>
+      <div class="price-card-title">8-Session Package</div>
+      <div class="price-amount"><sup>$</sup>75</div>
+      <div class="price-unit">Per Session · 2× / Week · 8-Week Expiry</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li><strong>Save $80</strong> vs. drop-in rate</li>
+        <li>2 sessions per week, 8 weeks</li>
+        <li>Progressive programming built in</li>
+        <li>Best value for consistent results</li>
+      </ul>
+      <a href="mailto:chsstrengthclub@gmail.com" class="price-link">Book a Package →</a>
+    </div>
+
+    <div class="price-card reveal" style="transition-delay:0.2s">
+      <div class="price-card-label">Small Group Training</div>
+      <div class="price-card-title">Groups of 3–5</div>
+      <div class="price-amount"><sup>$</sup>75</div>
+      <div class="price-unit">Per Group · Price Varies by Size</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Sprint speed &amp; vertical jump specialty</li>
+        <li>Adult and youth tracks available</li>
+        <li>Park, your home, or Miner Crosby</li>
+        <li>Flexible scheduling — not just Tuesdays</li>
+      </ul>
+      <a href="/blog/group-strength-classes-north-charleston-wando-woods.html" class="price-link">View Group Training →</a>
+    </div>
+
+    <div class="price-card reveal" style="transition-delay:0.3s">
+      <div class="price-card-label">Senior Fitness · NC Senior Centers Only</div>
+      <div class="price-card-title">Senior Classes</div>
+      <div class="price-amount"><sup>$</sup>10</div>
+      <div class="price-unit">Residents &nbsp;·&nbsp; $30 Non-Residents</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>North Charleston Senior Centers only</li>
+        <li>Dorchester Rd &amp; Carner Ave locations</li>
+        <li>Low-impact, balance &amp; coordination focus</li>
+        <li>All fitness levels welcome</li>
+      </ul>
+      <a href="/blog/senior-fitness-north-charleston.html" class="price-link">Learn More →</a>
+    </div>
+
+  </div>
+
+  <div class="price-tuesday reveal">
+    <div class="price-tuesday-left">
+      <div class="price-tuesday-tag">Tuesday Special · Wando Woods · Miner Crosby</div>
+      <div class="price-tuesday-title">Tuesday Drop-In Group Class</div>
+      <div class="price-tuesday-sub">5–7 PM every Tuesday · No contract · Just show up · Adults &amp; youth welcome</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap">
+      <div class="price-tuesday-price">$10 <small>/ person</small></div>
+      <a href="/tuesday.html" class="btn btn-red">View Tuesday Class</a>
+    </div>
+  </div>
+
 </section>
 
 <!-- TESTIMONIALS -->
