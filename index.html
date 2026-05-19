@@ -274,6 +274,8 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
 .mob-menu.open{display:flex}
 .mob-menu a{font-family:"Oswald",sans-serif;font-size:2.5rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color 0.2s}
 .mob-menu a:hover{color:var(--red-bright)}
+.mob-menu a.mob-cta{background:var(--red);color:var(--white);padding:0.75rem 2.5rem;margin-top:0.5rem;font-size:2rem}
+.mob-menu a.mob-cta:hover{background:var(--red-bright);color:var(--white)}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s,transform 0.7s cubic-bezier(0.16,1,0.3,1)}
@@ -400,7 +402,7 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
   <a href="/small-group-training-north-charleston.html" onclick="toggleMenu()">Strength Classes</a>
   <a href="/locations/" onclick="toggleMenu()">Locations</a>
   <a href="/blog/index.html" onclick="toggleMenu()">Blog</a>
-  <a href="#" onclick="openModal(event);toggleMenu()">Book a Call</a>
+  <a href="#" class="mob-cta" onclick="openModal(event);toggleMenu()">Book a Call</a>
 </div>
 
 <!-- HERO -->
