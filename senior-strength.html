@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sport Performance Training North Charleston SC | Charleston Strength Club</title>
-<meta name="description" content="Elite sport performance training in North Charleston SC. Sprint speed, vertical jump, and strength training for youth and high school athletes. Trained at Mike Boyle Strength & Conditioning. Coach Adam Oliver CSCS.">
-<meta property="og:title" content="Sport Performance Training | North Charleston SC | Charleston Strength Club">
-<meta property="og:description" content="Pro-level sport performance training for athletes in North Charleston. Sprint, vertical jump, strength. Coach Adam Oliver CSCS — trained at MBSC.">
-<meta property="og:url" content="https://chsstrengthclub.com/sport-performance.html">
+<title>Senior Strength Training North Charleston SC | Charleston Strength Club</title>
+<meta name="description" content="Senior strength and fitness training in North Charleston SC. Functional movement, fall prevention, and real-life strength for adults 55+. Coach Adam Oliver CSCS — the Robust Aging approach.">
+<meta property="og:title" content="Senior Strength Training | North Charleston SC | Charleston Strength Club">
+<meta property="og:description" content="Functional strength, fall prevention, and the Robust Aging method for seniors in North Charleston. CSCS Coach Adam Oliver.">
+<meta property="og:url" content="https://chsstrengthclub.com/senior-strength.html">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://chsstrengthclub.com/preview.webp">
-<link rel="canonical" href="https://chsstrengthclub.com/sport-performance.html">
+<link rel="canonical" href="https://chsstrengthclub.com/senior-strength.html">
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Oswald:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -89,7 +89,7 @@ body {
   overflow: hidden;
 }
 .hero::before {
-  content: "PERFORMANCE";
+  content: "STRENGTH";
   position: absolute;
   font-family: "Black Han Sans", sans-serif;
   font-size: 22vw;
@@ -254,22 +254,22 @@ body {
   border-bottom: 1px solid rgba(192,23,15,0.3);
 }
 
-/* MBSC BLOCK */
-.mbsc-block {
+/* HIGHLIGHT BLOCK */
+.highlight-block {
   background: var(--near-black);
   border: 1px solid var(--border-red);
   border-left: 5px solid var(--red-bright);
   padding: 2.5rem;
   margin: 2rem 0;
 }
-.mbsc-block h3 {
+.highlight-block h3 {
   font-family: "Black Han Sans", sans-serif;
   font-size: 1.4rem;
   text-transform: uppercase;
   color: var(--white);
   margin-bottom: 0.75rem;
 }
-.mbsc-block p {
+.highlight-block p {
   font-size: 0.92rem;
   color: rgba(240,236,228,0.65);
   margin-bottom: 0;
@@ -315,60 +315,45 @@ body {
   line-height: 1.7;
 }
 
-/* ANYWHERE BLOCK */
-.anywhere-block {
+/* BLOG CALLOUT */
+.blog-callout {
   background: var(--charcoal);
   border-top: 3px solid var(--red);
-  padding: 3rem;
+  border-bottom: 1px solid var(--border-red);
+  padding: 2.5rem;
   margin: 2rem 0;
-  position: relative;
-  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s;
 }
-.anywhere-block::after {
-  content: "ANYWHERE";
-  position: absolute;
-  font-family: "Black Han Sans", sans-serif;
-  font-size: 8rem;
-  color: rgba(255,255,255,0.02);
-  right: -1rem;
-  bottom: -1rem;
-  line-height: 1;
-  pointer-events: none;
+.blog-callout:hover { background: rgba(192,23,15,0.06); border-bottom-color: var(--red-bright); }
+.blog-callout-tag {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 0.6rem;
 }
-.anywhere-block h3 {
+.blog-callout h3 {
   font-family: "Black Han Sans", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   color: var(--white);
-  margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
+  margin-bottom: 0.6rem;
 }
-.anywhere-block h3 em { color: var(--red-bright); font-style: normal; }
-.anywhere-block p {
-  font-size: 0.92rem;
-  color: rgba(240,236,228,0.6);
-  max-width: 600px;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 1rem;
+.blog-callout p {
+  font-size: 0.88rem;
+  color: rgba(240,236,228,0.55);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  max-width: 100%;
 }
-.location-tags {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 1;
-  margin-top: 1.2rem;
-}
-.loc-tag {
+.blog-callout-read {
   font-family: "Oswald", sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 0.4rem 1rem;
-  background: rgba(192,23,15,0.12);
-  border: 1px solid var(--border-red);
   color: var(--red-bright);
 }
 
@@ -566,20 +551,6 @@ body {
 .site-footer a { color: var(--muted); text-decoration: none; }
 .site-footer a:hover { color: var(--red-bright); }
 
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  margin: 2rem 0;
-}
-.video-wrapper iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border: 0;
-}
-
 @media (max-width: 768px) {
   .site-nav { padding: 1rem 1.5rem; }
   .hero { padding: 0 1.5rem 3rem; min-height: 80vh; }
@@ -609,25 +580,25 @@ body {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-label">Sport Performance · North Charleston SC</div>
-    <h1>Train Like<em>A Pro.</em></h1>
-    <p class="hero-sub">Pro-level sport performance training for youth and high school athletes in North Charleston — built on methods developed at one of the most elite training facilities in the world.</p>
+    <div class="hero-label">Senior Fitness · North Charleston SC</div>
+    <h1>Strength Has<em>No Age Limit.</em></h1>
+    <p class="hero-sub">Functional strength, fall prevention, and real-life fitness for adults 55+ in North Charleston — built on the Robust Aging method and coached by a CSCS who trains everyone from professional hockey players to senior center members.</p>
     <div class="hero-stats">
       <div class="stat">
-        <span class="stat-num">MBSC</span>
-        <span class="stat-label">Trained</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">PRO</span>
-        <span class="stat-label">SC Stingrays S&C</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">D1</span>
-        <span class="stat-label">Athlete Methods</span>
+        <span class="stat-num">55+</span>
+        <span class="stat-label">Adults Welcome</span>
       </div>
       <div class="stat">
         <span class="stat-num">CSCS</span>
-        <span class="stat-label">Certified</span>
+        <span class="stat-label">Certified Coach</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">$10</span>
+        <span class="stat-label">Tuesday Drop-In</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">FMS</span>
+        <span class="stat-label">Movement Screening</span>
       </div>
     </div>
     <div class="hero-cta">
@@ -637,93 +608,89 @@ body {
   </div>
 </section>
 
-<!-- MBSC BACKGROUND -->
-<section class="section" id="background">
-  <div class="section-label">The Background</div>
-  <h2 class="section-title">Trained at the <em>World's Best</em></h2>
-  <p>Mike Boyle Strength & Conditioning (MBSC) in Boston is one of the most respected performance training facilities in the world. It's where professional athletes, D1 college athletes, and Olympic competitors train — and where the methods that define modern strength and conditioning were developed.</p>
-  <p>Coach Adam Oliver trained directly at MBSC alongside coaches who work with professional and D1 athletes every day. That experience — watching how elite athletes are actually built, learning the systems behind the results — is the foundation of every training program at Charleston Strength Club.</p>
+<!-- PHILOSOPHY -->
+<section class="section" id="philosophy">
+  <div class="section-label">The Philosophy</div>
+  <h2 class="section-title">Robust Aging — <em>Not Just Surviving</em></h2>
+  <p>Most senior fitness programs are built around keeping people comfortable. Chair stretches. Gentle movement. Nothing that actually challenges the body. The problem is that the body responds to challenge — not comfort. When you stop challenging your muscles, your balance, and your nervous system, you lose them.</p>
+  <p>The Robust Aging approach is different. It's built around the principle that older adults don't need less intensity — they need the right kind of intensity. Functional strength that carries over to real life. Balance training that prevents falls before they happen. Movement patterns that keep you independent, capable, and strong.</p>
 
-  <div class="mbsc-block">
-    <h3>What MBSC Training Means for Your Athlete</h3>
-    <p>The programming your athlete receives isn't adapted from a YouTube video or a generic app. It's built on the same principles used to develop professional hockey players, D1 football athletes, and Olympic competitors. Functional movement, progressive overload, speed development, and injury prevention — applied specifically to youth and high school athletes in North Charleston.</p>
+  <div class="highlight-block">
+    <h3>"Live Long, Die Fast"</h3>
+    <p>That's the Charleston Strength Club philosophy for senior fitness. Not a slow decline — a full, capable life right up to the end. The research is clear: strength training, balance work, and neuromotor training are the most powerful tools available for maintaining independence and quality of life as we age. We put those tools to work every session.</p>
   </div>
 
   <div class="pullquote">
-    "The gym doesn't make the athlete. The system does. And you can run that system anywhere — a park, an empty room, a field. The equipment is secondary. The knowledge is everything."
-    <cite>— Coach Adam Oliver, CSCS · Former SC Stingrays S&C Coach</cite>
+    "The goal isn't to keep older adults safe by doing less. The goal is to make them capable enough that they don't have to worry about safety."
+    <cite>— Coach Adam Oliver, CSCS · Charleston Strength Club</cite>
   </div>
-</section>
 
-<!-- VIDEO -->
-<section class="section">
-  <div class="section-label">See It In Action</div>
-  <h2 class="section-title">Watch the <em>Training</em></h2>
-  <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/1LFuwuk-wYE?si=7rdGnbzt10h5PZOJ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
+  <!-- BLOG CALLOUT 1 -->
+  <a href="/blog/robust-aging-senior-fitness-north-charleston.html" class="blog-callout">
+    <div class="blog-callout-tag">Read the Full Post · Senior Fitness</div>
+    <h3>Robust Aging: A New Approach to Senior Fitness in North Charleston</h3>
+    <p>Coach Adam breaks down the five pillars of the Robust Aging method — from accessible mobility and fall prevention to neuromotor training, gait retraining, and functional strength for real life in the Lowcountry. Plus the secret ingredient most programs miss entirely.</p>
+    <span class="blog-callout-read">Read Post →</span>
+  </a>
 </section>
 
 <!-- PROGRAMS -->
 <section class="section" id="programs">
   <div class="section-label">Programs</div>
   <h2 class="section-title">What We <em>Train</em></h2>
-  <p>Every program is built around what actually moves the needle for athletes — not what looks impressive on social media. Small groups of 3–5 athletes get individualized coaching inside a team environment.</p>
+  <p>Every session is designed around what actually matters for adults 55+: staying strong, staying balanced, and staying independent. No machines that isolate muscles you don't use in real life. No programs copied from a 25-year-old's training plan.</p>
 
   <div class="program-grid">
     <div class="program-card">
       <div class="program-card-top"></div>
       <div class="program-number">01</div>
-      <div class="program-title">Sprint Speed & Acceleration</div>
-      <p class="program-desc">Mechanics-first sprint development. We fix how your athlete runs before we ask them to run faster. Acceleration, max velocity, and change of direction — tested and tracked weekly.</p>
+      <div class="program-title">Functional Strength</div>
+      <p class="program-desc">Strength training built around the movements you actually do — getting up from a chair, carrying groceries, climbing stairs. Compound patterns that transfer directly to real life, not isolated gym machines.</p>
     </div>
     <div class="program-card">
       <div class="program-card-top"></div>
       <div class="program-number">02</div>
-      <div class="program-title">Vertical Jump & Explosive Power</div>
-      <p class="program-desc">Plyometric progressions and strength work that translate to the court and field. Jump height, reactive strength, and landing mechanics — all measured so you can see the progress.</p>
+      <div class="program-title">Balance & Fall Prevention</div>
+      <p class="program-desc">Dynamic agility and reactive balance work that trains the nervous system to respond in the real world — not just on a balance board. The kind of training that keeps you upright when the ground is uneven.</p>
     </div>
     <div class="program-card">
       <div class="program-card-top"></div>
       <div class="program-number">03</div>
-      <div class="program-title">Strength & Injury Prevention</div>
-      <p class="program-desc">Building the athletic base that keeps athletes healthy through long seasons. FMS-based movement screening, progressive strength programming, and sport-specific conditioning.</p>
+      <div class="program-title">Neuromotor Training</div>
+      <p class="program-desc">Brain-body connection work that keeps your nervous system sharp. Coordination drills, reaction training, and movement patterns that challenge the mind and the body simultaneously.</p>
     </div>
     <div class="program-card">
       <div class="program-card-top"></div>
       <div class="program-number">04</div>
-      <div class="program-title">Sport-Specific Conditioning</div>
-      <p class="program-desc">Aerobic and anaerobic capacity built for your sport's demands. Not generic cardio — energy system development that matches what your athlete actually needs on game day.</p>
+      <div class="program-title">Mobility & Gait</div>
+      <p class="program-desc">Accessible mobility work — no getting up and down off the floor unless you want to. Gait retraining to fight the "slipper shuffle" and keep your stride confident and controlled.</p>
     </div>
   </div>
 </section>
 
-<!-- ANYWHERE -->
-<section class="section">
-  <div class="section-label">The Environment</div>
-  <h2 class="section-title">Elite Training <em>Anywhere</em></h2>
-
-  <div class="anywhere-block">
-    <h3>The Park IS the <em>Gym</em></h3>
-    <p>One of the biggest lessons from MBSC: the best coaches don't need a $5 million facility to produce elite results. They need a system, a plan, and the ability to execute it wherever they are.</p>
-    <p>Coach Adam has trained professional hockey players in conventional gym settings and turned a public park in North Charleston into a high-performance training environment. The principles don't change. The sprint mechanics are the same. The jump progressions are the same. The results are the same.</p>
-    <p>When the community center is unavailable, the session moves. We train at local parks, open fields, or your home. No excuses. No cancelled sessions.</p>
-    <div class="location-tags">
-      <span class="loc-tag">Miner Crosby Community Center</span>
-      <span class="loc-tag">Local Parks</span>
-      <span class="loc-tag">Open Fields</span>
-      <span class="loc-tag">Your Backyard</span>
-      <span class="loc-tag">Wando Woods</span>
-      <span class="loc-tag">North Charleston</span>
-    </div>
-  </div>
+<!-- WHY ADAM -->
+<section class="section" id="background">
+  <div class="section-label">Why Train With Adam</div>
+  <h2 class="section-title">The Coach Behind <em>The Method</em></h2>
+  <p>Coach Adam Oliver holds a CSCS (Certified Strength & Conditioning Specialist) — the gold standard certification in the field — along with FMS (Functional Movement Screen) and CFSC credentials. He has trained professional hockey players with the SC Stingrays, youth athletes using MBSC methods, and senior adults at North Charleston Senior Centers.</p>
+  <p>That range matters. A coach who only works with elite athletes doesn't understand the specific needs of the aging body. A coach who only works with seniors may not understand what the body is truly capable of. Coach Adam brings both — and programs that meet you exactly where you are.</p>
 
   <ul class="checklist">
-    <li>Minimal equipment — agility ladder, cones, medicine balls, resistance bands</li>
-    <li>Same programming regardless of location — quality never drops</li>
-    <li>Flexible scheduling built around your athlete's season and school calendar</li>
-    <li>Small groups of 3–5 athletes keep it focused and affordable</li>
+    <li>CSCS-certified — the highest credential in strength and conditioning</li>
+    <li>FMS-trained — screens movement quality before prescribing loading</li>
+    <li>Experience across all levels: professional athletes to senior center members</li>
+    <li>Small groups of 3–5 — individualized coaching in a community environment</li>
+    <li>Sessions at North Charleston Senior Centers, community parks, or your home</li>
+    <li>Programs built around your goals, current ability, and any physical limitations</li>
   </ul>
+
+  <!-- BLOG CALLOUT 2 -->
+  <a href="/blog/senior-fitness-north-charleston.html" class="blog-callout">
+    <div class="blog-callout-tag">Read the Full Post · Senior Centers</div>
+    <h3>Stronger Together: Senior Fitness at North Charleston Senior Centers</h3>
+    <p>A full guide to senior fitness at the Dorchester Road and Carner Ave senior centers — the "Live Long, Die Fast" philosophy in action, what sets the training apart, all-inclusive membership value, and where to find the sessions.</p>
+    <span class="blog-callout-read">Read Post →</span>
+  </a>
 </section>
 
 <!-- PRICING -->
@@ -733,16 +700,16 @@ body {
 
   <div class="price-grid">
     <div class="price-card">
-      <div class="price-type">Small Group · 3–5 Athletes</div>
+      <div class="price-type">Small Group · 3–5 People</div>
       <div class="price-title">Group Sessions</div>
       <div class="price-num"><sup>$</sup>75</div>
       <div class="price-per">Per Group · Price Varies by Size</div>
       <div class="price-divider"></div>
-      <div class="price-item">Sprint & vertical jump specialty</div>
-      <div class="price-item">Adult and youth tracks available</div>
-      <div class="price-item">Park or your home — we come to you</div>
-      <div class="price-item">Flexible scheduling — not just Tuesdays</div>
-      <div class="price-item">Weekly speed & power testing</div>
+      <div class="price-item">Functional strength & balance specialty</div>
+      <div class="price-item">Adults 55+ and all fitness levels</div>
+      <div class="price-item">Senior centers, parks, or your home</div>
+      <div class="price-item">Flexible scheduling around your calendar</div>
+      <div class="price-item">FMS movement screen included</div>
     </div>
     <div class="price-card">
       <div class="price-type">Tuesday Drop-In · Wando Woods</div>
@@ -752,7 +719,7 @@ body {
       <div class="price-divider"></div>
       <div class="price-item">Every Tuesday · 5 or 6 PM</div>
       <div class="price-item">Ladder drills, MB circuit & strength</div>
-      <div class="price-item">Adults & youth · all fitness levels</div>
+      <div class="price-item">Adults of all ages · all fitness levels</div>
       <div class="price-item">Drop-in welcome — no commitment</div>
       <div class="price-item">3901 Paramount Dr, Charleston SC</div>
     </div>
@@ -760,7 +727,7 @@ body {
 
   <div class="cta-block">
     <h3>Ready to Get Started?</h3>
-    <p>Reach out to Coach Adam directly to discuss your athlete's goals, current level, and schedule. No online booking forms — just a direct conversation with your coach.</p>
+    <p>Reach out to Coach Adam directly to talk about your goals, any current limitations, and what a program would look like for you. No online forms — just a direct conversation.</p>
     <a href="mailto:chsstrengthclub@gmail.com" class="btn-primary">Email Coach Adam</a>
     <span class="cta-email">chsstrengthclub@gmail.com · chsstrengthclub.com</span>
   </div>
@@ -771,21 +738,17 @@ body {
   <div class="related-inner">
     <div class="related-label">More From Charleston Strength Club</div>
     <div class="related-grid">
-      <a href="/blog/sport-performance-training-north-charleston.html" class="related-item">
-        <div class="related-item-tag">Deep Dive · Read the Blog</div>
-        <div class="related-item-title">Why North Charleston Athletes Get Pro-Level Results From a Park</div>
-      </a>
-      <a href="/blog/group-strength-classes-north-charleston-wando-woods.html" class="related-item">
-        <div class="related-item-tag">Group Training</div>
-        <div class="related-item-title">Small Group Training in North Charleston</div>
-      </a>
       <a href="/blog/robust-aging-senior-fitness-north-charleston.html" class="related-item">
         <div class="related-item-tag">Senior Fitness</div>
-        <div class="related-item-title">Robust Aging: Senior Fitness in North Charleston</div>
+        <div class="related-item-title">Robust Aging: A New Approach to Senior Fitness</div>
       </a>
-      <a href="/tuesday.html" class="related-item">
+      <a href="/blog/senior-fitness-north-charleston.html" class="related-item">
+        <div class="related-item-tag">Senior Centers</div>
+        <div class="related-item-title">Stronger Together: Senior Fitness at North Charleston Senior Centers</div>
+      </a>
+      <a href="/small-group-training-north-charleston.html" class="related-item">
         <div class="related-item-tag">Tuesday Class</div>
-        <div class="related-item-title">$10 Tuesday Strength Classes Class</div>
+        <div class="related-item-title">$10 Tuesday Group Strength Class</div>
       </a>
     </div>
   </div>
