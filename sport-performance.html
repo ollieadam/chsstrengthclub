@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sport Performance Training North Charleston SC | Charleston Strength Club</title>
+<meta name="description" content="Elite sport performance training in North Charleston SC. Sprint speed, vertical jump, and strength training for youth and high school athletes. Trained at Mike Boyle Strength & Conditioning. Coach Adam Oliver CSCS.">
+<meta property="og:title" content="Sport Performance Training | North Charleston SC | Charleston Strength Club">
+<meta property="og:description" content="Pro-level sport performance training for athletes in North Charleston. Sprint, vertical jump, strength. Coach Adam Oliver CSCS — trained at MBSC.">
+<meta property="og:url" content="https://chsstrengthclub.com/sport-performance.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://chsstrengthclub.com/preview.webp">
+<link rel="canonical" href="https://chsstrengthclub.com/sport-performance.html">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Oswald:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #c0170f;
+  --red-bright: #e82017;
+  --black: #0d0d0d;
+  --near-black: #141414;
+  --charcoal: #1e1e1e;
+  --cream: #f0ece4;
+  --white: #ffffff;
+  --muted: #888;
+  --border: rgba(255,255,255,0.08);
+  --border-red: rgba(192,23,15,0.35);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+/* NAV */
+.site-nav {
+  background: var(--near-black);
+  border-bottom: 2px solid var(--red);
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav-logo {
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--red-bright); }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(240,236,228,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--red-bright); }
+.nav-cta {
+  background: var(--red);
+  color: var(--white) !important;
+  padding: 0.5rem 1.2rem !important;
+}
+.nav-cta:hover { background: var(--red-bright); color: var(--white) !important; }
+
+/* HERO */
+.hero {
+  background: var(--black);
+  min-height: 90vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 3rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "PERFORMANCE";
+  position: absolute;
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 22vw;
+  color: rgba(192,23,15,0.04);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  right: -2vw;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.hero-inner { max-width: 800px; position: relative; z-index: 1; }
+.hero-label {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.hero-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--red);
+}
+.hero h1 {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  color: var(--white);
+  line-height: 0.88;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+.hero h1 em {
+  color: var(--red-bright);
+  font-style: normal;
+  display: block;
+}
+.hero-sub {
+  font-size: 1rem;
+  color: rgba(240,236,228,0.6);
+  max-width: 560px;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+.hero-stats {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.stat {
+  background: var(--near-black);
+  border: 1px solid var(--border-red);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  min-width: 130px;
+}
+.stat-num {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 2rem;
+  color: var(--red-bright);
+  display: block;
+  line-height: 1;
+}
+.stat-label {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
+.hero-cta {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  border: none;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--red-bright); }
+.btn-outline {
+  background: transparent;
+  color: var(--cream);
+  font-family: "Oswald", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  border: 1px solid rgba(240,236,228,0.25);
+  transition: border-color 0.2s;
+  display: inline-block;
+}
+.btn-outline:hover { border-color: var(--red-bright); color: var(--red-bright); }
+
+/* SECTIONS */
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.section-label {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.section-label::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--red);
+}
+.section-title {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+.section-title em { color: var(--red-bright); font-style: normal; }
+.section p {
+  font-size: 0.95rem;
+  color: rgba(240,236,228,0.65);
+  margin-bottom: 1rem;
+  max-width: 680px;
+}
+.section a {
+  color: var(--red-bright);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(192,23,15,0.3);
+}
+
+/* MBSC BLOCK */
+.mbsc-block {
+  background: var(--near-black);
+  border: 1px solid var(--border-red);
+  border-left: 5px solid var(--red-bright);
+  padding: 2.5rem;
+  margin: 2rem 0;
+}
+.mbsc-block h3 {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+.mbsc-block p {
+  font-size: 0.92rem;
+  color: rgba(240,236,228,0.65);
+  margin-bottom: 0;
+  max-width: 100%;
+}
+
+/* PROGRAM CARDS */
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.04);
+  margin: 2rem 0;
+}
+.program-card {
+  background: var(--near-black);
+  padding: 2rem;
+}
+.program-card-top {
+  height: 3px;
+  background: var(--red);
+  margin: -2rem -2rem 1.5rem;
+}
+.program-number {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 3rem;
+  color: rgba(192,23,15,0.2);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.program-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.program-desc {
+  font-size: 0.88rem;
+  color: rgba(240,236,228,0.55);
+  line-height: 1.7;
+}
+
+/* ANYWHERE BLOCK */
+.anywhere-block {
+  background: var(--charcoal);
+  border-top: 3px solid var(--red);
+  padding: 3rem;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.anywhere-block::after {
+  content: "ANYWHERE";
+  position: absolute;
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 8rem;
+  color: rgba(255,255,255,0.02);
+  right: -1rem;
+  bottom: -1rem;
+  line-height: 1;
+  pointer-events: none;
+}
+.anywhere-block h3 {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+.anywhere-block h3 em { color: var(--red-bright); font-style: normal; }
+.anywhere-block p {
+  font-size: 0.92rem;
+  color: rgba(240,236,228,0.6);
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+.location-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  margin-top: 1.2rem;
+}
+.loc-tag {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  background: rgba(192,23,15,0.12);
+  border: 1px solid var(--border-red);
+  color: var(--red-bright);
+}
+
+/* CHECKLIST */
+.checklist {
+  list-style: none;
+  margin: 1.5rem 0;
+}
+.checklist li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.92rem;
+  color: rgba(240,236,228,0.65);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.checklist li::before {
+  content: "→";
+  color: var(--red-bright);
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* PULLQUOTE */
+.pullquote {
+  border-left: 4px solid var(--red);
+  padding: 1.2rem 2rem;
+  margin: 2.5rem 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: rgba(240,236,228,0.85);
+  font-style: italic;
+  line-height: 1.5;
+}
+.pullquote cite {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-style: normal;
+  margin-top: 0.75rem;
+}
+
+/* PRICING */
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.04);
+  margin: 2rem 0;
+}
+.price-card {
+  background: var(--near-black);
+  padding: 2rem;
+}
+.price-type {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 0.5rem;
+}
+.price-title {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.price-num {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 3rem;
+  color: var(--red-bright);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.price-num sup { font-size: 1.4rem; vertical-align: top; margin-top: 0.4rem; display: inline-block; }
+.price-per {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+.price-divider { height: 0.5px; background: rgba(255,255,255,0.06); margin-bottom: 1rem; }
+.price-item {
+  font-size: 0.85rem;
+  color: rgba(240,236,228,0.55);
+  padding: 0.25rem 0;
+  display: flex;
+  gap: 0.6rem;
+}
+.price-item::before {
+  content: "→";
+  color: var(--red-bright);
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* CTA BLOCK */
+.cta-block {
+  background: var(--near-black);
+  border: 1px solid var(--border-red);
+  border-left: 4px solid var(--red);
+  padding: 3rem;
+  margin: 3rem 0;
+}
+.cta-block h3 {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+.cta-block p {
+  font-size: 0.92rem;
+  color: rgba(240,236,228,0.6);
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+}
+.cta-email {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: rgba(240,236,228,0.35);
+  letter-spacing: 0.1em;
+}
+
+/* RELATED */
+.related {
+  background: var(--charcoal);
+  border-top: 3px solid var(--red);
+  padding: 3rem;
+}
+.related-inner { max-width: 960px; margin: 0 auto; }
+.related-label {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 1.5rem;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.04);
+}
+.related-item {
+  background: var(--near-black);
+  padding: 1.5rem;
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s;
+}
+.related-item:hover { background: rgba(192,23,15,0.08); }
+.related-item-tag {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 0.5rem;
+}
+.related-item-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+/* FOOTER */
+.site-footer {
+  background: var(--near-black);
+  border-top: 1px solid var(--border-red);
+  padding: 2rem 3rem;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.site-footer a { color: var(--muted); text-decoration: none; }
+.site-footer a:hover { color: var(--red-bright); }
+
+@media (max-width: 768px) {
+  .site-nav { padding: 1rem 1.5rem; }
+  .hero { padding: 0 1.5rem 3rem; min-height: 80vh; }
+  .section { padding: 3rem 1.5rem; }
+  .program-grid { grid-template-columns: 1fr; }
+  .price-grid { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; }
+  .related { padding: 2rem 1.5rem; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="/index.html" class="nav-logo">Charleston <span>Strength</span> Club</a>
+  <div class="nav-links">
+    <a href="/index.html">Home</a>
+    <a href="/tuesday.html">Tuesday Class</a>
+    <a href="/blog/index.html">Blog</a>
+    <a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Contact Adam</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Sport Performance · North Charleston SC</div>
+    <h1>Train Like<em>A Pro.</em></h1>
+    <p class="hero-sub">Pro-level sport performance training for youth and high school athletes in North Charleston — built on methods developed at one of the most elite training facilities in the world.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">MBSC</span>
+        <span class="stat-label">Trained</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">PRO</span>
+        <span class="stat-label">SC Stingrays S&C</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">D1</span>
+        <span class="stat-label">Athlete Methods</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">CSCS</span>
+        <span class="stat-label">Certified</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:chsstrengthclub@gmail.com" class="btn-primary">Contact Coach Adam</a>
+      <a href="#programs" class="btn-outline">See Programs</a>
+    </div>
+  </div>
+</section>
+
+<!-- MBSC BACKGROUND -->
+<section class="section" id="background">
+  <div class="section-label">The Background</div>
+  <h2 class="section-title">Trained at the <em>World's Best</em></h2>
+  <p>Mike Boyle Strength & Conditioning (MBSC) in Boston is one of the most respected performance training facilities in the world. It's where professional athletes, D1 college athletes, and Olympic competitors train — and where the methods that define modern strength and conditioning were developed.</p>
+  <p>Coach Adam Oliver trained directly at MBSC alongside coaches who work with professional and D1 athletes every day. That experience — watching how elite athletes are actually built, learning the systems behind the results — is the foundation of every training program at Charleston Strength Club.</p>
+
+  <div class="mbsc-block">
+    <h3>What MBSC Training Means for Your Athlete</h3>
+    <p>The programming your athlete receives isn't adapted from a YouTube video or a generic app. It's built on the same principles used to develop professional hockey players, D1 football athletes, and Olympic competitors. Functional movement, progressive overload, speed development, and injury prevention — applied specifically to youth and high school athletes in North Charleston.</p>
+  </div>
+
+  <div class="pullquote">
+    "The gym doesn't make the athlete. The system does. And you can run that system anywhere — a park, an empty room, a field. The equipment is secondary. The knowledge is everything."
+    <cite>— Coach Adam Oliver, CSCS · Former SC Stingrays S&C Coach</cite>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="section" id="programs">
+  <div class="section-label">Programs</div>
+  <h2 class="section-title">What We <em>Train</em></h2>
+  <p>Every program is built around what actually moves the needle for athletes — not what looks impressive on social media. Small groups of 3–5 athletes get individualized coaching inside a team environment.</p>
+
+  <div class="program-grid">
+    <div class="program-card">
+      <div class="program-card-top"></div>
+      <div class="program-number">01</div>
+      <div class="program-title">Sprint Speed & Acceleration</div>
+      <p class="program-desc">Mechanics-first sprint development. We fix how your athlete runs before we ask them to run faster. Acceleration, max velocity, and change of direction — tested and tracked weekly.</p>
+    </div>
+    <div class="program-card">
+      <div class="program-card-top"></div>
+      <div class="program-number">02</div>
+      <div class="program-title">Vertical Jump & Explosive Power</div>
+      <p class="program-desc">Plyometric progressions and strength work that translate to the court and field. Jump height, reactive strength, and landing mechanics — all measured so you can see the progress.</p>
+    </div>
+    <div class="program-card">
+      <div class="program-card-top"></div>
+      <div class="program-number">03</div>
+      <div class="program-title">Strength & Injury Prevention</div>
+      <p class="program-desc">Building the athletic base that keeps athletes healthy through long seasons. FMS-based movement screening, progressive strength programming, and sport-specific conditioning.</p>
+    </div>
+    <div class="program-card">
+      <div class="program-card-top"></div>
+      <div class="program-number">04</div>
+      <div class="program-title">Sport-Specific Conditioning</div>
+      <p class="program-desc">Aerobic and anaerobic capacity built for your sport's demands. Not generic cardio — energy system development that matches what your athlete actually needs on game day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANYWHERE -->
+<section class="section">
+  <div class="section-label">The Environment</div>
+  <h2 class="section-title">Elite Training <em>Anywhere</em></h2>
+
+  <div class="anywhere-block">
+    <h3>The Park IS the <em>Gym</em></h3>
+    <p>One of the biggest lessons from MBSC: the best coaches don't need a $5 million facility to produce elite results. They need a system, a plan, and the ability to execute it wherever they are.</p>
+    <p>Coach Adam has trained professional hockey players in conventional gym settings and turned a public park in North Charleston into a high-performance training environment. The principles don't change. The sprint mechanics are the same. The jump progressions are the same. The results are the same.</p>
+    <p>When the community center is unavailable, the session moves. We train at local parks, open fields, or your home. No excuses. No cancelled sessions.</p>
+    <div class="location-tags">
+      <span class="loc-tag">Miner Crosby Community Center</span>
+      <span class="loc-tag">Local Parks</span>
+      <span class="loc-tag">Open Fields</span>
+      <span class="loc-tag">Your Backyard</span>
+      <span class="loc-tag">Wando Woods</span>
+      <span class="loc-tag">North Charleston</span>
+    </div>
+  </div>
+
+  <ul class="checklist">
+    <li>Minimal equipment — agility ladder, cones, medicine balls, resistance bands</li>
+    <li>Same programming regardless of location — quality never drops</li>
+    <li>Flexible scheduling built around your athlete's season and school calendar</li>
+    <li>Small groups of 3–5 athletes keep it focused and affordable</li>
+  </ul>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section-label">Pricing</div>
+  <h2 class="section-title">Simple <em>Pricing</em></h2>
+
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-type">Small Group · 3–5 Athletes</div>
+      <div class="price-title">Group Sessions</div>
+      <div class="price-num"><sup>$</sup>75</div>
+      <div class="price-per">Per Group · Price Varies by Size</div>
+      <div class="price-divider"></div>
+      <div class="price-item">Sprint & vertical jump specialty</div>
+      <div class="price-item">Adult and youth tracks available</div>
+      <div class="price-item">Park or your home — we come to you</div>
+      <div class="price-item">Flexible scheduling — not just Tuesdays</div>
+      <div class="price-item">Weekly speed & power testing</div>
+    </div>
+    <div class="price-card">
+      <div class="price-type">Tuesday Drop-In · Wando Woods</div>
+      <div class="price-title">Tuesday Class</div>
+      <div class="price-num"><sup>$</sup>10</div>
+      <div class="price-per">Per Person · Miner Crosby Community Center</div>
+      <div class="price-divider"></div>
+      <div class="price-item">Every Tuesday · 5 or 6 PM</div>
+      <div class="price-item">Ladder drills, MB circuit & strength</div>
+      <div class="price-item">Adults & youth · all fitness levels</div>
+      <div class="price-item">Drop-in welcome — no commitment</div>
+      <div class="price-item">3901 Paramount Dr, Charleston SC</div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h3>Ready to Get Started?</h3>
+    <p>Reach out to Coach Adam directly to discuss your athlete's goals, current level, and schedule. No online booking forms — just a direct conversation with your coach.</p>
+    <a href="mailto:chsstrengthclub@gmail.com" class="btn-primary">Email Coach Adam</a>
+    <span class="cta-email">chsstrengthclub@gmail.com · chsstrengthclub.com</span>
+  </div>
+</section>
+
+<!-- RELATED -->
+<div class="related">
+  <div class="related-inner">
+    <div class="related-label">More From Charleston Strength Club</div>
+    <div class="related-grid">
+      <a href="/blog/group-strength-classes-north-charleston-wando-woods.html" class="related-item">
+        <div class="related-item-tag">Group Training</div>
+        <div class="related-item-title">Small Group Training in North Charleston</div>
+      </a>
+      <a href="/blog/robust-aging-senior-fitness-north-charleston.html" class="related-item">
+        <div class="related-item-tag">Senior Fitness</div>
+        <div class="related-item-title">Robust Aging: Senior Fitness in North Charleston</div>
+      </a>
+      <a href="/tuesday.html" class="related-item">
+        <div class="related-item-tag">Tuesday Class</div>
+        <div class="related-item-title">$10 Tuesday Group Strength Class</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <a href="https://chsstrengthclub.com">chsstrengthclub.com</a> &nbsp;·&nbsp;
+  <a href="https://www.facebook.com/ChsStrengthClub">Facebook</a> &nbsp;·&nbsp;
+  <a href="https://www.instagram.com/chsstrengthclub/">Instagram</a> &nbsp;·&nbsp;
+  <a href="https://www.youtube.com/@chsstrengthclub/">YouTube</a> &nbsp;·&nbsp;
+  <a href="mailto:chsstrengthclub@gmail.com">chsstrengthclub@gmail.com</a>
+  <br><br>
+  © 2026 Charleston Strength Club · Decentralized Strength LLC · North Charleston, SC
+</footer>
+
+</body>
+</html>
