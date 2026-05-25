@@ -136,7 +136,7 @@ section{padding:7rem 3rem}
 .programs{background:var(--near-black)}
 .programs-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;flex-wrap:wrap;gap:2rem}
 .programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04)}
-.prog-card{background:var(--near-black);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background 0.3s}
+.prog-card{background:var(--near-black);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background 0.3s;cursor:pointer}
 .prog-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red-dark),var(--red-bright));transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
 .prog-card::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,23,15,0.04) 0%,transparent 60%);opacity:0;transition:opacity 0.3s}
 .prog-card:hover{background:#1a1414}
@@ -784,6 +784,13 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
 
 <script>
 
+document.querySelectorAll('.prog-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    if (e.target.closest('iframe') || e.target.closest('.prog-video')) return;
+    const link = card.querySelector('.prog-link');
+    if (link) window.location.href = link.href;
+  });
+});
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}})},{threshold:0.08});
 document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
 function openModal(e){e.preventDefault();document.getElementById("modal").classList.add("open");document.body.style.overflow="hidden"}
