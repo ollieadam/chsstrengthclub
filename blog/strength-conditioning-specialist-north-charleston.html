@@ -58,6 +58,15 @@ h1{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font
 .post-body a:hover{border-color:var(--red-bright)}
 .post-body strong{font-weight:500;color:var(--cream)}
 .post-rule{width:60px;height:2px;background:var(--red);margin:2.5rem 0}
+.pullquote{border-left:3px solid var(--red);padding:0.4rem 0 0.4rem 1.8rem;margin:2.8rem 0;font-family:"Playfair Display",serif;font-style:italic;font-size:1.3rem;line-height:1.55;color:var(--cream)}
+.pullquote small{display:block;margin-top:0.9rem;font-family:"Oswald",sans-serif;font-style:normal;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.6}
+.media-section-label{font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--red-bright);margin:2.8rem 0 1rem}
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0}
+.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-red);border:1px solid var(--border-red);margin:2rem 0}
+.info-item{background:var(--near-black);padding:1.5rem}
+.info-label{font-family:"Oswald",sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--red-bright);margin-bottom:0.6rem}
+.info-value{font-size:0.9rem;line-height:1.7;color:rgba(240,236,228,0.6)}
 .cta-box{background:var(--near-black);border:1px solid var(--border-red);padding:2.5rem;margin-top:3rem}
 .cta-box h3{font-family:"Oswald",sans-serif;font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem}
 .cta-box p{font-size:0.88rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem}
@@ -67,10 +76,18 @@ h1{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font
 .back-bar{background:var(--near-black);border-top:1px solid var(--border-red);padding:1.5rem 3rem}
 .back-link{font-family:"Oswald",sans-serif;font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;display:inline-flex;align-items:center;gap:0.5rem}
 .back-link:hover{color:var(--red-bright)}
+.related{background:var(--near-black);border-top:1px solid var(--border-red);padding:3rem}
+.related-inner{max-width:800px;margin:0 auto}
+.related-label{font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1.5rem}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.related-item{display:block;background:var(--black);border:1px solid var(--border-red);padding:1.4rem;text-decoration:none;transition:background 0.2s}
+.related-item:hover{background:rgba(192,23,15,0.08)}
+.related-item-tag{font-family:"Oswald",sans-serif;font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--red-bright);margin-bottom:0.5rem}
+.related-item-title{font-family:"Oswald",sans-serif;font-size:0.95rem;font-weight:500;color:var(--cream);line-height:1.3}
 footer{background:var(--near-black);border-top:1px solid var(--border-red);padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-logo{font-family:"Oswald",sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white)}
 .footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.2);font-family:"Oswald",sans-serif;letter-spacing:0.1em}
-@media(max-width:768px){nav{padding:1rem 1.5rem}.nav-links{display:none}.hamburger{display:flex}.post-header{padding:7rem 1.5rem 3rem}.post-body{padding:3rem 1.5rem 4rem}.back-bar{padding:1.2rem 1.5rem}}
+@media(max-width:768px){nav{padding:1rem 1.5rem}.nav-links{display:none}.hamburger{display:flex}.post-header{padding:7rem 1.5rem 3rem}.post-body{padding:3rem 1.5rem 4rem}.back-bar{padding:1.2rem 1.5rem}.info-grid{grid-template-columns:1fr}.related{padding:2rem 1.5rem}.related-grid{grid-template-columns:1fr}}
 </style>
   <meta property="og:image" content="https://chsstrengthclub.com/strength-conditioning-specialist-og.jpeg">
   <meta name="twitter:card" content="summary_large_image">
@@ -114,28 +131,40 @@ footer{background:var(--near-black);border-top:1px solid var(--border-red);paddi
       <span class="post-byline-dot"></span>
       <span>February 16, 2026</span>
       <span class="post-byline-dot"></span>
-      <span>2 min read</span>
+      <span>6 min read</span>
     </div>
   </div>
 </header>
 
 <article class="post-body">
 
-  <p>At Charleston Strength Club, our training is designed specifically for anyone who needs to improve their own strength, conditioning, speed, or power levels.</p>
+  <p>At Charleston Strength Club, our training is built for anyone who needs to improve their strength, conditioning, speed, or power — and who wants it coached by a credentialed professional, not a weekend-certified trainer. If your day already runs through the <strong>I-526 corridor of North Charleston</strong>, the smartest training is the kind that fits into the drive you're already making.</p>
 
   <div class="post-rule"></div>
 
   <h2>What Is a Strength and Conditioning Specialist?</h2>
 
-  <p>A Strength and Conditioning Specialist (CSCS) provides specialized training that bridges the gap between high-level performance and functional longevity. We work with:</p>
+  <p>A <strong>Certified Strength and Conditioning Specialist (CSCS)</strong> is the gold-standard credential in the field — earned through the National Strength and Conditioning Association and backed by a degree in exercise science. It's the difference between someone who counts your reps and someone who understands <em>why</em> a given exercise, load, and progression will move you toward your goal. We work with:</p>
 
   <ul>
     <li><strong>Competitive athletes</strong> looking to maximize explosive power and speed</li>
     <li><strong>Active adults and seniors</strong> focused on maintaining independence, improving balance, and reversing age-related muscle loss</li>
     <li><strong>Post-rehab individuals</strong> transitioning from physical therapy back to full activity — addressing movement compensations and rebuilding work capacity safely</li>
+    <li><strong>Busy professionals</strong> who want a high return on limited time and zero guesswork</li>
   </ul>
 
   <p>Whether the goal is a faster sprint or a more stable gait, the approach uses evidence-based strength and conditioning to improve quality of life at every stage.</p>
+
+  <h2>Own the I-526 Commute</h2>
+
+  <p>The biggest reason people quit training isn't motivation — it's logistics. A gym that's 25 minutes out of the way gets skipped on the days that matter most. So we built the schedule around the <strong>I-526 corridor</strong> that ties North Charleston together: easy to reach from West Ashley, Daniel Island, Mount Pleasant, and the airport area without adding a second commute to your day.</p>
+
+  <p>Train before work and beat the morning traffic. Train after work and let the rush hour clear while you get stronger. Either way, you turn dead drive time into the most productive hour of your day — instead of sitting in it.</p>
+
+  <div class="pullquote">
+    "The best program in the world doesn't work if you can't get to it. Make training convenient and consistency takes care of itself — that's where real results come from."
+    <small>— Coach Adam Oliver, CSCS</small>
+  </div>
 
   <h2>What Sets Us Apart from Other "Trainers"</h2>
 
@@ -151,13 +180,72 @@ footer{background:var(--near-black);border-top:1px solid var(--border-red);paddi
 
   <p>We've eliminated the guesswork. You show up, your program is ready, and a coach is there to ensure your form is perfect — whether you're a competitive athlete or a professional looking to maintain an edge.</p>
 
+  <h2>Evidence-Based, Not Guesswork</h2>
+
+  <p>Every program at Charleston Strength Club is grounded in exercise science, not fitness trends. Coach Adam holds a <strong>Bachelor's degree in Physical Education &amp; Exercise Science</strong> from Norwich University and the CSCS credential, and he trained directly at <a href="https://www.bodybyboyle.com/" target="_blank">Mike Boyle Strength &amp; Conditioning</a> — one of the most respected performance facilities in the country. That foundation shows up in the details: how movements are screened, how load is progressed, and how each session is sequenced for results without unnecessary risk.</p>
+
+  <div class="media-section-label">Watch the Coaching</div>
+  <h2>See It in Action</h2>
+  <p>Programming only matters if the coaching backs it up. Here's Coach Adam working with a group — the same hands-on cueing and structure you'd get in your own sessions.</p>
+
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/LhL2_8rtCnA" title="Coach Adam coaching a strength and conditioning session" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <h2>Meet Your Coach: Adam Oliver, CSCS</h2>
+
+  <p>Adam Oliver has coached professional hockey players with the SC Stingrays, student athletes, active adults, and seniors across North Charleston and the Lowcountry. His philosophy is simple: <em>world-class programming shouldn't require a world-class budget</em> — and it shouldn't require a long drive, either.</p>
+
+  <div class="info-grid">
+    <div class="info-item">
+      <div class="info-label">Credentials</div>
+      <div class="info-value">CSCS · CFSC · FMS<br>BS Physical Education &amp; Exercise Science</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Experience</div>
+      <div class="info-value">Former SC Stingrays S&amp;C Coach<br>Trained at Mike Boyle S&amp;C</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Who He Trains</div>
+      <div class="info-value">Athletes · Adults · Seniors<br>Post-rehab &amp; busy professionals</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Service Area</div>
+      <div class="info-value">North Charleston &amp; the I-526 corridor<br>Gym, park, or your home</div>
+    </div>
+  </div>
+
   <div class="cta-box">
-    <h3>Your North Charleston Strength & Conditioning Specialist</h3>
-    <p>Convenient location serving the I-526 corridor of North Charleston. Watch <a href="https://youtu.be/LhL2_8rtCnA" target="_blank">Adam coaching the group in action</a>, then reach out to get started.</p>
+    <h3>Your North Charleston Strength &amp; Conditioning Specialist</h3>
+    <p>Convenient training along the I-526 corridor of North Charleston — programmed and coached by a CSCS. Reach out and tell Adam your goals, schedule, and starting point.</p>
     <a href="mailto:chsstrengthclub@gmail.com" class="btn btn-red">Email Adam to Get Started</a>
   </div>
 
 </article>
+
+<div class="related">
+  <div class="related-inner">
+    <div class="related-label">More From the Blog</div>
+    <div class="related-grid">
+      <a href="/blog/group-strength-classes-north-charleston-wando-woods.html" class="related-item">
+        <div class="related-item-tag">Group Training</div>
+        <div class="related-item-title">Small Group Strength Classes in North Charleston — Wando Woods</div>
+      </a>
+      <a href="/blog/sport-performance-training-north-charleston.html" class="related-item">
+        <div class="related-item-tag">Sport Performance</div>
+        <div class="related-item-title">Sport Performance Training in North Charleston</div>
+      </a>
+      <a href="/blog/robust-aging-senior-fitness-north-charleston.html" class="related-item">
+        <div class="related-item-tag">Senior Fitness</div>
+        <div class="related-item-title">Robust Aging: A New Approach to Senior Fitness in North Charleston</div>
+      </a>
+      <a href="/blog/senior-gym-orientation.html" class="related-item">
+        <div class="related-item-tag">Senior Fitness</div>
+        <div class="related-item-title">Your Guide to the NC Senior Center Gyms</div>
+      </a>
+    </div>
+  </div>
+</div>
 
 <div class="back-bar">
   <a href="/blog/index.html" class="back-link">← Back to Blog</a>
