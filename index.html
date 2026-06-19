@@ -17,55 +17,8 @@
 <meta name="twitter:description" content="CSCS-certified personal training for adults, seniors, and athletes in North Charleston, SC. Call (978) 604-5920.">
 <meta name="twitter:image" content="https://chsstrengthclub.com/preview.webp">
 <link rel="canonical" href="https://chsstrengthclub.com/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Black+Han+Sans&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/global.css">
 <style>
-:root{
-  --red:#c0170f;
-  --red-bright:#e82017;
-  --red-dark:#8a0f0a;
-  --black:#0d0d0d;
-  --near-black:#141414;
-  --charcoal:#1e1e1e;
-  --grey:#2a2a2a;
-  --mid-grey:#444;
-  --muted:#777;
-  --light:#aaa;
-  --cream:#f0ece4;
-  --white:#ffffff;
-  --border:rgba(255,255,255,0.08);
-  --border-red:rgba(192,23,15,0.35);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth} section,#programs,#about,#process,#testimonials{scroll-margin-top:80px}
-body{background:var(--black);color:var(--cream);font-family:"DM Sans",sans-serif;font-weight:300;overflow-x:hidden}
-
-/* NOISE */
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;transition:all 0.4s;background:rgba(13,13,13,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-red)}
-
-.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
-.nav-logo img{height:38px;width:auto}
-@media(max-width:960px){.nav-logo img{height:32px}}
-.nav-logo-text{font-family:"Oswald",sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);line-height:1}
-.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
-.nav-links a{color:rgba(240,236,228,0.55);text-decoration:none;font-family:"Oswald",sans-serif;font-size:0.72rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;transition:color 0.2s}
-.nav-links a:hover{color:var(--red-bright)}
-.nav-cta{border:1px solid var(--red)!important;color:var(--red-bright)!important;padding:0.5rem 1.4rem;transition:all 0.2s!important}
-.nav-cta:hover{background:var(--red)!important;color:var(--white)!important}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none}
-.hamburger span{display:block;width:24px;height:1.5px;background:var(--cream)}
-
-/* BUTTONS */
-.btn{font-family:"Oswald",sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;display:inline-block;transition:all 0.25s;cursor:pointer;border:none}
-.btn-red{background:var(--red);color:var(--white)}
-.btn-red:hover{background:var(--red-bright);transform:translateY(-2px);box-shadow:0 8px 30px rgba(192,23,15,0.4)}
-.btn-ghost{border:1px solid rgba(240,236,228,0.2);color:var(--cream);background:transparent}
-.btn-ghost:hover{border-color:var(--red);color:var(--red-bright);transform:translateY(-2px)}
-.btn-outline-red{border:1px solid var(--red);color:var(--red-bright);background:transparent}
-.btn-outline-red:hover{background:var(--red);color:var(--white)}
 
 /* HERO */
 .hero{min-height:100vh;background:var(--black);display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 6rem;position:relative;overflow:hidden;padding-top:80px}
@@ -124,13 +77,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .mq-item{font-family:"Oswald",sans-serif;font-size:0.8rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(192,23,15,0.4);padding:0 2.5rem;display:flex;align-items:center;gap:2.5rem;flex-shrink:0}
 .mq-dot{width:3px;height:3px;border-radius:50%;background:var(--red);opacity:0.5}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* SECTIONS */
-section{padding:7rem 3rem}
-.eyebrow{font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem;display:flex;align-items:center;gap:0.7rem}
-.eyebrow::before,.eyebrow::after{content:"";display:inline-block;width:14px;height:1px;background:var(--red)}
-.sec-title{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:400;font-style:normal;line-height:0.92;letter-spacing:0.01em;color:var(--white);text-transform:uppercase}
-.sec-title em{font-family:"Black Han Sans",sans-serif;font-weight:400;font-style:normal;text-transform:uppercase;color:var(--red-bright);letter-spacing:0.02em;display:block}
 
 /* PROGRAMS */
 .programs{background:var(--near-black)}
@@ -216,7 +162,7 @@ section{padding:7rem 3rem}
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04)}
 .test-card{background:var(--near-black);padding:2.5rem;position:relative;transition:background 0.3s}
 .test-card:hover{background:#1a1414}
-.test-card::after{content:"C";position:absolute;top:1rem;right:1.5rem;font-family:"Playfair Display",serif;font-size:5rem;line-height:1;color:rgba(192,23,15,0.08)}
+.test-card::after{content:"\201C";position:absolute;top:1rem;right:1.5rem;font-size:5rem;line-height:1;color:rgba(192,23,15,0.08)}
 .test-stars{color:var(--red);font-size:0.72rem;letter-spacing:0.1em;margin-bottom:1.1rem}
 .test-text{font-size:0.9rem;line-height:1.85;color:var(--muted);font-style:italic;margin-bottom:1.8rem}
 .test-author{display:flex;align-items:center;gap:0.8rem}
@@ -232,7 +178,7 @@ section{padding:7rem 3rem}
 .cta-rule-line{width:50px;height:1px;background:rgba(255,255,255,0.2)}
 .cta-diamond{width:7px;height:7px;background:rgba(255,255,255,0.4);transform:rotate(45deg)}
 .cta-title{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:400;font-style:normal;line-height:0.92;color:var(--white);letter-spacing:0.02em;margin-bottom:1.5rem;text-transform:uppercase}
-.cta-title em{font-family:"Playfair Display",serif;font-style:italic;text-transform:none;font-weight:400;color:rgba(255,255,255,0.55);display:block;font-size:0.6em;line-height:1.8}
+.cta-title em{font-style:italic;text-transform:none;font-weight:400;color:rgba(255,255,255,0.55);display:block;font-size:0.6em;line-height:1.8}
 .cta-sub{font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.55);margin-bottom:2.5rem}
 .cta-contacts{display:flex;justify-content:center;gap:3rem;margin-top:3rem;flex-wrap:wrap}
 .ct-item{text-align:center}
@@ -240,52 +186,12 @@ section{padding:7rem 3rem}
 .ct-val{font-size:0.95rem;color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.2s}
 .ct-val:hover{color:var(--white)}
 
-/* FOOTER */
-footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(192,23,15,0.15);flex-wrap:wrap;gap:1.5rem}
-.foot-logo{font-family:"Oswald",sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,236,228,0.35);text-decoration:none;display:flex;align-items:center;gap:0.6rem}
-.foot-logo img{height:26px}
-.foot-copy{font-size:0.72rem;color:rgba(255,255,255,0.2)}
-.foot-links{display:flex;gap:1.5rem}
-.foot-links a{font-family:"Oswald",sans-serif;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s}
-.foot-links a:hover{color:var(--red-bright)}
 
-/* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(4px)}
-.modal-overlay.open{opacity:1;pointer-events:all}
-.modal{background:var(--near-black);border:1px solid var(--border-red);padding:3.5rem;max-width:500px;width:92%;position:relative;transform:translateY(20px);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1)}
-.modal::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red-dark),var(--red-bright))}
-.modal-overlay.open .modal{transform:translateY(0)}
-.modal-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;line-height:1;transition:color 0.2s;font-family:"Oswald",sans-serif}
-.modal-close:hover{color:var(--white)}
-.modal-pre{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--red-bright);margin-bottom:0.4rem}
-.modal-title{font-family:"Oswald",sans-serif;font-size:1.9rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--white);margin-bottom:1.75rem}
-.fg{margin-bottom:0.95rem}
-.fg label{display:block;font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.4rem}
-.fg input,.fg select,.fg textarea{width:100%;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--cream);padding:0.8rem 1rem;font-family:"DM Sans",sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;-webkit-appearance:none;border-radius:0}
-.fg select option{background:var(--charcoal)}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--red)}
-.fg textarea{resize:vertical;min-height:80px}
-.form-sub{width:100%;margin-top:0.5rem}
-.form-note{font-size:0.72rem;color:var(--muted);text-align:center;margin-top:1rem}
-.form-note a{color:var(--red-bright)}
-
-/* MOBILE MENU */
-.mob-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:101;flex-direction:column;align-items:center;justify-content:flex-start;gap:1.6rem;padding:5rem 2rem 3rem;overflow-y:auto}
-.mob-menu.open{display:flex}
-.mob-menu a{font-family:"Oswald",sans-serif;font-size:clamp(1.6rem,7vw,2.5rem);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color 0.2s}
-.mob-menu a:hover{color:var(--red-bright)}
-.mob-menu a.mob-cta{background:var(--red);color:var(--white);padding:0.75rem 2.5rem;margin-top:0.5rem;font-size:clamp(1.4rem,6vw,2rem)}
-.mob-menu a.mob-cta:hover{background:var(--red-bright);color:var(--white)}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s,transform 0.7s cubic-bezier(0.16,1,0.3,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
 
 /* RESPONSIVE */
 @media(max-width:960px){
-  nav{padding:1rem 1.5rem;background:rgba(13,13,13,0.97);border-bottom:1px solid var(--border-red)} nav.scrolled{padding:0.9rem 1.5rem}
-  .nav-links{display:none} .hamburger{display:flex}
-  section{padding:5rem 1.5rem} .hero{padding:5rem 1.5rem 5rem}
+  section{padding:5rem 1.5rem}
+  .hero{padding:5rem 1.5rem 5rem}
   .hero-corner.tl{top:5rem;left:1.5rem} .hero-corner.tr{top:5rem;right:1.5rem}
   .hero-corner.bl{bottom:2rem;left:1.5rem} .hero-corner.br{bottom:2rem;right:1.5rem}
   .hero-logo-right{display:none} .hero-bg-word{font-size:22rem}
@@ -297,7 +203,6 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
   .proc-step{border-right:none}
   .test-grid{grid-template-columns:1fr;gap:1px}
   .test-header{flex-direction:column;align-items:flex-start}
-  footer{flex-direction:column;text-align:center;align-items:center}
   .cta-contacts{gap:1.5rem}
   .yt-grid{grid-template-columns:1fr!important}
   .ig-item .instagram-media{min-width:0!important}
@@ -305,7 +210,6 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
 @media(max-width:600px){
   .process-grid{grid-template-columns:1fr}
   .hero-actions{flex-direction:column;align-items:flex-start}
-  .modal{padding:2.5rem 1.5rem}
   .hero-bg-word{display:none}
   .hero-corner{width:45px;height:45px}
 }
@@ -805,20 +709,24 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-pre">Charleston Strength Club</div>
     <h2 class="modal-title">Book a Free Call</h2>
-    <div class="fg"><label>Your Name</label><input type="text" placeholder="First and last name"></div>
-    <div class="fg"><label>Phone</label><input type="tel" placeholder="(xxx) xxx-xxxx"></div>
-    <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com"></div>
-    <div class="fg"><label>Program Interest</label>
-      <select><option value="">Select a program</option><option>Adult Training</option><option>Senior Fitness</option><option>Sport Performance</option><option>Not sure yet</option></select>
-    </div>
-    <div class="fg"><label>Anything Else</label><textarea placeholder="Goals, questions, your current situation..."></textarea></div>
-    <button class="btn btn-red form-sub" onclick="submitForm()">Send to Adam</button>
-    <p class="form-note">Or call/text: <a href="tel:9786045920">(978) 604-5920</a></p>
+    <form id="contactForm" action="https://formsubmit.co/chsstrengthclub@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_next" value="https://chsstrengthclub.com/?submitted=true">
+      <div class="fg"><label>Your Name</label><input type="text" name="name" placeholder="First and last name" required></div>
+      <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="(xxx) xxx-xxxx" required></div>
+      <div class="fg"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
+      <div class="fg"><label>Program Interest</label>
+        <select name="program"><option value="">Select a program</option><option>Adult Training</option><option>Senior Fitness</option><option>Sport Performance</option><option>Not sure yet</option></select>
+      </div>
+      <div class="fg"><label>Anything Else</label><textarea name="message" placeholder="Goals, questions, your current situation..."></textarea></div>
+      <button type="submit" class="btn btn-red form-sub">Send to Adam</button>
+      <p class="form-note">Or call/text: <a href="tel:9786045920">(978) 604-5920</a></p>
+    </form>
   </div>
 </div>
 
+<script src="/script.js"></script>
 <script>
-
 document.querySelectorAll('.prog-card').forEach(card => {
   card.addEventListener('click', function(e) {
     if (e.target.closest('iframe') || e.target.closest('.prog-video')) return;
@@ -826,13 +734,6 @@ document.querySelectorAll('.prog-card').forEach(card => {
     if (link) window.location.href = link.href;
   });
 });
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}})},{threshold:0.08});
-document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
-function openModal(e){e.preventDefault();document.getElementById("modal").classList.add("open");document.body.style.overflow="hidden"}
-function closeModal(){document.getElementById("modal").classList.remove("open");document.body.style.overflow=""}
-function closeModalOutside(e){if(e.target===document.getElementById("modal"))closeModal()}
-function submitForm(){alert("Thanks! Adam will be in touch within 24 hours.\n\nOr call/text: (978) 604-5920");closeModal()}
-function toggleMenu(){const m=document.getElementById("mobMenu");m.classList.toggle("open");document.body.style.overflow=m.classList.contains("open")?"hidden":""}
 </script>
 </body>
 </html>

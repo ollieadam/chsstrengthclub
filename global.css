@@ -1,0 +1,138 @@
+/* GLOBAL.CSS — Shared styles for CHS Strength Club */
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* VARIABLES */
+:root{
+  --red:#c0170f;
+  --red-bright:#e82017;
+  --red-dark:#8a0f0a;
+  --black:#0d0d0d;
+  --near-black:#141414;
+  --charcoal:#1e1e1e;
+  --grey:#2a2a2a;
+  --mid-grey:#444;
+  --muted:#777;
+  --light:#aaa;
+  --cream:#f0ece4;
+  --white:#ffffff;
+  --border:rgba(255,255,255,0.08);
+  --border-red:rgba(192,23,15,0.35);
+}
+
+/* RESET */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+section,#programs,#about,#process,#testimonials{scroll-margin-top:80px}
+body{
+  background:var(--black);
+  color:var(--cream);
+  font-family:"DM Sans",sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+}
+
+/* NOISE OVERLAY */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:999;
+  opacity:0.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px
+}
+
+/* NAVIGATION */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1.4rem 3rem;
+  background:rgba(13,13,13,0.97);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border-red)
+}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
+.nav-logo img{height:38px;width:auto}
+@media(max-width:960px){.nav-logo img{height:32px}}
+.nav-logo-text{font-family:"Oswald",sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);line-height:1}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(240,236,228,0.55);text-decoration:none;font-family:"Oswald",sans-serif;font-size:0.72rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--red-bright)}
+.nav-cta{border:1px solid var(--red)!important;color:var(--red-bright)!important;padding:0.5rem 1.4rem;transition:all 0.2s!important}
+.nav-cta:hover{background:var(--red)!important;color:var(--white)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--cream)}
+
+/* MOBILE MENU */
+.mob-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:101;flex-direction:column;align-items:center;justify-content:flex-start;gap:1.6rem;padding:5rem 2rem 3rem;overflow-y:auto}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:"Oswald",sans-serif;font-size:clamp(1.6rem,7vw,2.5rem);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color 0.2s}
+.mob-menu a:hover{color:var(--red-bright)}
+.mob-cta{background:var(--red);color:var(--white);padding:0.75rem 2.5rem;margin-top:0.5rem;font-size:clamp(1.4rem,6vw,2rem)}
+.mob-cta:hover{background:var(--red-bright)}
+
+/* BUTTONS */
+.btn{font-family:"Oswald",sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;display:inline-block;transition:all 0.25s;cursor:pointer;border:none}
+.btn-red{background:var(--red);color:var(--white)}
+.btn-red:hover{background:var(--red-bright);transform:translateY(-2px);box-shadow:0 8px 30px rgba(192,23,15,0.4)}
+.btn-ghost{border:1px solid rgba(240,236,228,0.2);color:var(--cream);background:transparent}
+.btn-ghost:hover{border-color:var(--red);color:var(--red-bright);transform:translateY(-2px)}
+.btn-outline-red{border:1px solid var(--red);color:var(--red-bright);background:transparent}
+.btn-outline-red:hover{background:var(--red);color:var(--white)}
+
+/* SECTION UTILITIES */
+.eyebrow{font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem;display:flex;align-items:center;gap:0.7rem}
+.eyebrow::before,.eyebrow::after{content:"";display:inline-block;width:14px;height:1px;background:var(--red)}
+.sec-title{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:400;font-style:normal;line-height:0.92;letter-spacing:0.01em;color:var(--white);text-transform:uppercase}
+.sec-title em{font-family:"Black Han Sans",sans-serif;font-weight:400;font-style:normal;text-transform:uppercase;color:var(--red-bright);letter-spacing:0.02em;display:block}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s,transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(4px)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--near-black);border:1px solid var(--border-red);padding:3.5rem;max-width:500px;width:92%;position:relative;transform:translateY(20px);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1)}
+.modal::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red-dark),var(--red-bright))}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;line-height:1;transition:color 0.2s;font-family:"Oswald",sans-serif}
+.modal-close:hover{color:var(--white)}
+.modal-pre{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--red-bright);margin-bottom:0.4rem}
+.modal-title{font-family:"Oswald",sans-serif;font-size:1.9rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--white);margin-bottom:1.75rem}
+.fg{margin-bottom:0.95rem}
+.fg label{display:block;font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.4rem}
+.fg input,.fg select,.fg textarea{width:100%;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--cream);padding:0.8rem 1rem;font-family:"DM Sans",sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;-webkit-appearance:none;border-radius:0}
+.fg select option{background:var(--charcoal)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--red)}
+.fg textarea{resize:vertical;min-height:80px}
+.form-sub{width:100%;margin-top:0.5rem}
+.form-note{font-size:0.72rem;color:var(--muted);text-align:center;margin-top:1rem}
+.form-note a{color:var(--red-bright)}
+
+/* FOOTER */
+footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(192,23,15,0.15);flex-wrap:wrap;gap:1.5rem}
+.foot-logo{font-family:"Oswald",sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,236,228,0.35);text-decoration:none;display:flex;align-items:center;gap:0.6rem}
+.foot-logo img{height:26px}
+.foot-copy{font-size:0.72rem;color:rgba(255,255,255,0.2)}
+.foot-links{display:flex;gap:1.5rem}
+.foot-links a{font-family:"Oswald",sans-serif;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s}
+.foot-links a:hover{color:var(--red-bright)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  footer{flex-direction:column;text-align:center;align-items:center}
+}
+@media(max-width:600px){
+  .modal{padding:2.5rem 1.5rem}
+}

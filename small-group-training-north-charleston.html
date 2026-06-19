@@ -8,6 +8,7 @@
 <title>Tuesday Strength Class | $10 | North Charleston SC</title>
 <meta name="description" content="Join Charleston Strength Club's Tuesday evening group strength class. Wando Woods, North Charleston. 5–7pm. Only $10/person. RSVP now.">
 <link rel="canonical" href="https://chsstrengthclub.com/small-group-training-north-charleston.html">
+<link rel="stylesheet" href="/global.css">
 <meta property="og:title" content="Tuesday Strength Class | $10 | North Charleston SC">
 <meta property="og:description" content="Join Charleston Strength Club's Tuesday evening group strength class. Wando Woods, North Charleston. 5–7pm. Only $10/person. RSVP now.">
 <meta property="og:image" content="https://chsstrengthclub.com/preview.webp">
@@ -17,39 +18,7 @@
 <meta name="twitter:title" content="Tuesday Strength Class | $10 | North Charleston SC">
 <meta name="twitter:description" content="Join Charleston Strength Club's Tuesday evening group strength class. Wando Woods, North Charleston. 5–7pm. Only $10/person.">
 <meta name="twitter:image" content="https://chsstrengthclub.com/preview.webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --red:#c0170f;
-  --red-bright:#e82017;
-  --red-dark:#8a0f0a;
-  --black:#0d0d0d;
-  --near-black:#141414;
-  --charcoal:#1e1e1e;
-  --cream:#f0ece4;
-  --white:#ffffff;
-  --muted:#777;
-  --border-red:rgba(192,23,15,0.3);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--cream);font-family:"DM Sans",sans-serif;font-weight:300;overflow-x:hidden}
-
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
-
-/* NAV */
-.topbar{background:rgba(13,13,13,0.97);border-bottom:1px solid var(--border-red);padding:0.9rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.topbar-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
-.topbar-logo img{height:30px}
-.topbar-logo span{font-family:"Oswald",sans-serif;font-size:0.9rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white)}
-.topbar-cta{font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--red);color:var(--white);padding:0.55rem 1.4rem;text-decoration:none;transition:background 0.2s}
-.topbar-cta:hover{background:var(--red-bright)}
-.topbar-nav{display:flex;gap:2rem;align-items:center}
-.topbar-nav a{font-family:"Oswald",sans-serif;font-size:0.65rem;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,236,228,0.55);text-decoration:none;transition:color 0.2s}
-.topbar-nav a:hover{color:var(--red-bright)}
-@media(max-width:900px){.topbar-nav{display:none}}
-
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:5rem 4rem;position:relative;overflow:hidden;background:var(--black)}
 .hero-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.01) 4px);pointer-events:none}
@@ -89,12 +58,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;o
 @keyframes slam{from{opacity:0;transform:translateY(50px) scaleY(0.85);filter:blur(3px)}to{opacity:1;transform:translateY(0) scaleY(1);filter:blur(0)}}
 @keyframes fadeIn{to{opacity:1}}
 
-/* BUTTONS */
-.btn{font-family:"Oswald",sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;padding:1.1rem 2.5rem;text-decoration:none;display:inline-block;transition:all 0.25s;cursor:pointer;border:none}
-.btn-red{background:var(--red);color:var(--white)}
-.btn-red:hover{background:var(--red-bright);transform:translateY(-2px);box-shadow:0 8px 30px rgba(192,23,15,0.4)}
-.btn-ghost{border:1px solid rgba(240,236,228,0.2);color:var(--cream);background:transparent}
-.btn-ghost:hover{border-color:var(--red);color:var(--red-bright);transform:translateY(-2px)}
+/* BUTTONS — override global sizing for this page */
+.btn{font-size:0.78rem;font-weight:600;padding:1.1rem 2.5rem}
 
 /* WHAT TO EXPECT */
 .expect{background:var(--near-black);padding:6rem 4rem;border-top:1px solid var(--border-red)}
@@ -168,17 +133,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;o
 .cta-note{font-size:0.78rem;color:rgba(240,236,228,0.3);margin-top:1.5rem;letter-spacing:0.05em}
 .cta-note a{color:var(--red-bright);text-decoration:none}
 
-/* FOOTER */
-footer{background:var(--near-black);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(192,23,15,0.15);flex-wrap:wrap;gap:1rem}
-.foot-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
-.foot-logo img{height:24px;filter:brightness(0) invert(1);opacity:0.4}
-.foot-logo span{font-family:"Oswald",sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(240,236,228,0.3)}
-.foot-back{font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,236,228,0.3);text-decoration:none;transition:color 0.2s}
-.foot-back:hover{color:var(--red-bright)}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s cubic-bezier(0.16,1,0.3,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
 
 /* RATES */
 .rates{background:var(--black);padding:6rem 4rem;border-top:1px solid var(--border-red)}
@@ -265,20 +220,33 @@ footer{background:var(--near-black);padding:2rem 4rem;display:flex;align-items:c
 </head>
 <body>
 
-<!-- TOPBAR -->
-<div class="topbar">
-  <a href="https://www.chsstrengthclub.com" class="topbar-logo">
+<nav>
+  <a href="/index.html" class="nav-logo">
     <img src="/logo.png" alt="CHS Strength Club">
-    <span>CHS Strength Club</span>
+    <span class="nav-logo-text">CHS Strength Club</span>
   </a>
-  <nav class="topbar-nav">
-    <a href="/index.html">Home</a>
-    <a href="/sport-performance.html">Sport Performance</a>
-    <a href="/senior-strength.html">Senior Strength</a>
-    <a href="/small-group-training-north-charleston.html">Strength Classes</a>
-    <a href="/blog/">Blog</a>
-  </nav>
-  <a href="https://www.facebook.com/ChsStrengthClub" target="_blank" target="_blank" class="topbar-cta">RSVP — $10</a>
+  <ul class="nav-links">
+    <li><a href="/index.html#programs">Programs</a></li>
+    <li><a href="/small-group-training-north-charleston.html" class="active">Strength Classes</a></li>
+    <li><a href="/sport-performance.html">Sport Performance</a></li>
+    <li><a href="/senior-strength.html">Senior Strength</a></li>
+    <li><a href="/locations/">Locations</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Book a Call</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="/index.html#programs" onclick="toggleMenu()">Programs</a>
+  <a href="/small-group-training-north-charleston.html" onclick="toggleMenu()">Strength Classes</a>
+  <a href="/sport-performance.html" onclick="toggleMenu()">Sport Performance</a>
+  <a href="/senior-strength.html" onclick="toggleMenu()">Senior Strength</a>
+  <a href="/locations/" onclick="toggleMenu()">Locations</a>
+  <a href="/blog/" onclick="toggleMenu()">Blog</a>
+  <a href="mailto:chsstrengthclub@gmail.com" class="mob-cta" onclick="toggleMenu()">Book a Call</a>
 </div>
 
 <!-- HERO -->
@@ -552,26 +520,20 @@ footer{background:var(--near-black);padding:2rem 4rem;display:flex;align-items:c
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <a href="https://www.chsstrengthclub.com" class="foot-logo">
-    <img src="/logo.png" alt="logo">
-    <span>Charleston Strength Club</span>
+  <a href="/index.html" class="foot-logo">
+    <img src="/logo.png" alt="CHS Strength Club">
+    <span>CHS Strength Club</span>
   </a>
-  <a href="/index.html" class="foot-back">← Back to Main Site</a>
-  <a href="mailto:chsstrengthclub@gmail.com" style="color:rgba(240,236,228,0.4);font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-decoration:none;">chsstrengthclub@gmail.com</a>
-  <div style="display:flex;gap:1.5rem;">
-    <a href="https://www.facebook.com/ChsStrengthClub" target="_blank" style="color:rgba(240,236,228,0.4);font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-decoration:none;text-transform:uppercase;">Facebook</a>
-    <a href="https://www.instagram.com/chsstrengthclub/" target="_blank" style="color:rgba(240,236,228,0.4);font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-decoration:none;text-transform:uppercase;">Instagram</a>
-    <a href="https://www.youtube.com/@chsstrengthclub/" target="_blank" style="color:rgba(240,236,228,0.4);font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-decoration:none;text-transform:uppercase;">YouTube</a>
+  <span class="foot-copy">&copy; 2026 Charleston Strength Club</span>
+  <div class="foot-links">
+    <a href="https://decentralizedstrength.buzzsprout.com" target="_blank">Podcast</a>
+    <a href="https://www.facebook.com/ChsStrengthClub" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/chsstrengthclub/" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/@chsstrengthclub/" target="_blank">YouTube</a>
   </div>
 </footer>
 
-<script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
-}, {threshold: 0.08});
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
+<script src="/script.js"></script>
 </body>
 </html>

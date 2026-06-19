@@ -7,63 +7,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Strength & Conditioning Blog | Charleston Strength Club | North Charleston SC</title>
 <meta name="description" content="Strength and conditioning blog from CSCS-certified coach Adam Oliver in North Charleston, SC. Training tips for adults, seniors, and athletes.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/global.css">
 <style>
-:root{
-  --red:#c0170f;
-  --red-bright:#e82017;
-  --red-dark:#8a0f0a;
-  --black:#0d0d0d;
-  --near-black:#141414;
-  --charcoal:#1e1e1e;
-  --grey:#2a2a2a;
-  --mid-grey:#444;
-  --muted:#777;
-  --light:#aaa;
-  --cream:#f0ece4;
-  --white:#ffffff;
-  --border:rgba(255,255,255,0.08);
-  --border-red:rgba(192,23,15,0.35);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--cream);font-family:"DM Sans",sans-serif;font-weight:300;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;background:rgba(13,13,13,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-red)}
-.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
-.nav-logo-text{font-family:"Oswald",sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);line-height:1}
-.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
-.nav-links a{color:rgba(240,236,228,0.55);text-decoration:none;font-family:"Oswald",sans-serif;font-size:0.72rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;transition:color 0.2s}
-.nav-links a:hover,.nav-links a.active{color:var(--red-bright)}
-.nav-cta{border:1px solid var(--red)!important;color:var(--red-bright)!important;padding:0.5rem 1.4rem;transition:all 0.2s!important}
-.nav-cta:hover{background:var(--red)!important;color:var(--white)!important}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none}
-.hamburger span{display:block;width:24px;height:1.5px;background:var(--cream)}
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:99;padding:6rem 2rem 2rem;flex-direction:column;gap:1.5rem}
-.mobile-menu.open{display:flex}
-.mobile-menu a{color:var(--cream);text-decoration:none;font-family:"Oswald",sans-serif;font-size:1.4rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:1rem}
-.mobile-menu a:hover{color:var(--red-bright)}
-
-/* HERO */
 .blog-hero{padding:10rem 3rem 5rem;background:var(--black);position:relative;overflow:hidden}
 .blog-hero::after{content:"BLOG";position:absolute;right:-0.02em;bottom:-0.15em;font-family:"Oswald",sans-serif;font-size:clamp(8rem,20vw,18rem);font-weight:700;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(192,23,15,0.06);pointer-events:none;line-height:1}
 .blog-hero-inner{max-width:1100px;margin:0 auto;position:relative}
-.eyebrow{font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem;display:flex;align-items:center;gap:0.7rem}
-.eyebrow::before,.eyebrow::after{content:"";display:inline-block;width:14px;height:1px;background:var(--red)}
 .hero-title{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:400;text-transform:uppercase;line-height:0.92;color:var(--white);margin-bottom:1.5rem}
 .hero-title em{color:var(--red-bright);font-style:normal;display:block}
 .hero-sub{font-size:0.95rem;line-height:1.85;color:rgba(240,236,228,0.5);max-width:520px}
-
-/* FILTER TABS */
 .filter-bar{background:var(--near-black);border-top:1px solid var(--border-red);border-bottom:1px solid var(--border-red);padding:1.2rem 3rem;display:flex;gap:0;overflow-x:auto}
 .filter-tab{font-family:"Oswald",sans-serif;font-size:0.68rem;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:rgba(240,236,228,0.4);padding:0.5rem 1.5rem;border:none;background:none;cursor:pointer;transition:all 0.2s;white-space:nowrap;border-bottom:2px solid transparent}
 .filter-tab:hover{color:var(--cream)}
 .filter-tab.active{color:var(--red-bright);border-bottom-color:var(--red)}
-
-/* POSTS GRID */
 .posts-section{padding:5rem 3rem;max-width:1200px;margin:0 auto}
 .posts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,0.04)}
 .post-card{background:var(--near-black);padding:2.5rem;position:relative;overflow:hidden;transition:background 0.3s;text-decoration:none;display:block;color:inherit}
@@ -77,34 +32,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .post-date{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.2)}
 .post-read-more{font-family:"Oswald",sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--red-bright);display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.2s}
 .post-card:hover .post-read-more{gap:0.9rem}
-
-/* CTA STRIP */
 .cta-strip{background:var(--red);padding:4rem 3rem;text-align:center}
 .cta-strip h2{font-family:"Black Han Sans",sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:400;text-transform:uppercase;color:var(--white);margin-bottom:1rem}
 .cta-strip p{font-size:0.95rem;color:rgba(255,255,255,0.7);margin-bottom:2rem}
-.btn{font-family:"Oswald",sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;display:inline-block;transition:all 0.25s;cursor:pointer;border:none}
 .btn-white{background:var(--white);color:var(--red)}
 .btn-white:hover{background:var(--cream);transform:translateY(-2px)}
 .btn-ghost-white{border:1px solid rgba(255,255,255,0.4);color:var(--white);background:transparent;margin-left:1rem}
 .btn-ghost-white:hover{border-color:var(--white);transform:translateY(-2px)}
-
-/* FOOTER */
-footer{background:var(--near-black);border-top:1px solid var(--border-red);padding:3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
-.footer-logo{font-family:"Oswald",sans-serif;font-size:1rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white)}
-.footer-links{display:flex;gap:2rem;list-style:none}
-.footer-links a{color:rgba(240,236,228,0.4);text-decoration:none;font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;transition:color 0.2s}
-.footer-links a:hover{color:var(--red-bright)}
-.footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.2);font-family:"Oswald",sans-serif;letter-spacing:0.1em}
-
 @media(max-width:768px){
-  nav{padding:1rem 1.5rem}
-  .nav-links{display:none}
-  .hamburger{display:flex}
   .blog-hero{padding:8rem 1.5rem 3rem}
   .filter-bar{padding:1rem 1.5rem}
   .posts-section{padding:3rem 1.5rem}
   .posts-grid{grid-template-columns:1fr}
-  footer{padding:2rem 1.5rem;flex-direction:column;align-items:flex-start}
   .cta-strip{padding:3rem 1.5rem}
   .btn-ghost-white{margin-left:0;margin-top:0.5rem}
 }
@@ -132,30 +71,33 @@ footer{background:var(--near-black);border-top:1px solid var(--border-red);paddi
 </head>
 <body>
 
-<nav id="navbar">
+<nav>
   <a href="/index.html" class="nav-logo">
-    <span class="nav-logo-text">Charleston<br>Strength Club</span>
+    <img src="/logo.png" alt="CHS Strength Club">
+    <span class="nav-logo-text">CHS Strength Club</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/index.html">Home</a></li>
+    <li><a href="/index.html#programs">Programs</a></li>
     <li><a href="/small-group-training-north-charleston.html">Strength Classes</a></li>
     <li><a href="/sport-performance.html">Sport Performance</a></li>
     <li><a href="/senior-strength.html">Senior Strength</a></li>
+    <li><a href="/locations/">Locations</a></li>
     <li><a href="/blog/" class="active">Blog</a></li>
-    <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Get Started</a></li>
+    <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Book a Call</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="/index.html" onclick="toggleMenu()">Home</a>
+<div class="mob-menu" id="mobMenu">
+  <a href="/index.html#programs" onclick="toggleMenu()">Programs</a>
   <a href="/small-group-training-north-charleston.html" onclick="toggleMenu()">Strength Classes</a>
   <a href="/sport-performance.html" onclick="toggleMenu()">Sport Performance</a>
   <a href="/senior-strength.html" onclick="toggleMenu()">Senior Strength</a>
+  <a href="/locations/" onclick="toggleMenu()">Locations</a>
   <a href="/blog/" onclick="toggleMenu()">Blog</a>
-  <a href="mailto:chsstrengthclub@gmail.com">Email Adam</a>
+  <a href="mailto:chsstrengthclub@gmail.com" class="mob-cta" onclick="toggleMenu()">Book a Call</a>
 </div>
 
 <section class="blog-hero">
@@ -238,31 +180,23 @@ footer{background:var(--near-black);border-top:1px solid var(--border-red);paddi
 </div>
 
 <footer>
-  <div class="footer-logo">Charleston Strength Club</div>
-  <ul class="footer-links">
-    <li><a href="/index.html">Home</a></li>
-    <li><a href="/small-group-training-north-charleston.html">Strength Classes</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="https://www.facebook.com/ChsStrengthClub" target="_blank">Facebook</a></li>
-    <li><a href="https://www.instagram.com/chsstrengthclub/" target="_blank">Instagram</a></li>
-    <li><a href="https://www.youtube.com/@chsstrengthclub/" target="_blank">YouTube</a></li>
-  </ul>
-  <span class="footer-copy">© 2026 Charleston Strength Club</span>
+  <a href="/index.html" class="foot-logo"><img src="/logo.png" alt="logo"> Charleston Strength Club</a>
+  <p class="foot-copy">© 2026 Charleston Strength Club LLC · North Charleston, SC · <a href="mailto:chsstrengthclub@gmail.com" style="color:rgba(240,236,228,0.4);text-decoration:none;">chsstrengthclub@gmail.com</a></p>
+  <div class="foot-links">
+    <a href="https://www.instagram.com/chsstrengthclub/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/ChsStrengthClub" target="_blank">Facebook</a>
+    <a href="https://www.youtube.com/@chsstrengthclub/" target="_blank">YouTube</a>
+    <a href="https://decentralizedstrength.buzzsprout.com/" target="_blank">Podcast</a>
+  </div>
 </footer>
 
+<script src="/script.js"></script>
 <script>
-function toggleMenu(){
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
 function filterPosts(cat, btn){
   document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.post-card').forEach(card=>{
-    if(cat==='all'||card.dataset.category===cat){
-      card.style.display='block';
-    } else {
-      card.style.display='none';
-    }
+    card.style.display=(cat==='all'||card.dataset.category===cat)?'block':'none';
   });
 }
 </script>

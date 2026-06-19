@@ -12,73 +12,8 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://chsstrengthclub.com/preview.webp">
 <link rel="canonical" href="https://chsstrengthclub.com/senior-strength.html">
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Oswald:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/global.css">
 <style>
-:root {
-  --red: #c0170f;
-  --red-bright: #e82017;
-  --black: #0d0d0d;
-  --near-black: #141414;
-  --charcoal: #1e1e1e;
-  --cream: #f0ece4;
-  --white: #ffffff;
-  --muted: #888;
-  --border: rgba(255,255,255,0.08);
-  --border-red: rgba(192,23,15,0.35);
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--black);
-  color: var(--cream);
-  font-family: "DM Sans", sans-serif;
-  font-weight: 300;
-  line-height: 1.75;
-}
-
-/* NAV */
-.site-nav {
-  background: var(--near-black);
-  border-bottom: 2px solid var(--red);
-  padding: 1.2rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-.nav-logo {
-  font-family: "Oswald", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--white);
-  text-decoration: none;
-}
-.nav-logo span { color: var(--red-bright); }
-.nav-links { display: flex; gap: 2rem; }
-.nav-links a {
-  font-family: "Oswald", sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(240,236,228,0.5);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--red-bright); }
-.nav-cta {
-  background: var(--red);
-  color: var(--white) !important;
-  padding: 0.5rem 1.2rem !important;
-}
-.nav-cta:hover { background: var(--red-bright); color: var(--white) !important; }
-
 /* HERO */
 .hero {
   background: var(--black);
@@ -537,30 +472,13 @@ body {
   line-height: 1.3;
 }
 
-/* FOOTER */
-.site-footer {
-  background: var(--near-black);
-  border-top: 1px solid var(--border-red);
-  padding: 2rem 3rem;
-  text-align: center;
-  font-family: "Oswald", sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.site-footer a { color: var(--muted); text-decoration: none; }
-.site-footer a:hover { color: var(--red-bright); }
-
 @media (max-width: 768px) {
-  .site-nav { padding: 1rem 1.5rem; }
   .hero { padding: 0 1.5rem 3rem; min-height: 80vh; }
   .section { padding: 3rem 1.5rem; }
   .program-grid { grid-template-columns: 1fr; }
   .price-grid { grid-template-columns: 1fr; }
   .related-grid { grid-template-columns: 1fr; }
   .related { padding: 2rem 1.5rem; }
-  .nav-links { display: none; }
 }
 </style>
 <meta name="twitter:card" content="summary_large_image">
@@ -600,17 +518,34 @@ body {
 </head>
 <body>
 
-<nav class="site-nav">
-  <a href="/index.html" class="nav-logo">Charleston <span>Strength</span> Club</a>
-  <div class="nav-links">
-    <a href="/index.html">Home</a>
-    <a href="/sport-performance.html">Sport Performance</a>
-    <a href="/senior-strength.html">Senior Strength</a>
-    <a href="/small-group-training-north-charleston.html">Strength Classes</a>
-    <a href="/blog/">Blog</a>
-    <a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Contact Adam</a>
-  </div>
+<nav>
+  <a href="/index.html" class="nav-logo">
+    <img src="/logo.png" alt="CHS Strength Club">
+    <span class="nav-logo-text">CHS Strength Club</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/index.html#programs">Programs</a></li>
+    <li><a href="/small-group-training-north-charleston.html">Strength Classes</a></li>
+    <li><a href="/sport-performance.html">Sport Performance</a></li>
+    <li><a href="/senior-strength.html" class="active">Senior Strength</a></li>
+    <li><a href="/locations/">Locations</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Book a Call</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="/index.html#programs" onclick="toggleMenu()">Programs</a>
+  <a href="/small-group-training-north-charleston.html" onclick="toggleMenu()">Strength Classes</a>
+  <a href="/sport-performance.html" onclick="toggleMenu()">Sport Performance</a>
+  <a href="/senior-strength.html" onclick="toggleMenu()">Senior Strength</a>
+  <a href="/locations/" onclick="toggleMenu()">Locations</a>
+  <a href="/blog/" onclick="toggleMenu()">Blog</a>
+  <a href="mailto:chsstrengthclub@gmail.com" class="mob-cta" onclick="toggleMenu()">Book a Call</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -789,15 +724,17 @@ body {
   </div>
 </div>
 
-<footer class="site-footer">
-  <a href="https://chsstrengthclub.com">chsstrengthclub.com</a> &nbsp;·&nbsp;
-  <a href="https://www.facebook.com/ChsStrengthClub">Facebook</a> &nbsp;·&nbsp;
-  <a href="https://www.instagram.com/chsstrengthclub/">Instagram</a> &nbsp;·&nbsp;
-  <a href="https://www.youtube.com/@chsstrengthclub/">YouTube</a> &nbsp;·&nbsp;
-  <a href="mailto:chsstrengthclub@gmail.com">chsstrengthclub@gmail.com</a>
-  <br><br>
-  © 2026 Charleston Strength Club · Decentralized Strength LLC · North Charleston, SC
+<footer>
+  <a href="/index.html" class="foot-logo"><img src="/logo.png" alt="logo"> Charleston Strength Club</a>
+  <p class="foot-copy">© 2026 Charleston Strength Club LLC · North Charleston, SC · <a href="mailto:chsstrengthclub@gmail.com" style="color:rgba(240,236,228,0.4);text-decoration:none;">chsstrengthclub@gmail.com</a></p>
+  <div class="foot-links">
+    <a href="https://www.instagram.com/chsstrengthclub/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/ChsStrengthClub" target="_blank">Facebook</a>
+    <a href="https://www.youtube.com/@chsstrengthclub/" target="_blank">YouTube</a>
+    <a href="https://decentralizedstrength.buzzsprout.com/" target="_blank">Podcast</a>
+  </div>
 </footer>
 
+<script src="/script.js"></script>
 </body>
 </html>

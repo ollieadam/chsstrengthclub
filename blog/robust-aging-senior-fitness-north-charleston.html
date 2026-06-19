@@ -15,27 +15,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Robust Aging: Why Traditional Senior Fitness Is Failing Older Adults in North Charleston">
 <meta name="twitter:description" content="Discover why traditional senior fitness isn't enough. Learn how Charleston Strength Club uses functional strength and robust training to help older adults stay independent and active.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/global.css">
 <style>
-:root{--red:#c0170f;--red-bright:#e82017;--black:#0d0d0d;--near-black:#141414;--muted:#777;--cream:#f0ece4;--white:#ffffff;--border:rgba(255,255,255,0.08);--border-red:rgba(192,23,15,0.35)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--cream);font-family:"DM Sans",sans-serif;font-weight:300;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;background:rgba(13,13,13,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-red)}
-.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
-.nav-logo-text{font-family:"Oswald",sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);line-height:1}
-.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
-.nav-links a{color:rgba(240,236,228,0.55);text-decoration:none;font-family:"Oswald",sans-serif;font-size:0.72rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;transition:color 0.2s}
-.nav-links a:hover{color:var(--red-bright)}
-.nav-cta{border:1px solid var(--red)!important;color:var(--red-bright)!important;padding:0.5rem 1.4rem}
-.nav-cta:hover{background:var(--red)!important;color:var(--white)!important}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none}
-.hamburger span{display:block;width:24px;height:1.5px;background:var(--cream)}
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:99;padding:6rem 2rem 2rem;flex-direction:column;gap:1.5rem}
-.mobile-menu.open{display:flex}
-.mobile-menu a{color:var(--cream);text-decoration:none;font-family:"Oswald",sans-serif;font-size:1.4rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:1rem}
 .post-header{padding:9rem 3rem 4rem;background:var(--black);border-bottom:1px solid var(--border-red)}
 .post-header-inner{max-width:800px;margin:0 auto}
 .breadcrumb{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1.5rem}
@@ -60,7 +41,7 @@ h1{font-family:"Black Han Sans",sans-serif;font-size:clamp(2rem,4.5vw,3.6rem);fo
 .post-body em{font-style:italic;color:rgba(240,236,228,0.5)}
 .post-rule{width:60px;height:2px;background:var(--red);margin:2.5rem 0}
 .pull-quote{border-left:3px solid var(--red);padding:1.2rem 1.8rem;margin:2rem 0;background:rgba(192,23,15,0.05)}
-.pull-quote p{font-family:"Playfair Display",serif;font-size:1.1rem;font-style:italic;color:var(--cream);margin:0;line-height:1.7}
+.pull-quote p{font-family:"DM Sans",sans-serif;font-size:1.1rem;font-style:italic;color:var(--cream);margin:0;line-height:1.7}
 .pull-quote cite{display:block;font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,236,228,0.35);margin-top:0.6rem;font-style:normal}
 .cta-box{background:var(--near-black);border:1px solid var(--border-red);padding:2.5rem;margin-top:3rem}
 .cta-box h3{font-family:"Oswald",sans-serif;font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem}
@@ -71,10 +52,7 @@ h1{font-family:"Black Han Sans",sans-serif;font-size:clamp(2rem,4.5vw,3.6rem);fo
 .back-bar{background:var(--near-black);border-top:1px solid var(--border-red);padding:1.5rem 3rem}
 .back-link{font-family:"Oswald",sans-serif;font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;display:inline-flex;align-items:center;gap:0.5rem;border:none!important}
 .back-link:hover{color:var(--red-bright)}
-footer{background:var(--near-black);border-top:1px solid var(--border-red);padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.footer-logo{font-family:"Oswald",sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white)}
-.footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.2);font-family:"Oswald",sans-serif;letter-spacing:0.1em}
-@media(max-width:768px){nav{padding:1rem 1.5rem}.nav-links{display:none}.hamburger{display:flex}.post-header{padding:7rem 1.5rem 3rem}.post-body{padding:3rem 1.5rem 4rem}.back-bar{padding:1.2rem 1.5rem}}
+@media(max-width:768px){.post-header{padding:7rem 1.5rem 3rem}.post-body{padding:3rem 1.5rem 4rem}.back-bar{padding:1.2rem 1.5rem}}
 </style>
   <meta property="og:site_name" content="Charleston Strength Club">
   <meta property="og:image" content="https://chsstrengthclub.com/robustaging.jpeg">
@@ -108,28 +86,31 @@ footer{background:var(--near-black);border-top:1px solid var(--border-red);paddi
 
 <nav>
   <a href="/index.html" class="nav-logo">
-    <span class="nav-logo-text">Charleston<br>Strength Club</span>
+    <img src="/logo.png" alt="CHS Strength Club">
+    <span class="nav-logo-text">CHS Strength Club</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/index.html">Home</a></li>
+    <li><a href="/index.html#programs">Programs</a></li>
     <li><a href="/small-group-training-north-charleston.html">Strength Classes</a></li>
     <li><a href="/sport-performance.html">Sport Performance</a></li>
     <li><a href="/senior-strength.html">Senior Strength</a></li>
+    <li><a href="/locations/">Locations</a></li>
     <li><a href="/blog/">Blog</a></li>
-    <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Get Started</a></li>
+    <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Book a Call</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="/index.html" onclick="toggleMenu()">Home</a>
+<div class="mob-menu" id="mobMenu">
+  <a href="/index.html#programs" onclick="toggleMenu()">Programs</a>
   <a href="/small-group-training-north-charleston.html" onclick="toggleMenu()">Strength Classes</a>
   <a href="/sport-performance.html" onclick="toggleMenu()">Sport Performance</a>
   <a href="/senior-strength.html" onclick="toggleMenu()">Senior Strength</a>
+  <a href="/locations/" onclick="toggleMenu()">Locations</a>
   <a href="/blog/" onclick="toggleMenu()">Blog</a>
-  <a href="mailto:chsstrengthclub@gmail.com">Email Adam</a>
+  <a href="mailto:chsstrengthclub@gmail.com" class="mob-cta" onclick="toggleMenu()">Book a Call</a>
 </div>
 
 <header class="post-header">
@@ -289,15 +270,19 @@ footer{background:var(--near-black);border-top:1px solid var(--border-red);paddi
 </div>
 
 <footer>
-  <div class="footer-logo">Charleston Strength Club</div>
-  <div style="display:flex;gap:1.5rem;">
-    <a href="https://www.facebook.com/ChsStrengthClub" target="_blank" style="color:rgba(240,236,228,0.4);font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-decoration:none;text-transform:uppercase;">Facebook</a>
-    <a href="https://www.instagram.com/chsstrengthclub/" target="_blank" style="color:rgba(240,236,228,0.4);font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-decoration:none;text-transform:uppercase;">Instagram</a>
-    <a href="https://www.youtube.com/@chsstrengthclub/" target="_blank" style="color:rgba(240,236,228,0.4);font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-decoration:none;text-transform:uppercase;">YouTube</a>
+  <a href="/index.html" class="foot-logo">
+    <img src="/logo.png" alt="CHS Strength Club">
+    <span>CHS Strength Club</span>
+  </a>
+  <span class="foot-copy">&copy; 2026 Charleston Strength Club &nbsp;·&nbsp; (978) 604-5920 &nbsp;·&nbsp; North Charleston, SC</span>
+  <div class="foot-links">
+    <a href="https://decentralizedstrength.buzzsprout.com" target="_blank">Podcast</a>
+    <a href="https://www.facebook.com/ChsStrengthClub" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/chsstrengthclub/" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/@chsstrengthclub/" target="_blank">YouTube</a>
   </div>
-  <span class="footer-copy">© 2026 Charleston Strength Club &nbsp;·&nbsp; (978) 604-5920 &nbsp;·&nbsp; North Charleston, SC</span>
 </footer>
 
-<script>function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}</script>
+<script src="/script.js"></script>
 </body>
 </html>
