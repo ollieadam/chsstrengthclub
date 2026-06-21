@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vertical Jump Calculator | AI Coaching Tools | Adam Oliver CSCS — CHS Strength Club</title>
+<meta name="description" content="Free vertical jump calculator for athletes and coaches. Enter jump height in cm, get inches + percentile by age, sex, and sport. Built by Adam Oliver, CSCS — a coach using AI to build free training tools.">
+<meta property="og:title" content="Vertical Jump Calculator | AI Coaching Tools | CHS Strength Club">
+<meta property="og:description" content="Free vertical jump calculator for athletes and coaches. Enter jump height in cm, get inches + percentile by age, sex, and sport.">
+<meta property="og:image" content="https://chsstrengthclub.com/preview.webp">
+<meta property="og:url" content="https://chsstrengthclub.com/coaching-ai-tools.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vertical Jump Calculator | AI Coaching Tools | CHS Strength Club">
+<meta name="twitter:description" content="Free vertical jump calculator for athletes and coaches. Enter jump height in cm, get inches + percentile by age, sex, and sport.">
+<meta name="twitter:image" content="https://chsstrengthclub.com/preview.webp">
+<link rel="canonical" href="https://chsstrengthclub.com/coaching-ai-tools.html">
+<link rel="stylesheet" href="/global.css">
+<style>
+
+.hero{min-height:60vh;background:var(--black);display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 4rem;position:relative;overflow:hidden;padding-top:80px}
+.hero-glow{position:absolute;top:-10%;left:-10%;width:60%;height:70%;background:radial-gradient(ellipse,rgba(192,23,15,0.1) 0%,transparent 65%);pointer-events:none}
+.hero-bg-word{position:absolute;bottom:-3rem;left:-0.05em;font-family:"Oswald",sans-serif;font-size:clamp(12rem,28vw,28rem);font-weight:700;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(192,23,15,0.06);letter-spacing:-0.04em;pointer-events:none;user-select:none;line-height:1}
+.hero-content{position:relative;max-width:780px}
+.hero-eyebrow{font-family:"Oswald",sans-serif;font-size:0.68rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1.2rem;display:flex;align-items:center;gap:1rem}
+.hero-eyebrow-line{width:36px;height:1px;background:var(--red);opacity:0.6}
+.hero-title{font-family:"Oswald",sans-serif;font-weight:700;text-transform:uppercase;line-height:0.87;letter-spacing:-0.02em;color:var(--white)}
+.hero-title .line1{font-size:clamp(3.5rem,9vw,8rem);display:block}
+.hero-title .line2{font-size:clamp(3.5rem,9vw,8rem);display:block;color:var(--red-bright)}
+.hero-title .line3{font-size:clamp(1.2rem,2.5vw,2.2rem);display:block;color:rgba(240,236,228,0.2);-webkit-text-stroke:1px rgba(240,236,228,0.15);margin-top:0.4rem;letter-spacing:0.08em}
+.hero-rule{width:60px;height:2px;background:var(--red);margin:1.5rem 0}
+.hero-sub{font-size:1rem;line-height:1.75;color:rgba(240,236,228,0.5);max-width:520px;margin-bottom:2rem}
+
+.coach-note{background:var(--near-black);border-left:3px solid var(--red);padding:1rem 1.5rem;margin:1.5rem 0 2.5rem;font-size:0.85rem;color:var(--muted);line-height:1.7;max-width:600px}
+.coach-note strong{color:var(--cream);font-weight:400}
+
+.tool-section{background:var(--near-black);padding:5rem 3rem;border-top:1px solid var(--border-red)}
+.tool-inner{max-width:720px;margin:0 auto}
+
+.calc-card{background:var(--charcoal);border:1px solid var(--border-red);padding:2.5rem 3rem;position:relative}
+.calc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red-dark),var(--red-bright))}
+.calc-card-title{font-family:"Black Han Sans",sans-serif;font-size:1.3rem;text-transform:uppercase;color:var(--white);margin-bottom:0.3rem;letter-spacing:0.02em}
+.calc-card-sub{font-size:0.8rem;color:var(--muted);margin-bottom:1.75rem}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0.75rem}
+.form-row.three{grid-template-columns:1fr 1fr 1fr}
+.form-group{margin-bottom:0.75rem}
+.form-group label{display:block;font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.3rem}
+.form-group input,.form-group select{width:100%;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--cream);padding:0.7rem 0.9rem;font-family:"DM Sans",sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;-webkit-appearance:none;border-radius:0}
+.form-group select option{background:var(--charcoal)}
+.form-group input:focus,.form-group select:focus{border-color:var(--red)}
+.form-group .unit-note{font-size:0.65rem;color:var(--muted);margin-top:0.2rem}
+.height-inputs{display:flex;gap:0.5rem;align-items:center}
+.height-inputs input{width:100%}
+.height-inputs span{color:var(--muted);font-size:0.75rem;font-family:"Oswald",sans-serif;text-transform:uppercase}
+
+.sex-group{display:flex;gap:1rem;margin-top:0.2rem}
+.sex-btn{flex:1;padding:0.7rem;text-align:center;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--muted);font-family:"Oswald",sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;-webkit-appearance:none;border-radius:0}
+.sex-btn:hover{border-color:var(--muted);color:var(--cream)}
+.sex-btn.active{border-color:var(--red);color:var(--red-bright);background:rgba(192,23,15,0.08)}
+
+.calc-btn{width:100%;margin-top:0.75rem;padding:0.9rem;background:var(--red);color:var(--white);font-family:"Oswald",sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s}
+.calc-btn:hover{background:var(--red-bright);transform:translateY(-1px);box-shadow:0 6px 24px rgba(192,23,15,0.35)}
+
+.results-card{display:none;margin-top:2rem;background:var(--near-black);border:1px solid var(--border-red);padding:2rem 2.5rem;position:relative}
+.results-card.visible{display:block}
+.results-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red-dark),var(--red-bright))}
+
+.result-primary{text-align:center;margin-bottom:1.75rem}
+.result-inches{font-family:"Black Han Sans",sans-serif;font-size:4rem;color:var(--red-bright);line-height:1;letter-spacing:-0.02em}
+.result-inches small{font-size:1rem;color:var(--muted);font-family:"Oswald",sans-serif;font-weight:400;letter-spacing:0.1em;text-transform:uppercase}
+.result-cm{font-size:0.8rem;color:var(--muted);margin-top:0.3rem}
+
+.result-percentile{text-align:center;margin-bottom:1.5rem}
+.percentile-num{font-family:"Black Han Sans",sans-serif;font-size:3.5rem;color:var(--white);line-height:1;letter-spacing:-0.02em}
+.percentile-label{font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(240,236,228,0.4);margin-top:0.2rem}
+
+.percentile-bar-wrap{background:rgba(255,255,255,0.06);height:8px;margin:0.5rem 0 0.2rem;position:relative}
+.percentile-bar-fill{height:100%;background:linear-gradient(90deg,var(--red-dark),var(--red-bright));transition:width 0.8s cubic-bezier(0.16,1,0.3,1);width:0}
+
+.percentile-labels{display:flex;justify-content:space-between;font-size:0.55rem;color:var(--muted);font-family:"Oswald",sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem}
+
+.rating-box{text-align:center;padding:1rem;border:1px solid var(--border);margin-top:0.5rem}
+.rating-label{font-family:"Oswald",sans-serif;font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--muted)}
+.rating-value{font-family:"Black Han Sans",sans-serif;font-size:1.8rem;text-transform:uppercase;color:var(--white);letter-spacing:0.02em;margin-top:0.15rem}
+
+.result-breakdown{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.04);margin-top:1.5rem}
+.stat-item{padding:1.2rem;text-align:center;background:rgba(255,255,255,0.02)}
+.stat-item-label{font-family:"Oswald",sans-serif;font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted)}
+.stat-item-val{font-family:"Oswald",sans-serif;font-size:1.1rem;font-weight:600;color:var(--cream);margin-top:0.15rem}
+
+.disclaimer{font-size:0.68rem;color:var(--muted);text-align:center;margin-top:1.5rem;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto}
+
+.other-tools{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.04);margin-top:2rem}
+.other-tool-card{background:var(--near-black);padding:2rem;text-align:center;transition:background 0.3s}
+.other-tool-card:hover{background:rgba(192,23,15,0.04)}
+.other-tool-icon{font-size:2rem;margin-bottom:0.5rem;opacity:0.3}
+.other-tool-name{font-family:"Black Han Sans",sans-serif;font-size:1rem;text-transform:uppercase;color:var(--white);letter-spacing:0.02em}
+.other-tool-desc{font-size:0.78rem;color:var(--muted);margin-top:0.4rem;line-height:1.5}
+.other-tool-status{font-family:"Oswald",sans-serif;font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--red-bright);margin-top:0.7rem}
+
+@media(max-width:768px){
+  .hero{padding:5rem 1.5rem 3rem}
+  .hero-bg-word{display:none}
+  .tool-section{padding:3rem 1.5rem}
+  .calc-card{padding:1.5rem}
+  .form-row{grid-template-columns:1fr}
+  .form-row.three{grid-template-columns:1fr}
+  .result-inches{font-size:3rem}
+  .percentile-num{font-size:2.5rem}
+  .result-breakdown{grid-template-columns:1fr}
+  .result-breakdown .stat-item{border-bottom:1px solid rgba(255,255,255,0.04)}
+  .result-breakdown .stat-item:last-child{border-bottom:none}
+  .other-tools{grid-template-columns:1fr}
+}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Vertical Jump Calculator",
+  "description": "Free vertical jump calculator for athletes and coaches. Converts cm to inches and shows percentile by age, sex, and sport.",
+  "url": "https://chsstrengthclub.com/coaching-ai-tools.html",
+  "applicationCategory": "SportsApplication",
+  "operatingSystem": "All",
+  "author": {
+    "@type": "Person",
+    "name": "Adam Oliver",
+    "knowsAbout": ["Strength and Conditioning", "CSCS", "Sports Performance"]
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0"
+  }
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/index.html" class="nav-logo">
+    <img src="/logo.png" alt="CHS Strength Club">
+    <span class="nav-logo-text">CHS Strength Club</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/index.html#programs">Programs</a></li>
+    <li><a href="/small-group-training-north-charleston.html">Strength Classes</a></li>
+    <li><a href="/sport-performance.html">Sport Performance</a></li>
+    <li><a href="/senior-strength.html">Senior Strength</a></li>
+    <li><a href="/locations/">Locations</a></li>
+    <li><a href="/coaching-ai-tools.html" class="active">AI Tools</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Book a Call</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="/index.html#programs" onclick="toggleMenu()">Programs</a>
+  <a href="/small-group-training-north-charleston.html" onclick="toggleMenu()">Strength Classes</a>
+  <a href="/sport-performance.html" onclick="toggleMenu()">Sport Performance</a>
+  <a href="/senior-strength.html" onclick="toggleMenu()">Senior Strength</a>
+  <a href="/locations/" onclick="toggleMenu()">Locations</a>
+  <a href="/coaching-ai-tools.html" onclick="toggleMenu()">AI Tools</a>
+  <a href="/blog/" onclick="toggleMenu()">Blog</a>
+  <a href="mailto:chsstrengthclub@gmail.com" class="mob-cta" onclick="toggleMenu()">Book a Call</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-bg-word">TOOLS</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      Coaching AI Tools
+    </div>
+    <h1 class="hero-title">
+      <span class="line1">Vertical Jump</span>
+      <span class="line2">Calculator.</span>
+      <span class="line3">Free tool for athletes & coaches</span>
+    </h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Enter your jump height from any tester &mdash; we&rsquo;ll convert cm to inches and show your percentile by age, sex, and sport.</p>
+    <div class="coach-note">
+      <strong>Built by Adam Oliver, CSCS</strong> &mdash; a coach using AI to create free tools for athletes and coaches. Adam combines CSCS-certified training with AI-assisted tool building.
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="tool-section">
+  <div class="tool-inner">
+    <div class="reveal">
+      <div class="calc-card">
+        <div class="calc-card-title">Jump Calculator</div>
+        <div class="calc-card-sub">Fill in the athlete&rsquo;s info and jump result.</div>
+
+        <form id="jumpForm" onsubmit="return calculateJump(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Weight</label>
+              <input type="number" id="weight" placeholder="lbs" min="40" max="500" required>
+            </div>
+            <div class="form-group">
+              <label>Age</label>
+              <input type="number" id="age" placeholder="Years" min="8" max="80" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Height</label>
+              <div class="height-inputs">
+                <input type="number" id="heightFt" placeholder="ft" min="3" max="8" required>
+                <span>ft</span>
+                <input type="number" id="heightIn" placeholder="in" min="0" max="11" required>
+                <span>in</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Sex</label>
+              <div class="sex-group">
+                <button type="button" class="sex-btn" data-sex="male" onclick="setSex('male')">Male</button>
+                <button type="button" class="sex-btn" data-sex="female" onclick="setSex('female')">Female</button>
+              </div>
+              <input type="hidden" id="sex" value="">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Sport</label>
+              <select id="sport">
+                <option value="general">General Athlete</option>
+                <option value="basketball">Basketball</option>
+                <option value="football">Football</option>
+                <option value="soccer">Soccer</option>
+                <option value="baseball">Baseball / Softball</option>
+                <option value="track">Track & Field</option>
+                <option value="volleyball">Volleyball</option>
+                <option value="hockey">Hockey</option>
+                <option value="lacrosse">Lacrosse</option>
+                <option value="wrestling">Wrestling</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Jump Height</label>
+              <input type="number" id="jumpCm" placeholder="cm" min="1" max="150" step="0.1" required>
+              <div class="unit-note">Enter the value from your tester &mdash; we&rsquo;ll convert to inches</div>
+            </div>
+          </div>
+
+          <button type="submit" class="calc-btn">Calculate</button>
+        </form>
+
+        <!-- RESULTS -->
+        <div class="results-card" id="results">
+          <div class="result-primary">
+            <div class="result-inches" id="resultInches">0.0 <small>in</small></div>
+            <div class="result-cm" id="resultCm">0.0 cm entered</div>
+          </div>
+
+          <div class="result-percentile">
+            <div class="percentile-num" id="resultPercentile">0th</div>
+            <div class="percentile-label">Percentile vs. athletes your age</div>
+            <div class="percentile-bar-wrap">
+              <div class="percentile-bar-fill" id="percentileBar"></div>
+            </div>
+            <div class="percentile-labels">
+              <span>0th</span>
+              <span>25th</span>
+              <span>50th</span>
+              <span>75th</span>
+              <span>100th</span>
+            </div>
+          </div>
+
+          <div class="rating-box">
+            <div class="rating-label">Rating</div>
+            <div class="rating-value" id="resultRating">Average</div>
+          </div>
+
+          <div class="result-breakdown">
+            <div class="stat-item">
+              <div class="stat-item-label">Sport</div>
+              <div class="stat-item-val" id="resultSport">&mdash;</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item-label">Age Group</div>
+              <div class="stat-item-val" id="resultAgeGroup">&mdash;</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item-label">Sex</div>
+              <div class="stat-item-val" id="resultSex">&mdash;</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="disclaimer">Percentiles are based on published normative data for vertical jump by age and sex, adjusted for sport. These are general reference values, not clinical or diagnostic standards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE TOOLS -->
+<section class="tool-section" style="border-top:none;padding-top:0">
+  <div class="tool-inner reveal">
+    <p class="eyebrow" style="justify-content:center;margin-bottom:1.5rem">More Tools Coming Soon</p>
+    <div class="other-tools">
+      <div class="other-tool-card">
+        <div class="other-tool-icon">&#916;</div>
+        <div class="other-tool-name">Sprint Speed Converter</div>
+        <div class="other-tool-desc">Convert sprint times between hand-timed, FAT, and various distances.</div>
+        <div class="other-tool-status">Coming soon</div>
+      </div>
+      <div class="other-tool-card">
+        <div class="other-tool-icon">&#8477;</div>
+        <div class="other-tool-name">1RM Calculator</div>
+        <div class="other-tool-desc">Estimate your one-rep max from sub-maximal sets.</div>
+        <div class="other-tool-status">Coming soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/index.html" class="foot-logo"><img loading="lazy" src="/logo.png" alt="logo"> Charleston Strength Club</a>
+  <p class="foot-copy">&copy; 2026 Charleston Strength Club LLC &middot; North Charleston, SC &middot; <a href="mailto:chsstrengthclub@gmail.com" style="color:rgba(240,236,228,0.4);text-decoration:none;">chsstrengthclub@gmail.com</a></p>
+  <div class="foot-links">
+    <a href="https://www.instagram.com/chsstrengthclub/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/ChsStrengthClub" target="_blank">Facebook</a>
+    <a href="https://www.youtube.com/@chsstrengthclub/" target="_blank">YouTube</a>
+    <a href="https://decentralizedstrength.buzzsprout.com/" target="_blank">Podcast</a>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+<script>
+
+let selectedSex = '';
+
+function setSex(val) {
+  selectedSex = val;
+  document.querySelectorAll('.sex-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.sex-btn[data-sex="${val}"]`).classList.add('active');
+  document.getElementById('sex').value = val;
+}
+
+const norms = {
+  male: {
+    '8-9':    { mean: 8.0,  sd: 2.5 },
+    '10-12':  { mean: 9.5,  sd: 3.0 },
+    '13-15':  { mean: 14.0, sd: 4.0 },
+    '16-18':  { mean: 16.0, sd: 4.5 },
+    '19-29':  { mean: 18.0, sd: 5.0 },
+    '30-39':  { mean: 16.0, sd: 4.5 },
+    '40-49':  { mean: 13.5, sd: 4.0 },
+    '50-59':  { mean: 11.0, sd: 3.5 },
+    '60-80':  { mean: 9.0,  sd: 3.0 }
+  },
+  female: {
+    '8-9':    { mean: 7.0,  sd: 2.0 },
+    '10-12':  { mean: 8.0,  sd: 2.5 },
+    '13-15':  { mean: 11.5, sd: 3.5 },
+    '16-18':  { mean: 13.0, sd: 3.5 },
+    '19-29':  { mean: 14.0, sd: 4.0 },
+    '30-39':  { mean: 12.5, sd: 3.5 },
+    '40-49':  { mean: 10.5, sd: 3.0 },
+    '50-59':  { mean: 8.5,  sd: 2.5 },
+    '60-80':  { mean: 7.0,  sd: 2.5 }
+  }
+};
+
+const sportAdjust = {
+  basketball:  5,
+  volleyball:  4,
+  track:       3,
+  football:    2,
+  soccer:      1,
+  hockey:      1,
+  lacrosse:    1,
+  wrestling:   1,
+  baseball:    0,
+  general:     0
+};
+
+const sportLabels = {
+  basketball:  'Basketball',
+  volleyball:  'Volleyball',
+  track:       'Track & Field',
+  football:    'Football',
+  soccer:      'Soccer',
+  hockey:      'Hockey',
+  lacrosse:    'Lacrosse',
+  wrestling:   'Wrestling',
+  baseball:    'Baseball / Softball',
+  general:     'General Athlete'
+};
+
+const sexLabels = { male: 'Male', female: 'Female' };
+
+function getAgeGroup(age) {
+  if (age <= 9) return '8-9';
+  if (age <= 12) return '10-12';
+  if (age <= 15) return '13-15';
+  if (age <= 18) return '16-18';
+  if (age <= 29) return '19-29';
+  if (age <= 39) return '30-39';
+  if (age <= 49) return '40-49';
+  if (age <= 59) return '50-59';
+  return '60-80';
+}
+
+function zToPercentile(z) {
+  return Math.round(0.5 * (1 + erf(z / Math.SQRT2)) * 100);
+}
+
+function erf(x) {
+  const a1 = 0.254829592;
+  const a2 = -0.284496736;
+  const a3 = 1.421413741;
+  const a4 = -1.453152027;
+  const a5 = 1.061405429;
+  const p = 0.3275911;
+  const sign = x < 0 ? -1 : 1;
+  x = Math.abs(x);
+  const t = 1 / (1 + p * x);
+  const y = 1 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+  return sign * y;
+}
+
+function getRating(pct) {
+  if (pct >= 95) return 'Excellent';
+  if (pct >= 75) return 'Above Average';
+  if (pct >= 25) return 'Average';
+  if (pct >= 10) return 'Below Average';
+  return 'Poor';
+}
+
+function calculateJump(e) {
+  e.preventDefault();
+
+  const weight = parseFloat(document.getElementById('weight').value);
+  const age = parseInt(document.getElementById('age').value);
+  const heightFt = parseInt(document.getElementById('heightFt').value);
+  const heightIn = parseInt(document.getElementById('heightIn').value);
+  const sex = selectedSex;
+  const sport = document.getElementById('sport').value;
+  const jumpCm = parseFloat(document.getElementById('jumpCm').value);
+
+  if (!sex) { alert('Please select Male or Female.'); return false; }
+
+  const jumpIn = jumpCm / 2.54;
+  const ageGroup = getAgeGroup(age);
+  const norm = norms[sex][ageGroup];
+  const z = (jumpIn - norm.mean) / norm.sd;
+  let pct = zToPercentile(z);
+  const adj = sportAdjust[sport] || 0;
+  pct = Math.min(100, Math.max(1, pct + adj));
+  const rating = getRating(pct);
+
+  document.getElementById('resultInches').innerHTML = jumpIn.toFixed(1) + ' <small>in</small>';
+  document.getElementById('resultCm').textContent = jumpCm + ' cm entered';
+  document.getElementById('resultPercentile').textContent = pct + 'th';
+  document.getElementById('percentileBar').style.width = pct + '%';
+  document.getElementById('resultRating').textContent = rating;
+  document.getElementById('resultSport').textContent = sportLabels[sport] || 'General Athlete';
+  document.getElementById('resultAgeGroup').textContent = ageGroup;
+  document.getElementById('resultSex').textContent = sexLabels[sex];
+
+  document.getElementById('results').classList.add('visible');
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  return false;
+}
+
+</script>
+</body>
+</html>
