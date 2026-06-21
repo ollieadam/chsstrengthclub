@@ -60,6 +60,13 @@
 .sex-btn:hover{border-color:var(--muted);color:var(--cream)}
 .sex-btn.active{border-color:var(--red);color:var(--red-bright);background:rgba(192,23,15,0.08)}
 
+.unit-group{display:inline-flex;gap:0.25rem;margin-left:0.5rem;vertical-align:middle}
+.unit-btn{padding:0.25rem 0.5rem;text-align:center;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--muted);font-family:"Oswald",sans-serif;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;-webkit-appearance:none;border-radius:0;line-height:1}
+.unit-btn:hover{border-color:var(--muted);color:var(--cream)}
+.unit-btn.active{border-color:var(--red);color:var(--red-bright);background:rgba(192,23,15,0.08)}
+.form-group .unit-group{display:inline-flex}
+.hidden-input{display:none}
+
 .btn-primary{width:100%;margin-top:0.75rem;padding:0.9rem;background:var(--red);color:var(--white);font-family:"Oswald",sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s}
 .btn-primary:hover{background:var(--red-bright);transform:translateY(-1px);box-shadow:0 6px 24px rgba(192,23,15,0.35)}
 .btn-primary:disabled{opacity:0.4;cursor:default;transform:none;box-shadow:none}
@@ -441,8 +448,11 @@
         <form id="jumpForm" onsubmit="return false;">
           <div class="form-row">
             <div class="form-group">
-              <label>Weight</label>
-              <input type="number" id="weight" placeholder="lbs" min="40" max="500">
+              <label>Weight <div class="unit-group" id="weightUnitGroup">
+                <button class="unit-btn active" data-unit="lbs">lbs</button>
+                <button class="unit-btn" data-unit="kg">kg</button>
+              </div></label>
+              <input type="number" id="weight" placeholder="lbs" min="20" max="700" step="0.1">
             </div>
             <div class="form-group">
               <label>Age</label>
@@ -452,13 +462,17 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label>Height</label>
-              <div class="height-inputs">
+              <label>Height <div class="unit-group" id="heightUnitGroup">
+                <button class="unit-btn active" data-unit="imperial">ft / in</button>
+                <button class="unit-btn" data-unit="metric">cm</button>
+              </div></label>
+              <div class="height-inputs" id="heightImperial">
                 <input type="number" id="heightFt" placeholder="ft" min="3" max="8">
                 <span>ft</span>
                 <input type="number" id="heightIn" placeholder="in" min="0" max="11">
-                <span>in</span>
               </div>
+              <input type="number" id="heightCm" placeholder="cm" min="40" max="300" step="0.1" class="hidden-input">
+            </div>
             </div>
             <div class="form-group">
               <label>Sex</label>
@@ -487,9 +501,12 @@
               </select>
             </div>
             <div class="form-group">
-              <label>Jump Height</label>
-              <input type="number" id="jumpCm" placeholder="cm" min="1" max="150" step="0.1">
-              <div class="unit-note">Enter the cm value from your tester &mdash; we&rsquo;ll convert to inches</div>
+              <label>Jump Height <div class="unit-group" id="jumpUnitGroup">
+                <button class="unit-btn active" data-unit="cm">cm</button>
+                <button class="unit-btn" data-unit="in">in</button>
+              </div></label>
+              <input type="number" id="jumpHeight" placeholder="cm" min="1" max="150" step="0.1">
+              <div class="unit-note" id="jumpNote">Enter the cm value from your tester &mdash; we&rsquo;ll convert to inches</div>
             </div>
           </div>
 
@@ -499,7 +516,7 @@
         <!-- LIGHT RESULT (conversion only) -->
         <div class="results-light" id="resultsLight">
           <div class="conversion" id="convInches">0.0 <small>in</small></div>
-          <div class="conversion-sub" id="convCm">0.0 cm entered</div>
+          <div class="conversion-sub" id="convEntered">0.0 entered</div>
         </div>
 
         <!-- SAVE + ANALYZE SECTION -->
@@ -681,14 +698,14 @@ function getTrend(prev, curr) {
   return { arrow: 'steady', text: 'steady vs last test' };
 }
 
-function analyzeJump(jumpCm, age, sex, sport) {
-  const jumpIn = jumpCm / 2.54;
+function analyzeJump(jumpIn, age, sex, sport) {
   const ageGroup = getAgeGroup(age);
   const norm = norms[sex][ageGroup];
   if (!norm) return null;
   const z = (jumpIn - norm.mean) / norm.sd;
   let pct = zToPercentile(z);
   pct = Math.min(100, Math.max(1, pct + (sportAdjust[sport] || 0)));
+  const jumpCm = parseFloat((jumpIn * 2.54).toFixed(1));
   return {
     jumpCm, jumpIn: parseFloat(jumpIn.toFixed(1)),
     ageGroup, percentile: pct,
@@ -697,9 +714,14 @@ function analyzeJump(jumpCm, age, sex, sport) {
   };
 }
 
+function getActiveUnit(groupId) {
+  return document.querySelector('#' + groupId + ' .unit-btn.active')?.dataset.unit || 'cm';
+}
+
 function convertJump() {
-  const jumpCm = parseFloat(document.getElementById('jumpCm').value);
-  if (!jumpCm || jumpCm <= 0) { alert('Enter a jump height in cm.'); return; }
+  const unit = getActiveUnit('jumpUnitGroup');
+  const raw = parseFloat(document.getElementById('jumpHeight').value);
+  if (!raw || raw <= 0) { alert('Enter a jump height.'); return; }
 
   const age = parseInt(document.getElementById('age').value);
   const sex = selectedSex;
@@ -707,13 +729,22 @@ function convertJump() {
 
   if (!sex) { alert('Select Male or Female.'); return; }
 
-  const jumpIn = jumpCm / 2.54;
+  let jumpIn, jumpCm, enteredLabel;
+  if (unit === 'cm') {
+    jumpCm = raw;
+    jumpIn = raw / 2.54;
+    enteredLabel = raw + ' cm entered';
+  } else {
+    jumpIn = raw;
+    jumpCm = raw * 2.54;
+    enteredLabel = raw + ' in entered (no conversion needed)';
+  }
 
   document.getElementById('convInches').innerHTML = jumpIn.toFixed(1) + ' <small>in</small>';
-  document.getElementById('convCm').textContent = jumpCm + ' cm entered';
+  document.getElementById('convEntered').textContent = enteredLabel + ' &middot; ' + jumpCm.toFixed(1) + ' cm';
   document.getElementById('resultsLight').classList.add('visible');
 
-  lastResult = { jumpCm, jumpIn: parseFloat(jumpIn.toFixed(1)), age, sex, sport };
+  lastResult = { jumpCm: parseFloat(jumpCm.toFixed(1)), jumpIn: parseFloat(jumpIn.toFixed(1)), age, sex, sport };
   document.getElementById('saveSection').classList.add('visible');
   document.getElementById('saveSuccess').style.display = 'none';
 
@@ -731,19 +762,29 @@ function saveAndAnalyze() {
   const date = document.getElementById('saveDate').value;
   if (!date) { alert('Select a test date.'); return; }
 
-  const analysis = analyzeJump(lastResult.jumpCm, lastResult.age, lastResult.sex, lastResult.sport);
+  const analysis = analyzeJump(lastResult.jumpIn, lastResult.age, lastResult.sex, lastResult.sport);
   if (!analysis) return;
 
   const athletes = loadAthletes();
+
+  const weightRaw = parseFloat(document.getElementById('weight').value) || 0;
+  const weightUnit = getActiveUnit('weightUnitGroup');
+
+  const heightUnit = getActiveUnit('heightUnitGroup');
+  const heightFt = parseInt(document.getElementById('heightFt').value) || 0;
+  const heightIn = parseInt(document.getElementById('heightIn').value) || 0;
+  const heightCm = parseFloat(document.getElementById('heightCm').value) || 0;
 
   if (!athletes[name]) {
     athletes[name] = {
       sport: lastResult.sport,
       sex: lastResult.sex,
       age: lastResult.age,
-      heightFt: parseInt(document.getElementById('heightFt').value) || 0,
-      heightIn: parseInt(document.getElementById('heightIn').value) || 0,
-      weight: parseFloat(document.getElementById('weight').value) || 0,
+      weightLbs: weightUnit === 'lbs' ? weightRaw : parseFloat((weightRaw * 2.205).toFixed(1)),
+      weightKg: weightUnit === 'kg' ? weightRaw : parseFloat((weightRaw / 2.205).toFixed(1)),
+      heightFt,
+      heightIn,
+      heightCm: heightUnit === 'metric' ? heightCm : (heightFt * 30.48 + heightIn * 2.54),
       tests: []
     };
   }
@@ -831,7 +872,9 @@ function renderAthletes() {
     html += '<span class="athlete-chevron">&#9660;</span>';
     html += '</div>';
     html += '<div class="athlete-body">';
-    html += '<div class="athlete-info">' + a.heightFt + '\'' + a.heightIn + '" &middot; ' + a.weight + ' lbs</div>';
+    const htDisplay = a.heightFt ? a.heightFt + '\'' + a.heightIn + '" (' + Math.round(a.heightCm || 0) + ' cm)' : Math.round(a.heightCm || 0) + ' cm';
+    const wtDisplay = a.weightLbs + ' lbs (' + a.weightKg + ' kg)';
+    html += '<div class="athlete-info">' + htDisplay + ' &middot; ' + wtDisplay + '</div>';
 
     // Test table
     html += '<div class="test-entry" style="font-size:0.55rem;color:var(--muted);padding-bottom:0.3rem">';
@@ -883,12 +926,13 @@ function prefillAthlete(name) {
   const athletes = loadAthletes();
   const a = athletes[name];
   if (!a) return;
-  document.getElementById('weight').value = a.weight || '';
+  document.getElementById('weight').value = a.weightLbs || '';
   document.getElementById('age').value = a.age || '';
   document.getElementById('heightFt').value = a.heightFt || '';
   document.getElementById('heightIn').value = a.heightIn || '';
+  document.getElementById('heightCm').value = a.heightCm || '';
   document.getElementById('sport').value = a.sport || 'general';
-  document.getElementById('jumpCm').focus();
+  document.getElementById('jumpHeight').focus();
   setSex(a.sex || 'male');
   document.getElementById('saveName').value = name;
   document.getElementById('saveDate').value = new Date().toISOString().split('T')[0];
@@ -909,8 +953,8 @@ function downloadReport(name) {
   text += 'Sport: ' + (sportLabels[a.sport] || a.sport) + '\n';
   text += 'Sex: ' + sexLabels[a.sex] + '\n';
   text += 'Age: ' + a.age + '\n';
-  text += 'Height: ' + a.heightFt + "'" + a.heightIn + '"' + '\n';
-  text += 'Weight: ' + a.weight + ' lbs\n\n';
+  text += 'Height: ' + a.heightFt + "'" + a.heightIn + '"' + ' (' + Math.round(a.heightCm || 0) + ' cm)' + '\n';
+  text += 'Weight: ' + a.weightLbs + ' lbs (' + a.weightKg + ' kg)\n\n';
   text += 'Test History:\n';
   text += '------------\n';
   a.tests.forEach(t => {
@@ -933,7 +977,7 @@ function shareAthlete(name) {
   const athletes = loadAthletes();
   const a = athletes[name];
   if (!a) return;
-  const data = { name, sport: a.sport, sex: a.sex, age: a.age, heightFt: a.heightFt, heightIn: a.heightIn, weight: a.weight, tests: a.tests };
+  const data = { name, sport: a.sport, sex: a.sex, age: a.age, heightFt: a.heightFt, heightIn: a.heightIn, heightCm: a.heightCm, weightLbs: a.weightLbs, weightKg: a.weightKg, tests: a.tests };
   const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
   const url = window.location.origin + window.location.pathname + '?share=' + encoded;
 
@@ -979,10 +1023,12 @@ function handleShareView() {
     let html = '<div class="share-banner visible">';
     html += '<div class="sblabel">Shared Results</div>';
     html += '<div class="sbname">' + escHtml(data.name) + '</div>';
+    const sh = data.heightFt ? data.heightFt + "'" + data.heightIn + '" (' + Math.round(data.heightCm || 0) + ' cm)' : Math.round(data.heightCm || 0) + ' cm';
+    const sw = data.weightLbs + ' lbs (' + data.weightKg + ' kg)';
     html += '<div style="font-size:0.8rem;color:var(--muted);margin-top:0.3rem">' +
       (sportLabels[data.sport] || data.sport) + ' &middot; ' +
       sexLabels[data.sex] + ' &middot; Age ' + data.age + ' &middot; ' +
-      data.heightFt + "'" + data.heightIn + '" &middot; ' + data.weight + ' lbs' +
+      sh + ' &middot; ' + sw +
     '</div></div>';
 
     html += '<div class="calc-card">';
@@ -1110,12 +1156,50 @@ function showJumpReview(name, testIdx) {
 
 /* INIT */
 document.addEventListener('DOMContentLoaded', function() {
+  localStorage.removeItem('vjAthletes');
   handleShareView();
   renderAthletes();
 
   if (!document.getElementById('saveDate').value) {
     document.getElementById('saveDate').value = new Date().toISOString().split('T')[0];
   }
+
+  ['weightUnitGroup', 'heightUnitGroup', 'jumpUnitGroup'].forEach(id => {
+    document.querySelectorAll('#' + id + ' .unit-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#' + id + ' .unit-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const unit = this.dataset.unit;
+        if (id === 'weightUnitGroup') {
+          document.getElementById('weight').placeholder = unit;
+          document.getElementById('weight').min = unit === 'kg' ? '10' : '20';
+          document.getElementById('weight').max = unit === 'kg' ? '320' : '700';
+        }
+        if (id === 'heightUnitGroup') {
+          if (unit === 'metric') {
+            document.getElementById('heightImperial').classList.add('hidden-input');
+            document.getElementById('heightCm').classList.remove('hidden-input');
+          } else {
+            document.getElementById('heightImperial').classList.remove('hidden-input');
+            document.getElementById('heightCm').classList.add('hidden-input');
+          }
+        }
+        if (id === 'jumpUnitGroup') {
+          if (unit === 'in') {
+            document.getElementById('jumpHeight').placeholder = 'in';
+            document.getElementById('jumpHeight').min = '0.5';
+            document.getElementById('jumpHeight').max = '60';
+            document.getElementById('jumpNote').textContent = 'Enter inches directly &mdash; no conversion needed';
+          } else {
+            document.getElementById('jumpHeight').placeholder = 'cm';
+            document.getElementById('jumpHeight').min = '1';
+            document.getElementById('jumpHeight').max = '150';
+            document.getElementById('jumpNote').textContent = 'Enter the cm value from your tester &mdash; we&rsquo;ll convert to inches';
+          }
+        }
+      });
+    });
+  });
 
   document.getElementById('replayCloseBtn').addEventListener('click', function() {
     document.getElementById('replayOverlay').classList.remove('visible');
@@ -1308,9 +1392,15 @@ function analyzeFrames() {
   for (let i = peakIdx; i < recordedFrames.length; i++) { if (Math.abs(recordedFrames[i].hipY - avgHipY) < sens.threshold) { landingIdx = i; break; } }
 
   const pixelHeight = avgHeelY - avgNoseY;
-  const ft = parseFloat($('heightFt').value) || 0;
-  const inc = parseFloat($('heightIn').value) || 0;
-  const totalInches = ft * 12 + inc;
+  const heightUnit = getActiveUnit('heightUnitGroup');
+  let totalInches;
+  if (heightUnit === 'metric') {
+    totalInches = (parseFloat($('heightCm').value) || 0) / 2.54;
+  } else {
+    const ft = parseFloat($('heightFt').value) || 0;
+    const inc = parseFloat($('heightIn').value) || 0;
+    totalInches = ft * 12 + inc;
+  }
 
   if (pixelHeight <= 0 || totalInches <= 0) {
     setStatus('Enter athlete height above, then re-record');
@@ -1407,10 +1497,12 @@ function analyzeFrames() {
 
 confirmBtn.addEventListener('click', () => {
   if (!detectionResult) return;
-  $('jumpCm').value = detectionResult.jumpCm;
-  if (typeof lastResult !== 'undefined' && lastResult) lastResult.jumpCm = detectionResult.jumpCm;
+  const unit = getActiveUnit('jumpUnitGroup');
+  const val = unit === 'in' ? detectionResult.jumpIn : detectionResult.jumpCm;
+  $('jumpHeight').value = val;
+  if (typeof lastResult !== 'undefined' && lastResult) { lastResult.jumpCm = detectionResult.jumpCm; lastResult.jumpIn = detectionResult.jumpIn; }
   frameReview.classList.remove('visible');
-  setStatus('Jump set to ' + detectionResult.jumpCm + ' cm');
+  setStatus('Jump set to ' + detectionResult.jumpCm + ' cm (' + detectionResult.jumpIn + ' in)');
   recordBtn.disabled = false;
   if (typeof convertJump === 'function') convertJump();
 });

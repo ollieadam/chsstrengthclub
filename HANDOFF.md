@@ -197,7 +197,6 @@ Added "AI Tools" link to main nav + mobile menu on all 5 main pages:
 {
   "vjAthletes": {
     "Adam O": {
-      "email": "adam@example.com",
       "sport": "basketball",
       "sex": "male",
       "age": 16,
@@ -216,7 +215,7 @@ Added "AI Tools" link to main nav + mobile menu on all 5 main pages:
 - Two-step flow: "Convert & Analyze" button first (shows inches), then "Save Test & Analyze My Results" (saves + shows full analysis)
 - No backend — all data lives in browser localStorage
 - Share URLs use base64-encoded JSON in query param (no server required)
-- No email integration (decided against EmailJS — keep it simple)
+- Email field removed entirely (privacy) — users download report or share profile link instead
 - Page matches existing dark theme (Oswald/Black Han Sans/DM Sans, red accents, noise overlay)
 - "Coming soon" cards signal this is the first of multiple tools
 
@@ -337,3 +336,86 @@ TestEntry now optionally includes:
 - **Camera switch fails**: Falls back to default camera via `startCamera()`
 - **No camera data on save**: `saveAndAnalyze()` works normally without cameraData
 - **Review on deleted athlete data**: `showJumpReview()` checks athlete exists and has cameraData
+
+---
+
+## Session: Remove Email Field (2026-06-21)
+
+### Changes
+- Removed the email input from the save section in `coaching-ai-tools.html`
+- Stripped all email references from JS: `saveAndAnalyze()`, `prefillAthlete()`, athlete card display, `downloadReport()`, and `shareAthlete()`
+- Updated `HANDOFF.md` data model example to remove `email` field
+
+### Rationale
+- Privacy: no email collection means no data exposure risk
+- Users can still download a report (plain text) or share a profile link (base64 in URL param)
+
+### Storage
+- Existing localStorage entries may still contain `email` keys on users' browsers — they're ignored by the updated code
+- No migration needed; stale `email` values are harmless
+
+---
+
+## Session: Metric/Imperial Unit Toggles for All Measurements (2026-06-21)
+
+### What Changed
+All in `coaching-ai-tools.html`:
+
+**Unit Toggles Added (inline buttons like Male/Female selector):**
+- **Weight**: lbs ↔ kg toggle next to label
+- **Height**: ft/in ↔ cm toggle next to label (switches between dual ft/in inputs and single cm input)
+- **Jump Height**: cm ↔ in toggle next to label
+
+**Behavior:**
+- Each toggle switches the input placeholder, min/max, and helper text
+- Weight: lbs range 20-700, kg range 10-320
+- Height: Imperial shows ft+in, metric shows single cm input
+- Jump height: cm mode "Enter cm from tester — we'll convert to inches", in mode "Enter inches directly — no conversion needed"
+
+**Dual-Unit Display Everywhere:**
+- Light results card: shows both inches (large) and cm (small)
+- Full analysis card: shows both jumpIn and jumpCm
+- Athlete list cards: height as `6'2" (188 cm)`, weight as `185 lbs (83.9 kg)`
+- Test history table: both cm and in columns (unchanged)
+- Download report: height `6'2" (188 cm)`, weight `185 lbs (83.9 kg)`
+- Share view: both units in banner and table
+- Camera detection: respects height unit for pixel-to-inch scaling
+
+**Storage Format (canonical both units):**
+```json
+{
+  "vjAthletes": {
+    "Athlete Name": {
+      "sport": "basketball",
+      "sex": "male",
+      "age": 16,
+      "weightLbs": 185,
+      "weightKg": 83.9,
+      "heightFt": 6,
+      "heightIn": 2,
+      "heightCm": 188,
+      "tests": [
+        { "date": "2026-06-21", "jumpCm": 71.1, "jumpIn": 28.0, "percentile": 85, "rating": "Above Average" }
+      ]
+    }
+  }
+}
+```
+
+**Key Technical Changes:**
+- `analyzeJump(jumpIn, age, sex, sport)` — now takes inches directly (no internal cm→in conversion)
+- `convertJump()` — reads active jump unit, computes both in/cm, stores in `lastResult`
+- `saveAndAnalyze()` — canonicalizes weight (both lbs/kg), height (both ft+in/cm), jump (both cm/in)
+- `analyzeFrames()` — reads active height unit for pixel-to-inch scaling
+- Camera confirm: fills `jumpHeight` in the active unit
+- `localStorage.removeItem('vjAthletes')` on load — clears old profiles, starts fresh with new format
+- `prefillAthlete()` — restores all three height fields and weight from canonical storage
+
+### CSS Added
+- `.unit-group`, `.unit-btn`, `.unit-btn.active` — pill-style unit toggles matching `.sex-btn` pattern
+- `.hidden-input` — utility to hide inactive height input
+
+### User Experience
+- Users can enter jump height in cm (converts to inches) OR inches (no conversion)
+- All reports and displays show both metric and standard
+- Old data wiped on first load — clean slate with new format
