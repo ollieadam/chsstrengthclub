@@ -5,16 +5,16 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vertical Jump Calculator | AI Coaching Tools | Adam Oliver CSCS — CHS Strength Club</title>
-<meta name="description" content="Free vertical jump calculator for athletes and coaches. Enter jump height in cm, get inches + percentile by age, sex, and sport. Built by Adam Oliver, CSCS — a coach using AI to build free training tools.">
+<title>Vertical Jump Calculator | cm to in | AI Coaching Tools | Coach Adam Oliver CSCS</title>
+<meta name="description" content="Free vertical jump calculator for coaches and athletes. Convert tester results from metric (cm) to standard (inches), save athlete profiles with test history, and share analysis reports. Built by Adam Oliver, CSCS.">
 <meta property="og:title" content="Vertical Jump Calculator | AI Coaching Tools | CHS Strength Club">
-<meta property="og:description" content="Free vertical jump calculator for athletes and coaches. Enter jump height in cm, get inches + percentile by age, sex, and sport.">
+<meta property="og:description" content="Free vertical jump calculator for coaches and athletes. Convert cm to inches, save athlete profiles by date, and share analysis reports with percentile rankings. Built by Adam Oliver, CSCS.">
 <meta property="og:image" content="https://chsstrengthclub.com/preview.webp">
 <meta property="og:url" content="https://chsstrengthclub.com/coaching-ai-tools.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Vertical Jump Calculator | AI Coaching Tools | CHS Strength Club">
-<meta name="twitter:description" content="Free vertical jump calculator for athletes and coaches. Enter jump height in cm, get inches + percentile by age, sex, and sport.">
+<meta name="twitter:description" content="Free vertical jump calculator for coaches and athletes. Convert tester cm to inches, save profiles, and share analysis.">
 <meta name="twitter:image" content="https://chsstrengthclub.com/preview.webp">
 <link rel="canonical" href="https://chsstrengthclub.com/coaching-ai-tools.html">
 <link rel="stylesheet" href="/global.css">
@@ -27,9 +27,9 @@
 .hero-eyebrow{font-family:"Oswald",sans-serif;font-size:0.68rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1.2rem;display:flex;align-items:center;gap:1rem}
 .hero-eyebrow-line{width:36px;height:1px;background:var(--red);opacity:0.6}
 .hero-title{font-family:"Oswald",sans-serif;font-weight:700;text-transform:uppercase;line-height:0.87;letter-spacing:-0.02em;color:var(--white)}
-.hero-title .line1{font-size:clamp(3.5rem,9vw,8rem);display:block}
-.hero-title .line2{font-size:clamp(3.5rem,9vw,8rem);display:block;color:var(--red-bright)}
-.hero-title .line3{font-size:clamp(1.2rem,2.5vw,2.2rem);display:block;color:rgba(240,236,228,0.2);-webkit-text-stroke:1px rgba(240,236,228,0.15);margin-top:0.4rem;letter-spacing:0.08em}
+.hero-title .line1{font-size:clamp(3rem,8vw,7rem);display:block}
+.hero-title .line2{font-size:clamp(3rem,8vw,7rem);display:block;color:var(--red-bright)}
+.hero-title .line3{font-size:clamp(1rem,2.2vw,2rem);display:block;color:rgba(240,236,228,0.2);-webkit-text-stroke:1px rgba(240,236,228,0.15);margin-top:0.4rem;letter-spacing:0.08em}
 .hero-rule{width:60px;height:2px;background:var(--red);margin:1.5rem 0}
 .hero-sub{font-size:1rem;line-height:1.75;color:rgba(240,236,228,0.5);max-width:520px;margin-bottom:2rem}
 
@@ -37,7 +37,7 @@
 .coach-note strong{color:var(--cream);font-weight:400}
 
 .tool-section{background:var(--near-black);padding:5rem 3rem;border-top:1px solid var(--border-red)}
-.tool-inner{max-width:720px;margin:0 auto}
+.tool-inner{max-width:740px;margin:0 auto}
 
 .calc-card{background:var(--charcoal);border:1px solid var(--border-red);padding:2.5rem 3rem;position:relative}
 .calc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red-dark),var(--red-bright))}
@@ -45,7 +45,6 @@
 .calc-card-sub{font-size:0.8rem;color:var(--muted);margin-bottom:1.75rem}
 
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0.75rem}
-.form-row.three{grid-template-columns:1fr 1fr 1fr}
 .form-group{margin-bottom:0.75rem}
 .form-group label{display:block;font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.3rem}
 .form-group input,.form-group select{width:100%;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--cream);padding:0.7rem 0.9rem;font-family:"DM Sans",sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;-webkit-appearance:none;border-radius:0}
@@ -61,38 +60,106 @@
 .sex-btn:hover{border-color:var(--muted);color:var(--cream)}
 .sex-btn.active{border-color:var(--red);color:var(--red-bright);background:rgba(192,23,15,0.08)}
 
-.calc-btn{width:100%;margin-top:0.75rem;padding:0.9rem;background:var(--red);color:var(--white);font-family:"Oswald",sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s}
-.calc-btn:hover{background:var(--red-bright);transform:translateY(-1px);box-shadow:0 6px 24px rgba(192,23,15,0.35)}
+.btn-primary{width:100%;margin-top:0.75rem;padding:0.9rem;background:var(--red);color:var(--white);font-family:"Oswald",sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s}
+.btn-primary:hover{background:var(--red-bright);transform:translateY(-1px);box-shadow:0 6px 24px rgba(192,23,15,0.35)}
+.btn-primary:disabled{opacity:0.4;cursor:default;transform:none;box-shadow:none}
+.btn-primary:disabled:hover{background:var(--red)}
 
-.results-card{display:none;margin-top:2rem;background:var(--near-black);border:1px solid var(--border-red);padding:2rem 2.5rem;position:relative}
-.results-card.visible{display:block}
-.results-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red-dark),var(--red-bright))}
+.btn-secondary{width:100%;margin-top:0.5rem;padding:0.8rem;background:transparent;color:var(--cream);font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;border:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:all 0.25s}
+.btn-secondary:hover{border-color:var(--red);color:var(--red-bright);transform:translateY(-1px)}
 
-.result-primary{text-align:center;margin-bottom:1.75rem}
-.result-inches{font-family:"Black Han Sans",sans-serif;font-size:4rem;color:var(--red-bright);line-height:1;letter-spacing:-0.02em}
-.result-inches small{font-size:1rem;color:var(--muted);font-family:"Oswald",sans-serif;font-weight:400;letter-spacing:0.1em;text-transform:uppercase}
-.result-cm{font-size:0.8rem;color:var(--muted);margin-top:0.3rem}
+.btn-small{padding:0.4rem 1rem;background:transparent;color:var(--muted);font-family:"Oswald",sans-serif;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;border:1px solid rgba(255,255,255,0.06);cursor:pointer;transition:all 0.2s}
+.btn-small:hover{border-color:var(--red);color:var(--red-bright)}
 
-.result-percentile{text-align:center;margin-bottom:1.5rem}
-.percentile-num{font-family:"Black Han Sans",sans-serif;font-size:3.5rem;color:var(--white);line-height:1;letter-spacing:-0.02em}
-.percentile-label{font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(240,236,228,0.4);margin-top:0.2rem}
+/* RESULTS CARD (initial light result) */
+.results-light{display:none;margin-top:1.5rem;background:rgba(192,23,15,0.04);border:1px solid var(--border-red);padding:1.5rem 2rem;text-align:center}
+.results-light.visible{display:block}
+.results-light .conversion{font-family:"Black Han Sans",sans-serif;font-size:3.5rem;color:var(--red-bright);line-height:1}
+.results-light .conversion small{font-size:1rem;color:var(--muted);font-family:"Oswald",sans-serif;font-weight:400;letter-spacing:0.1em;text-transform:uppercase}
+.results-light .conversion-sub{font-size:0.8rem;color:var(--muted);margin-top:0.3rem}
 
-.percentile-bar-wrap{background:rgba(255,255,255,0.06);height:8px;margin:0.5rem 0 0.2rem;position:relative}
-.percentile-bar-fill{height:100%;background:linear-gradient(90deg,var(--red-dark),var(--red-bright));transition:width 0.8s cubic-bezier(0.16,1,0.3,1);width:0}
+/* FULL ANALYSIS */
+.analysis-card{display:none;margin-top:1.5rem;background:var(--near-black);border:1px solid var(--border-red);padding:2rem 2.5rem;position:relative}
+.analysis-card.visible{display:block}
+.analysis-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red-dark),var(--red-bright))}
 
-.percentile-labels{display:flex;justify-content:space-between;font-size:0.55rem;color:var(--muted);font-family:"Oswald",sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem}
+.analysis-inches{font-family:"Black Han Sans",sans-serif;font-size:3rem;color:var(--red-bright);line-height:1;letter-spacing:-0.02em;text-align:center}
+.analysis-inches small{font-size:0.85rem;color:var(--muted);font-family:"Oswald",sans-serif;font-weight:400;letter-spacing:0.1em;text-transform:uppercase}
+.analysis-meta{text-align:center;font-size:0.75rem;color:var(--muted);margin-top:0.2rem}
+.analysis-percentile{text-align:center;margin:1.25rem 0 0.75rem}
+.analysis-percentile .num{font-family:"Black Han Sans",sans-serif;font-size:3rem;color:var(--white);line-height:1}
+.analysis-percentile .label{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(240,236,228,0.4);margin-top:0.15rem}
+.analysis-bar{background:rgba(255,255,255,0.06);height:6px;margin-top:0.35rem;position:relative}
+.analysis-bar-fill{height:100%;background:linear-gradient(90deg,var(--red-dark),var(--red-bright));transition:width 0.8s cubic-bezier(0.16,1,0.3,1);width:0}
+.analysis-bar-labels{display:flex;justify-content:space-between;font-size:0.5rem;color:var(--muted);font-family:"Oswald",sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem}
+.analysis-rating{text-align:center;padding:0.8rem;border:1px solid rgba(255,255,255,0.04);margin-top:0.75rem}
+.analysis-rating .rlabel{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted)}
+.analysis-rating .rval{font-family:"Black Han Sans",sans-serif;font-size:1.5rem;text-transform:uppercase;color:var(--white);letter-spacing:0.02em;margin-top:0.1rem}
+.analysis-trend{text-align:center;margin-top:0.75rem;font-size:0.8rem;color:var(--muted)}
+.analysis-trend .arrow{font-size:1.2rem}
+.analysis-trend .arrow.up{color:#4caf50}
+.analysis-trend .arrow.down{color:var(--red-bright)}
+.analysis-trend .arrow.steady{color:var(--muted)}
 
-.rating-box{text-align:center;padding:1rem;border:1px solid var(--border);margin-top:0.5rem}
-.rating-label{font-family:"Oswald",sans-serif;font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--muted)}
-.rating-value{font-family:"Black Han Sans",sans-serif;font-size:1.8rem;text-transform:uppercase;color:var(--white);letter-spacing:0.02em;margin-top:0.15rem}
+/* SAVE FORM */
+.save-section{display:none;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.06)}
+.save-section.visible{display:block}
+.save-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.5rem}
+.save-btn{width:100%;margin-top:0.5rem;padding:0.7rem;background:var(--red);color:var(--white);font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s}
+.save-btn:hover{background:var(--red-bright)}
+.save-btn:disabled{opacity:0.4;cursor:default}
+.save-btn:disabled:hover{background:var(--red)}
 
-.result-breakdown{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.04);margin-top:1.5rem}
-.stat-item{padding:1.2rem;text-align:center;background:rgba(255,255,255,0.02)}
-.stat-item-label{font-family:"Oswald",sans-serif;font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted)}
-.stat-item-val{font-family:"Oswald",sans-serif;font-size:1.1rem;font-weight:600;color:var(--cream);margin-top:0.15rem}
+.save-success{display:none;margin-top:0.75rem;padding:0.7rem;background:rgba(76,175,80,0.1);border:1px solid rgba(76,175,80,0.2);text-align:center;font-size:0.8rem;color:#4caf50;font-family:"Oswald",sans-serif;letter-spacing:0.1em}
 
+/* ATHLETES PANEL */
+.athletes-section{margin-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem}
+.athletes-section.hidden{display:none}
+.athletes-title{font-family:"Black Han Sans",sans-serif;font-size:1.1rem;text-transform:uppercase;color:var(--white);margin-bottom:0.2rem;letter-spacing:0.02em}
+.athletes-count{font-size:0.72rem;color:var(--muted);margin-bottom:1rem}
+
+.athlete-card{border:1px solid rgba(255,255,255,0.06);margin-bottom:0.5rem;background:rgba(255,255,255,0.015)}
+.athlete-header{display:flex;justify-content:space-between;align-items:center;padding:0.8rem 1rem;cursor:pointer;transition:background 0.2s;gap:0.5rem}
+.athlete-header:hover{background:rgba(192,23,15,0.04)}
+.athlete-name{font-family:"Oswald",sans-serif;font-size:0.85rem;font-weight:600;color:var(--cream);letter-spacing:0.05em}
+.athlete-meta{font-size:0.6rem;color:var(--muted);font-family:"Oswald",sans-serif;letter-spacing:0.1em}
+.athlete-chevron{color:var(--muted);font-size:0.7rem;transition:transform 0.2s}
+.athlete-chevron.open{transform:rotate(180deg)}
+
+.athlete-body{display:none;border-top:1px solid rgba(255,255,255,0.04);padding:1rem 1rem}
+.athlete-body.open{display:block}
+.athlete-info{font-size:0.72rem;color:var(--muted);margin-bottom:0.75rem;line-height:1.6}
+
+.test-entry{display:grid;grid-template-columns:1fr 0.7fr 0.7fr 0.7fr 0.4fr;gap:0.25rem;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.03);font-size:0.72rem;align-items:center}
+.test-entry:last-child{border-bottom:none}
+.test-entry .th{font-family:"Oswald",sans-serif;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+.test-entry .td{color:var(--cream)}
+.test-entry .td.pct{color:var(--red-bright);font-weight:600}
+.test-entry .td.trend{text-align:center;font-size:0.9rem}
+.test-entry .td.trend .up{color:#4caf50}
+.test-entry .td.trend .down{color:var(--red-bright)}
+.test-entry .td.trend .steady{color:var(--muted)}
+
+.athlete-actions{display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.75rem}
+.athlete-actions .act-btn{padding:0.35rem 0.7rem;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-family:"Oswald",sans-serif;font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
+.athlete-actions .act-btn:hover{border-color:var(--red);color:var(--red-bright)}
+.athlete-actions .act-btn.danger:hover{border-color:var(--red);color:var(--red-bright)}
+
+/* SHARE VIEW */
+.share-banner{display:none;text-align:center;padding:1rem;background:rgba(192,23,15,0.08);border:1px solid var(--border-red);margin-bottom:1.5rem}
+.share-banner.visible{display:block}
+.share-banner .sblabel{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--red-bright)}
+.share-banner .sbname{font-family:"Black Han Sans",sans-serif;font-size:1.5rem;color:var(--white);text-transform:uppercase;margin-top:0.15rem}
+
+.share-table{width:100%;border-collapse:collapse;font-size:0.8rem;margin-top:1rem}
+.share-table th{font-family:"Oswald",sans-serif;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);padding:0.5rem;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+.share-table td{padding:0.5rem;border-bottom:1px solid rgba(255,255,255,0.03);color:var(--cream)}
+.share-table td.pct{color:var(--red-bright);font-weight:600}
+
+/* DISCLAIMER */
 .disclaimer{font-size:0.68rem;color:var(--muted);text-align:center;margin-top:1.5rem;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto}
 
+/* OTHER TOOLS */
 .other-tools{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.04);margin-top:2rem}
 .other-tool-card{background:var(--near-black);padding:2rem;text-align:center;transition:background 0.3s}
 .other-tool-card:hover{background:rgba(192,23,15,0.04)}
@@ -107,12 +174,11 @@
   .tool-section{padding:3rem 1.5rem}
   .calc-card{padding:1.5rem}
   .form-row{grid-template-columns:1fr}
-  .form-row.three{grid-template-columns:1fr}
-  .result-inches{font-size:3rem}
-  .percentile-num{font-size:2.5rem}
-  .result-breakdown{grid-template-columns:1fr}
-  .result-breakdown .stat-item{border-bottom:1px solid rgba(255,255,255,0.04)}
-  .result-breakdown .stat-item:last-child{border-bottom:none}
+  .save-row{grid-template-columns:1fr}
+  .results-light .conversion{font-size:2.5rem}
+  .analysis-inches{font-size:2.2rem}
+  .analysis-percentile .num{font-size:2.2rem}
+  .test-entry{grid-template-columns:1fr 0.6fr 0.6fr 0.6fr 0.3fr;font-size:0.65rem}
   .other-tools{grid-template-columns:1fr}
 }
 
@@ -122,7 +188,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Vertical Jump Calculator",
-  "description": "Free vertical jump calculator for athletes and coaches. Converts cm to inches and shows percentile by age, sex, and sport.",
+  "description": "Free vertical jump calculator for coaches and athletes. Converts tester cm to inches, saves athlete profiles with test history, and generates shareable analysis reports with percentile rankings.",
   "url": "https://chsstrengthclub.com/coaching-ai-tools.html",
   "applicationCategory": "SportsApplication",
   "operatingSystem": "All",
@@ -183,10 +249,10 @@
     <h1 class="hero-title">
       <span class="line1">Vertical Jump</span>
       <span class="line2">Calculator.</span>
-      <span class="line3">Free tool for athletes & coaches</span>
+      <span class="line3">cm to inches &bull; save profiles &bull; share analysis</span>
     </h1>
     <div class="hero-rule"></div>
-    <p class="hero-sub">Enter your jump height from any tester &mdash; we&rsquo;ll convert cm to inches and show your percentile by age, sex, and sport.</p>
+    <p class="hero-sub">Convert your vertical jump tester results from metric (cm) to standard (inches), save athlete profiles by date, and download or share the analysis.</p>
     <div class="coach-note">
       <strong>Built by Adam Oliver, CSCS</strong> &mdash; a coach using AI to create free tools for athletes and coaches. Adam combines CSCS-certified training with AI-assisted tool building.
     </div>
@@ -196,20 +262,22 @@
 <!-- CALCULATOR -->
 <section class="tool-section">
   <div class="tool-inner">
+    <div id="shareView"></div>
+
     <div class="reveal">
       <div class="calc-card">
-        <div class="calc-card-title">Jump Calculator</div>
-        <div class="calc-card-sub">Fill in the athlete&rsquo;s info and jump result.</div>
+        <div class="calc-card-title">Vertical Jump Converter</div>
+        <div class="calc-card-sub">Fill in the athlete&rsquo;s info and jump result from your tester.</div>
 
-        <form id="jumpForm" onsubmit="return calculateJump(event)">
+        <form id="jumpForm" onsubmit="return false;">
           <div class="form-row">
             <div class="form-group">
               <label>Weight</label>
-              <input type="number" id="weight" placeholder="lbs" min="40" max="500" required>
+              <input type="number" id="weight" placeholder="lbs" min="40" max="500">
             </div>
             <div class="form-group">
               <label>Age</label>
-              <input type="number" id="age" placeholder="Years" min="8" max="80" required>
+              <input type="number" id="age" placeholder="Years" min="8" max="80">
             </div>
           </div>
 
@@ -217,9 +285,9 @@
             <div class="form-group">
               <label>Height</label>
               <div class="height-inputs">
-                <input type="number" id="heightFt" placeholder="ft" min="3" max="8" required>
+                <input type="number" id="heightFt" placeholder="ft" min="3" max="8">
                 <span>ft</span>
-                <input type="number" id="heightIn" placeholder="in" min="0" max="11" required>
+                <input type="number" id="heightIn" placeholder="in" min="0" max="11">
                 <span>in</span>
               </div>
             </div>
@@ -251,58 +319,74 @@
             </div>
             <div class="form-group">
               <label>Jump Height</label>
-              <input type="number" id="jumpCm" placeholder="cm" min="1" max="150" step="0.1" required>
-              <div class="unit-note">Enter the value from your tester &mdash; we&rsquo;ll convert to inches</div>
+              <input type="number" id="jumpCm" placeholder="cm" min="1" max="150" step="0.1">
+              <div class="unit-note">Enter the cm value from your tester &mdash; we&rsquo;ll convert to inches</div>
             </div>
           </div>
 
-          <button type="submit" class="calc-btn">Calculate</button>
+          <button type="button" class="btn-primary" onclick="convertJump()">Convert to Inches</button>
         </form>
 
-        <!-- RESULTS -->
-        <div class="results-card" id="results">
-          <div class="result-primary">
-            <div class="result-inches" id="resultInches">0.0 <small>in</small></div>
-            <div class="result-cm" id="resultCm">0.0 cm entered</div>
-          </div>
-
-          <div class="result-percentile">
-            <div class="percentile-num" id="resultPercentile">0th</div>
-            <div class="percentile-label">Percentile vs. athletes your age</div>
-            <div class="percentile-bar-wrap">
-              <div class="percentile-bar-fill" id="percentileBar"></div>
-            </div>
-            <div class="percentile-labels">
-              <span>0th</span>
-              <span>25th</span>
-              <span>50th</span>
-              <span>75th</span>
-              <span>100th</span>
-            </div>
-          </div>
-
-          <div class="rating-box">
-            <div class="rating-label">Rating</div>
-            <div class="rating-value" id="resultRating">Average</div>
-          </div>
-
-          <div class="result-breakdown">
-            <div class="stat-item">
-              <div class="stat-item-label">Sport</div>
-              <div class="stat-item-val" id="resultSport">&mdash;</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-item-label">Age Group</div>
-              <div class="stat-item-val" id="resultAgeGroup">&mdash;</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-item-label">Sex</div>
-              <div class="stat-item-val" id="resultSex">&mdash;</div>
-            </div>
-          </div>
+        <!-- LIGHT RESULT (conversion only) -->
+        <div class="results-light" id="resultsLight">
+          <div class="conversion" id="convInches">0.0 <small>in</small></div>
+          <div class="conversion-sub" id="convCm">0.0 cm entered</div>
         </div>
 
-        <p class="disclaimer">Percentiles are based on published normative data for vertical jump by age and sex, adjusted for sport. These are general reference values, not clinical or diagnostic standards.</p>
+        <!-- SAVE + ANALYZE SECTION -->
+        <div class="save-section" id="saveSection">
+          <div class="save-row">
+            <div class="form-group">
+              <label>Athlete Name</label>
+              <input type="text" id="saveName" placeholder="e.g. Adam O">
+            </div>
+            <div class="form-group">
+              <label>Email (optional)</label>
+              <input type="email" id="saveEmail" placeholder="athlete@example.com">
+            </div>
+          </div>
+          <div class="save-row">
+            <div class="form-group">
+              <label>Test Date</label>
+              <input type="date" id="saveDate">
+            </div>
+          </div>
+          <button type="button" class="save-btn" onclick="saveAndAnalyze()">Save Test &amp; Analyze My Results</button>
+          <div class="save-success" id="saveSuccess">Saved &amp; analyzed!</div>
+        </div>
+
+        <!-- FULL ANALYSIS -->
+        <div class="analysis-card" id="analysisCard">
+          <div class="analysis-inches" id="anInches">0.0 <small>in</small></div>
+          <div class="analysis-meta" id="anMeta"></div>
+
+          <div class="analysis-percentile">
+            <div class="num" id="anPercentile">0th</div>
+            <div class="label">Percentile vs. athletes your age</div>
+            <div class="analysis-bar">
+              <div class="analysis-bar-fill" id="anBar"></div>
+            </div>
+            <div class="analysis-bar-labels">
+              <span>0th</span><span>25th</span><span>50th</span><span>75th</span><span>100th</span>
+            </div>
+          </div>
+
+          <div class="analysis-rating">
+            <div class="rlabel">Rating</div>
+            <div class="rval" id="anRating">Average</div>
+          </div>
+
+          <div class="analysis-trend" id="anTrend"></div>
+        </div>
+
+        <!-- MY ATHLETES -->
+        <div class="athletes-section" id="athletesSection">
+          <div class="athletes-title">My Athletes</div>
+          <div class="athletes-count" id="athletesCount">0 saved profiles</div>
+          <div id="athletesList"></div>
+        </div>
+
+        <p class="disclaimer">Percentiles based on published normative data for vertical jump by age and sex, adjusted for sport. General reference values only.</p>
       </div>
     </div>
   </div>
@@ -345,6 +429,7 @@
 <script>
 
 let selectedSex = '';
+let lastResult = null;
 
 function setSex(val) {
   selectedSex = val;
@@ -379,29 +464,14 @@ const norms = {
 };
 
 const sportAdjust = {
-  basketball:  5,
-  volleyball:  4,
-  track:       3,
-  football:    2,
-  soccer:      1,
-  hockey:      1,
-  lacrosse:    1,
-  wrestling:   1,
-  baseball:    0,
-  general:     0
+  basketball: 5, volleyball: 4, track: 3, football: 2,
+  soccer: 1, hockey: 1, lacrosse: 1, wrestling: 1, baseball: 0, general: 0
 };
 
 const sportLabels = {
-  basketball:  'Basketball',
-  volleyball:  'Volleyball',
-  track:       'Track & Field',
-  football:    'Football',
-  soccer:      'Soccer',
-  hockey:      'Hockey',
-  lacrosse:    'Lacrosse',
-  wrestling:   'Wrestling',
-  baseball:    'Baseball / Softball',
-  general:     'General Athlete'
+  basketball: 'Basketball', volleyball: 'Volleyball', track: 'Track & Field',
+  football: 'Football', soccer: 'Soccer', hockey: 'Hockey', lacrosse: 'Lacrosse',
+  wrestling: 'Wrestling', baseball: 'Baseball / Softball', general: 'General Athlete'
 };
 
 const sexLabels = { male: 'Male', female: 'Female' };
@@ -423,17 +493,12 @@ function zToPercentile(z) {
 }
 
 function erf(x) {
-  const a1 = 0.254829592;
-  const a2 = -0.284496736;
-  const a3 = 1.421413741;
-  const a4 = -1.453152027;
-  const a5 = 1.061405429;
-  const p = 0.3275911;
+  const a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741,
+        a4 = -1.453152027, a5 = 1.061405429, p = 0.3275911;
   const sign = x < 0 ? -1 : 1;
   x = Math.abs(x);
   const t = 1 / (1 + p * x);
-  const y = 1 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
-  return sign * y;
+  return sign * (1 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x));
 }
 
 function getRating(pct) {
@@ -444,42 +509,353 @@ function getRating(pct) {
   return 'Poor';
 }
 
-function calculateJump(e) {
-  e.preventDefault();
+function getTrend(prev, curr) {
+  const diff = curr - prev;
+  if (diff > 0.3) return { arrow: 'up', text: 'up from last test (+' + diff.toFixed(1) + ' in)' };
+  if (diff < -0.3) return { arrow: 'down', text: 'down from last test (' + diff.toFixed(1) + ' in)' };
+  return { arrow: 'steady', text: 'steady vs last test' };
+}
 
-  const weight = parseFloat(document.getElementById('weight').value);
-  const age = parseInt(document.getElementById('age').value);
-  const heightFt = parseInt(document.getElementById('heightFt').value);
-  const heightIn = parseInt(document.getElementById('heightIn').value);
-  const sex = selectedSex;
-  const sport = document.getElementById('sport').value;
-  const jumpCm = parseFloat(document.getElementById('jumpCm').value);
-
-  if (!sex) { alert('Please select Male or Female.'); return false; }
-
+function analyzeJump(jumpCm, age, sex, sport) {
   const jumpIn = jumpCm / 2.54;
   const ageGroup = getAgeGroup(age);
   const norm = norms[sex][ageGroup];
+  if (!norm) return null;
   const z = (jumpIn - norm.mean) / norm.sd;
   let pct = zToPercentile(z);
-  const adj = sportAdjust[sport] || 0;
-  pct = Math.min(100, Math.max(1, pct + adj));
-  const rating = getRating(pct);
-
-  document.getElementById('resultInches').innerHTML = jumpIn.toFixed(1) + ' <small>in</small>';
-  document.getElementById('resultCm').textContent = jumpCm + ' cm entered';
-  document.getElementById('resultPercentile').textContent = pct + 'th';
-  document.getElementById('percentileBar').style.width = pct + '%';
-  document.getElementById('resultRating').textContent = rating;
-  document.getElementById('resultSport').textContent = sportLabels[sport] || 'General Athlete';
-  document.getElementById('resultAgeGroup').textContent = ageGroup;
-  document.getElementById('resultSex').textContent = sexLabels[sex];
-
-  document.getElementById('results').classList.add('visible');
-  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-  return false;
+  pct = Math.min(100, Math.max(1, pct + (sportAdjust[sport] || 0)));
+  return {
+    jumpCm, jumpIn: parseFloat(jumpIn.toFixed(1)),
+    ageGroup, percentile: pct,
+    rating: getRating(pct),
+    normMean: norm.mean, normSd: norm.sd
+  };
 }
+
+function convertJump() {
+  const jumpCm = parseFloat(document.getElementById('jumpCm').value);
+  if (!jumpCm || jumpCm <= 0) { alert('Enter a jump height in cm.'); return; }
+
+  const age = parseInt(document.getElementById('age').value);
+  const sex = selectedSex;
+  const sport = document.getElementById('sport').value;
+
+  if (!sex) { alert('Select Male or Female.'); return; }
+
+  const jumpIn = jumpCm / 2.54;
+
+  document.getElementById('convInches').innerHTML = jumpIn.toFixed(1) + ' <small>in</small>';
+  document.getElementById('convCm').textContent = jumpCm + ' cm entered';
+  document.getElementById('resultsLight').classList.add('visible');
+
+  lastResult = { jumpCm, jumpIn: parseFloat(jumpIn.toFixed(1)), age, sex, sport };
+  document.getElementById('saveSection').classList.add('visible');
+  document.getElementById('saveSuccess').style.display = 'none';
+
+  if (!document.getElementById('saveDate').value) {
+    document.getElementById('saveDate').value = new Date().toISOString().split('T')[0];
+  }
+
+  document.getElementById('saveSection').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function saveAndAnalyze() {
+  const name = document.getElementById('saveName').value.trim();
+  if (!name) { alert('Enter the athlete name to save the profile.'); return; }
+
+  const email = document.getElementById('saveEmail').value.trim();
+  const date = document.getElementById('saveDate').value;
+  if (!date) { alert('Select a test date.'); return; }
+
+  const analysis = analyzeJump(lastResult.jumpCm, lastResult.age, lastResult.sex, lastResult.sport);
+  if (!analysis) return;
+
+  const athletes = loadAthletes();
+
+  if (!athletes[name]) {
+    athletes[name] = {
+      email,
+      sport: lastResult.sport,
+      sex: lastResult.sex,
+      age: lastResult.age,
+      heightFt: parseInt(document.getElementById('heightFt').value) || 0,
+      heightIn: parseInt(document.getElementById('heightIn').value) || 0,
+      weight: parseFloat(document.getElementById('weight').value) || 0,
+      tests: []
+    };
+  } else {
+    if (email) athletes[name].email = email;
+  }
+
+  athletes[name].tests.push({
+    date,
+    jumpCm: analysis.jumpCm,
+    jumpIn: analysis.jumpIn,
+    percentile: analysis.percentile,
+    rating: analysis.rating
+  });
+
+  saveAthletes(athletes);
+  renderAnalysis(analysis, athletes, name);
+  renderAthletes();
+  document.getElementById('saveSuccess').style.display = 'block';
+  setTimeout(() => document.getElementById('saveSuccess').style.display = 'none', 2000);
+}
+
+function renderAnalysis(analysis, athletes, name) {
+  document.getElementById('anInches').innerHTML = analysis.jumpIn + ' <small>in</small>';
+  document.getElementById('anMeta').textContent = analysis.jumpCm + ' cm &middot; ' + sportLabels[lastResult.sport] + ' &middot; Age ' + lastResult.age;
+  document.getElementById('anPercentile').textContent = analysis.percentile + 'th';
+  document.getElementById('anBar').style.width = analysis.percentile + '%';
+  document.getElementById('anRating').textContent = analysis.rating;
+
+  const tests = athletes[name].tests;
+  let trendHtml = '';
+  if (tests.length >= 2) {
+    const prev = tests[tests.length - 2];
+    const trend = getTrend(prev.jumpIn, analysis.jumpIn);
+    const arrowClass = trend.arrow === 'up' ? 'up' : trend.arrow === 'down' ? 'down' : 'steady';
+    trendHtml = '<span class="arrow ' + arrowClass + '">' +
+      (trend.arrow === 'up' ? '&#8593;' : trend.arrow === 'down' ? '&#8595;' : '&#8594;') +
+      '</span> ' + trend.text;
+  } else {
+    trendHtml = 'First test recorded for ' + name;
+  }
+  document.getElementById('anTrend').innerHTML = trendHtml;
+
+  document.getElementById('analysisCard').classList.add('visible');
+  document.getElementById('analysisCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/* LOCALSTORAGE */
+function loadAthletes() {
+  try {
+    return JSON.parse(localStorage.getItem('vjAthletes')) || {};
+  } catch { return {}; }
+}
+
+function saveAthletes(data) {
+  localStorage.setItem('vjAthletes', JSON.stringify(data));
+}
+
+function renderAthletes() {
+  const athletes = loadAthletes();
+  const names = Object.keys(athletes);
+  const section = document.getElementById('athletesSection');
+  const list = document.getElementById('athletesList');
+  const count = document.getElementById('athletesCount');
+
+  if (names.length === 0) {
+    section.classList.add('hidden');
+    return;
+  }
+  section.classList.remove('hidden');
+  count.textContent = names.length + ' saved profile' + (names.length !== 1 ? 's' : '');
+
+  let html = '';
+  names.forEach(name => {
+    const a = athletes[name];
+    const testCount = a.tests.length;
+    html += '<div class="athlete-card">';
+    html += '<div class="athlete-header" onclick="toggleAthlete(this)">';
+    html += '<div><div class="athlete-name">' + escHtml(name) + '</div>';
+    html += '<div class="athlete-meta">' + testCount + ' test' + (testCount !== 1 ? 's' : '') + ' &middot; ' + (sportLabels[a.sport] || a.sport) + ' &middot; ' + sexLabels[a.sex] + ' &middot; Age ' + a.age + '</div></div>';
+    html += '<span class="athlete-chevron">&#9660;</span>';
+    html += '</div>';
+    html += '<div class="athlete-body">';
+    html += '<div class="athlete-info">' + a.heightFt + '\'' + a.heightIn + '" &middot; ' + a.weight + ' lbs' + (a.email ? ' &middot; ' + escHtml(a.email) : '') + '</div>';
+
+    // Test table
+    html += '<div class="test-entry" style="font-size:0.55rem;color:var(--muted);padding-bottom:0.3rem">';
+    html += '<span class="th">Date</span><span class="th">cm</span><span class="th">in</span><span class="th">Percentile</span><span class="th"></span>';
+    html += '</div>';
+
+    a.tests.forEach((t, i) => {
+      let trendIcon = '';
+      if (i > 0) {
+        const prev = a.tests[i - 1];
+        const diff = t.jumpIn - prev.jumpIn;
+        if (diff > 0.3) trendIcon = '<span class="up">&#8593;</span>';
+        else if (diff < -0.3) trendIcon = '<span class="down">&#8595;</span>';
+        else trendIcon = '<span class="steady">&#8594;</span>';
+      }
+      html += '<div class="test-entry">';
+      html += '<span class="td">' + t.date + '</span>';
+      html += '<span class="td">' + t.jumpCm + '</span>';
+      html += '<span class="td">' + t.jumpIn + '</span>';
+      html += '<span class="td pct">' + t.percentile + 'th</span>';
+      html += '<span class="td trend">' + trendIcon + '</span>';
+      html += '</div>';
+    });
+
+    // Actions
+    html += '<div class="athlete-actions">';
+    html += '<button class="act-btn" onclick="prefillAthlete(\'' + escHtml(name) + '\')">+ Add Test</button>';
+    html += '<button class="act-btn" onclick="downloadReport(\'' + escHtml(name) + '\')">Download Report</button>';
+    html += '<button class="act-btn" onclick="shareAthlete(\'' + escHtml(name) + '\')">Share Results</button>';
+    html += '<button class="act-btn danger" onclick="deleteAthlete(\'' + escHtml(name) + '\')">Delete</button>';
+    html += '</div>';
+
+    html += '</div></div>';
+  });
+  list.innerHTML = html;
+}
+
+function toggleAthlete(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.athlete-chevron');
+  body.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+
+function prefillAthlete(name) {
+  const athletes = loadAthletes();
+  const a = athletes[name];
+  if (!a) return;
+  document.getElementById('weight').value = a.weight || '';
+  document.getElementById('age').value = a.age || '';
+  document.getElementById('heightFt').value = a.heightFt || '';
+  document.getElementById('heightIn').value = a.heightIn || '';
+  document.getElementById('sport').value = a.sport || 'general';
+  document.getElementById('jumpCm').focus();
+  setSex(a.sex || 'male');
+  document.getElementById('saveName').value = name;
+  document.getElementById('saveEmail').value = a.email || '';
+  document.getElementById('saveDate').value = new Date().toISOString().split('T')[0];
+  document.getElementById('resultsLight').classList.remove('visible');
+  document.getElementById('saveSection').classList.remove('visible');
+  document.getElementById('analysisCard').classList.remove('visible');
+  document.querySelector('.calc-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function downloadReport(name) {
+  const athletes = loadAthletes();
+  const a = athletes[name];
+  if (!a || a.tests.length === 0) return;
+
+  let text = 'Vertical Jump Report\n';
+  text += '====================\n\n';
+  text += 'Athlete: ' + name + '\n';
+  text += 'Sport: ' + (sportLabels[a.sport] || a.sport) + '\n';
+  text += 'Sex: ' + sexLabels[a.sex] + '\n';
+  text += 'Age: ' + a.age + '\n';
+  text += 'Height: ' + a.heightFt + "'" + a.heightIn + '"' + '\n';
+  text += 'Weight: ' + a.weight + ' lbs\n';
+  text += 'Email: ' + (a.email || 'N/A') + '\n\n';
+  text += 'Test History:\n';
+  text += '------------\n';
+  a.tests.forEach(t => {
+    text += t.date + ' | ' + t.jumpCm + ' cm | ' + t.jumpIn + ' in | ' + t.percentile + 'th percentile | ' + t.rating + '\n';
+  });
+  text += '\n\nGenerated by CHS Strength Club Coaching AI Tools\n';
+  text += 'chsstrengthclub.com/coaching-ai-tools.html\n';
+  text += 'Coach Adam Oliver, CSCS\n';
+
+  const blob = new Blob([text], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const aEl = document.createElement('a');
+  aEl.href = url;
+  aEl.download = name.replace(/\s+/g, '_') + '_jump_report.txt';
+  aEl.click();
+  URL.revokeObjectURL(url);
+}
+
+function shareAthlete(name) {
+  const athletes = loadAthletes();
+  const a = athletes[name];
+  if (!a) return;
+  const data = { name, sport: a.sport, sex: a.sex, age: a.age, heightFt: a.heightFt, heightIn: a.heightIn, weight: a.weight, email: a.email, tests: a.tests };
+  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+  const url = window.location.origin + window.location.pathname + '?share=' + encoded;
+
+  // Copy to clipboard
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      alert('Share link copied to clipboard!\n\n' + url);
+    }).catch(() => {
+      prompt('Copy this link to share:', url);
+    });
+  } else {
+    prompt('Copy this link to share:', url);
+  }
+}
+
+function deleteAthlete(name) {
+  if (!confirm('Delete ' + name + ' and all test data?')) return;
+  const athletes = loadAthletes();
+  delete athletes[name];
+  saveAthletes(athletes);
+  renderAthletes();
+}
+
+function escHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+/* SHARE VIEW */
+function handleShareView() {
+  const params = new URLSearchParams(window.location.search);
+  const shareData = params.get('share');
+  if (!shareData) return;
+
+  try {
+    const data = JSON.parse(decodeURIComponent(escape(atob(shareData))));
+    const container = document.getElementById('shareView');
+    const calcCard = document.querySelector('.calc-card');
+
+    calcCard.style.display = 'none';
+
+    let html = '<div class="share-banner visible">';
+    html += '<div class="sblabel">Shared Results</div>';
+    html += '<div class="sbname">' + escHtml(data.name) + '</div>';
+    html += '<div style="font-size:0.8rem;color:var(--muted);margin-top:0.3rem">' +
+      (sportLabels[data.sport] || data.sport) + ' &middot; ' +
+      sexLabels[data.sex] + ' &middot; Age ' + data.age + ' &middot; ' +
+      data.heightFt + "'" + data.heightIn + '" &middot; ' + data.weight + ' lbs' +
+    '</div></div>';
+
+    html += '<div class="calc-card">';
+    html += '<div class="calc-card-title">Test History</div>';
+    html += '<div class="calc-card-sub">' + data.tests.length + ' test' + (data.tests.length !== 1 ? 's' : '') + ' recorded</div>';
+
+    html += '<table class="share-table"><thead><tr>';
+    html += '<th>Date</th><th>Jump (cm)</th><th>Jump (in)</th><th>Percentile</th><th>Rating</th>';
+    html += '</tr></thead><tbody>';
+
+    data.tests.forEach(t => {
+      html += '<tr>';
+      html += '<td>' + t.date + '</td>';
+      html += '<td>' + t.jumpCm + ' cm</td>';
+      html += '<td>' + t.jumpIn + ' in</td>';
+      html += '<td class="pct">' + t.percentile + 'th</td>';
+      html += '<td>' + t.rating + '</td>';
+      html += '</tr>';
+    });
+
+    html += '</tbody></table>';
+    html += '<div style="text-align:center;margin-top:1.5rem;font-size:0.7rem;color:var(--muted)">';
+    html += 'CHS Strength Club &middot; chsstrengthclub.com &middot; Coach Adam Oliver, CSCS';
+    html += '</div></div>';
+
+    container.innerHTML = html;
+
+    document.querySelector('.tool-section').scrollIntoView();
+  } catch(e) {
+    console.error('Invalid share data');
+  }
+}
+
+/* INIT */
+document.addEventListener('DOMContentLoaded', function() {
+  handleShareView();
+  renderAthletes();
+
+  if (!document.getElementById('saveDate').value) {
+    document.getElementById('saveDate').value = new Date().toISOString().split('T')[0];
+  }
+});
 
 </script>
 </body>
