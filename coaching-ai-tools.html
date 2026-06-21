@@ -509,10 +509,6 @@
               <label>Athlete Name</label>
               <input type="text" id="saveName" placeholder="e.g. Adam O">
             </div>
-            <div class="form-group">
-              <label>Email (optional)</label>
-              <input type="email" id="saveEmail" placeholder="athlete@example.com">
-            </div>
           </div>
           <div class="save-row">
             <div class="form-group">
@@ -732,7 +728,6 @@ function saveAndAnalyze() {
   const name = document.getElementById('saveName').value.trim();
   if (!name) { alert('Enter the athlete name to save the profile.'); return; }
 
-  const email = document.getElementById('saveEmail').value.trim();
   const date = document.getElementById('saveDate').value;
   if (!date) { alert('Select a test date.'); return; }
 
@@ -743,7 +738,6 @@ function saveAndAnalyze() {
 
   if (!athletes[name]) {
     athletes[name] = {
-      email,
       sport: lastResult.sport,
       sex: lastResult.sex,
       age: lastResult.age,
@@ -752,8 +746,6 @@ function saveAndAnalyze() {
       weight: parseFloat(document.getElementById('weight').value) || 0,
       tests: []
     };
-  } else {
-    if (email) athletes[name].email = email;
   }
 
   const testEntry = {
@@ -839,7 +831,7 @@ function renderAthletes() {
     html += '<span class="athlete-chevron">&#9660;</span>';
     html += '</div>';
     html += '<div class="athlete-body">';
-    html += '<div class="athlete-info">' + a.heightFt + '\'' + a.heightIn + '" &middot; ' + a.weight + ' lbs' + (a.email ? ' &middot; ' + escHtml(a.email) : '') + '</div>';
+    html += '<div class="athlete-info">' + a.heightFt + '\'' + a.heightIn + '" &middot; ' + a.weight + ' lbs</div>';
 
     // Test table
     html += '<div class="test-entry" style="font-size:0.55rem;color:var(--muted);padding-bottom:0.3rem">';
@@ -899,7 +891,6 @@ function prefillAthlete(name) {
   document.getElementById('jumpCm').focus();
   setSex(a.sex || 'male');
   document.getElementById('saveName').value = name;
-  document.getElementById('saveEmail').value = a.email || '';
   document.getElementById('saveDate').value = new Date().toISOString().split('T')[0];
   document.getElementById('resultsLight').classList.remove('visible');
   document.getElementById('saveSection').classList.remove('visible');
@@ -919,8 +910,7 @@ function downloadReport(name) {
   text += 'Sex: ' + sexLabels[a.sex] + '\n';
   text += 'Age: ' + a.age + '\n';
   text += 'Height: ' + a.heightFt + "'" + a.heightIn + '"' + '\n';
-  text += 'Weight: ' + a.weight + ' lbs\n';
-  text += 'Email: ' + (a.email || 'N/A') + '\n\n';
+  text += 'Weight: ' + a.weight + ' lbs\n\n';
   text += 'Test History:\n';
   text += '------------\n';
   a.tests.forEach(t => {
@@ -943,7 +933,7 @@ function shareAthlete(name) {
   const athletes = loadAthletes();
   const a = athletes[name];
   if (!a) return;
-  const data = { name, sport: a.sport, sex: a.sex, age: a.age, heightFt: a.heightFt, heightIn: a.heightIn, weight: a.weight, email: a.email, tests: a.tests };
+  const data = { name, sport: a.sport, sex: a.sex, age: a.age, heightFt: a.heightFt, heightIn: a.heightIn, weight: a.weight, tests: a.tests };
   const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
   const url = window.location.origin + window.location.pathname + '?share=' + encoded;
 
