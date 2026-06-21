@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vertical Jump Analysis &amp; Calculator — Convert cm to in | Free Athlete Tool</title>
-<meta name="description" content="Free vertical jump analysis for athletes and coaches. Convert tester results from cm to inches, get percentile rankings by age/sex/sport, save athlete profiles with test history, and share full analysis reports. Built by Adam Oliver, CSCS.">
+<meta name="description" content="Free vertical jump analysis for athletes and coaches. Use your phone camera to auto-detect jump height with AI pose tracking, convert cm to inches, get percentile rankings, save athlete profiles, and share reports. Built by Adam Oliver, CSCS.">
 <meta property="og:title" content="Vertical Jump Analysis &amp; Calculator — Convert cm to in | CHS Strength Club">
 <meta property="og:description" content="Free vertical jump analysis for athletes and coaches. Convert tester cm to inches, get percentile rankings by age/sex/sport, save athlete profiles, and share analysis reports.">
 <meta property="og:image" content="https://chsstrengthclub.com/preview.webp">
@@ -130,7 +130,7 @@
 .athlete-body.open{display:block}
 .athlete-info{font-size:0.72rem;color:var(--muted);margin-bottom:0.75rem;line-height:1.6}
 
-.test-entry{display:grid;grid-template-columns:1fr 0.7fr 0.7fr 0.7fr 0.4fr;gap:0.25rem;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.03);font-size:0.72rem;align-items:center}
+.test-entry{display:grid;grid-template-columns:1fr 0.6fr 0.6fr 0.6fr 0.3fr 0.5fr;gap:0.25rem;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.03);font-size:0.72rem;align-items:center}
 .test-entry:last-child{border-bottom:none}
 .test-entry .th{font-family:"Oswald",sans-serif;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
 .test-entry .td{color:var(--cream)}
@@ -144,6 +144,8 @@
 .athlete-actions .act-btn{padding:0.35rem 0.7rem;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-family:"Oswald",sans-serif;font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
 .athlete-actions .act-btn:hover{border-color:var(--red);color:var(--red-bright)}
 .athlete-actions .act-btn.danger:hover{border-color:var(--red);color:var(--red-bright)}
+.rev-btn{background:transparent;border:1px solid rgba(76,175,80,0.2);color:rgba(76,175,80,0.6);font-family:"Oswald",sans-serif;font-size:0.48rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.4rem;cursor:pointer;transition:all 0.2s;border-radius:0}
+.rev-btn:hover{background:rgba(76,175,80,0.08);border-color:rgba(76,175,80,0.4);color:#4caf50}
 
 /* SHARE VIEW */
 .share-banner{display:none;text-align:center;padding:1rem;background:rgba(192,23,15,0.08);border:1px solid var(--border-red);margin-bottom:1.5rem}
@@ -168,6 +170,87 @@
 .other-tool-desc{font-size:0.78rem;color:var(--muted);margin-top:0.4rem;line-height:1.5}
 .other-tool-status{font-family:"Oswald",sans-serif;font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--red-bright);margin-top:0.7rem}
 
+/* CAMERA SECTION */
+.camera-section{border:1px solid var(--border-red);padding:1.5rem;margin-bottom:1.5rem;background:rgba(255,255,255,0.015)}
+.camera-divider{text-align:center;font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;display:flex;align-items:center;gap:1rem}
+.camera-divider::before,.camera-divider::after{content:"";flex:1;height:1px;background:rgba(255,255,255,0.06)}
+.camera-header{display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:1rem}
+.cam-icon{font-size:1.5rem;line-height:1}
+.cam-header-text{flex:1}
+.cam-header-title{font-family:"Oswald",sans-serif;font-size:0.85rem;font-weight:600;color:var(--cream);letter-spacing:0.05em}
+.cam-header-sub{font-size:0.72rem;color:var(--muted);margin-top:0.15rem;line-height:1.5}
+.camera-view{position:relative;background:var(--black);aspect-ratio:4/3;overflow:hidden;margin-bottom:0.75rem;display:flex;align-items:center;justify-content:center}
+.camera-view video,.camera-view canvas{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain}
+.camera-view canvas{z-index:2;pointer-events:none}
+.cam-status{position:absolute;bottom:0.75rem;left:50%;transform:translateX(-50%);z-index:3;background:rgba(0,0,0,0.7);padding:0.3rem 1rem;font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5)}
+.cam-countdown{display:none;position:absolute;inset:0;z-index:4;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;font-family:"Black Han Sans",sans-serif;font-size:8rem;color:var(--red-bright)}
+.cam-countdown.visible{display:flex}
+.cam-countdown .go-text{font-size:4rem;color:#4caf50}
+.camera-controls{margin-bottom:0.75rem}
+.cam-btn{width:100%;padding:0.8rem;background:var(--red);color:var(--white);font-family:"Oswald",sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s}
+.cam-btn:hover{background:var(--red-bright)}
+.cam-btn:disabled{opacity:0.35;cursor:default;background:var(--red)}
+.cam-btn-secondary{background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--cream)}
+.cam-btn-secondary:hover{background:transparent;border-color:var(--red);color:var(--red-bright)}
+.cam-note{font-size:0.62rem;color:var(--muted);text-align:center;line-height:1.6;margin-top:1rem}
+.frame-review{display:none;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.06)}
+.frame-review.visible{display:block}
+.frame-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.5rem;margin-bottom:0.75rem}
+.frame-item{text-align:center;cursor:pointer;border:2px solid transparent;padding:0.25rem;transition:border-color 0.2s}
+.frame-item.active{border-color:var(--red)}
+.frame-item .frame-label{font-family:"Oswald",sans-serif;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:0.25rem;display:flex;align-items:center;justify-content:center;gap:0.3rem}
+.frame-item .frame-check{display:none;color:#4caf50;font-size:0.7rem}
+.frame-item.active .frame-check{display:inline}
+.frame-canvas{width:100%;aspect-ratio:4/3;background:var(--black);border:1px solid rgba(255,255,255,0.06);display:block}
+.frame-item .frame-y{font-size:0.48rem;color:var(--muted);margin-top:0.15rem;font-family:"DM Sans",sans-serif}
+.cam-result{text-align:center;padding:0.7rem;margin-bottom:0.75rem;background:rgba(76,175,80,0.08);border:1px solid rgba(76,175,80,0.15)}
+.cam-result .rlabel{font-family:"Oswald",sans-serif;font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted)}
+.cam-result .rval{font-family:"Black Han Sans",sans-serif;font-size:2rem;color:#4caf50;line-height:1}
+.cam-result .rval small{font-size:0.8rem;color:var(--muted);font-family:"Oswald",sans-serif;font-weight:400;letter-spacing:0.1em;text-transform:uppercase}
+.cam-result .rcm{font-size:0.72rem;color:var(--muted);margin-top:0.1rem}
+.cam-actions{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
+.camera-loading{text-align:center;padding:2rem;font-family:"Oswald",sans-serif;font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted)}
+.camera-loading .spinner{display:inline-block;width:24px;height:24px;border:2px solid rgba(255,255,255,0.06);border-top-color:var(--red-bright);border-radius:50%;animation:spin 0.8s linear infinite;margin-bottom:0.75rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+.camera-warning{background:rgba(255,152,0,0.08);border:1px solid rgba(255,152,0,0.15);padding:1rem;font-size:0.7rem;color:var(--muted);line-height:1.6;margin-top:0.75rem}
+.camera-warning strong{color:var(--cream)}
+
+/* CAMERA OPTIONS */
+.cam-options{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.75rem;align-items:flex-end}
+.cam-opt-group{flex:1;min-width:100px}
+.cam-opt-group label{display:block;font-family:"Oswald",sans-serif;font-size:0.5rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:0.3rem}
+.cam-opt-row{display:flex;gap:2px}
+.cam-opt-btn{flex:1;padding:0.35rem 0.2rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-family:"Oswald",sans-serif;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;text-align:center}
+.cam-opt-btn:hover{border-color:rgba(255,255,255,0.15);color:var(--cream)}
+.cam-opt-btn.active{background:rgba(192,23,15,0.12);border-color:var(--red);color:var(--red-bright)}
+#switchCamBtn{flex:0 0 auto;padding:0.35rem 0.6rem;display:flex;align-items:center;gap:0.3rem}
+#switchCamBtn .cam-icon-small{font-size:0.75rem;line-height:1}
+
+/* REPLAY MODAL */
+.replay-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;padding:1.5rem}
+.replay-overlay.visible{display:flex}
+.replay-modal{background:var(--charcoal);border:1px solid var(--border-red);max-width:650px;width:100%;padding:1.5rem;max-height:90vh;overflow-y:auto}
+.replay-title{font-family:"Black Han Sans",sans-serif;font-size:1rem;text-transform:uppercase;color:var(--white);margin-bottom:0.15rem}
+.replay-sub{font-size:0.7rem;color:var(--muted);margin-bottom:1rem}
+.replay-thumbs{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.4rem;margin-bottom:1rem}
+.replay-thumb{text-align:center}
+.replay-thumb .rt-label{font-family:"Oswald",sans-serif;font-size:0.45rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:0.2rem}
+.replay-thumb canvas{width:100%;aspect-ratio:4/3;background:var(--black);border:1px solid rgba(255,255,255,0.06);display:block}
+.replay-thumb .rt-val{font-size:0.48rem;color:var(--muted);margin-top:0.1rem;font-family:"DM Sans",sans-serif}
+.replay-canvas-wrap{position:relative;background:var(--black);aspect-ratio:4/3;margin-bottom:0.75rem;border:1px solid rgba(255,255,255,0.06)}
+.replay-canvas-wrap canvas{position:absolute;top:0;left:0;width:100%;height:100%}
+.replay-controls{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem}
+.replay-btn{background:var(--red);border:none;color:var(--white);font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;padding:0.4rem 1rem;cursor:pointer;transition:background 0.2s}
+.replay-btn:hover{background:var(--red-bright)}
+.replay-scrub{flex:1;height:4px;-webkit-appearance:none;appearance:none;background:rgba(255,255,255,0.1);outline:none;border-radius:2px;cursor:pointer}
+.replay-scrub::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--red);border:none;cursor:pointer}
+.replay-scrub::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--red);border:none;cursor:pointer}
+.replay-frame-count{font-family:"DM Sans",sans-serif;font-size:0.6rem;color:var(--muted);white-space:nowrap}
+.replay-meta{display:flex;gap:0.75rem;flex-wrap:wrap;font-size:0.6rem;color:var(--muted);margin-bottom:0.75rem}
+.replay-meta span{background:rgba(255,255,255,0.03);padding:0.25rem 0.5rem;border:1px solid rgba(255,255,255,0.04)}
+.replay-close{width:100%;padding:0.6rem;background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
+.replay-close:hover{border-color:var(--red);color:var(--red-bright)}
+
 @media(max-width:768px){
   .hero{padding:5rem 1.5rem 3rem}
   .hero-bg-word{display:none}
@@ -178,8 +261,13 @@
   .results-light .conversion{font-size:2.5rem}
   .analysis-inches{font-size:2.2rem}
   .analysis-percentile .num{font-size:2.2rem}
-  .test-entry{grid-template-columns:1fr 0.6fr 0.6fr 0.6fr 0.3fr;font-size:0.65rem}
+  .test-entry{grid-template-columns:1fr 0.6fr 0.5fr 0.5fr 0.25fr 0.4fr;font-size:0.65rem}
   .other-tools{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .frame-row{grid-template-columns:1fr 1fr}
+  .cam-countdown{font-size:5rem}
+  .cam-countdown .go-text{font-size:3rem}
 }
 
 </style>
@@ -267,7 +355,88 @@
     <div class="reveal">
       <div class="calc-card">
         <div class="calc-card-title">Vertical Jump Analysis &amp; Converter</div>
-        <div class="calc-card-sub">Fill in the athlete&rsquo;s info and jump result from your tester. We&rsquo;ll convert cm to inches and run the analysis.</div>
+        <div class="calc-card-sub">Fill in the athlete&rsquo;s info and jump result from your tester. We&rsquo;ll convert cm to inches and run the analysis. <strong style="color:var(--cream)">Or use your phone camera below to auto-detect.</strong></div>
+
+        <!-- CAMERA SECTION -->
+        <div class="camera-section" id="cameraSection">
+          <div class="camera-divider"><span>or</span></div>
+          <div class="camera-header">
+            <div class="cam-icon">&#128247;</div>
+            <div class="cam-header-text">
+              <div class="cam-header-title">Camera Jump Detection</div>
+              <div class="cam-header-sub">Phone on a stand, athlete sideways in frame. We auto-detect the jump.</div>
+            </div>
+          </div>
+
+          <div class="camera-view" id="cameraView">
+            <video id="camVideo" playsinline muted></video>
+            <canvas id="camOverlay"></canvas>
+            <div class="cam-status" id="camStatus">Loading camera...</div>
+            <div class="cam-countdown" id="camCountdown"></div>
+          </div>
+
+          <div class="camera-controls">
+            <button class="cam-btn" id="recordBtn" disabled>Record Jump</button>
+          </div>
+
+          <div class="cam-options">
+            <div class="cam-opt-group">
+              <label>Duration</label>
+              <div class="cam-opt-row" id="durationOpts">
+                <button class="cam-opt-btn" data-dur="2">2s</button>
+                <button class="cam-opt-btn active" data-dur="3">3s</button>
+                <button class="cam-opt-btn" data-dur="4">4s</button>
+                <button class="cam-opt-btn" data-dur="5">5s</button>
+              </div>
+            </div>
+            <div class="cam-opt-group">
+              <label>Sensitivity</label>
+              <div class="cam-opt-row" id="sensitivityOpts">
+                <button class="cam-opt-btn" data-sens="strict">Strict</button>
+                <button class="cam-opt-btn active" data-sens="normal">Normal</button>
+                <button class="cam-opt-btn" data-sens="relaxed">Relaxed</button>
+              </div>
+            </div>
+            <div class="cam-opt-group" style="flex:0 0 auto">
+              <label>Camera</label>
+              <button class="cam-opt-btn" id="switchCamBtn"><span class="cam-icon-small">&#128247;</span> Switch</button>
+            </div>
+          </div>
+
+          <div class="frame-review" id="frameReview">
+            <div class="frame-row">
+              <div class="frame-item" data-phase="standing">
+                <div class="frame-label">Standing <span class="frame-check">&#10003;</span></div>
+                <canvas class="frame-canvas" id="frameStanding"></canvas>
+                <div class="frame-y" id="yStanding"></div>
+              </div>
+              <div class="frame-item" data-phase="takeoff">
+                <div class="frame-label">Takeoff <span class="frame-check">&#10003;</span></div>
+                <canvas class="frame-canvas" id="frameTakeoff"></canvas>
+                <div class="frame-y" id="yTakeoff"></div>
+              </div>
+              <div class="frame-item" data-phase="peak">
+                <div class="frame-label">Peak <span class="frame-check">&#10003;</span></div>
+                <canvas class="frame-canvas" id="framePeak"></canvas>
+                <div class="frame-y" id="yPeak"></div>
+              </div>
+              <div class="frame-item" data-phase="landing">
+                <div class="frame-label">Landing <span class="frame-check">&#10003;</span></div>
+                <canvas class="frame-canvas" id="frameLanding"></canvas>
+                <div class="frame-y" id="yLanding"></div>
+              </div>
+            </div>
+            <div class="cam-result" id="camResult"></div>
+            <div class="cam-actions">
+              <button class="cam-btn" id="confirmBtn">Confirm &amp; Use</button>
+              <button class="cam-btn cam-btn-secondary" id="retryBtn">Re-record</button>
+            </div>
+          </div>
+
+          <div class="camera-warning">
+            <strong>Tip:</strong> Dark/contrast clothing against a plain background helps detection. 30&ndash;60 fps phones work best. Height must be filled above for scaling.
+          </div>
+        </div>
 
         <form id="jumpForm" onsubmit="return false;">
           <div class="form-row">
@@ -587,13 +756,20 @@ function saveAndAnalyze() {
     if (email) athletes[name].email = email;
   }
 
-  athletes[name].tests.push({
+  const testEntry = {
     date,
     jumpCm: analysis.jumpCm,
     jumpIn: analysis.jumpIn,
     percentile: analysis.percentile,
     rating: analysis.rating
-  });
+  };
+
+  if (window.__pendingCameraData) {
+    testEntry.cameraData = window.__pendingCameraData;
+    window.__pendingCameraData = null;
+  }
+
+  athletes[name].tests.push(testEntry);
 
   saveAthletes(athletes);
   renderAnalysis(analysis, athletes, name);
@@ -667,7 +843,7 @@ function renderAthletes() {
 
     // Test table
     html += '<div class="test-entry" style="font-size:0.55rem;color:var(--muted);padding-bottom:0.3rem">';
-    html += '<span class="th">Date</span><span class="th">cm</span><span class="th">in</span><span class="th">Percentile</span><span class="th"></span>';
+    html += '<span class="th">Date</span><span class="th">cm</span><span class="th">in</span><span class="th">Percentile</span><span class="th"></span><span class="th"></span>';
     html += '</div>';
 
     a.tests.forEach((t, i) => {
@@ -685,6 +861,9 @@ function renderAthletes() {
       html += '<span class="td">' + t.jumpIn + '</span>';
       html += '<span class="td pct">' + t.percentile + 'th</span>';
       html += '<span class="td trend">' + trendIcon + '</span>';
+      if (t.cameraData) {
+        html += '<span class="td" style="text-align:right"><button class="rev-btn" onclick="showJumpReview(\'' + escHtml(name) + '\',' + i + ')">&#9654; Review</button></span>';
+      }
       html += '</div>';
     });
 
@@ -847,6 +1026,98 @@ function handleShareView() {
   }
 }
 
+/* JUMP REVIEW MODAL */
+function drawSkeletonStandalone(ctx, lm, w, h) {
+  const bones = [[11,12],[12,24],[24,23],[23,11],[11,13],[13,15],[15,17],[15,19],[15,21],[17,19],[12,14],[14,16],[16,18],[16,20],[16,22],[18,20],[23,25],[25,27],[27,29],[27,31],[29,31],[24,26],[26,28],[28,30],[28,32],[30,32],[23,24],[25,26]];
+  ctx.strokeStyle = '#c0170f'; ctx.lineWidth = 2;
+  bones.forEach(([i, j]) => { const a = lm[i], b = lm[j]; if (a && b) { ctx.beginPath(); ctx.moveTo(a.x * w, a.y * h); ctx.lineTo(b.x * w, b.y * h); ctx.stroke(); } });
+  ctx.fillStyle = '#c0170f';
+  [0, 11, 12, 23, 24].forEach(i => { const p = lm[i]; if (p) ctx.fillRect(p.x * w - 3, p.y * h - 3, 6, 6); });
+  const lh = lm[23], rh = lm[24];
+  if (lh && rh) {
+    ctx.fillStyle = '#ff4444';
+    const cx = (lh.x + rh.x) / 2 * w, cy = (lh.y + rh.y) / 2 * h;
+    ctx.beginPath(); ctx.arc(cx, cy, 6, 0, 2 * Math.PI); ctx.fill();
+  }
+}
+
+function showJumpReview(name, testIdx) {
+  const athletes = loadAthletes();
+  const a = athletes[name];
+  if (!a || !a.tests[testIdx] || !a.tests[testIdx].cameraData) return;
+
+  const t = a.tests[testIdx];
+  const cd = t.cameraData;
+
+  document.getElementById('replaySub').textContent = name + ' \u2014 ' + t.date + ' \u2014 ' + t.jumpCm + ' cm (' + t.jumpIn + ' in)';
+
+  let thumbsHtml = '';
+  cd.frameLabels.forEach((label, i) => {
+    const src = cd.frames && cd.frames[i];
+    if (src) {
+      thumbsHtml += '<div class="replay-thumb"><div class="rt-label">' + label.charAt(0).toUpperCase() + label.slice(1) + '</div><img src="' + src + '" style="width:100%;aspect-ratio:4/3;display:block;background:var(--black);border:1px solid rgba(255,255,255,0.06)"><div class="rt-val"></div></div>';
+    }
+  });
+  document.getElementById('replayThumbs').innerHTML = thumbsHtml;
+
+  document.getElementById('replayMeta').innerHTML =
+    '<span>Duration: ' + cd.duration + 's</span>' +
+    '<span>Sensitivity: ' + cd.sensitivity + '</span>' +
+    '<span>Camera: ' + (cd.camLabel || 'Default') + '</span>' +
+    '<span>Frames recorded: ' + cd.numFrames + '</span>';
+
+  const canvas = document.getElementById('replayCanvas');
+  const W = 640, H = 480;
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  const landmarks = cd.landmarks || [];
+  const totalFrames = landmarks.length;
+  const scrub = document.getElementById('replayScrub');
+  scrub.max = Math.max(0, totalFrames - 1);
+  scrub.value = 0;
+  document.getElementById('replayFrameCount').textContent = '1 / ' + totalFrames;
+
+  let replayId = null;
+  let currentFrame = 0;
+
+  function drawFrame(idx) {
+    ctx.clearRect(0, 0, W, H);
+    if (idx < 0 || idx >= landmarks.length) return;
+    const lm = landmarks[idx].map(p => ({ x: p[0] / 1000, y: p[1] / 1000 }));
+    drawSkeletonStandalone(ctx, lm, W, H);
+  }
+
+  function stopReplay() {
+    if (replayId) { clearInterval(replayId); replayId = null; }
+    document.getElementById('replayPlayBtn').innerHTML = '\u25B6 Play';
+  }
+
+  document.getElementById('replayPlayBtn').onclick = function() {
+    if (replayId) { stopReplay(); return; }
+    this.innerHTML = '\u275A\u275A Pause';
+    replayId = setInterval(() => {
+      drawFrame(currentFrame);
+      scrub.value = currentFrame;
+      document.getElementById('replayFrameCount').textContent = (currentFrame + 1) + ' / ' + totalFrames;
+      currentFrame++;
+      if (currentFrame >= totalFrames) {
+        currentFrame = 0;
+        stopReplay();
+      }
+    }, 33);
+  };
+
+  scrub.oninput = function() {
+    currentFrame = parseInt(this.value);
+    drawFrame(currentFrame);
+    document.getElementById('replayFrameCount').textContent = (currentFrame + 1) + ' / ' + totalFrames;
+  };
+
+  drawFrame(0);
+  document.getElementById('replayOverlay').classList.add('visible');
+}
+
 /* INIT */
 document.addEventListener('DOMContentLoaded', function() {
   handleShareView();
@@ -855,8 +1126,383 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!document.getElementById('saveDate').value) {
     document.getElementById('saveDate').value = new Date().toISOString().split('T')[0];
   }
+
+  document.getElementById('replayCloseBtn').addEventListener('click', function() {
+    document.getElementById('replayOverlay').classList.remove('visible');
+    const btn = document.getElementById('replayPlayBtn');
+    if (btn) btn.innerHTML = '\u25B6 Play';
+  });
 });
 
 </script>
+
+<script type="module">
+const $ = id => document.getElementById(id);
+const qs = (sel, ctx) => (ctx || document).querySelector(sel);
+const qsa = (sel, ctx) => (ctx || document).querySelectorAll(sel);
+
+const camSection = $('cameraSection');
+const video = $('camVideo');
+const overlay = $('camOverlay');
+const status = $('camStatus');
+const recordBtn = $('recordBtn');
+const countdown = $('camCountdown');
+const frameReview = $('frameReview');
+const standingCanvas = $('frameStanding');
+const takeoffCanvas = $('frameTakeoff');
+const peakCanvas = $('framePeak');
+const landingCanvas = $('frameLanding');
+const yStanding = $('yStanding');
+const yTakeoff = $('yTakeoff');
+const yPeak = $('yPeak');
+const yLanding = $('yLanding');
+const camResult = $('camResult');
+const confirmBtn = $('confirmBtn');
+const retryBtn = $('retryBtn');
+const switchCamBtn = $('switchCamBtn');
+
+const W = 640, H = 480;
+let poseLandmarker = null, stream = null;
+let isRecording = false, recordedFrames = [], animId = null, detectionResult = null;
+let videoDevices = [], activeDeviceId = null, activeDeviceLabel = 'Default', snapCount = 0;
+
+const sensMap = {
+  strict: { label: 'Strict', threshold: 0.01, minJump: 1.5 },
+  normal: { label: 'Normal', threshold: 0.015, minJump: 1.0 },
+  relaxed: { label: 'Relaxed', threshold: 0.025, minJump: 0.5 }
+};
+
+function getDuration() {
+  const a = qs('#durationOpts .cam-opt-btn.active');
+  return a ? parseInt(a.dataset.dur) : 3;
+}
+function getSensitivity() {
+  const a = qs('#sensitivityOpts .cam-opt-btn.active');
+  return sensMap[a ? a.dataset.sens : 'normal'] || sensMap.normal;
+}
+
+async function loadPoseLandmarker() {
+  const { PoseLandmarker, FilesetResolver } = await import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/vision_bundle.mjs');
+  const vision = await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm/');
+  return PoseLandmarker.createFromOptions(vision, {
+    baseOptions: { modelAssetPath: 'https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/latest/pose_landmarker_lite.task', delegate: 'GPU' },
+    runningMode: 'VIDEO'
+  });
+}
+
+function setStatus(msg) { status.textContent = msg; }
+
+async function enumerateCameras() {
+  try {
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    videoDevices = devices.filter(d => d.kind === 'videoinput');
+    if (videoDevices.length > 0 && !activeDeviceId) {
+      activeDeviceId = videoDevices[0].deviceId;
+      activeDeviceLabel = videoDevices[0].label || 'Camera 1';
+    }
+  } catch (e) {}
+}
+
+async function startCamera() {
+  const constraints = { video: { width: { ideal: W }, height: { ideal: H } } };
+  if (activeDeviceId) constraints.video.deviceId = { exact: activeDeviceId };
+  try {
+    stream = await navigator.mediaDevices.getUserMedia(constraints);
+    video.srcObject = stream;
+    await video.play();
+    video.setAttribute('playsinline', '');
+    overlay.width = video.videoWidth || W;
+    overlay.height = video.videoHeight || H;
+    setStatus('Ready — ' + activeDeviceLabel);
+    recordBtn.disabled = false;
+    await enumerateCameras();
+    detectLoop();
+  } catch (e) {
+    setStatus('Camera access denied or unavailable');
+    recordBtn.disabled = true;
+  }
+}
+
+const getHipY = lm => { const l = lm[23], r = lm[24]; return l && r ? (l.y + r.y) / 2 : l ? l.y : r ? r.y : 0; };
+const getHeelY = lm => { const l = lm[29], r = lm[30]; return l && r ? (l.y + r.y) / 2 : l ? l.y : r ? r.y : 0; };
+const getNoseY = lm => lm[0] ? lm[0].y : 0;
+
+function detectLoop() {
+  if (!poseLandmarker || !video.videoWidth) { animId = requestAnimationFrame(detectLoop); return; }
+  poseLandmarker.detectForVideo(video, performance.now(), result => {
+    const ctx = overlay.getContext('2d');
+    ctx.clearRect(0, 0, overlay.width, overlay.height);
+    if (result.landmarks && result.landmarks.length > 0) {
+      const lm = result.landmarks[0];
+      drawSkeleton(ctx, lm, overlay.width, overlay.height);
+      if (isRecording) {
+        recordedFrames.push({ hipY: getHipY(lm), heelY: getHeelY(lm), noseY: getNoseY(lm), landmarks: JSON.parse(JSON.stringify(lm)), ts: performance.now() });
+        if (++snapCount % 5 === 0) {
+          const c = document.createElement('canvas');
+          c.width = 320; c.height = 240;
+          c.getContext('2d').drawImage(video, 0, 0, 320, 240);
+          recordedFrames[recordedFrames.length - 1].snap = c.toDataURL('image/jpeg', 0.5);
+        }
+      }
+    } else {
+      if (!isRecording) setStatus('No person detected — adjust position');
+    }
+  });
+  animId = requestAnimationFrame(detectLoop);
+}
+
+function drawSkeleton(ctx, lm, w, h) {
+  const bones = [[11,12],[12,24],[24,23],[23,11],[11,13],[13,15],[15,17],[15,19],[15,21],[17,19],[12,14],[14,16],[16,18],[16,20],[16,22],[18,20],[23,25],[25,27],[27,29],[27,31],[29,31],[24,26],[26,28],[28,30],[28,32],[30,32],[23,24],[25,26]];
+  ctx.strokeStyle = '#c0170f'; ctx.lineWidth = 2;
+  bones.forEach(([i, j]) => { const a = lm[i], b = lm[j]; if (a && b) { ctx.beginPath(); ctx.moveTo(a.x * w, a.y * h); ctx.lineTo(b.x * w, b.y * h); ctx.stroke(); } });
+  ctx.fillStyle = '#c0170f';
+  [0, 11, 12, 23, 24].forEach(i => { const p = lm[i]; if (p) ctx.fillRect(p.x * w - 3, p.y * h - 3, 6, 6); });
+  const lh = lm[23], rh = lm[24];
+  if (lh && rh) {
+    ctx.fillStyle = '#ff4444';
+    const cx = (lh.x + rh.x) / 2 * w, cy = (lh.y + rh.y) / 2 * h;
+    ctx.beginPath(); ctx.arc(cx, cy, 6, 0, 2 * Math.PI); ctx.fill();
+  }
+}
+
+function countdownFrom(secs) {
+  return new Promise(r => {
+    countdown.classList.add('visible');
+    let i = secs;
+    countdown.textContent = i;
+    const iv = setInterval(() => {
+      i--;
+      if (i > 0) countdown.textContent = i;
+      else if (i === 0) {
+        countdown.innerHTML = '<span class="go-text">GO</span>';
+        setTimeout(() => { countdown.classList.remove('visible'); clearInterval(iv); r(); }, 500);
+      }
+    }, 1000);
+  });
+}
+
+async function handleRecord() {
+  if (!poseLandmarker) { setStatus('Loading model...'); poseLandmarker = await loadPoseLandmarker(); }
+  recordBtn.disabled = true;
+  recordedFrames = [];
+  snapCount = 0;
+  isRecording = true;
+  await countdownFrom(3);
+  const dur = getDuration();
+  setTimeout(() => { isRecording = false; analyzeFrames(); }, dur * 1000);
+}
+
+function analyzeFrames() {
+  if (recordedFrames.length < 15) {
+    setStatus('Not enough data — jump too early or athlete moved. Re-record.');
+    recordBtn.disabled = false;
+    return;
+  }
+
+  const slice = recordedFrames.slice(0, Math.min(10, recordedFrames.length));
+  const avgHipY = slice.reduce((s, f) => s + f.hipY, 0) / slice.length;
+  const avgHeelY = slice.reduce((s, f) => s + f.heelY, 0) / slice.length;
+  const avgNoseY = slice.reduce((s, f) => s + f.noseY, 0) / slice.length;
+
+  let peakIdx = 0, minY = Infinity;
+  for (let i = 0; i < recordedFrames.length; i++) { if (recordedFrames[i].hipY < minY) { minY = recordedFrames[i].hipY; peakIdx = i; } }
+
+  let dipIdx = 0, maxPre = -Infinity;
+  for (let i = 0; i < peakIdx; i++) { if (recordedFrames[i].hipY > maxPre) { maxPre = recordedFrames[i].hipY; dipIdx = i; } }
+
+  let takeoffIdx = peakIdx;
+  for (let i = dipIdx; i < peakIdx; i++) { if (recordedFrames[i].hipY <= avgHipY) { takeoffIdx = i; break; } }
+
+  const sens = getSensitivity();
+  let landingIdx = recordedFrames.length - 1;
+  for (let i = peakIdx; i < recordedFrames.length; i++) { if (Math.abs(recordedFrames[i].hipY - avgHipY) < sens.threshold) { landingIdx = i; break; } }
+
+  const pixelHeight = avgHeelY - avgNoseY;
+  const ft = parseFloat($('heightFt').value) || 0;
+  const inc = parseFloat($('heightIn').value) || 0;
+  const totalInches = ft * 12 + inc;
+
+  if (pixelHeight <= 0 || totalInches <= 0) {
+    setStatus('Enter athlete height above, then re-record');
+    recordBtn.disabled = false;
+    return;
+  }
+
+  const scale = totalInches / pixelHeight;
+  const jumpIn = (avgHipY - minY) * scale;
+  const jumpCm = jumpIn * 2.54;
+
+  if (jumpIn < sens.minJump || jumpIn > 60 || isNaN(jumpIn)) {
+    setStatus('Detection looked off — re-record with athlete in frame');
+    recordBtn.disabled = false;
+    return;
+  }
+
+  detectionResult = { jumpCm: Math.round(jumpCm * 10) / 10, jumpIn: Math.round(jumpIn * 10) / 10 };
+
+  const draw = (can, f) => {
+    if (!can || !f) return;
+    can.width = overlay.width; can.height = overlay.height;
+    const c = can.getContext('2d');
+    c.drawImage(video, 0, 0, can.width, can.height);
+    drawSkeleton(c, f.landmarks, can.width, can.height);
+  };
+  draw(standingCanvas, recordedFrames[0]);
+  draw(takeoffCanvas, recordedFrames[takeoffIdx]);
+  draw(peakCanvas, recordedFrames[peakIdx]);
+  draw(landingCanvas, recordedFrames[landingIdx]);
+
+  const pxVal = f => ((avgHipY - f.hipY) > 0 ? '+' : '') + (avgHipY - f.hipY).toFixed(1);
+  yStanding.textContent = pxVal(recordedFrames[0]);
+  yTakeoff.textContent = pxVal(recordedFrames[takeoffIdx]);
+  yPeak.textContent = pxVal(recordedFrames[peakIdx]);
+  yLanding.textContent = pxVal(recordedFrames[landingIdx]);
+
+  camResult.innerHTML = '<div class="rlabel">Detected Jump</div><div class="rval">' + detectionResult.jumpIn + '<small> in</small></div><div class="rcm">' + detectionResult.jumpCm + ' cm</div>';
+  frameReview.classList.add('visible');
+  setStatus('Review frames below. Tap any to fine-tune.');
+
+  qsa('.frame-item').forEach(el => el.classList.remove('active'));
+  qs('.frame-item[data-phase="peak"]').classList.add('active');
+
+  const savedFrames = recordedFrames;
+  const savedScale = scale;
+  const savedAvg = avgHipY;
+
+  qsa('.frame-item').forEach(el => {
+    el.onclick = function () {
+      qsa('.frame-item').forEach(e => e.classList.remove('active'));
+      this.classList.add('active');
+      const phase = this.dataset.phase;
+      if (phase === 'standing') {
+        camResult.innerHTML = '<div class="rlabel">Standing reference — no jump</div>';
+        return;
+      }
+      const idx = { takeoff: takeoffIdx, peak: peakIdx, landing: landingIdx }[phase] || peakIdx;
+      const f = savedFrames[idx];
+      const px = savedAvg - f.hipY;
+      const inc = px * savedScale;
+      const cm = Math.round((inc * 2.54) * 10) / 10;
+      const inR = Math.round(inc * 10) / 10;
+      camResult.innerHTML = '<div class="rlabel">Frame: ' + phase + '</div><div class="rval">' + inR + '<small> in</small></div><div class="rcm">' + cm + ' cm</div>';
+      detectionResult = { jumpCm: cm, jumpIn: inR };
+    };
+  });
+
+  // Build camera data for profile storage
+  const keyIdx = [0, takeoffIdx, peakIdx, landingIdx];
+  const keySnaps = keyIdx.map(i => {
+    const f = savedFrames[i];
+    if (f && f.snap) return f.snap;
+    return null;
+  });
+  const sampleStep = Math.max(1, Math.floor(savedFrames.length / 30));
+  const sampled = [];
+  for (let i = 0; i < savedFrames.length; i += sampleStep) {
+    const f = savedFrames[i];
+    if (f && f.landmarks) sampled.push(f.landmarks.map(l => [Math.round(l.x * 1000), Math.round(l.y * 1000)]));
+  }
+  window.__pendingCameraData = {
+    duration: getDuration(),
+    sensitivity: sens.label,
+    landingThreshold: sens.threshold,
+    camLabel: activeDeviceLabel,
+    frames: keySnaps,
+    frameLabels: ['standing', 'takeoff', 'peak', 'landing'],
+    landmarks: sampled,
+    numFrames: savedFrames.length,
+    hipYbaseline: savedAvg
+  };
+}
+
+confirmBtn.addEventListener('click', () => {
+  if (!detectionResult) return;
+  $('jumpCm').value = detectionResult.jumpCm;
+  if (typeof lastResult !== 'undefined' && lastResult) lastResult.jumpCm = detectionResult.jumpCm;
+  frameReview.classList.remove('visible');
+  setStatus('Jump set to ' + detectionResult.jumpCm + ' cm');
+  recordBtn.disabled = false;
+  if (typeof convertJump === 'function') convertJump();
+});
+
+retryBtn.addEventListener('click', () => {
+  frameReview.classList.remove('visible');
+  camResult.innerHTML = '';
+  detectionResult = null;
+  setStatus('Ready');
+  recordBtn.disabled = false;
+});
+
+recordBtn.addEventListener('click', handleRecord);
+
+switchCamBtn.addEventListener('click', async () => {
+  await enumerateCameras();
+  if (videoDevices.length < 2) { setStatus('Only one camera available'); return; }
+  let idx = 0;
+  const curId = stream?.getVideoTracks()[0]?.getSettings()?.deviceId;
+  if (curId) {
+    const ci = videoDevices.findIndex(d => d.deviceId === curId);
+    if (ci >= 0) idx = (ci + 1) % videoDevices.length;
+  }
+  const next = videoDevices[idx];
+  if (!next) return;
+  activeDeviceId = next.deviceId;
+  activeDeviceLabel = next.label || 'Camera ' + (idx + 1);
+  if (stream) { stream.getTracks().forEach(t => t.stop()); }
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: { deviceId: { exact: activeDeviceId }, width: { ideal: W }, height: { ideal: H } } });
+    video.srcObject = stream;
+    await video.play();
+    setStatus('Ready — ' + activeDeviceLabel);
+    recordBtn.disabled = false;
+  } catch (e) {
+    activeDeviceId = null; activeDeviceLabel = 'Default';
+    await startCamera();
+  }
+});
+
+// Duration / sensitivity button clicks
+qsa('.cam-opt-row').forEach(row => {
+  row.addEventListener('click', e => {
+    const btn = e.target.closest('.cam-opt-btn');
+    if (!btn || btn.id === 'switchCamBtn') return;
+    qsa('.cam-opt-btn', row).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+async function init() {
+  if (!camSection || !video) return;
+  setStatus('Loading camera...');
+  try {
+    poseLandmarker = await loadPoseLandmarker();
+    await startCamera();
+  } catch (e) {
+    setStatus('Camera unavailable — enter jump manually above');
+    recordBtn.disabled = true;
+  }
+}
+init();
+</script>
+
+<!-- REPLAY MODAL -->
+<div class="replay-overlay" id="replayOverlay">
+  <div class="replay-modal">
+    <div class="replay-title">Jump Review</div>
+    <div class="replay-sub" id="replaySub">Loading...</div>
+    <div class="replay-thumbs" id="replayThumbs"></div>
+    <div class="replay-canvas-wrap">
+      <canvas id="replayCanvas"></canvas>
+    </div>
+    <div class="replay-controls">
+      <button class="replay-btn" id="replayPlayBtn">&#9654; Play</button>
+      <input type="range" class="replay-scrub" id="replayScrub" min="0" max="100" value="0">
+      <span class="replay-frame-count" id="replayFrameCount">0 / 0</span>
+    </div>
+    <div class="replay-meta" id="replayMeta"></div>
+    <button class="replay-close" id="replayCloseBtn">Close</button>
+  </div>
+</div>
+
 </body>
 </html>

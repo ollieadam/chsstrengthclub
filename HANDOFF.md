@@ -219,3 +219,121 @@ Added "AI Tools" link to main nav + mobile menu on all 5 main pages:
 - No email integration (decided against EmailJS — keep it simple)
 - Page matches existing dark theme (Oswald/Black Han Sans/DM Sans, red accents, noise overlay)
 - "Coming soon" cards signal this is the first of multiple tools
+
+---
+
+## Session: Camera Jump Detection (MediaPipe Pose)
+
+### What Changed
+All in `coaching-ai-tools.html`:
+- **Meta description** — updated to mention camera auto-detection with AI pose tracking
+- **CSS** — added ~50 lines of camera section styles (camera-view, cam-btn, countdown, frame-review, cam-result, etc.)
+- **HTML** — camera section inserted inside calc-card (before form) with: "or" divider, camera viewport (video + canvas overlay + status + countdown), Record button, 4-thumbnail frame review (Standing/Takeoff/Peak/Landing), result display, Confirm & Use / Re-record buttons, usage tips
+- **Module script** (`<script type="module">`) — MediaPipe Pose Landmarker integration with dynamic CDN import
+
+### Camera Detection Flow
+1. User fills in weight, age, height, sex, sport (height required for pixel→inch scaling)
+2. Page loads → imports MediaPipe WASM (~13MB) from CDN, requests camera via `getUserMedia`
+3. Real-time skeleton overlay (hips highlighted in red) + "No person detected" warnings
+4. Tap "Record Jump" → 3-2-1 countdown → 3-second recording captures hip/heel/nose Y per frame
+5. Analysis: standing baseline (first 10 frames avg) → find dip (deepest squat Y) → takeoff (hip crosses standing height) → peak (minimum Y = highest jump) → landing (hip returns to standing)
+6. 4 thumbnails shown with pixel displacement values; tap any thumbnail to select that frame as the jump height
+7. "Confirm & Use" fills `jumpCm` field, updates `lastResult`, and calls `convertJump()` to re-run analysis
+8. "Re-record" clears and starts over
+
+### Key Technical Details
+- **Scale calibration**: `athleteHeightInches / (heelY - noseY)` — uses standing frames to get pixel height of athlete's full body
+- **Jump height**: `(standingHipY - peakHipY) * scale` — positive difference from standing baseline to peak
+- **Takeoff detection**: After dip, first frame where hip Y ≤ standing hip Y (athlete has extended through standing height)
+- **Landing detection**: First frame after peak where hip Y within 1.5% of standing baseline
+- **Skeleton connections**: MediaPipe 33-keypoint model with 28 bone connections drawn in red
+- **Frame review**: Thumbnails are frozen from the live video with skeleton overlay re-drawn on each; tap to fine-tune detection
+- **Model**: Pose Landmarker Lite (fastest, ~13MB WASM) loaded from Google Storage CDN
+- **Edge case handling**: <15 frames → "not enough data", height missing → prompts user, jump outside 1-60in → "looked off", camera fail → "enter jump manually"
+
+### Known Quirks
+- Detect loop runs `requestAnimationFrame` continuously — could be throttled to every 2-3 frames for CPU savings
+- `convertJump()` is called after confirm to show the save section; user still fills athlete name and clicks save manually
+- If athlete changes height after detection but before confirm, scale will be recalculated from the stored standing heel/nose Y (which is from the actual recorded frames)
+
+---
+
+## Session: Camera Adaptability + Profile Video Storage
+
+### What Changed
+All changes in `coaching-ai-tools.html`:
+
+**Camera Adaptability Controls:**
+- **Camera switch** — Button cycles through all available video input devices via `enumerateDevices()`. Stops old stream and starts new one with the selected device ID. Status label updates with camera name. Graceful fallback on failure.
+- **Duration selector** — Pill buttons: 2s / **3s** / 4s / 5s. Default 3s. Controls how long recording captures after the GO signal. Value read from `getDuration()` before each recording.
+- **Sensitivity selector** — Pill buttons: Strict / **Normal** / Relaxed. Maps to `{threshold, minJump}`:
+  - Strict: threshold 0.01, min 1.5in
+  - Normal: threshold 0.015, min 1.0in
+  - Relaxed: threshold 0.025, min 0.5in
+  These replace the previously hardcoded values in landing detection and jump validation.
+
+**Camera Data in Athlete Profiles:**
+- **Data storage**: `saveAndAnalyze()` now checks `window.__pendingCameraData` and includes it as `cameraData` in each test entry. Cleared after save.
+- **cameraData structure** (stored per test):
+  ```json
+  {
+    "duration": 3,
+    "sensitivity": "Normal",
+    "landingThreshold": 0.015,
+    "camLabel": "Rear Camera",
+    "frames": ["data:image/jpeg;base64,...", ...],  // 4 thumbnails ~60KB total
+    "frameLabels": ["standing", "takeoff", "peak", "landing"],
+    "landmarks": [[[x*1000, y*1000], ...], ...],    // ~30 sampled frames × 33 keypoints × 2 ints
+    "numFrames": 85,
+    "hipYbaseline": 0.55
+  }
+  ```
+- **Thumbnail capture**: During recording, every 5th frame captures a 320×240 JPEG snapshot from the video. After analysis extracts the 4 key frames (standing, takeoff, peak, landing), others are discarded.
+- **Landmark compression**: Full landmarks array sampled to ~30 frames (every Nth frame). Each landmark stored as `[x*1000, y*1000]` integers (0.1% precision ~0.6px at 640px).
+- **Total storage per camera test**: ~70-80KB. localStorage 5MB limit → comfortable for 60+ tests.
+
+**Jump Review Modal:**
+- **"Review" button** appears in test history rows where `cameraData` exists (green-tinted mini button)
+- **Modal content**:
+  - Subtitle: athlete name, date, jump result
+  - 4 thumbnail images from the recording
+  - Replay canvas with skeleton animation
+  - Play/Pause button + scrubber slider
+  - Metadata row: duration, sensitivity, camera, frame count
+  - Close button
+- **Skeleton replay**: Standalone `drawSkeletonStandalone()` function mirrors the module's skeleton renderer. Steps through stored landmarks at ~30fps (33ms interval). Scrubber jumps to any frame.
+- **Modal close**: Registered in DOMContentLoaded to ensure element exists.
+
+### CSS Additions
+- `.cam-options`, `.cam-opt-group`, `.cam-opt-btn`, `.cam-opt-btn.active` — pill-style option buttons
+- `#switchCamBtn` — camera switch button with icon
+- `.replay-overlay`, `.replay-modal`, `.replay-thumbs`, `.replay-canvas-wrap` — modal layout
+- `.replay-btn`, `.replay-scrub`, `.replay-frame-count` — playback controls
+- `.replay-meta`, `.replay-close` — info + close button
+- `.rev-btn` — green "Review" button for test history rows
+- Grid updated: `.test-entry` now has 6 columns (added 0.5fr for review button)
+
+### Data Model Update
+```
+TestEntry now optionally includes:
+{
+  ...existing fields...,
+  cameraData: {
+    duration: number,
+    sensitivity: string,
+    landingThreshold: number,
+    camLabel: string,
+    frames: [string|null, string|null, string|null, string|null],
+    frameLabels: [string, string, string, string],
+    landmarks: [[[number, number], ...], ...],
+    numFrames: number,
+    hipYbaseline: number
+  }
+}
+```
+
+### Edge Cases
+- **Only one camera**: Switch button shows "Only one camera available" and does nothing
+- **Camera switch fails**: Falls back to default camera via `startCamera()`
+- **No camera data on save**: `saveAndAnalyze()` works normally without cameraData
+- **Review on deleted athlete data**: `showJumpReview()` checks athlete exists and has cameraData
