@@ -5,16 +5,16 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vertical Jump Analysis &amp; Calculator — Convert cm to in | Free Athlete Tool</title>
-<meta name="description" content="Free vertical jump analysis for athletes and coaches. Use your phone camera to auto-detect jump height with AI pose tracking, convert cm to inches, get percentile rankings, save athlete profiles, and share reports. Built by Adam Oliver, CSCS.">
-<meta property="og:title" content="Vertical Jump Analysis &amp; Calculator — Convert cm to in | CHS Strength Club">
-<meta property="og:description" content="Free vertical jump analysis for athletes and coaches. Convert tester cm to inches, get percentile rankings by age/sex/sport, save athlete profiles, and share analysis reports.">
+<title>Coaching AI Tools — Vertical Jump &amp; Sprint Speed Analysis | Free Athlete Tools</title>
+<meta name="description" content="Free AI coaching tools for athletes and coaches. Vertical jump calculator with camera detection, sprint speed converter with camera timing, athlete profile tracking, and shareable reports. Built by Adam Oliver, CSCS.">
+<meta property="og:title" content="Coaching AI Tools — Vertical Jump &amp; Sprint Speed Analysis | CHS Strength Club">
+<meta property="og:description" content="Free AI coaching tools — vertical jump analysis and sprint speed converter with camera AI detection. Save athlete profiles, track progress, share reports.">
 <meta property="og:image" content="https://chsstrengthclub.com/preview.webp">
 <meta property="og:url" content="https://chsstrengthclub.com/coaching-ai-tools.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Vertical Jump Calculator | AI Coaching Tools | CHS Strength Club">
-<meta name="twitter:description" content="Free vertical jump calculator for coaches and athletes. Convert tester cm to inches, save profiles, and share analysis.">
+<meta name="twitter:title" content="Coaching AI Tools | CHS Strength Club">
+<meta name="twitter:description" content="Free vertical jump calculator and sprint speed analyzer with AI camera detection. Save athlete profiles and share reports.">
 <meta name="twitter:image" content="https://chsstrengthclub.com/preview.webp">
 <link rel="canonical" href="https://chsstrengthclub.com/coaching-ai-tools.html">
 <link rel="stylesheet" href="/global.css">
@@ -258,6 +258,22 @@
 .replay-close{width:100%;padding:0.6rem;background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
 .replay-close:hover{border-color:var(--red);color:var(--red-bright)}
 
+/* TAB BAR */
+.tab-bar{display:flex;gap:0;border-bottom:1px solid var(--border-red);margin-bottom:2rem;overflow-x:auto}
+.tab-btn{padding:0.85rem 1.8rem;font-family:"Oswald",sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.tab-btn:hover{color:var(--cream)}
+.tab-btn.active{color:var(--red-bright);border-bottom-color:var(--red);background:rgba(192,23,15,0.04)}
+.tab-btn.coming-soon{opacity:0.35;cursor:default;pointer-events:none}
+.tab-btn .badge{font-size:0.45rem;letter-spacing:0.15em;color:var(--muted);margin-left:0.4rem;vertical-align:middle}
+.tool-tab{display:none}
+.tool-tab.active{display:block}
+
+/* SPRINT */
+.sprint-results-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;margin:1rem 0}
+.sprint-stat{border:1px solid rgba(255,255,255,0.06);padding:1rem;text-align:center}
+.sprint-stat .sval{font-family:"Black Han Sans",sans-serif;font-size:2rem;color:var(--red-bright);line-height:1}
+.sprint-stat .slabel{font-family:"Oswald",sans-serif;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-top:0.2rem}
+
 @media(max-width:768px){
   .hero{padding:5rem 1.5rem 3rem}
   .hero-bg-word{display:none}
@@ -270,6 +286,8 @@
   .analysis-percentile .num{font-size:2.2rem}
   .test-entry{grid-template-columns:1fr 0.6fr 0.5fr 0.5fr 0.25fr 0.4fr;font-size:0.65rem}
   .other-tools{grid-template-columns:1fr}
+  .tab-btn{padding:0.7rem 1rem;font-size:0.6rem}
+  .sprint-results-grid{grid-template-columns:1fr}
 }
 @media(max-width:600px){
   .frame-row{grid-template-columns:1fr 1fr}
@@ -282,8 +300,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Vertical Jump Calculator",
-  "description": "Free vertical jump calculator for coaches and athletes. Converts tester cm to inches, saves athlete profiles with test history, and generates shareable analysis reports with percentile rankings.",
+  "name": "Coaching AI Tools",
+  "description": "Free AI coaching tools for athletes and coaches. Vertical jump calculator with camera detection, sprint speed converter with camera timing, athlete profile tracking, and shareable reports.",
   "url": "https://chsstrengthclub.com/coaching-ai-tools.html",
   "applicationCategory": "SportsApplication",
   "operatingSystem": "All",
@@ -342,23 +360,35 @@
       Coaching AI Tools
     </div>
     <h1 class="hero-title">
-      <span class="line1">Vertical Jump</span>
-      <span class="line2">Calculator.</span>
-      <span class="line3">Vertical jump analysis &amp; converter &mdash; cm to inches</span>
+      <span class="line1">Coaching</span>
+      <span class="line2">AI Tools.</span>
+      <span class="line3">Vertical jump &amp; sprint speed analysis &mdash; free for coaches &amp; athletes</span>
     </h1>
     <div class="hero-rule"></div>
-    <p class="hero-sub">A complete vertical jump analysis tool for coaches and athletes. Convert your tester results from metric (cm) to standard (inches), see percentile rankings based on age, sex, and sport, save monthly test history, and share full analysis reports.</p>
+    <p class="hero-sub">Free AI-powered analysis tools for coaches and athletes. Vertical jump calculator with camera detection, sprint speed converter with camera timing, athlete profile tracking with test history, and shareable reports.</p>
     <div class="coach-note">
       <strong>Built by Adam Oliver, CSCS</strong> &mdash; a coach using AI to create free analysis tools for athletes and coaches. Adam combines CSCS-certified training with AI-assisted tool building.
     </div>
   </div>
 </section>
 
+<div class="tool-section" style="padding:2rem 3rem 0;border-top:none">
+  <div class="tool-inner">
+    <div class="tab-bar" id="tabBar">
+      <button class="tab-btn active" data-tool="jump">Vertical Jump</button>
+      <button class="tab-btn" data-tool="sprint">Sprint Speed</button>
+      <button class="tab-btn coming-soon" data-tool="onerm">1RM Calculator <span class="badge">Soon</span></button>
+    </div>
+  </div>
+</div>
+
 <!-- CALCULATOR -->
 <section class="tool-section">
   <div class="tool-inner">
     <div id="shareView"></div>
 
+    <!-- JUMP TAB -->
+    <div class="tool-tab active" data-tool="jump">
     <div class="reveal">
       <div class="calc-card">
         <div class="calc-card-title">Vertical Jump Analysis &amp; Converter</div>
@@ -571,6 +601,220 @@
         <p class="disclaimer">Percentiles based on published normative data for vertical jump by age and sex, adjusted for sport. General reference values only.</p>
       </div>
     </div>
+    </div>
+
+    <!-- SPRINT TAB -->
+    <div class="tool-tab" data-tool="sprint">
+    <div class="reveal">
+      <div class="calc-card">
+        <div class="calc-card-title">Sprint Speed Converter &amp; Analyzer</div>
+        <div class="calc-card-sub">Enter the athlete&rsquo;s sprint distance and time. We&rsquo;ll convert to mph, km/h, and m/s, then run the analysis. <strong style="color:var(--cream)">Or use your phone camera below to auto-detect.</strong></div>
+
+        <!-- SPRINT CAMERA SECTION -->
+        <div class="camera-section" id="sprintCameraSection">
+          <div class="camera-divider"><span>or</span></div>
+          <div class="camera-header">
+            <div class="cam-icon">&#127939;</div>
+            <div class="cam-header-text">
+              <div class="cam-header-title">Camera Sprint Detection</div>
+              <div class="cam-header-sub">Side view of athlete sprinting. Cones at known distances in frame. We auto-detect the time.</div>
+            </div>
+          </div>
+
+          <div class="camera-view" id="sprintCameraView">
+            <video id="sprintCamVideo" playsinline muted></video>
+            <canvas id="sprintCamOverlay"></canvas>
+            <div class="cam-status" id="sprintCamStatus">Loading camera...</div>
+            <div class="cam-countdown" id="sprintCamCountdown"></div>
+          </div>
+
+          <div class="camera-controls">
+            <button class="cam-btn" id="sprintRecordBtn" disabled>Record Sprint</button>
+          </div>
+
+          <div class="cam-options">
+            <div class="cam-opt-group">
+              <label>Distance</label>
+              <select id="sprintCamDistance" style="width:100%;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--cream);padding:0.5rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;outline:none">
+                <option value="10">10 yd</option>
+                <option value="20">20 yd</option>
+                <option value="40" selected>40 yd</option>
+                <option value="10m">10 m</option>
+                <option value="20m">20 m</option>
+                <option value="40m">40 m</option>
+              </select>
+            </div>
+            <div class="cam-opt-group">
+              <label>Duration</label>
+              <div class="cam-opt-row" id="sprintDurationOpts">
+                <button class="cam-opt-btn active" data-dur="3">3s</button>
+                <button class="cam-opt-btn" data-dur="4">4s</button>
+                <button class="cam-opt-btn" data-dur="5">5s</button>
+                <button class="cam-opt-btn" data-dur="6">6s</button>
+              </div>
+            </div>
+            <div class="cam-opt-group" style="flex:0 0 auto">
+              <label>Camera</label>
+              <button class="cam-opt-btn" id="sprintSwitchCamBtn"><span class="cam-icon-small">&#128247;</span> Switch</button>
+            </div>
+          </div>
+
+          <div class="frame-review" id="sprintFrameReview">
+            <div class="frame-row">
+              <div class="frame-item" data-phase="start">
+                <div class="frame-label">Start <span class="frame-check">&#10003;</span></div>
+                <canvas class="frame-canvas" id="frameStart"></canvas>
+                <div class="frame-y" id="yStart"></div>
+              </div>
+              <div class="frame-item" data-phase="mid">
+                <div class="frame-label">Mid <span class="frame-check">&#10003;</span></div>
+                <canvas class="frame-canvas" id="frameMid"></canvas>
+                <div class="frame-y" id="yMid"></div>
+              </div>
+              <div class="frame-item active" data-phase="finish">
+                <div class="frame-label">Finish <span class="frame-check">&#10003;</span></div>
+                <canvas class="frame-canvas" id="frameFinish"></canvas>
+                <div class="frame-y" id="yFinish"></div>
+              </div>
+            </div>
+            <div class="cam-result" id="sprintCamResult"></div>
+            <div class="cam-actions">
+              <button class="cam-btn" id="sprintConfirmBtn">Confirm &amp; Use</button>
+              <button class="cam-btn cam-btn-secondary" id="sprintRetryBtn">Re-record</button>
+            </div>
+          </div>
+
+          <div class="camera-warning">
+            <strong>Tip:</strong> Place phone on a tripod side-on to the sprint path. Ensure cones at start and finish are visible in frame. Height must be filled above for scaling. Runs with your LED timer or without.
+          </div>
+        </div>
+
+        <form id="sprintForm" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Weight <div class="unit-group" id="sprintWeightUnitGroup">
+                <button class="unit-btn active" data-unit="lbs">lbs</button>
+                <button class="unit-btn" data-unit="kg">kg</button>
+              </div></label>
+              <input type="number" id="sprintWeight" placeholder="lbs" min="20" max="700" step="0.1">
+            </div>
+            <div class="form-group">
+              <label>Age</label>
+              <input type="number" id="sprintAge" placeholder="Years" min="8" max="80">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Height <div class="unit-group" id="sprintHeightUnitGroup">
+                <button class="unit-btn active" data-unit="imperial">ft / in</button>
+                <button class="unit-btn" data-unit="metric">cm</button>
+              </div></label>
+              <div class="height-inputs" id="sprintHeightImperial">
+                <input type="number" id="sprintHeightFt" placeholder="ft" min="3" max="8">
+                <span>ft</span>
+                <input type="number" id="sprintHeightIn" placeholder="in" min="0" max="11">
+              </div>
+              <input type="number" id="sprintHeightCm" placeholder="cm" min="40" max="300" step="0.1" class="hidden-input">
+            </div>
+            <div class="form-group">
+              <label>Sex</label>
+              <div class="sex-group">
+                <button type="button" class="sex-btn" data-sex="male" onclick="setSprintSex('male')">Male</button>
+                <button type="button" class="sex-btn" data-sex="female" onclick="setSprintSex('female')">Female</button>
+              </div>
+              <input type="hidden" id="sprintSex" value="">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Sport</label>
+              <select id="sprintSport">
+                <option value="general">General Athlete</option>
+                <option value="basketball">Basketball</option>
+                <option value="football">Football</option>
+                <option value="soccer">Soccer</option>
+                <option value="baseball">Baseball / Softball</option>
+                <option value="track">Track & Field</option>
+                <option value="volleyball">Volleyball</option>
+                <option value="hockey">Hockey</option>
+                <option value="lacrosse">Lacrosse</option>
+                <option value="wrestling">Wrestling</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Distance</label>
+              <select id="sprintDistance">
+                <option value="10">10 yd</option>
+                <option value="20">20 yd</option>
+                <option value="40" selected>40 yd</option>
+                <option value="10m">10 m</option>
+                <option value="20m">20 m</option>
+                <option value="40m">40 m</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Time (seconds)</label>
+              <input type="number" id="sprintTime" placeholder="e.g. 4.52" min="0.5" max="30" step="0.01">
+              <div class="unit-note">Enter time from your timer &mdash; we&rsquo;ll calculate speed</div>
+            </div>
+            <div class="form-group">
+              <label>Timing Method</label>
+              <select id="sprintTiming">
+                <option value="hand">Hand-timed</option>
+                <option value="fat" selected>FAT (Fully Automatic)</option>
+                <option value="led">LED Timer</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="button" class="btn-primary" onclick="convertSprint()">Convert &amp; Analyze</button>
+        </form>
+
+        <!-- SPRINT LIGHT RESULT -->
+        <div class="results-light" id="sprintResultsLight">
+          <div class="sprint-results-grid" id="sprintResultsGrid"></div>
+        </div>
+
+        <!-- SPRINT SAVE -->
+        <div class="save-section" id="sprintSaveSection">
+          <div class="save-row">
+            <div class="form-group">
+              <label>Athlete Name</label>
+              <input type="text" id="sprintSaveName" placeholder="e.g. Adam O">
+            </div>
+          </div>
+          <div class="save-row">
+            <div class="form-group">
+              <label>Test Date</label>
+              <input type="date" id="sprintSaveDate">
+            </div>
+          </div>
+          <button type="button" class="save-btn" onclick="saveSprintAndAnalyze()">Save Test &amp; Analyze Results</button>
+          <div class="save-success" id="sprintSaveSuccess">Saved &amp; analyzed!</div>
+        </div>
+
+        <!-- SPRINT ANALYSIS -->
+        <div class="analysis-card" id="sprintAnalysisCard">
+          <div class="sprint-results-grid" id="sprintAnalysisGrid"></div>
+
+          <div class="analysis-rating" style="margin-top:1rem">
+            <div class="rlabel">Speed Rating</div>
+            <div class="rval" id="sprintRating">Average</div>
+          </div>
+
+          <div class="analysis-trend" id="sprintTrend"></div>
+        </div>
+
+        <p class="disclaimer">Sprint ratings based on published normative data for the selected distance by age and sex, adjusted for sport. General reference values only.</p>
+      </div>
+    </div>
+    </div>
+
   </div>
 </section>
 
@@ -579,12 +823,6 @@
   <div class="tool-inner reveal">
     <p class="eyebrow" style="justify-content:center;margin-bottom:1.5rem">More Tools Coming Soon</p>
     <div class="other-tools">
-      <div class="other-tool-card">
-        <div class="other-tool-icon">&#916;</div>
-        <div class="other-tool-name">Sprint Speed Converter</div>
-        <div class="other-tool-desc">Convert sprint times between hand-timed, FAT, and various distances.</div>
-        <div class="other-tool-status">Coming soon</div>
-      </div>
       <div class="other-tool-card">
         <div class="other-tool-icon">&#8477;</div>
         <div class="other-tool-name">1RM Calculator</div>
@@ -785,8 +1023,12 @@ function saveAndAnalyze() {
       heightFt,
       heightIn,
       heightCm: heightUnit === 'metric' ? heightCm : (heightFt * 30.48 + heightIn * 2.54),
-      tests: []
+      jumpTests: [],
+      sprintTests: []
     };
+  } else {
+    if (!athletes[name].jumpTests) athletes[name].jumpTests = [];
+    if (!athletes[name].sprintTests) athletes[name].sprintTests = [];
   }
 
   const testEntry = {
@@ -802,7 +1044,7 @@ function saveAndAnalyze() {
     window.__pendingCameraData = null;
   }
 
-  athletes[name].tests.push(testEntry);
+  athletes[name].jumpTests.push(testEntry);
 
   saveAthletes(athletes);
   renderAnalysis(analysis, athletes, name);
@@ -818,7 +1060,7 @@ function renderAnalysis(analysis, athletes, name) {
   document.getElementById('anBar').style.width = analysis.percentile + '%';
   document.getElementById('anRating').textContent = analysis.rating;
 
-  const tests = athletes[name].tests;
+  const tests = athletes[name].jumpTests || [];
   let trendHtml = '';
   if (tests.length >= 2) {
     const prev = tests[tests.length - 2];
@@ -828,7 +1070,7 @@ function renderAnalysis(analysis, athletes, name) {
       (trend.arrow === 'up' ? '&#8593;' : trend.arrow === 'down' ? '&#8595;' : '&#8594;') +
       '</span> ' + trend.text;
   } else {
-    trendHtml = 'First test recorded for ' + name;
+    trendHtml = 'First jump test recorded for ' + name;
   }
   document.getElementById('anTrend').innerHTML = trendHtml;
 
@@ -839,12 +1081,12 @@ function renderAnalysis(analysis, athletes, name) {
 /* LOCALSTORAGE */
 function loadAthletes() {
   try {
-    return JSON.parse(localStorage.getItem('vjAthletes')) || {};
+    return JSON.parse(localStorage.getItem('athletes')) || {};
   } catch { return {}; }
 }
 
 function saveAthletes(data) {
-  localStorage.setItem('vjAthletes', JSON.stringify(data));
+  localStorage.setItem('athletes', JSON.stringify(data));
 }
 
 function renderAthletes() {
@@ -859,16 +1101,20 @@ function renderAthletes() {
     return;
   }
   section.classList.remove('hidden');
-  count.textContent = names.length + ' saved profile' + (names.length !== 1 ? 's' : '');
+  let totalTests = 0;
+  names.forEach(n => { const a = athletes[n]; totalTests += (a.jumpTests ? a.jumpTests.length : 0) + (a.sprintTests ? a.sprintTests.length : 0); });
+  count.textContent = names.length + ' saved profile' + (names.length !== 1 ? 's' : '') + ' &middot; ' + totalTests + ' total test' + (totalTests !== 1 ? 's' : '');
 
   let html = '';
   names.forEach(name => {
     const a = athletes[name];
-    const testCount = a.tests.length;
+    const jt = a.jumpTests || [];
+    const st = a.sprintTests || [];
+    const tc = jt.length + st.length;
     html += '<div class="athlete-card">';
     html += '<div class="athlete-header" onclick="toggleAthlete(this)">';
     html += '<div><div class="athlete-name">' + escHtml(name) + '</div>';
-    html += '<div class="athlete-meta">' + testCount + ' test' + (testCount !== 1 ? 's' : '') + ' &middot; ' + (sportLabels[a.sport] || a.sport) + ' &middot; ' + sexLabels[a.sex] + ' &middot; Age ' + a.age + '</div></div>';
+    html += '<div class="athlete-meta">' + tc + ' test' + (tc !== 1 ? 's' : '') + ' &middot; ' + (sportLabels[a.sport] || a.sport) + ' &middot; ' + sexLabels[a.sex] + ' &middot; Age ' + a.age + '</div></div>';
     html += '<span class="athlete-chevron">&#9660;</span>';
     html += '</div>';
     html += '<div class="athlete-body">';
@@ -876,31 +1122,60 @@ function renderAthletes() {
     const wtDisplay = a.weightLbs + ' lbs (' + a.weightKg + ' kg)';
     html += '<div class="athlete-info">' + htDisplay + ' &middot; ' + wtDisplay + '</div>';
 
-    // Test table
-    html += '<div class="test-entry" style="font-size:0.55rem;color:var(--muted);padding-bottom:0.3rem">';
-    html += '<span class="th">Date</span><span class="th">cm</span><span class="th">in</span><span class="th">Percentile</span><span class="th"></span><span class="th"></span>';
-    html += '</div>';
-
-    a.tests.forEach((t, i) => {
-      let trendIcon = '';
-      if (i > 0) {
-        const prev = a.tests[i - 1];
-        const diff = t.jumpIn - prev.jumpIn;
-        if (diff > 0.3) trendIcon = '<span class="up">&#8593;</span>';
-        else if (diff < -0.3) trendIcon = '<span class="down">&#8595;</span>';
-        else trendIcon = '<span class="steady">&#8594;</span>';
-      }
-      html += '<div class="test-entry">';
-      html += '<span class="td">' + t.date + '</span>';
-      html += '<span class="td">' + t.jumpCm + '</span>';
-      html += '<span class="td">' + t.jumpIn + '</span>';
-      html += '<span class="td pct">' + t.percentile + 'th</span>';
-      html += '<span class="td trend">' + trendIcon + '</span>';
-      if (t.cameraData) {
-        html += '<span class="td" style="text-align:right"><button class="rev-btn" onclick="showJumpReview(\'' + escHtml(name) + '\',' + i + ')">&#9654; Review</button></span>';
-      }
+    // Jump tests
+    if (jt.length > 0) {
+      html += '<div style="font-family:Oswald,sans-serif;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin:0.75rem 0 0.3rem">Jump Tests</div>';
+      html += '<div class="test-entry" style="font-size:0.55rem;color:var(--muted);padding-bottom:0.3rem">';
+      html += '<span class="th">Date</span><span class="th">cm</span><span class="th">in</span><span class="th">Pct</span><span class="th"></span><span class="th"></span>';
       html += '</div>';
-    });
+      jt.forEach((t, i) => {
+        let trendIcon = '';
+        if (i > 0) {
+          const prev = jt[i - 1];
+          const diff = t.jumpIn - prev.jumpIn;
+          if (diff > 0.3) trendIcon = '<span class="up">&#8593;</span>';
+          else if (diff < -0.3) trendIcon = '<span class="down">&#8595;</span>';
+          else trendIcon = '<span class="steady">&#8594;</span>';
+        }
+        html += '<div class="test-entry">';
+        html += '<span class="td">' + t.date + '</span>';
+        html += '<span class="td">' + t.jumpCm + '</span>';
+        html += '<span class="td">' + t.jumpIn + '</span>';
+        html += '<span class="td pct">' + t.percentile + 'th</span>';
+        html += '<span class="td trend">' + trendIcon + '</span>';
+        if (t.cameraData) {
+          html += '<span class="td" style="text-align:right"><button class="rev-btn" onclick="showJumpReview(\'' + escHtml(name) + '\',' + i + ')">&#9654; Review</button></span>';
+        }
+        html += '</div>';
+      });
+    }
+
+    // Sprint tests
+    if (st.length > 0) {
+      html += '<div style="font-family:Oswald,sans-serif;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin:0.75rem 0 0.3rem">Sprint Tests</div>';
+      html += '<div class="test-entry" style="font-size:0.55rem;color:var(--muted);padding-bottom:0.3rem">';
+      html += '<span class="th">Date</span><span class="th">Dist</span><span class="th">Time</span><span class="th">mph</span><span class="th"></span><span class="th"></span>';
+      html += '</div>';
+      st.forEach((t, i) => {
+        let trendIcon = '';
+        if (i > 0) {
+          const prev = st[i - 1];
+          const diff = prev.time - t.time;
+          if (diff > 0.1) trendIcon = '<span class="up">&#8593;</span>';
+          else if (diff < -0.1) trendIcon = '<span class="down">&#8595;</span>';
+          else trendIcon = '<span class="steady">&#8594;</span>';
+        }
+        const distLabel = t.distance + (t.distance.match(/m$/) ? '' : ' yd');
+        html += '<div class="test-entry">';
+        html += '<span class="td">' + t.date + '</span>';
+        html += '<span class="td">' + distLabel + '</span>';
+        html += '<span class="td">' + t.time + 's</span>';
+        html += '<span class="td pct">' + t.mph + '</span>';
+        html += '<span class="td trend">' + trendIcon + '</span>';
+        html += '<span class="td" style="text-align:right;font-size:0.5rem;color:var(--muted)">' + t.rating + '</span>';
+        html += '</div>';
+      });
+    }
 
     // Actions
     html += '<div class="athlete-actions">';
@@ -945,22 +1220,40 @@ function prefillAthlete(name) {
 function downloadReport(name) {
   const athletes = loadAthletes();
   const a = athletes[name];
-  if (!a || a.tests.length === 0) return;
+  if (!a) return;
+  const jt = a.jumpTests || [];
+  const st = a.sprintTests || [];
+  if (jt.length === 0 && st.length === 0) return;
 
-  let text = 'Vertical Jump Report\n';
-  text += '====================\n\n';
+  let text = 'Coaching AI Tools — Athlete Report\n';
+  text += '====================================\n\n';
   text += 'Athlete: ' + name + '\n';
   text += 'Sport: ' + (sportLabels[a.sport] || a.sport) + '\n';
   text += 'Sex: ' + sexLabels[a.sex] + '\n';
   text += 'Age: ' + a.age + '\n';
   text += 'Height: ' + a.heightFt + "'" + a.heightIn + '"' + ' (' + Math.round(a.heightCm || 0) + ' cm)' + '\n';
   text += 'Weight: ' + a.weightLbs + ' lbs (' + a.weightKg + ' kg)\n\n';
-  text += 'Test History:\n';
-  text += '------------\n';
-  a.tests.forEach(t => {
-    text += t.date + ' | ' + t.jumpCm + ' cm | ' + t.jumpIn + ' in | ' + t.percentile + 'th percentile | ' + t.rating + '\n';
-  });
-  text += '\n\nGenerated by CHS Strength Club Coaching AI Tools\n';
+
+  if (jt.length > 0) {
+    text += 'Vertical Jump Tests:\n';
+    text += '-------------------\n';
+    jt.forEach(t => {
+      text += t.date + ' | ' + t.jumpCm + ' cm | ' + t.jumpIn + ' in | ' + t.percentile + 'th percentile | ' + t.rating + '\n';
+    });
+    text += '\n';
+  }
+
+  if (st.length > 0) {
+    text += 'Sprint Tests:\n';
+    text += '-------------\n';
+    st.forEach(t => {
+      const distLabel = t.distance + (t.distance.match(/m$/) ? '' : ' yd');
+      text += t.date + ' | ' + distLabel + ' | ' + t.time + 's | ' + t.mph + ' mph | ' + t.kph + ' km/h | ' + t.rating + '\n';
+    });
+    text += '\n';
+  }
+
+  text += 'Generated by CHS Strength Club Coaching AI Tools\n';
   text += 'chsstrengthclub.com/coaching-ai-tools.html\n';
   text += 'Coach Adam Oliver, CSCS\n';
 
@@ -968,7 +1261,7 @@ function downloadReport(name) {
   const url = URL.createObjectURL(blob);
   const aEl = document.createElement('a');
   aEl.href = url;
-  aEl.download = name.replace(/\s+/g, '_') + '_jump_report.txt';
+  aEl.download = name.replace(/\s+/g, '_') + '_training_report.txt';
   aEl.click();
   URL.revokeObjectURL(url);
 }
@@ -977,7 +1270,7 @@ function shareAthlete(name) {
   const athletes = loadAthletes();
   const a = athletes[name];
   if (!a) return;
-  const data = { name, sport: a.sport, sex: a.sex, age: a.age, heightFt: a.heightFt, heightIn: a.heightIn, heightCm: a.heightCm, weightLbs: a.weightLbs, weightKg: a.weightKg, tests: a.tests };
+  const data = { name, sport: a.sport, sex: a.sex, age: a.age, heightFt: a.heightFt, heightIn: a.heightIn, heightCm: a.heightCm, weightLbs: a.weightLbs, weightKg: a.weightKg, jumpTests: a.jumpTests || [], sprintTests: a.sprintTests || [] };
   const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
   const url = window.location.origin + window.location.pathname + '?share=' + encoded;
 
@@ -1033,23 +1326,44 @@ function handleShareView() {
 
     html += '<div class="calc-card">';
     html += '<div class="calc-card-title">Test History</div>';
-    html += '<div class="calc-card-sub">' + data.tests.length + ' test' + (data.tests.length !== 1 ? 's' : '') + ' recorded</div>';
+    const jt = data.jumpTests || [];
+    const st = data.sprintTests || [];
+    html += '<div class="calc-card-sub">' + (jt.length + st.length) + ' test' + ((jt.length + st.length) !== 1 ? 's' : '') + ' recorded</div>';
 
-    html += '<table class="share-table"><thead><tr>';
-    html += '<th>Date</th><th>Jump (cm)</th><th>Jump (in)</th><th>Percentile</th><th>Rating</th>';
-    html += '</tr></thead><tbody>';
+    if (jt.length > 0) {
+      html += '<div style="font-family:Oswald,sans-serif;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin:1rem 0 0.3rem">Jump Tests</div>';
+      html += '<table class="share-table"><thead><tr>';
+      html += '<th>Date</th><th>Jump (cm)</th><th>Jump (in)</th><th>Percentile</th><th>Rating</th>';
+      html += '</tr></thead><tbody>';
+      jt.forEach(t => {
+        html += '<tr>';
+        html += '<td>' + t.date + '</td>';
+        html += '<td>' + t.jumpCm + ' cm</td>';
+        html += '<td>' + t.jumpIn + ' in</td>';
+        html += '<td class="pct">' + t.percentile + 'th</td>';
+        html += '<td>' + t.rating + '</td>';
+        html += '</tr>';
+      });
+      html += '</tbody></table>';
+    }
 
-    data.tests.forEach(t => {
-      html += '<tr>';
-      html += '<td>' + t.date + '</td>';
-      html += '<td>' + t.jumpCm + ' cm</td>';
-      html += '<td>' + t.jumpIn + ' in</td>';
-      html += '<td class="pct">' + t.percentile + 'th</td>';
-      html += '<td>' + t.rating + '</td>';
-      html += '</tr>';
-    });
-
-    html += '</tbody></table>';
+    if (st.length > 0) {
+      html += '<div style="font-family:Oswald,sans-serif;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin:1rem 0 0.3rem">Sprint Tests</div>';
+      html += '<table class="share-table"><thead><tr>';
+      html += '<th>Date</th><th>Dist</th><th>Time</th><th>mph</th><th>Rating</th>';
+      html += '</tr></thead><tbody>';
+      st.forEach(t => {
+        const distLabel = t.distance + (t.distance.match(/m$/) ? '' : ' yd');
+        html += '<tr>';
+        html += '<td>' + t.date + '</td>';
+        html += '<td>' + distLabel + '</td>';
+        html += '<td>' + t.time + 's</td>';
+        html += '<td class="pct">' + t.mph + '</td>';
+        html += '<td>' + t.rating + '</td>';
+        html += '</tr>';
+      });
+      html += '</tbody></table>';
+    }
     html += '<div style="text-align:center;margin-top:1.5rem;font-size:0.7rem;color:var(--muted)">';
     html += 'CHS Strength Club &middot; chsstrengthclub.com &middot; Coach Adam Oliver, CSCS';
     html += '</div></div>';
@@ -1080,9 +1394,9 @@ function drawSkeletonStandalone(ctx, lm, w, h) {
 function showJumpReview(name, testIdx) {
   const athletes = loadAthletes();
   const a = athletes[name];
-  if (!a || !a.tests[testIdx] || !a.tests[testIdx].cameraData) return;
+  if (!a || !a.jumpTests || !a.jumpTests[testIdx] || !a.jumpTests[testIdx].cameraData) return;
 
-  const t = a.tests[testIdx];
+  const t = a.jumpTests[testIdx];
   const cd = t.cameraData;
 
   document.getElementById('replaySub').textContent = name + ' \u2014 ' + t.date + ' \u2014 ' + t.jumpCm + ' cm (' + t.jumpIn + ' in)';
@@ -1156,7 +1470,6 @@ function showJumpReview(name, testIdx) {
 
 /* INIT */
 document.addEventListener('DOMContentLoaded', function() {
-  localStorage.removeItem('vjAthletes');
   handleShareView();
   renderAthletes();
 
@@ -1206,8 +1519,224 @@ document.addEventListener('DOMContentLoaded', function() {
     const btn = document.getElementById('replayPlayBtn');
     if (btn) btn.innerHTML = '\u25B6 Play';
   });
+
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      if (this.classList.contains('coming-soon')) return;
+      const tool = this.dataset.tool;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      document.querySelectorAll('.tool-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.tool-tab[data-tool="' + tool + '"]').classList.add('active');
+    });
+  });
+
+  // Sprint unit toggles
+  ['sprintWeightUnitGroup', 'sprintHeightUnitGroup'].forEach(id => {
+    document.querySelectorAll('#' + id + ' .unit-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#' + id + ' .unit-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const unit = this.dataset.unit;
+        const prefix = id.replace('UnitGroup', '');
+        if (id === 'sprintWeightUnitGroup') {
+          document.getElementById('sprintWeight').placeholder = unit;
+        }
+        if (id === 'sprintHeightUnitGroup') {
+          if (unit === 'metric') {
+            document.getElementById('sprintHeightImperial').classList.add('hidden-input');
+            document.getElementById('sprintHeightCm').classList.remove('hidden-input');
+          } else {
+            document.getElementById('sprintHeightImperial').classList.remove('hidden-input');
+            document.getElementById('sprintHeightCm').classList.add('hidden-input');
+          }
+        }
+      });
+    });
+  });
+
+  // Sprint date default
+  if (!document.getElementById('sprintSaveDate').value) {
+    document.getElementById('sprintSaveDate').value = new Date().toISOString().split('T')[0];
+  }
 });
 
+</script>
+
+<script>
+/* === SPRINT SPEED TOOL === */
+let sprintSex = '';
+let sprintLastResult = null;
+
+function setSprintSex(val) {
+  sprintSex = val;
+  document.querySelectorAll('#sprintForm .sex-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('#sprintForm .sex-btn[data-sex="' + val + '"]').classList.add('active');
+  document.getElementById('sprintSex').value = val;
+}
+
+const sprintNorms = {
+  male: {
+    '14-18':  { '10': { elite: 1.5, good: 1.7, avg: 2.0, poor: 2.3 }, '20': { elite: 2.7, good: 3.0, avg: 3.4, poor: 3.8 }, '40': { elite: 4.5, good: 4.9, avg: 5.3, poor: 5.8 } },
+    '19-29':  { '10': { elite: 1.4, good: 1.6, avg: 1.9, poor: 2.2 }, '20': { elite: 2.6, good: 2.9, avg: 3.3, poor: 3.7 }, '40': { elite: 4.4, good: 4.8, avg: 5.2, poor: 5.7 } },
+    '30-39':  { '10': { elite: 1.6, good: 1.8, avg: 2.1, poor: 2.5 }, '20': { elite: 2.9, good: 3.2, avg: 3.6, poor: 4.1 }, '40': { elite: 4.8, good: 5.2, avg: 5.6, poor: 6.2 } },
+    '40-49':  { '10': { elite: 1.8, good: 2.1, avg: 2.4, poor: 2.8 }, '20': { elite: 3.2, good: 3.6, avg: 4.0, poor: 4.5 }, '40': { elite: 5.2, good: 5.7, avg: 6.2, poor: 6.8 } },
+    '50-80':  { '10': { elite: 2.0, good: 2.4, avg: 2.8, poor: 3.2 }, '20': { elite: 3.6, good: 4.1, avg: 4.6, poor: 5.2 }, '40': { elite: 5.8, good: 6.4, avg: 7.0, poor: 7.8 } }
+  },
+  female: {
+    '14-18':  { '10': { elite: 1.7, good: 1.9, avg: 2.2, poor: 2.6 }, '20': { elite: 3.0, good: 3.3, avg: 3.7, poor: 4.2 }, '40': { elite: 5.0, good: 5.4, avg: 5.9, poor: 6.5 } },
+    '19-29':  { '10': { elite: 1.6, good: 1.8, avg: 2.1, poor: 2.5 }, '20': { elite: 2.9, good: 3.2, avg: 3.6, poor: 4.1 }, '40': { elite: 4.9, good: 5.3, avg: 5.8, poor: 6.4 } },
+    '30-39':  { '10': { elite: 1.8, good: 2.0, avg: 2.3, poor: 2.7 }, '20': { elite: 3.2, good: 3.5, avg: 3.9, poor: 4.5 }, '40': { elite: 5.3, good: 5.8, avg: 6.3, poor: 7.0 } },
+    '40-49':  { '10': { elite: 2.0, good: 2.3, avg: 2.7, poor: 3.1 }, '20': { elite: 3.5, good: 3.9, avg: 4.4, poor: 5.0 }, '40': { elite: 5.8, good: 6.3, avg: 6.9, poor: 7.6 } },
+    '50-80':  { '10': { elite: 2.3, good: 2.7, avg: 3.1, poor: 3.6 }, '20': { elite: 4.0, good: 4.5, avg: 5.0, poor: 5.6 }, '40': { elite: 6.5, good: 7.1, avg: 7.8, poor: 8.6 } }
+  }
+};
+
+function getSprintAgeGroup(age) {
+  if (age <= 18) return '14-18';
+  if (age <= 29) return '19-29';
+  if (age <= 39) return '30-39';
+  if (age <= 49) return '40-49';
+  return '50-80';
+}
+
+function getSprintRating(time, distance, sex, age) {
+  const group = getSprintAgeGroup(age);
+  const distKey = distance.replace(/[^0-9]/g, '');
+  const norms = sprintNorms[sex] && sprintNorms[sex][group] && sprintNorms[sex][group][distKey];
+  if (!norms) return 'N/A';
+  if (time <= norms.elite) return 'Elite';
+  if (time <= norms.good) return 'Good';
+  if (time <= norms.avg) return 'Average';
+  return 'Needs Work';
+}
+
+function parseSprintDistance(val) {
+  if (val.match(/m$/)) return { dist: parseFloat(val), isMeters: true };
+  return { dist: parseFloat(val), isMeters: false };
+}
+
+function convertSprint() {
+  const rawTime = parseFloat(document.getElementById('sprintTime').value);
+  if (!rawTime || rawTime <= 0) { alert('Enter a sprint time.'); return; }
+  const distVal = document.getElementById('sprintDistance').value;
+  const age = parseInt(document.getElementById('sprintAge').value);
+  const sex = sprintSex;
+  const sport = document.getElementById('sprintSport').value;
+  const timing = document.getElementById('sprintTiming').value;
+
+  if (!age) { alert('Enter athlete age.'); return; }
+  if (!sex) { alert('Select Male or Female.'); return; }
+
+  let time = rawTime;
+  if (timing === 'hand') time = rawTime - 0.24; // hand-time to FAT correction
+  if (time <= 0) time = rawTime;
+
+  const parsed = parseSprintDistance(distVal);
+  let distMiles, distMeters;
+  if (parsed.isMeters) {
+    distMeters = parsed.dist;
+    distMiles = parsed.dist / 1609.34;
+  } else {
+    distMeters = parsed.dist * 0.9144;
+    distMiles = parsed.dist / 1760;
+  }
+
+  const mph = parseFloat((distMiles / (time / 3600)).toFixed(1));
+  const kph = parseFloat((distMeters / (time / 1000) * 3.6).toFixed(1));
+  const ms = parseFloat((distMeters / time).toFixed(2));
+  const rating = getSprintRating(time, distVal, sex, age);
+
+  const distLabel = distVal + (parsed.isMeters ? 'm' : ' yd');
+  const grid = document.getElementById('sprintResultsGrid');
+  grid.innerHTML =
+    '<div class="sprint-stat"><div class="sval">' + time.toFixed(2) + 's</div><div class="slabel">' + distLabel + '</div></div>' +
+    '<div class="sprint-stat"><div class="sval">' + mph + '</div><div class="slabel">mph</div></div>' +
+    '<div class="sprint-stat"><div class="sval">' + kph + '</div><div class="slabel">km/h</div></div>';
+
+  document.getElementById('sprintResultsLight').classList.add('visible');
+
+  sprintLastResult = { distance: distVal, time: parseFloat(time.toFixed(2)), mph, kph, ms, rating, age, sex, sport, timing };
+  document.getElementById('sprintSaveSection').classList.add('visible');
+  document.getElementById('sprintSaveSuccess').style.display = 'none';
+  if (!document.getElementById('sprintSaveDate').value) {
+    document.getElementById('sprintSaveDate').value = new Date().toISOString().split('T')[0];
+  }
+  document.getElementById('sprintSaveSection').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function saveSprintAndAnalyze() {
+  const name = document.getElementById('sprintSaveName').value.trim();
+  if (!name) { alert('Enter the athlete name to save the profile.'); return; }
+  const date = document.getElementById('sprintSaveDate').value;
+  if (!date) { alert('Select a test date.'); return; }
+  if (!sprintLastResult) return;
+
+  const athletes = loadAthletes();
+  const weightRaw = parseFloat(document.getElementById('sprintWeight').value) || 0;
+  const weightUnit = getActiveUnit('sprintWeightUnitGroup');
+  const heightUnit = getActiveUnit('sprintHeightUnitGroup');
+  const heightFt = parseInt(document.getElementById('sprintHeightFt').value) || 0;
+  const heightIn = parseInt(document.getElementById('sprintHeightIn').value) || 0;
+  const heightCm = parseFloat(document.getElementById('sprintHeightCm').value) || 0;
+
+  if (!athletes[name]) {
+    athletes[name] = {
+      sport: sprintLastResult.sport,
+      sex: sprintLastResult.sex,
+      age: sprintLastResult.age,
+      weightLbs: weightUnit === 'lbs' ? weightRaw : parseFloat((weightRaw * 2.205).toFixed(1)),
+      weightKg: weightUnit === 'kg' ? weightRaw : parseFloat((weightRaw / 2.205).toFixed(1)),
+      heightFt, heightIn,
+      heightCm: heightUnit === 'metric' ? heightCm : (heightFt * 30.48 + heightIn * 2.54),
+      jumpTests: [], sprintTests: []
+    };
+  } else {
+    if (!athletes[name].jumpTests) athletes[name].jumpTests = [];
+    if (!athletes[name].sprintTests) athletes[name].sprintTests = [];
+  }
+
+  athletes[name].sprintTests.push({
+    date,
+    distance: sprintLastResult.distance,
+    time: sprintLastResult.time,
+    mph: sprintLastResult.mph,
+    kph: sprintLastResult.kph,
+    ms: sprintLastResult.ms,
+    rating: sprintLastResult.rating,
+    timing: sprintLastResult.timing
+  });
+
+  saveAthletes(athletes);
+
+  // Render sprint analysis
+  const grid = document.getElementById('sprintAnalysisGrid');
+  const distLabel = sprintLastResult.distance + (sprintLastResult.distance.match(/m$/) ? '' : ' yd');
+  grid.innerHTML =
+    '<div class="sprint-stat"><div class="sval">' + sprintLastResult.time + 's</div><div class="slabel">' + distLabel + '</div></div>' +
+    '<div class="sprint-stat"><div class="sval">' + sprintLastResult.mph + '</div><div class="slabel">mph</div></div>' +
+    '<div class="sprint-stat"><div class="sval">' + sprintLastResult.kph + '</div><div class="slabel">km/h</div></div>';
+  document.getElementById('sprintRating').textContent = sprintLastResult.rating;
+
+  const st = athletes[name].sprintTests;
+  let trendHtml = '';
+  if (st.length >= 2) {
+    const prev = st[st.length - 2];
+    const diff = prev.time - sprintLastResult.time;
+    if (diff > 0.1) trendHtml = '<span class="arrow up">&#8593;</span> faster than last test (-' + Math.abs(diff).toFixed(2) + 's)';
+    else if (diff < -0.1) trendHtml = '<span class="arrow down">&#8595;</span> slower than last test (+' + Math.abs(diff).toFixed(2) + 's)';
+    else trendHtml = '<span class="arrow steady">&#8594;</span> steady vs last test';
+  } else {
+    trendHtml = 'First sprint test recorded for ' + name;
+  }
+  document.getElementById('sprintTrend').innerHTML = trendHtml;
+
+  document.getElementById('sprintAnalysisCard').classList.add('visible');
+  renderAthletes();
+  document.getElementById('sprintSaveSuccess').style.display = 'block';
+  setTimeout(() => document.getElementById('sprintSaveSuccess').style.display = 'none', 2000);
+}
 </script>
 
 <script type="module">
@@ -1565,6 +2094,311 @@ async function init() {
   }
 }
 init();
+</script>
+
+<script type="module">
+/* === SPRINT CAMERA MODULE === */
+const s$ = id => document.getElementById(id);
+const sqs = (sel, ctx) => (ctx || document).querySelector(sel);
+const sqsa = (sel, ctx) => (ctx || document).querySelectorAll(sel);
+
+const sprintCamSection = s$('sprintCameraSection');
+const sprintVideo = s$('sprintCamVideo');
+const sprintOverlay = s$('sprintCamOverlay');
+const sprintStatus = s$('sprintCamStatus');
+const sprintRecordBtn = s$('sprintRecordBtn');
+const sprintCountdown = s$('sprintCamCountdown');
+const sprintFrameReview = s$('sprintFrameReview');
+const sprintStartCanvas = s$('frameStart');
+const sprintMidCanvas = s$('frameMid');
+const sprintFinishCanvas = s$('frameFinish');
+const sprintYStart = s$('yStart');
+const sprintYMid = s$('yMid');
+const sprintYFinish = s$('yFinish');
+const sprintCamResult = s$('sprintCamResult');
+const sprintConfirmBtn = s$('sprintConfirmBtn');
+const sprintRetryBtn = s$('sprintRetryBtn');
+const sprintSwitchCamBtn = s$('sprintSwitchCamBtn');
+
+const sprintW = 640, sprintH = 480;
+let sprintPoseLandmarker = null, sprintStream = null;
+let sprintRecording = false, sprintFrames = [], sprintAnimId = null, sprintDetectionResult = null;
+let sprintDevices = [], sprintActiveDeviceId = null, sprintDeviceLabel = 'Default', sprintSnapCount = 0;
+
+function sprintSetStatus(msg) { sprintStatus.textContent = msg; }
+
+async function sprintEnumerate() {
+  try {
+    const d = await navigator.mediaDevices.enumerateDevices();
+    sprintDevices = d.filter(x => x.kind === 'videoinput');
+    if (sprintDevices.length > 0 && !sprintActiveDeviceId) {
+      sprintActiveDeviceId = sprintDevices[0].deviceId;
+      sprintDeviceLabel = sprintDevices[0].label || 'Camera 1';
+    }
+  } catch (e) {}
+}
+
+async function sprintStartCamera() {
+  const constraints = { video: { width: { ideal: sprintW }, height: { ideal: sprintH } } };
+  if (sprintActiveDeviceId) constraints.video.deviceId = { exact: sprintActiveDeviceId };
+  try {
+    sprintStream = await navigator.mediaDevices.getUserMedia(constraints);
+    sprintVideo.srcObject = sprintStream;
+    await sprintVideo.play();
+    sprintVideo.setAttribute('playsinline', '');
+    sprintOverlay.width = sprintVideo.videoWidth || sprintW;
+    sprintOverlay.height = sprintVideo.videoHeight || sprintH;
+    sprintSetStatus('Ready — ' + sprintDeviceLabel);
+    sprintRecordBtn.disabled = false;
+    await sprintEnumerate();
+    sprintDetectLoop();
+  } catch (e) {
+    sprintSetStatus('Camera access denied');
+    sprintRecordBtn.disabled = true;
+  }
+}
+
+const sprintGetHipX = lm => { const l = lm[23], r = lm[24]; return l && r ? (l.x + r.x) / 2 : l ? l.x : r ? r.x : 0; };
+
+function sprintDetectLoop() {
+  if (!sprintPoseLandmarker || !sprintVideo.videoWidth) { sprintAnimId = requestAnimationFrame(sprintDetectLoop); return; }
+  sprintPoseLandmarker.detectForVideo(sprintVideo, performance.now(), result => {
+    const ctx = sprintOverlay.getContext('2d');
+    ctx.clearRect(0, 0, sprintOverlay.width, sprintOverlay.height);
+    if (result.landmarks && result.landmarks.length > 0) {
+      const lm = result.landmarks[0];
+      drawSkeleton(ctx, lm, sprintOverlay.width, sprintOverlay.height);
+      if (sprintRecording) {
+        sprintFrames.push({ hipX: sprintGetHipX(lm), landmarks: JSON.parse(JSON.stringify(lm)), ts: performance.now() });
+        if (++sprintSnapCount % 5 === 0) {
+          const c = document.createElement('canvas');
+          c.width = 320; c.height = 240;
+          c.getContext('2d').drawImage(sprintVideo, 0, 0, 320, 240);
+          sprintFrames[sprintFrames.length - 1].snap = c.toDataURL('image/jpeg', 0.5);
+        }
+      }
+    } else {
+      if (!sprintRecording) sprintSetStatus('No person detected');
+    }
+  });
+  sprintAnimId = requestAnimationFrame(sprintDetectLoop);
+}
+
+function sprintCountdownFrom(secs) {
+  return new Promise(r => {
+    sprintCountdown.classList.add('visible');
+    let i = secs;
+    sprintCountdown.textContent = i;
+    const iv = setInterval(() => {
+      i--;
+      if (i > 0) sprintCountdown.textContent = i;
+      else if (i === 0) {
+        sprintCountdown.innerHTML = '<span class="go-text">GO</span>';
+        setTimeout(() => { sprintCountdown.classList.remove('visible'); clearInterval(iv); r(); }, 500);
+      }
+    }, 1000);
+  });
+}
+
+function sprintGetDur() {
+  const a = sqs('#sprintDurationOpts .cam-opt-btn.active');
+  return a ? parseInt(a.dataset.dur) : 3;
+}
+
+async function sprintHandleRecord() {
+  if (!sprintPoseLandmarker) {
+    sprintSetStatus('Loading model...');
+    const { PoseLandmarker, FilesetResolver } = await import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/vision_bundle.mjs');
+    const vision = await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm/');
+    sprintPoseLandmarker = await PoseLandmarker.createFromOptions(vision, {
+      baseOptions: { modelAssetPath: 'https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/latest/pose_landmarker_lite.task', delegate: 'GPU' },
+      runningMode: 'VIDEO'
+    });
+  }
+  sprintRecordBtn.disabled = true;
+  sprintFrames = [];
+  sprintSnapCount = 0;
+  sprintRecording = true;
+  await sprintCountdownFrom(3);
+  const dur = sprintGetDur();
+  setTimeout(() => { sprintRecording = false; sprintAnalyze(); }, dur * 1000);
+}
+
+function sprintAnalyze() {
+  if (sprintFrames.length < 10) {
+    sprintSetStatus('Not enough data — re-record');
+    sprintRecordBtn.disabled = false;
+    return;
+  }
+
+  const startHipX = sprintFrames[0].hipX;
+  const endHipX = sprintFrames[sprintFrames.length - 1].hipX;
+  const traveledRight = endHipX > startHipX;
+
+  let startIdx = 0, endIdx = sprintFrames.length - 1;
+
+  const distSelect = s$('sprintCamDistance');
+  const distVal = distSelect ? distSelect.value : '40';
+  const parsed = distVal.match(/m$/) ? { dist: parseFloat(distVal), isMeters: true } : { dist: parseFloat(distVal), isMeters: false };
+  const camDistMeters = parsed.isMeters ? parsed.dist : parsed.dist * 0.9144;
+
+  const totalPixels = Math.abs(endHipX - startHipX);
+  if (totalPixels < 0.05) {
+    sprintSetStatus('Athlete didn\'t cross enough of the frame — re-record');
+    sprintRecordBtn.disabled = false;
+    return;
+  }
+
+  const scaleDist = camDistMeters / totalPixels;
+  const timeSec = (sprintFrames[endIdx].ts - sprintFrames[startIdx].ts) / 1000;
+  if (timeSec <= 0) {
+    sprintSetStatus('Detection error — re-record');
+    sprintRecordBtn.disabled = false;
+    return;
+  }
+
+  const speedMs = camDistMeters / timeSec;
+  const mph = parseFloat((speedMs * 2.237).toFixed(1));
+  const kph = parseFloat((speedMs * 3.6).toFixed(1));
+  const time = parseFloat(timeSec.toFixed(2));
+
+  if (mph > 30 || mph < 2) {
+    sprintSetStatus('Detection looked off — re-record with athlete in frame');
+    sprintRecordBtn.disabled = false;
+    return;
+  }
+
+  sprintDetectionResult = { time, mph, kph, ms: parseFloat(speedMs.toFixed(2)), distance: distVal };
+
+  const draw = (can, f) => {
+    if (!can || !f) return;
+    can.width = sprintOverlay.width; can.height = sprintOverlay.height;
+    const c = can.getContext('2d');
+    c.drawImage(sprintVideo, 0, 0, can.width, can.height);
+    drawSkeleton(c, f.landmarks, can.width, can.height);
+  };
+  const midIdx = Math.floor(sprintFrames.length / 2);
+  draw(sprintStartCanvas, sprintFrames[0]);
+  draw(sprintMidCanvas, sprintFrames[midIdx]);
+  draw(sprintFinishCanvas, sprintFrames[sprintFrames.length - 1]);
+
+  sprintYStart.textContent = 'Start';
+  sprintYMid.textContent = 'Mid';
+  sprintYFinish.textContent = 'Finish';
+
+  const distLabel = distVal + (parsed.isMeters ? 'm' : ' yd');
+  sprintCamResult.innerHTML = '<div class="rlabel">Detected Sprint</div><div class="rval">' + time + '<small>s</small></div><div class="rcm">' + mph + ' mph &middot; ' + distLabel + '</div>';
+  sprintFrameReview.classList.add('visible');
+  sprintSetStatus('Review frames below. Tap any to fine-tune.');
+
+  sqsa('#sprintFrameReview .frame-item').forEach(el => el.classList.remove('active'));
+  sqs('#sprintFrameReview .frame-item[data-phase="finish"]').classList.add('active');
+
+  const savedFrames = sprintFrames;
+  sqsa('#sprintFrameReview .frame-item').forEach(el => {
+    el.onclick = function() {
+      sqsa('#sprintFrameReview .frame-item').forEach(e => e.classList.remove('active'));
+      this.classList.add('active');
+    };
+  });
+}
+
+sprintConfirmBtn.addEventListener('click', () => {
+  if (!sprintDetectionResult) return;
+  s$('sprintTime').value = sprintDetectionResult.time;
+  if (typeof sprintLastResult !== 'undefined' && sprintLastResult) {
+    sprintLastResult.time = sprintDetectionResult.time;
+    sprintLastResult.mph = sprintDetectionResult.mph;
+    sprintLastResult.kph = sprintDetectionResult.kph;
+    sprintLastResult.ms = sprintDetectionResult.ms;
+  }
+  sprintFrameReview.classList.remove('visible');
+  sprintSetStatus('Time set to ' + sprintDetectionResult.time + 's');
+  sprintRecordBtn.disabled = false;
+  if (typeof convertSprint === 'function') convertSprint();
+});
+
+sprintRetryBtn.addEventListener('click', () => {
+  sprintFrameReview.classList.remove('visible');
+  sprintCamResult.innerHTML = '';
+  sprintDetectionResult = null;
+  sprintSetStatus('Ready');
+  sprintRecordBtn.disabled = false;
+});
+
+sprintRecordBtn.addEventListener('click', sprintHandleRecord);
+
+sprintSwitchCamBtn.addEventListener('click', async () => {
+  await sprintEnumerate();
+  if (sprintDevices.length < 2) { sprintSetStatus('Only one camera available'); return; }
+  let idx = 0;
+  const curId = sprintStream?.getVideoTracks()[0]?.getSettings()?.deviceId;
+  if (curId) {
+    const ci = sprintDevices.findIndex(d => d.deviceId === curId);
+    if (ci >= 0) idx = (ci + 1) % sprintDevices.length;
+  }
+  const next = sprintDevices[idx];
+  if (!next) return;
+  sprintActiveDeviceId = next.deviceId;
+  sprintDeviceLabel = next.label || 'Camera ' + (idx + 1);
+  if (sprintStream) { sprintStream.getTracks().forEach(t => t.stop()); }
+  try {
+    sprintStream = await navigator.mediaDevices.getUserMedia({ video: { deviceId: { exact: sprintActiveDeviceId }, width: { ideal: sprintW }, height: { ideal: sprintH } } });
+    sprintVideo.srcObject = sprintStream;
+    await sprintVideo.play();
+    sprintSetStatus('Ready — ' + sprintDeviceLabel);
+    sprintRecordBtn.disabled = false;
+  } catch (e) {
+    sprintActiveDeviceId = null; sprintDeviceLabel = 'Default';
+    await sprintStartCamera();
+  }
+});
+
+// Sprint duration button clicks
+sqsa('#sprintDurationOpts').forEach(row => {
+  row.addEventListener('click', e => {
+    const btn = e.target.closest('.cam-opt-btn');
+    if (!btn) return;
+    sqsa('.cam-opt-btn', row).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+async function sprintInit() {
+  if (!sprintCamSection || !sprintVideo) return;
+  try {
+    sprintSetStatus('Loading camera...');
+    const { PoseLandmarker, FilesetResolver } = await import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/vision_bundle.mjs');
+    const vision = await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm/');
+    sprintPoseLandmarker = await PoseLandmarker.createFromOptions(vision, {
+      baseOptions: { modelAssetPath: 'https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/latest/pose_landmarker_lite.task', delegate: 'GPU' },
+      runningMode: 'VIDEO'
+    });
+    await sprintStartCamera();
+  } catch (e) {
+    sprintSetStatus('Camera unavailable — enter time manually');
+    sprintRecordBtn.disabled = true;
+  }
+}
+
+// Only init sprint camera when sprint tab becomes active
+function initSprintOnTab() {
+  if (document.querySelector('.tool-tab[data-tool="sprint"]')?.classList.contains('active')) {
+    sprintInit();
+  }
+}
+
+// Watch for tab switches to init sprint camera
+const obsTab = new MutationObserver(() => {
+  if (document.querySelector('.tool-tab[data-tool="sprint"]')?.classList.contains('active')) {
+    if (!sprintPoseLandmarker && !sprintStream) sprintInit();
+  }
+});
+const tabContainer = document.querySelector('.tool-tab[data-tool="sprint"]');
+if (tabContainer) obsTab.observe(tabContainer, { attributes: true, attributeFilter: ['class'] });
+
+// Also try direct init if sprint tab is already active
+setTimeout(initSprintOnTab, 500);
 </script>
 
 <!-- REPLAY MODAL -->
