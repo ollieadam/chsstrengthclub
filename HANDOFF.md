@@ -112,7 +112,7 @@ Files to migrate:
      </a>
      <span class="foot-copy">&copy; 2026 Charleston Strength Club</span>
      <div class="foot-links">
-       <a href="https://decentralizedstrength.buzzsprout.com" target="_blank">Podcast</a>
+       <a href="https://www.youtube.com/@DecentralizedStrengthpod" target="_blank">Podcast</a>
        <a href="https://www.facebook.com/ChsStrengthClub" target="_blank">Facebook</a>
        <a href="https://www.instagram.com/chsstrengthclub/" target="_blank">Instagram</a>
        <a href="https://www.youtube.com/@chsstrengthclub/" target="_blank">YouTube</a>
@@ -141,7 +141,7 @@ Add `loading="lazy"` to all `<img>` and `<iframe>` tags across the site.
 - Unified nav: Logo | Programs | Strength Classes | Sport Performance | Senior Strength | Locations | Blog | Book a Call
 - "Book a Call" uses modal on index.html, mailto on all other pages
 - Mobile menu ID is `mobMenu`, triggered by `toggleMenu()`
-- Footer includes Podcast link to decentralizedstrength.buzzsprout.com
+- Footer includes Podcast link to youtube.com/@DecentralizedStrengthpod
 - Copyright year 2026
 
 ## Reference Files
