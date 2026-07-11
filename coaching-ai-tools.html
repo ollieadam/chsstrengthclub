@@ -36,7 +36,7 @@
 .coach-note{background:var(--near-black);border-left:3px solid var(--red);padding:1rem 1.5rem;margin:1.5rem 0 2.5rem;font-size:0.85rem;color:var(--muted);line-height:1.7;max-width:600px}
 .coach-note strong{color:var(--cream);font-weight:400}
 
-.tool-section{background:var(--near-black);padding:5rem 3rem;border-top:1px solid var(--border-red)}
+
 .tool-inner{max-width:740px;margin:0 auto}
 
 .calc-card{background:var(--charcoal);border:1px solid var(--border-red);padding:2.5rem 3rem;position:relative}
@@ -260,11 +260,7 @@
 
 /* TAB BAR */
 .tab-bar{display:flex;gap:0;border-bottom:1px solid var(--border-red);margin-bottom:2rem;overflow-x:auto}
-.tab-btn{padding:0.85rem 1.8rem;font-family:"Oswald",sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all 0.2s;white-space:nowrap}
-.tab-btn:hover{color:var(--cream)}
-.tab-btn.active{color:var(--red-bright);border-bottom-color:var(--red);background:rgba(192,23,15,0.04)}
-.tab-btn.coming-soon{opacity:0.35;cursor:default;pointer-events:none}
-.tab-btn .badge{font-size:0.45rem;letter-spacing:0.15em;color:var(--muted);margin-left:0.4rem;vertical-align:middle}
+
 
 /* SPRINT */
 .sprint-results-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;margin:1rem 0}
@@ -275,7 +271,7 @@
 @media(max-width:768px){
   .hero{padding:5rem 1.5rem 3rem}
   .hero-bg-word{display:none}
-  .tool-section{padding:3rem 1.5rem}
+
   .calc-card{padding:1.5rem}
   .form-row{grid-template-columns:1fr}
   .save-row{grid-template-columns:1fr}
@@ -284,7 +280,7 @@
   .analysis-percentile .num{font-size:2.2rem}
   .test-entry{grid-template-columns:1fr 0.6fr 0.5fr 0.5fr 0.25fr 0.4fr;font-size:0.65rem}
   .other-tools{grid-template-columns:1fr}
-  .tab-btn{padding:0.7rem 1rem;font-size:0.6rem}
+
   .sprint-results-grid{grid-template-columns:1fr}
 }
 @media(max-width:600px){
@@ -362,48 +358,56 @@
       Coaching AI Tools
     </div>
     <h1 class="hero-title">
-      <span class="line1">Coaching</span>
+      <span class="line1">Coach</span>
       <span class="line2">AI Tools.</span>
-      <span class="line3">Vertical jump &amp; sprint speed analysis &mdash; free for coaches &amp; athletes</span>
+      <span class="line3">Free athletic performance analysis for coaches &amp; athletes</span>
     </h1>
     <div class="hero-rule"></div>
-    <p class="hero-sub">Free vertical jump and sprint speed analysis — test at our next event and see how you rank on the live leaderboard.</p>
+    <p class="hero-sub">Vertical jump analysis, sprint speed conversion, gym orientation, and AI-powered coaching — all free at strengthclubai.com.</p>
     <div class="coach-note">
-      <strong>Built by Adam Oliver, CSCS</strong> &mdash; a coach using AI to create free analysis tools for athletes and coaches. Adam combines CSCS-certified training with AI-assisted tool building.
+      <strong>Built by Adam Oliver, CSCS</strong> &mdash; a coach using AI to create free analysis tools for athletes and coaches.
     </div>
+    <a href="https://strengthclubai.com/?client=1&tools=1" style="display:inline-block;margin-top:1.5rem;padding:12px 28px;background:#c0170f;color:#fff;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none">Try Free Tools →</a>
   </div>
 </section>
 
-<div class="tool-section" style="padding:2rem 3rem 0;border-top:none">
-  <div class="tool-inner">
-    <div class="tab-bar" id="tabBar">
-      <button class="tab-btn active" data-tool="jump">Vertical Jump</button>
-      <button class="tab-btn" data-tool="sprint">Sprint Speed</button>
-      <button class="tab-btn coming-soon" data-tool="onerm">1RM Calculator <span class="badge">Soon</span></button>
-    </div>
-  </div>
+<!-- Feature Cards -->
+<div style="max-width:900px;margin:-2rem auto 3rem;padding:0 1.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px">
+  <a href="https://strengthclubai.com/?client=1&tools=1" style="background:#111;border:1px solid #222;border-radius:12px;padding:1.5rem;text-decoration:none;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+    <div style="font-size:28px">🔥</div>
+    <div style="font-size:14px;font-weight:600;color:#fff">Vertical Jump</div>
+    <div style="font-size:12px;color:#888;line-height:1.4">Analyze jump height with instant percentile rankings. Use your phone camera to auto-detect.</div>
+    <div style="font-size:11px;color:#c0170f;font-weight:600">Try it →</div>
+  </a>
+  <a href="https://strengthclubai.com/?client=1&tools=1" style="background:#111;border:1px solid #222;border-radius:12px;padding:1.5rem;text-decoration:none;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+    <div style="font-size:28px">🏃</div>
+    <div style="font-size:14px;font-weight:600;color:#fff">Sprint Speed</div>
+    <div style="font-size:12px;color:#888;line-height:1.4">Convert sprint times to mph/kmh with percentile analysis. Camera detection available.</div>
+    <div style="font-size:11px;color:#c0170f;font-weight:600">Try it →</div>
+  </a>
+  <a href="https://strengthclubai.com/?client=1&program=gym-orientation" style="background:#111;border:1px solid #222;border-radius:12px;padding:1.5rem;text-decoration:none;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+    <div style="font-size:28px">🗺️</div>
+    <div style="font-size:14px;font-weight:600;color:#fff">Gym Orientation</div>
+    <div style="font-size:12px;color:#888;line-height:1.4">Self-guided video tour of our senior center gyms — learn the equipment and get started.</div>
+    <div style="font-size:11px;color:#c0170f;font-weight:600">Start →</div>
+  </a>
+  <a href="https://strengthclubai.com/?client=1&program=gym-orientation-log" style="background:#111;border:1px solid #222;border-radius:12px;padding:1.5rem;text-decoration:none;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px">
+    <div style="font-size:28px">📊</div>
+    <div style="font-size:14px;font-weight:600;color:#fff">Track Programs</div>
+    <div style="font-size:12px;color:#888;line-height:1.4">Log sets, track progress, get AI coaching. Senior S&C, Adult S&C, and more.</div>
+    <div style="font-size:11px;color:#c0170f;font-weight:600">Learn more →</div>
+  </a>
 </div>
 
-<!-- CALCULATOR -->
-<section class="tool-section">
-  <div class="tool-inner">
-    <div id="shareView"></div>
-
-    <!-- JUMP TAB -->
-
-    <!-- SPRINT TAB -->
-    <!-- MORE TOOLS -->
-<section class="tool-section" style="border-top:none;padding-top:0">
-  <div class="tool-inner reveal">
-    <div style="max-width:600px;margin:0 auto 3rem;padding:0 1rem">
-      <p class="eyebrow" style="justify-content:center;margin-bottom:1rem">🗺️ Senior Gym Orientation</p>
-      <div style="background:#111;border:1px solid #222;border-radius:12px;padding:1.5rem;text-align:center">
-        <div style="font-size:36px;margin-bottom:8px">🗺️</div>
-        <div style="font-size:16px;font-weight:600;color:#fff;margin-bottom:6px">Self-guided Gym Orientation</div>
-        <div style="font-size:13px;color:#888;margin-bottom:12px;line-height:1.5">Video tour of the Carner Ave, Dorchester Road, and Northwoods senior center gyms — learn the equipment layout and get started with confidence.</div>
-        <a href="https://strengthclubai.com/?client=1&program=gym-orientation" style="display:inline-block;padding:10px 24px;background:#c0170f;color:#fff;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none">Start Orientation →</a>
-      </div>
-    </div>
+<!-- Gym Orientation Card -->
+<div style="max-width:600px;margin:0 auto 2rem;padding:0 1rem">
+  <p class="eyebrow" style="justify-content:center;margin-bottom:1rem">🗺️ Senior Gym Orientation</p>
+  <div style="background:#111;border:1px solid #222;border-radius:12px;padding:1.5rem;text-align:center">
+    <div style="font-size:16px;font-weight:600;color:#fff;margin-bottom:6px">Video tour of all three senior center gyms</div>
+    <div style="font-size:13px;color:#888;margin-bottom:12px;line-height:1.5">Carner Ave, Dorchester Road, and Northwoods — learn the equipment layout and get started with confidence.</div>
+    <a href="https://strengthclubai.com/?client=1&program=gym-orientation" style="display:inline-block;padding:10px 24px;background:#c0170f;color:#fff;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none">Start Orientation →</a>
+  </div>
+</div>
 
     <div style="max-width:600px;margin:0 auto 2rem;padding:0 1rem">
       <p class="eyebrow" style="justify-content:center;margin-bottom:1rem">Programs</p>
@@ -968,7 +972,7 @@ function handleShareView() {
 
     container.innerHTML = html;
 
-    document.querySelector('.tool-section').scrollIntoView();
+    // scroll removed
   } catch(e) {
     console.error('Invalid share data');
   }
@@ -1119,16 +1123,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Tab switching
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      if (this.classList.contains('coming-soon')) return;
-      const tool = this.dataset.tool;
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      // document.querySelectorAll('.tool-tab').forEach(t => t.classList.remove('active'));
-      null.classList.add('active');
-    });
-  });
+
 
   // Sprint unit toggles
   ['sprintWeightUnitGroup', 'sprintHeightUnitGroup'].forEach(id => {
