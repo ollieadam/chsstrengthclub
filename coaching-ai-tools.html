@@ -319,6 +319,10 @@
 </head>
 <body>
 
+<div style="background:#c0170f;color:#fff;text-align:center;padding:8px 16px;font-size:13px;font-weight:600;position:relative;z-index:100">
+  🏆 New — Live leaderboard at <a href="https://strengthclubai.com/?client=1&tools=1" style="color:#fff;text-decoration:underline">strengthclubai.com/tools</a> — test your athleticism and rank against others!
+</div>
+
 <nav>
   <a href="/index.html" class="nav-logo">
     <img src="/logo.png" alt="CHS Strength Club">
@@ -821,6 +825,31 @@
 <!-- MORE TOOLS -->
 <section class="tool-section" style="border-top:none;padding-top:0">
   <div class="tool-inner reveal">
+    <div style="max-width:600px;margin:0 auto 3rem;padding:0 1rem">
+      <p class="eyebrow" style="justify-content:center;margin-bottom:1rem">🗺️ Senior Gym Orientation</p>
+      <div style="background:#111;border:1px solid #222;border-radius:12px;padding:1.5rem;text-align:center">
+        <div style="font-size:36px;margin-bottom:8px">🗺️</div>
+        <div style="font-size:16px;font-weight:600;color:#fff;margin-bottom:6px">Self-guided Gym Orientation</div>
+        <div style="font-size:13px;color:#888;margin-bottom:12px;line-height:1.5">Video tour of the Carner Ave, Dorchester Road, and Northwoods senior center gyms — learn the equipment layout and get started with confidence.</div>
+        <a href="https://strengthclubai.com/?client=1&program=gym-orientation" style="display:inline-block;padding:10px 24px;background:#c0170f;color:#fff;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none">Start Orientation →</a>
+      </div>
+    </div>
+
+    <div id="live-leaderboard" style="max-width:600px;margin:0 auto 3rem;padding:0 1rem">
+      <p class="eyebrow" style="justify-content:center;margin-bottom:1rem">🏆 Live Leaderboard</p>
+      <div style="background:#111;border:1px solid #222;border-radius:12px;padding:1.5rem">
+        <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+          <span style="font-size:12px;color:#888;align-self:center">Top results from strengthclubai.com — test yourself at our next event!</span>
+        </div>
+        <div id="leaderboard-embed"><div style="text-align:center;color:#666;font-size:13px">Loading…</div></div>
+      </div>
+    </div>
+    <script>
+    (function(){fetch('https://strengthclubai.com/api/coach/tools/leaderboard?tool=vertical-jump').then(function(r){return r.json()}).then(function(d){var el=document.getElementById('leaderboard-embed');if(!el||!d.entries||!d.entries.length){el.innerHTML='<div style="text-align:center;color:#666;font-size:13px">No entries yet. Be the first!</div>';return}
+    var h='<div style="display:flex;flex-direction:column;gap:6px">';d.entries.slice(0,10).forEach(function(e,i){h+='<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #222;font-size:13px"><span style="font-weight:700;color:'+(i<3?'#c0170f':'#666')+';min-width:16px">#'+(i+1)+'</span><span style="flex:1;color:#eee">'+(e.athleteName||'Anonymous')+'</span><span style="font-weight:600;color:#fff">'+e.result+' '+e.unit+'</span><span style="color:'+(e.percentile>=80?'#3fb950':'#d29922')+';font-size:12px">'+e.rating+'</span></div>'})
+    h+='</div><div style="text-align:center;margin-top:10px"><a href="https://strengthclubai.com/?client=1&tools=1" style="color:#c0170f;font-size:13px;font-weight:600;text-decoration:none">Try it yourself →</a></div>';el.innerHTML=h}).catch(function(){})})();
+    </script>
+
     <p class="eyebrow" style="justify-content:center;margin-bottom:1.5rem">More Tools Coming Soon</p>
     <div class="other-tools">
       <div class="other-tool-card">
