@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<title>Your Vertical Jump Results — CHS Strength Club</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#e6edf3;font-family:'Inter',-apple-system,system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{background:#111;border:1px solid #1e1e1e;border-radius:16px;padding:40px;max-width:420px;width:100%;text-align:center}
+h1{font-family:'Oswald',sans-serif;font-size:24px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:4px}
+.sub{font-size:13px;color:#8b949e;margin-bottom:20px}
+.result-val{font-family:'Oswald',sans-serif;font-size:48px;font-weight:700;line-height:1;margin:8px 0}
+.result-unit{font-size:18px;color:#8b949e}
+.rating{font-size:20px;font-weight:600;margin:8px 0}
+.pct-bar{height:8px;background:#21262d;border-radius:4px;margin:12px 0;overflow:hidden}
+.pct-fill{height:100%;border-radius:4px;transition:width 0.5s}
+.stats-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.stat-tag{font-size:11px;padding:4px 10px;background:#161b22;border:1px solid #30363d;border-radius:6px;color:#a0a8b2}
+.btn{display:inline-block;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif;margin:4px}
+.btn-red{background:#c0170f;color:#fff}
+.btn-red:hover{background:#a01008}
+.btn-outline{border:1px solid #30363d;color:#a0a8b2;background:transparent}
+.btn-outline:hover{background:#161b22}
+.btn-close{position:absolute;top:12px;right:12px;background:none;border:none;color:#8b949e;font-size:20px;cursor:pointer;padding:4px 8px}
+.footer{margin-top:24px;padding-top:16px;border-top:1px solid #1e1e1e;font-size:12px;color:#8b949e;line-height:1.6}
+.footer a{color:#c0170f;text-decoration:none}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#161b22;color:#e6edf3;border:1px solid #30363d;border-radius:12px;padding:10px 20px;font-size:13px;z-index:99}
+</style>
+</head>
+<body>
+<button class="btn-close" onclick="history.back()">&times;</button>
+<div class="card">
+  <h1>Your Jump Results</h1>
+  <div class="sub">Powered by CHS Strength Club</div>
+  <div id="content"><div style="color:#8b949e;padding:20px">Loading results…</div></div>
+  <div class="footer">
+    Want to jump higher?<br>
+    <a href="https://chsstrengthclub.com/members/">Train with Coach Adam</a> at CHS Strength Club<br>
+    <span style="font-size:11px;color:#656d76">North Charleston, SC · CSCS-certified coaching</span>
+  </div>
+</div>
+<script>
+(async function() {
+  var id = new URLSearchParams(window.location.search).get('r') || '';
+  if (!id) { document.getElementById('content').innerHTML = '<div style="color:#8b949e;padding:20px">No result ID provided</div>'; return; }
+  try {
+    var r = await fetch('https://strengthclubai.com/api/coach/tools/result/' + id);
+    var d = await r.json();
+    if (!r.ok || d.error) { document.getElementById('content').innerHTML = '<div style="color:#8b949e;padding:20px">Result not found or has been removed.</div>'; return; }
+    var pctCol = d.percentile >= 80 ? '#3fb950' : d.percentile >= 40 ? '#d29922' : '#f85149';
+    var displayVal = d.unit === 'cm' ? d.result : d.result;
+    var displayUnit = d.unit === 'cm' ? 'cm' : 'in';
+    var heightIn = (d.unit === 'cm' ? (d.result / 2.54) : d.result).toFixed(1);
+    var heightCm = (d.unit === 'cm' ? d.result : (d.result * 2.54)).toFixed(1);
+    var stats = d.stats || {};
+    var statsHtml = '';
+    if (stats.age) statsHtml += '<span class="stat-tag">Age ' + stats.age + '</span>';
+    if (stats.sex) statsHtml += '<span class="stat-tag">' + (stats.sex === 'male' ? 'Male' : 'Female') + '</span>';
+    if (stats.sport && stats.sport !== 'general') statsHtml += '<span class="stat-tag">' + stats.sport.charAt(0).toUpperCase() + stats.sport.slice(1) + '</span>';
+
+    document.getElementById('content').innerHTML =
+      '<div class="result-val">' + displayVal + ' <span class="result-unit">' + displayUnit + '</span></div>' +
+      '<div style="font-size:13px;color:#8b949e">' + heightIn + ' inches / ' + heightCm + ' cm</div>' +
+      '<div class="rating" style="color:' + pctCol + '">' + d.rating + '</div>' +
+      '<div class="pct-bar"><div class="pct-fill" style="width:' + d.percentile + '%;background:' + pctCol + '"></div></div>' +
+      '<div style="font-size:13px;color:#8b949e;margin-bottom:8px">' + d.percentile + 'th percentile</div>' +
+      (d.athleteName && d.athleteName !== 'Anonymous' ? '<div style="font-size:14px;font-weight:600;color:#e6edf3;margin-bottom:4px">' + d.athleteName.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>' : '') +
+      (statsHtml ? '<div class="stats-row">' + statsHtml + '</div>' : '') +
+      '<div style="margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">' +
+        '<button class="btn btn-red" onclick="postToLeaderboard()">Save to Leaderboard</button>' +
+        '<button class="btn btn-outline" onclick="deleteResult()">Delete</button>' +
+      '</div>';
+    window._resultData = d;
+  } catch(e) {
+    document.getElementById('content').innerHTML = '<div style="color:#8b949e;padding:20px">Could not load results. Please check your connection.</div>';
+  }
+})();
+
+function postToLeaderboard() {
+  if (!window._resultData) return;
+  var d = window._resultData;
+  if (typeof d.saved !== 'undefined') { showToast('Already saved to leaderboard'); return; }
+  fetch('https://strengthclubai.com/api/coach/tools/entry', {
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({tool:d.tool,athleteName:d.athleteName||'Anonymous',result:d.result,unit:d.unit,stats:d.stats||{}})
+  }).then(function(r){return r.json()}).then(function(d2){
+    if (d2.ok) { window._resultData.saved = true; showToast('Saved to leaderboard!'); document.querySelector('.btn-red').textContent = '✓ Saved'; document.querySelector('.btn-red').style.opacity = '0.6'; }
+    else showToast('Save failed');
+  }).catch(function(){showToast('Save failed')});
+}
+
+function deleteResult() {
+  if (!confirm('Delete this result?')) return;
+  var id = new URLSearchParams(window.location.search).get('r');
+  fetch('https://strengthclubai.com/api/coach/tools/entry/' + id, {method:'DELETE'})
+    .then(function(){document.getElementById('content').innerHTML='<div style="color:#3fb950;padding:20px;font-weight:600">✓ Result deleted</div>';})
+    .catch(function(){showToast('Delete failed')});
+}
+
+function showToast(msg) {
+  var el = document.createElement('div'); el.className='toast'; el.textContent=msg;
+  document.body.appendChild(el); setTimeout(function(){el.remove()}, 3000);
+}
+</script>
+</body>
+</html>
