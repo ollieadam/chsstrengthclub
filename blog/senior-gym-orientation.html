@@ -15,46 +15,51 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Senior Fitness at North Charleston Senior Centers | Charleston Strength Club">
 <meta name="twitter:description" content="Your complete guide to senior fitness at the North Charleston Senior Centers — philosophy, training approach, gym orientation videos, and membership pricing with CSCS coach Adam Oliver.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/global.css">
 <style>
-.post-header{padding:9rem 3rem 4rem;background:var(--black);border-bottom:1px solid var(--border-red)}
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #0a0a0a; }
+
+.post-header{padding:9rem 3rem 4rem;background:#0a0a0a;border-bottom:1px solid #1e1e1e}
 .post-header-inner{max-width:800px;margin:0 auto}
-.breadcrumb{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1.5rem}
-.breadcrumb a{color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s}
-.breadcrumb a:hover{color:var(--red-bright)}
-.post-tag{font-family:"Oswald",sans-serif;font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
-.post-tag::before{content:"";display:inline-block;width:20px;height:1px;background:var(--red)}
-h1{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:400;text-transform:uppercase;line-height:0.95;color:var(--white);margin-bottom:1.5rem}
-.post-byline{display:flex;align-items:center;gap:1.5rem;font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
-.post-byline strong{color:var(--cream)}
-.post-byline-dot{width:3px;height:3px;border-radius:50%;background:var(--red);opacity:0.5}
+.breadcrumb{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:#555;margin-bottom:1.5rem}
+.breadcrumb a{color:#555;text-decoration:none;transition:color 0.2s}
+.breadcrumb a:hover{color:#E11D48}
+.post-tag{font-family:"Oswald",sans-serif;font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:#E11D48;margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
+.post-tag::before{content:"";display:inline-block;width:20px;height:1px;background:#E11D48}
+h1{font-family:"Oswald",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:600;text-transform:uppercase;line-height:0.95;color:#e0e0e0;margin-bottom:1.5rem}
+.post-byline{display:flex;align-items:center;gap:1.5rem;font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#888}
+.post-byline strong{color:#e0e0e0}
+.post-byline-dot{width:3px;height:3px;border-radius:50%;background:#E11D48;opacity:0.5}
 .post-body{max-width:800px;margin:0 auto;padding:4rem 3rem 5rem}
-.post-body p{font-size:1rem;line-height:1.9;color:rgba(240,236,228,0.65);margin-bottom:1.4rem}
-.post-body h2{font-family:"Black Han Sans",sans-serif;font-size:1.6rem;font-weight:400;text-transform:uppercase;color:var(--white);margin:2.5rem 0 1rem;line-height:1.1}
-.post-body h3{font-family:"Oswald",sans-serif;font-size:1rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--red-bright);margin:2rem 0 0.7rem}
+.post-body p{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.9;color:#999;margin-bottom:1.4rem}
+.post-body h2{font-family:"Oswald",sans-serif;font-size:1.6rem;font-weight:600;text-transform:uppercase;color:#e0e0e0;margin:2.5rem 0 1rem;line-height:1.1}
+.post-body h3{font-family:"Oswald",sans-serif;font-size:1rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#E11D48;margin:2rem 0 0.7rem}
 .post-body ul{list-style:none;margin-bottom:1.4rem}
-.post-body ul li{font-size:0.92rem;line-height:1.75;color:rgba(240,236,228,0.55);padding:0.35rem 0 0.35rem 1.4rem;border-bottom:1px solid rgba(255,255,255,0.04);position:relative}
-.post-body ul li::before{content:"";position:absolute;left:0;top:0.85rem;width:5px;height:5px;background:var(--red);transform:rotate(45deg)}
+.post-body ul li{font-size:0.92rem;line-height:1.75;color:#999;padding:0.35rem 0 0.35rem 1.4rem;border-bottom:1px solid rgba(255,255,255,0.04);position:relative}
+.post-body ul li::before{content:"";position:absolute;left:0;top:0.85rem;width:5px;height:5px;background:#E11D48;transform:rotate(45deg)}
 .post-body ol{list-style:none;margin-bottom:1.4rem;counter-reset:ol-counter}
-.post-body ol li{font-size:0.92rem;line-height:1.75;color:rgba(240,236,228,0.55);padding:0.4rem 0 0.4rem 2rem;border-bottom:1px solid rgba(255,255,255,0.04);position:relative;counter-increment:ol-counter}
-.post-body ol li::before{content:counter(ol-counter);position:absolute;left:0;font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:600;color:var(--red);top:0.55rem}
-.post-body a{color:var(--red-bright);text-decoration:none;border-bottom:1px solid rgba(192,23,15,0.3);transition:border-color 0.2s}
-.post-body a:hover{border-color:var(--red-bright)}
-.post-body strong{font-weight:500;color:var(--cream)}
-.post-rule{width:60px;height:2px;background:var(--red);margin:2.5rem 0}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04);margin:1.5rem 0}
-.pricing-item{background:var(--near-black);padding:1.5rem;text-align:center}
-.pricing-val{font-family:"Black Han Sans",sans-serif;font-size:2.2rem;color:var(--red-bright);line-height:1}
-.pricing-label{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.35rem}
-.cta-box{background:var(--near-black);border:1px solid var(--border-red);padding:2.5rem;margin-top:3rem}
-.cta-box h3{font-family:"Oswald",sans-serif;font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem}
-.cta-box p{font-size:0.88rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem}
+.post-body ol li{font-size:0.92rem;line-height:1.75;color:#999;padding:0.4rem 0 0.4rem 2rem;border-bottom:1px solid rgba(255,255,255,0.04);position:relative;counter-increment:ol-counter}
+.post-body ol li::before{content:counter(ol-counter);position:absolute;left:0;font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:600;color:#E11D48;top:0.55rem}
+.post-body a{color:#E11D48;text-decoration:none;border-bottom:1px solid rgba(225,29,72,0.25);transition:border-color 0.2s}
+.post-body a:hover{border-color:#E11D48}
+.post-body strong{font-weight:500;color:#e0e0e0}
+.post-rule{width:60px;height:2px;background:#E11D48;margin:2.5rem 0}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:transparent;margin:1.5rem 0}
+.pricing-item{background:#111;padding:1.5rem;text-align:center;border-radius:12px}
+.pricing-val{font-family:"Oswald",sans-serif;font-weight:600;font-size:2.2rem;color:#E11D48;line-height:1}
+.pricing-label{font-family:"Oswald",sans-serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:#888;margin-top:0.35rem}
+.cta-box{background:#111;border:1px solid #1e1e1e;padding:2.5rem;border-radius:12px;margin-top:3rem}
+.cta-box h3{font-family:"Oswald",sans-serif;font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:#E11D48;margin-bottom:1rem}
+.cta-box p{font-size:0.88rem;line-height:1.7;color:#888;margin-bottom:1.5rem}
 .btn{font-family:"Oswald",sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;padding:0.85rem 2rem;text-decoration:none;display:inline-block;transition:all 0.25s;border:none;cursor:pointer}
-.btn-red{background:var(--red);color:var(--white)}
-.btn-red:hover{background:var(--red-bright);transform:translateY(-2px)}
-.back-bar{background:var(--near-black);border-top:1px solid var(--border-red);padding:1.5rem 3rem}
+.btn-red{background:#E11D48;color:#e0e0e0;letter-spacing:0.1em;border-radius:8px}
+.btn-red:hover{background:#e82017;transform:translateY(-2px)}
+.back-bar{background:#111;border-top:1px solid #1e1e1e;padding:1.5rem 3rem}
 .back-link{font-family:"Oswald",sans-serif;font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;display:inline-flex;align-items:center;gap:0.5rem}
-.back-link:hover{color:var(--red-bright)}
+.back-link:hover{color:#E11D48}
 @media(max-width:768px){.post-header{padding:7rem 1.5rem 3rem}.post-body{padding:3rem 1.5rem 4rem}.back-bar{padding:1.2rem 1.5rem}.pricing-grid{grid-template-columns:1fr}}
 </style>
   <meta property="og:image" content="https://chsstrengthclub.com/seniorgymorientation.jpg">
@@ -99,7 +104,6 @@ h1{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font
     <li><a href="/senior-strength.html">Senior Strength</a></li>
     <li><a href="/locations/">Locations</a></li>
     <li><a href="/blog/">Blog</a></li>
-    <li><a href="/coaching-ai-tools.html">AI Tools</a></li>
     <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Book a Call</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -114,7 +118,6 @@ h1{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font
   <a href="/senior-strength.html" onclick="toggleMenu()">Senior Strength</a>
   <a href="/locations/" onclick="toggleMenu()">Locations</a>
   <a href="/blog/" onclick="toggleMenu()">Blog</a>
-  <a href="/coaching-ai-tools.html" onclick="toggleMenu()">AI Tools</a>
   <a href="mailto:chsstrengthclub@gmail.com" class="mob-cta" onclick="toggleMenu()">Book a Call</a>
 </div>
 
@@ -248,14 +251,14 @@ h1{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font
 </article>
 
 <style>
-.related{background:var(--near-black);border-top:1px solid var(--border-red);padding:3rem}
+.related{background:#111;border-top:1px solid #1e1e1e;padding:3rem}
 .related-inner{max-width:800px;margin:0 auto}
-.related-label{font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1.5rem}
+.related-label{font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#E11D48;margin-bottom:1.5rem}
 .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.related-item{display:block;background:var(--black);border:1px solid var(--border-red);padding:1.4rem;text-decoration:none;transition:background 0.2s}
-.related-item:hover{background:rgba(192,23,15,0.08)}
-.related-item-tag{font-family:"Oswald",sans-serif;font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--red-bright);margin-bottom:0.5rem}
-.related-item-title{font-family:"Oswald",sans-serif;font-size:0.95rem;font-weight:500;color:var(--cream);line-height:1.3}
+.related-item{display:block;background:#0a0a0a;border:1px solid #1e1e1e;padding:1.4rem;text-decoration:none;transition:background 0.2s}
+.related-item:hover{background:rgba(225,29,72,0.08)}
+.related-item-tag{font-family:"Oswald",sans-serif;font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:#E11D48;margin-bottom:0.5rem}
+.related-item-title{font-family:"Oswald",sans-serif;font-size:0.95rem;font-weight:500;color:#e0e0e0;line-height:1.3}
 @media(max-width:768px){.related{padding:2rem 1.5rem}.related-grid{grid-template-columns:1fr}}
 </style>
 

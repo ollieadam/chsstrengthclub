@@ -71,12 +71,4 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Tools -->
-  <url>
-    <loc>https://chsstrengthclub.com/coaching-ai-tools.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
 </urlset>

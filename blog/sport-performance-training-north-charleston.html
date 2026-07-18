@@ -12,11 +12,16 @@
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://chsstrengthclub.com/sport-performance-og.jpeg">
 <link rel="canonical" href="https://chsstrengthclub.com/blog/sport-performance-training-north-charleston.html">
-<link rel="stylesheet" href="/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/global.css">
 <style>
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+
 .hero {
-  background: var(--near-black);
-  border-bottom: 1px solid var(--border-red);
+  background: #111;
+  border-bottom: 1px solid #1e1e1e;
   padding: 5rem 3rem 4rem;
   max-width: 860px;
   margin: 0 auto;
@@ -26,7 +31,7 @@
   font-size: 0.6rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--red-bright);
+  color: #E11D48;
   margin-bottom: 1.2rem;
   display: flex;
   align-items: center;
@@ -37,27 +42,28 @@
   display: inline-block;
   width: 24px;
   height: 1px;
-  background: var(--red);
+  background: #E11D48;
 }
 .hero h1 {
-  font-family: "Black Han Sans", sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
   font-size: clamp(2rem, 5vw, 3.2rem);
-  color: var(--white);
+  color: #e0e0e0;
   line-height: 1.02;
   text-transform: uppercase;
   letter-spacing: 0.01em;
   margin-bottom: 1.5rem;
 }
-.hero h1 em { color: var(--red-bright); font-style: normal; }
+.hero h1 em { color: #E11D48; font-style: normal; }
 .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; }
 .hero-meta span {
   font-family: "Oswald", sans-serif;
   font-size: 0.65rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #888;
 }
-.hero-meta strong { color: var(--cream); }
+.hero-meta strong { color: #e0e0e0; }
 
 .article-body {
   max-width: 860px;
@@ -65,37 +71,39 @@
   padding: 4rem 3rem;
 }
 .article-body h2 {
-  font-family: "Black Han Sans", sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
   font-size: 1.6rem;
   text-transform: uppercase;
-  color: var(--white);
+  color: #e0e0e0;
   margin: 2.5rem 0 1rem;
   letter-spacing: 0.01em;
 }
 .article-body h2:first-of-type { margin-top: 0; }
 .article-body p {
   font-size: 0.95rem;
-  color: rgba(240,236,228,0.65);
+  color: #999;
+  font-family: 'Inter', sans-serif;
   margin-bottom: 1.1rem;
   max-width: 700px;
 }
 .article-body a {
-  color: var(--red-bright);
+  color: #E11D48;
   text-decoration: none;
-  border-bottom: 1px solid rgba(192,23,15,0.3);
+  border-bottom: 1px solid rgba(225,29,72,0.25);
 }
-.article-body strong { color: var(--cream); font-weight: 500; }
+.article-body strong { color: #e0e0e0; font-weight: 500; }
 
-.divider { height: 1px; background: var(--border-red); margin: 3rem 0; }
+.divider { height: 1px; background: #1e1e1e; margin: 3rem 0; }
 
 .pullquote {
-  border-left: 4px solid var(--red);
+  border-left: 4px solid #E11D48;
   padding: 1.2rem 2rem;
   margin: 2.5rem 0;
   font-family: "Oswald", sans-serif;
   font-size: 1.2rem;
   font-weight: 400;
-  color: rgba(240,236,228,0.85);
+  color: #999;
   font-style: italic;
   line-height: 1.5;
 }
@@ -104,15 +112,16 @@
   font-size: 0.6rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #888;
   font-style: normal;
   margin-top: 0.6rem;
 }
 
 .highlight-box {
-  background: var(--near-black);
-  border: 1px solid var(--border-red);
-  border-left: 4px solid var(--red-bright);
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-left: 4px solid #E11D48;
+  border-radius: 12px;
   padding: 2rem;
   margin: 2rem 0;
 }
@@ -121,12 +130,12 @@
   font-size: 0.75rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--red-bright);
+  color: #E11D48;
   margin-bottom: 0.75rem;
 }
 .highlight-box p {
   font-size: 0.92rem;
-  color: rgba(240,236,228,0.6);
+  color: #999;
   margin-bottom: 0;
   max-width: 100%;
 }
@@ -136,65 +145,91 @@
   padding: 0.65rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.04);
   font-size: 0.92rem;
-  color: rgba(240,236,228,0.65);
+  color: #999;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
 }
 .checklist li::before {
   content: "→";
-  color: var(--red-bright);
+  color: #E11D48;
   font-family: "Oswald", sans-serif;
   font-weight: 600;
   flex-shrink: 0;
 }
 
 .cta-block {
-  background: var(--near-black);
-  border: 1px solid var(--border-red);
-  border-left: 4px solid var(--red);
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-left: 4px solid #E11D48;
+  border-radius: 12px;
   padding: 2.5rem;
   margin: 3rem 0;
 }
 .cta-block h3 {
-  font-family: "Black Han Sans", sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
   font-size: 1.4rem;
   text-transform: uppercase;
-  color: var(--white);
+  color: #e0e0e0;
   margin-bottom: 0.75rem;
 }
 .cta-block p {
   font-size: 0.9rem;
-  color: rgba(240,236,228,0.6);
+  color: #999;
   margin-bottom: 1.5rem;
   max-width: 100%;
 }
 .btn-primary {
   display: inline-block;
-  background: var(--red);
+  background: #E11D48;
   color: var(--white);
   font-family: "Oswald", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.9rem 2rem;
   text-decoration: none;
   border: none;
+  border-radius: 8px;
   transition: background 0.2s;
 }
-.btn-primary:hover { background: var(--red-bright); border: none; }
+.btn-primary:hover { background: #e82017; border: none; }
 .cta-email {
   display: block;
   margin-top: 0.75rem;
   font-size: 0.78rem;
-  color: rgba(240,236,228,0.35);
+  color: #999;
   letter-spacing: 0.1em;
 }
 
+.tool-cta-section {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-left: 4px solid #E11D48;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.tool-cta-section h3 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #e0e0e0;
+  margin-bottom: 0.75rem;
+}
+.tool-cta-section p {
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+}
+
 .related {
-  background: var(--charcoal);
-  border-top: 3px solid var(--red);
+  background: #151515;
+  border-top: 3px solid #E11D48;
   padding: 3rem;
 }
 .related-inner { max-width: 860px; margin: 0 auto; }
@@ -203,36 +238,37 @@
   font-size: 0.6rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--red-bright);
+  color: #E11D48;
   margin-bottom: 1.5rem;
 }
 .related-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,0.04);
+  gap: 8px;
+  background: transparent;
 }
 .related-item {
-  background: var(--near-black);
+  background: #111;
+  border-radius: 12px;
   padding: 1.5rem;
   text-decoration: none;
   display: block;
   transition: background 0.2s;
 }
-.related-item:hover { background: rgba(192,23,15,0.08); border: none; }
+.related-item:hover { background: rgba(225,29,72,0.08); border: none; }
 .related-item-tag {
   font-family: "Oswald", sans-serif;
   font-size: 0.55rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--red-bright);
+  color: #E11D48;
   margin-bottom: 0.5rem;
 }
 .related-item-title {
   font-family: "Oswald", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--white);
+  color: #e0e0e0;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   line-height: 1.3;
@@ -243,7 +279,7 @@
   font-size: 0.6rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--red-bright);
+  color: #E11D48;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -254,7 +290,7 @@
   display: inline-block;
   width: 20px;
   height: 1px;
-  background: var(--red);
+  background: #E11D48;
 }
 .video-wrapper {
   position: relative;
@@ -326,7 +362,6 @@
     <li><a href="/senior-strength.html">Senior Strength</a></li>
     <li><a href="/locations/">Locations</a></li>
     <li><a href="/blog/">Blog</a></li>
-    <li><a href="/coaching-ai-tools.html">AI Tools</a></li>
     <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Book a Call</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -341,11 +376,10 @@
   <a href="/senior-strength.html" onclick="toggleMenu()">Senior Strength</a>
   <a href="/locations/" onclick="toggleMenu()">Locations</a>
   <a href="/blog/" onclick="toggleMenu()">Blog</a>
-  <a href="/coaching-ai-tools.html" onclick="toggleMenu()">AI Tools</a>
   <a href="mailto:chsstrengthclub@gmail.com" class="mob-cta" onclick="toggleMenu()">Book a Call</a>
 </div>
 
-<div style="background: var(--near-black);">
+<div style="background: #111;">
   <div class="hero">
     <div class="hero-label">Sport Performance · North Charleston SC</div>
     <h1>Why North Charleston Athletes<br>Get <em>Pro-Level</em> Results<br>From a Park</h1>
@@ -467,8 +501,8 @@
 
   <div class="tool-cta-section">
     <h3>Track Your Athlete's Sprint Speed &amp; Vertical Jump</h3>
-    <p>Use our free <a href="/coaching-ai-tools.html">AI Coaching Tools</a> to measure vertical jump height and sprint speed right from your phone or laptop — no equipment required. Save results, track progress over time, and share reports with coaches and parents.</p>
-    <a href="/coaching-ai-tools.html" class="btn-primary">Try the AI Coaching Tools →</a>
+    <p>Use our free <a href="https://strengthclubai.com/?client=1&amp;tools=1">AI Coaching Tools</a> to measure vertical jump height and sprint speed right from your phone or laptop — no equipment required. Save results, track progress over time, and share reports with coaches and parents.</p>
+    <a href="https://strengthclubai.com/?client=1&amp;tools=1" class="btn-primary">Try the AI Coaching Tools →</a>
   </div>
 
   <div class="highlight-box">
