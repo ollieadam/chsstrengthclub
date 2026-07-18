@@ -53,7 +53,7 @@
     <li><a href="/senior-strength.html">Senior Strength</a></li>
     <li><a href="/locations/">Locations</a></li>
     <li><a href="/blog/">Blog</a></li>
-    <li><a href="https://strengthclubai.com/member">Member Sign In</a></li>
+    <li><a href="/programs/">Member Sign In</a></li>
     <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Book a Call</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -67,7 +67,7 @@
   <a href="/senior-strength.html" onclick="toggleMenu()">Senior Strength</a>
   <a href="/locations/" onclick="toggleMenu()">Locations</a>
   <a href="/blog/" onclick="toggleMenu()">Blog</a>
-  <a href="https://strengthclubai.com/member" onclick="toggleMenu()">Member Sign In</a>
+  <a href="/programs/" onclick="toggleMenu()">Member Sign In</a>
   <a href="mailto:chsstrengthclub@gmail.com" class="mob-cta" onclick="toggleMenu()">Book a Call</a>
 </div>
 
@@ -87,7 +87,7 @@
 .login-form.hide { display: none; }
 </style>
 
-<div class="login-section">
+<div class="login-section" id="loginSection">
   <div class="login-tabs">
     <div class="login-tab active" onclick="switchLoginTab('member')">Member</div>
     <div class="login-tab" onclick="switchLoginTab('coach')">Coach</div>
@@ -108,12 +108,27 @@
   </div>
 </div>
 
+<div id="memberDashboard" style="display:none;max-width:580px;margin:90px auto 40px;text-align:center;padding:0 16px">
+  <div style="font-family:'Oswald',sans-serif;font-size:28px;color:#fff;text-transform:uppercase;margin-bottom:4px" id="dashGreeting"></div>
+  <div style="font-size:14px;color:#999;margin-bottom:28px" id="dashSub"></div>
+  <div id="dashPrograms" style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px"></div>
+  <button onclick="doMemberLogout()" style="font-family:'Oswald',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;padding:8px 20px;background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(240,236,228,0.5);cursor:pointer;border-radius:4px">Sign Out</button>
+</div>
+
 <script>
+var PROG_MAP = {
+  'senior-strength': {name:'Senior Strength Club',icon:'i-dumbbell',desc:'AI-powered strength training for senior athletes at Carner Ave, Dorchester Road, and Northwoods.'},
+  'adult-strength': {name:'Adult Strength Club',icon:'i-zap',desc:'General strength and conditioning with AI-driven workout logging and feedback.'},
+  'gym-orientation': {name:'Gym Orientation',icon:'i-map-pin',desc:'Self-guided video tour of all three senior center gyms.', free:true},
+  'sport-performance': {name:'Sport Performance',icon:'i-run',desc:'Pro-level speed, strength, and agility training for youth athletes.'}
+};
+
 function switchLoginTab(type) {
   document.querySelectorAll('.login-tab').forEach(t => t.classList.toggle('active', t.textContent.trim().toLowerCase() === type));
   document.getElementById('memberForm').classList.toggle('hide', type !== 'member');
   document.getElementById('coachForm').classList.toggle('hide', type !== 'coach');
 }
+
 async function doMemberLogin() {
   var fn = (document.getElementById('mFirstName')?.value || '').trim();
   var li = (document.getElementById('mLastInitial')?.value || '').trim().toUpperCase();
@@ -123,10 +138,44 @@ async function doMemberLogin() {
   try {
     var r = await fetch('https://strengthclubai.com/api/coach/user/verify-auth', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({firstName:fn,lastInitial:li,pin})});
     var d = await r.json();
-    if (d.ok) { localStorage.setItem('coachNickname',d.nickname||'');localStorage.setItem('coachUserId',d.userId);window.location='https://strengthclubai.com/?client=1'; }
-    else { err.textContent = d.error || 'Invalid credentials'; }
+    if (d.ok) {
+      localStorage.setItem('coachNickname',d.nickname||'');
+      localStorage.setItem('coachUserId',d.userId);
+      localStorage.setItem('coachPrograms',JSON.stringify(d.programs||[]));
+      showMemberDashboard(d.nickname||fn,d.programs||[]);
+    } else { err.textContent = d.error || 'Invalid credentials'; }
   } catch(e) { err.textContent = 'Connection error'; }
 }
+
+function showMemberDashboard(nickname, programs) {
+  document.getElementById('loginSection').style.display = 'none';
+  var dash = document.getElementById('memberDashboard');
+  dash.style.display = 'block';
+  document.getElementById('dashGreeting').textContent = 'Welcome, ' + nickname;
+  document.getElementById('dashSub').textContent = programs.length ? 'Your Programs' : 'No programs assigned yet — contact Coach Adam to get started.';
+  var progEl = document.getElementById('dashPrograms');
+  progEl.innerHTML = programs.map(function(p) {
+    var info = PROG_MAP[p] || {name:p,icon:'i-dumbbell',desc:''};
+    return '<a href="https://strengthclubai.com/?client=1&program=' + encodeURIComponent(p) + '" target="_blank" class="prog-card" style="text-decoration:none;display:block;text-align:left">' +
+      '<div class="prog-card-header"><svg style="width:24px;height:24px;color:#E11D48"><use href="#' + info.icon + '"/></svg>' +
+      '<h2 style="font-size:18px">' + info.name + (info.free?' <span class="free-badge">FREE</span>':'') + '</h2></div>' +
+      '<p>' + info.desc + '</p>' +
+      '<span class="btn-red" style="display:inline-block;font-size:13px">Open Program &#8594;</span></a>';
+  }).join('');
+}
+
+function doMemberLogout() {
+  localStorage.removeItem('coachNickname');
+  localStorage.removeItem('coachUserId');
+  localStorage.removeItem('coachPrograms');
+  document.getElementById('loginSection').style.display = '';
+  document.getElementById('memberDashboard').style.display = 'none';
+  document.getElementById('mFirstName').value = '';
+  document.getElementById('mLastInitial').value = '';
+  document.getElementById('mPin').value = '';
+  document.getElementById('mError').textContent = '';
+}
+
 async function doCoachLogin() {
   var fn = (document.getElementById('cFirstName')?.value || '').trim();
   var li = (document.getElementById('cLastInitial')?.value || '').trim().toUpperCase();
@@ -139,6 +188,13 @@ async function doCoachLogin() {
     else { var d = await r.json().catch(function(){return{}}); err.textContent = d.error || 'Invalid credentials'; }
   } catch(e) { err.textContent = 'Connection error'; }
 }
+
+(function() {
+  var uid = localStorage.getItem('coachUserId');
+  var nick = localStorage.getItem('coachNickname');
+  var progs = (function(){try{return JSON.parse(localStorage.getItem('coachPrograms')||'[]')}catch(e){return[]}})();
+  if (uid && nick) { showMemberDashboard(nick, progs); }
+})();
 </script>
 
 <h1 style="font-family:'Oswald',sans-serif;font-size:24px;color:#fff;text-transform:uppercase;margin-bottom:40px;text-align:center">CHS Programs</h1>
@@ -152,8 +208,8 @@ async function doCoachLogin() {
     </div>
     <p>AI-powered strength training coach for senior athletes. Log sets, track progress, and get personalized guidance at Carner Ave, Dorchester Road, and Northwoods senior centers.</p>
     <div class="prog-actions">
-      <a href="https://strengthclubai.com/member" target="_blank" class="btn-red">Member Sign In &#8594;</a>
-      <span class="helper-text">Sign in at strengthclubai.com</span>
+      <a href="/programs/" class="btn-red">Member Sign In &#8594;</a>
+      <span class="helper-text">Sign in to access your programs</span>
     </div>
   </div>
 
@@ -164,8 +220,8 @@ async function doCoachLogin() {
     </div>
     <p>General strength and conditioning coaching with AI-driven workout logging and feedback. Small group training in Wando Woods and North Charleston parks.</p>
     <div class="prog-actions">
-      <a href="https://strengthclubai.com/member" target="_blank" class="btn-red">Member Sign In &#8594;</a>
-      <span class="helper-text">Sign in at strengthclubai.com</span>
+      <a href="/programs/" class="btn-red">Member Sign In &#8594;</a>
+      <span class="helper-text">Sign in to access your programs</span>
     </div>
   </div>
 
