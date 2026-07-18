@@ -143,6 +143,7 @@ async function doMemberLogin() {
       localStorage.setItem('coachUserId',d.userId);
       localStorage.setItem('coachPrograms',JSON.stringify(d.programs||[]));
       if (d.homeUrl) localStorage.setItem('coachTenantHomeUrl',d.homeUrl);
+      if (d.authToken) localStorage.setItem('coachAuthToken',d.authToken);
       showMemberDashboard(d.nickname||fn,d.programs||[],d.homeUrl||'');
     } else { err.textContent = d.error || 'Invalid credentials'; }
   } catch(e) { err.textContent = 'Connection error'; }
