@@ -188,7 +188,7 @@ async function doCoachLogin() {
     var r = await fetch('https://strengthclubai.com/admin/login', {method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify({firstName:fn,lastInitial:li,pin})});
     if (r.ok && r.status < 300) {
       var d = await r.json().catch(function(){return{}});
-      var redirectUrl = 'https://strengthclubai.com/?admin=1';
+      var redirectUrl = 'https://strengthclubai.com/?admin=1&token=' + encodeURIComponent(d.token || '');
       if (d.homeUrl) { redirectUrl += '&homeUrl=' + encodeURIComponent(d.homeUrl); }
       window.location = redirectUrl;
     }
