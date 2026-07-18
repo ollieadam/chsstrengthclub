@@ -142,21 +142,23 @@ async function doMemberLogin() {
       localStorage.setItem('coachNickname',d.nickname||'');
       localStorage.setItem('coachUserId',d.userId);
       localStorage.setItem('coachPrograms',JSON.stringify(d.programs||[]));
-      showMemberDashboard(d.nickname||fn,d.programs||[]);
+      if (d.homeUrl) localStorage.setItem('coachTenantHomeUrl',d.homeUrl);
+      showMemberDashboard(d.nickname||fn,d.programs||[],d.homeUrl||'');
     } else { err.textContent = d.error || 'Invalid credentials'; }
   } catch(e) { err.textContent = 'Connection error'; }
 }
 
-function showMemberDashboard(nickname, programs) {
+function showMemberDashboard(nickname, programs, homeUrl) {
   document.getElementById('loginSection').style.display = 'none';
   var dash = document.getElementById('memberDashboard');
   dash.style.display = 'block';
   document.getElementById('dashGreeting').textContent = 'Welcome, ' + nickname;
   document.getElementById('dashSub').textContent = programs.length ? 'Your Programs' : 'No programs assigned yet — contact Coach Adam to get started.';
   var progEl = document.getElementById('dashPrograms');
+  var hq = homeUrl ? '&homeUrl=' + encodeURIComponent(homeUrl) : '';
   progEl.innerHTML = programs.map(function(p) {
     var info = PROG_MAP[p] || {name:p,icon:'i-dumbbell',desc:''};
-    return '<a href="https://strengthclubai.com/?client=1&program=' + encodeURIComponent(p) + '" target="_blank" class="prog-card" style="text-decoration:none;display:block;text-align:left">' +
+    return '<a href="https://strengthclubai.com/?client=1&program=' + encodeURIComponent(p) + hq + '" target="_blank" class="prog-card" style="text-decoration:none;display:block;text-align:left">' +
       '<div class="prog-card-header"><svg style="width:24px;height:24px;color:#E11D48"><use href="#' + info.icon + '"/></svg>' +
       '<h2 style="font-size:18px">' + info.name + (info.free?' <span class="free-badge">FREE</span>':'') + '</h2></div>' +
       '<p>' + info.desc + '</p>' +
@@ -184,7 +186,12 @@ async function doCoachLogin() {
   if (!fn || !li || !pin) { err.textContent = 'All fields required'; return; }
   try {
     var r = await fetch('https://strengthclubai.com/admin/login', {method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify({firstName:fn,lastInitial:li,pin})});
-    if (r.ok && r.status < 300) { window.location = 'https://strengthclubai.com/?admin=1'; }
+    if (r.ok && r.status < 300) {
+      var d = await r.json().catch(function(){return{}});
+      var redirectUrl = 'https://strengthclubai.com/?admin=1';
+      if (d.homeUrl) { redirectUrl += '&homeUrl=' + encodeURIComponent(d.homeUrl); }
+      window.location = redirectUrl;
+    }
     else { var d = await r.json().catch(function(){return{}}); err.textContent = d.error || 'Invalid credentials'; }
   } catch(e) { err.textContent = 'Connection error'; }
 }
@@ -193,7 +200,8 @@ async function doCoachLogin() {
   var uid = localStorage.getItem('coachUserId');
   var nick = localStorage.getItem('coachNickname');
   var progs = (function(){try{return JSON.parse(localStorage.getItem('coachPrograms')||'[]')}catch(e){return[]}})();
-  if (uid && nick) { showMemberDashboard(nick, progs); }
+  var hu = localStorage.getItem('coachTenantHomeUrl') || '';
+  if (uid && nick) { showMemberDashboard(nick, progs, hu); }
 })();
 </script>
 
