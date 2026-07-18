@@ -35,13 +35,19 @@
 </head>
 <body>
 
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-dumbbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-run" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></symbol>
+</svg>
+
 <nav>
   <a href="/index.html" class="nav-logo">
     <img src="/logo.png" alt="CHS Strength Club">
     <span class="nav-logo-text">CHS Strength Club</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/programs/" class="active">Programs</a></li>
     <li><a href="/small-group-training-north-charleston.html">Strength Classes</a></li>
     <li><a href="/sport-performance.html">Sport Performance</a></li>
     <li><a href="/senior-strength.html">Senior Strength</a></li>
@@ -56,7 +62,6 @@
 </nav>
 
 <div class="mob-menu" id="mobMenu">
-  <a href="/programs/" onclick="toggleMenu()">Programs</a>
   <a href="/small-group-training-north-charleston.html" onclick="toggleMenu()">Strength Classes</a>
   <a href="/sport-performance.html" onclick="toggleMenu()">Sport Performance</a>
   <a href="/senior-strength.html" onclick="toggleMenu()">Senior Strength</a>
@@ -66,16 +71,83 @@
   <a href="mailto:chsstrengthclub@gmail.com" class="mob-cta" onclick="toggleMenu()">Book a Call</a>
 </div>
 
-<section class="page-header">
-  <h1>CHS Programs</h1>
-  <p>Strength training, senior fitness, and sport performance — powered by Strength Club AI</p>
-</section>
+<style>
+.login-section { max-width: 480px; margin: 60px auto 40px; text-align: center; }
+.login-tabs { display: flex; gap: 0; margin-bottom: 16px; }
+.login-tab { flex: 1; padding: 10px; background: #151515; border: 1px solid #1e1e1e; color: #888; font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; text-align: center; }
+.login-tab:first-child { border-radius: 8px 0 0 8px; }
+.login-tab:last-child { border-radius: 0 8px 8px 0; }
+.login-tab.active { background: rgba(225,29,72,0.1); border-color: #E11D48; color: #E11D48; }
+.login-form { padding: 20px; background: #111; border: 1px solid #1e1e1e; border-radius: 0 0 12px 12px; }
+.login-form input { width: 100%; box-sizing: border-box; background: #0d1117; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 15px; margin-bottom: 8px; font-family: 'Inter', sans-serif; }
+.login-form input:focus { outline: none; border-color: #E11D48; }
+.login-btn { width: 100%; padding: 10px; background: #E11D48; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; }
+.login-btn:hover { background: #c91a3e; }
+.login-error { font-size: 12px; color: #f85149; margin-top: 8px; text-align: center; min-height: 18px; }
+.login-form.hide { display: none; }
+</style>
+
+<div class="login-section">
+  <div class="login-tabs">
+    <div class="login-tab active" onclick="switchLoginTab('member')">Member</div>
+    <div class="login-tab" onclick="switchLoginTab('coach')">Coach</div>
+  </div>
+  <div class="login-form" id="memberForm">
+    <input id="mFirstName" type="text" placeholder="First name" autocomplete="given-name">
+    <input id="mLastInitial" type="text" maxlength="1" placeholder="Last initial" autocomplete="off">
+    <input id="mPin" type="password" inputmode="numeric" placeholder="PIN" autocomplete="off" onkeydown="if(event.key==='Enter')doMemberLogin()">
+    <button class="login-btn" onclick="doMemberLogin()">Sign In</button>
+    <div class="login-error" id="mError"></div>
+  </div>
+  <div class="login-form hide" id="coachForm">
+    <input id="cFirstName" type="text" placeholder="First name" autocomplete="given-name">
+    <input id="cLastInitial" type="text" maxlength="1" placeholder="Last initial" autocomplete="off">
+    <input id="cPin" type="password" inputmode="numeric" placeholder="Coach PIN" autocomplete="off" onkeydown="if(event.key==='Enter')doCoachLogin()">
+    <button class="login-btn" onclick="doCoachLogin()">Sign In</button>
+    <div class="login-error" id="cError"></div>
+  </div>
+</div>
+
+<script>
+function switchLoginTab(type) {
+  document.querySelectorAll('.login-tab').forEach(t => t.classList.toggle('active', t.textContent.trim().toLowerCase() === type));
+  document.getElementById('memberForm').classList.toggle('hide', type !== 'member');
+  document.getElementById('coachForm').classList.toggle('hide', type !== 'coach');
+}
+async function doMemberLogin() {
+  var fn = (document.getElementById('mFirstName')?.value || '').trim();
+  var li = (document.getElementById('mLastInitial')?.value || '').trim().toUpperCase();
+  var pin = (document.getElementById('mPin')?.value || '').trim();
+  var err = document.getElementById('mError');
+  if (!fn || !li || !pin) { err.textContent = 'All fields required'; return; }
+  try {
+    var r = await fetch('https://strengthclubai.com/api/coach/user/verify-auth', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({firstName:fn,lastInitial:li,pin})});
+    var d = await r.json();
+    if (d.ok) { localStorage.setItem('coachNickname',d.nickname||'');localStorage.setItem('coachUserId',d.userId);window.location='https://strengthclubai.com/?client=1'; }
+    else { err.textContent = d.error || 'Invalid credentials'; }
+  } catch(e) { err.textContent = 'Connection error'; }
+}
+async function doCoachLogin() {
+  var fn = (document.getElementById('cFirstName')?.value || '').trim();
+  var li = (document.getElementById('cLastInitial')?.value || '').trim().toUpperCase();
+  var pin = (document.getElementById('cPin')?.value || '').trim();
+  var err = document.getElementById('cError');
+  if (!fn || !li || !pin) { err.textContent = 'All fields required'; return; }
+  try {
+    var r = await fetch('https://strengthclubai.com/admin/login', {method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify({firstName:fn,lastInitial:li,pin})});
+    if (r.ok && r.status < 300) { window.location = 'https://strengthclubai.com/?admin=1'; }
+    else { var d = await r.json().catch(function(){return{}}); err.textContent = d.error || 'Invalid credentials'; }
+  } catch(e) { err.textContent = 'Connection error'; }
+}
+</script>
+
+<h1 style="font-family:'Oswald',sans-serif;font-size:24px;color:#fff;text-transform:uppercase;margin-bottom:40px;text-align:center">CHS Programs</h1>
 
 <section style="padding:0 2rem 4rem;max-width:900px;margin:0 auto">
 
   <div class="prog-card">
     <div class="prog-card-header">
-      <span style="font-size:28px">&#x1f3cb;</span>
+      <svg style="width:28px;height:28px;color:#E11D48"><use href="#i-dumbbell"/></svg>
       <h2>Senior Strength Club</h2>
     </div>
     <p>AI-powered strength training coach for senior athletes. Log sets, track progress, and get personalized guidance at Carner Ave, Dorchester Road, and Northwoods senior centers.</p>
@@ -87,7 +159,7 @@
 
   <div class="prog-card">
     <div class="prog-card-header">
-      <span style="font-size:28px">&#x26a1;</span>
+      <svg style="width:28px;height:28px;color:#E11D48"><use href="#i-zap"/></svg>
       <h2>Adult Strength Club</h2>
     </div>
     <p>General strength and conditioning coaching with AI-driven workout logging and feedback. Small group training in Wando Woods and North Charleston parks.</p>
@@ -99,7 +171,7 @@
 
   <div class="prog-card">
     <div class="prog-card-header">
-      <span style="font-size:28px">&#x1f4cd;</span>
+      <svg style="width:28px;height:28px;color:#E11D48"><use href="#i-map-pin"/></svg>
       <h2>Gym Orientation</h2>
       <span class="free-badge">FREE</span>
     </div>
@@ -111,7 +183,7 @@
 
   <div class="prog-card">
     <div class="prog-card-header">
-      <span style="font-size:28px">&#x1f3c3;</span>
+      <svg style="width:28px;height:28px;color:#E11D48"><use href="#i-run"/></svg>
       <h2>Sport Performance</h2>
     </div>
     <p>Pro-level speed, strength, and agility training for youth athletes. Sprint mechanics, vertical jump, and conditioning — programming from an MBSC-trained CSCS coach.</p>
