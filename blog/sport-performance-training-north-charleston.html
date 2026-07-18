@@ -31,7 +31,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
   font-size: 0.6rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: #E11D48;
+  color: var(--red);
   margin-bottom: 1.2rem;
   display: flex;
   align-items: center;
@@ -42,7 +42,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
   display: inline-block;
   width: 24px;
   height: 1px;
-  background: #E11D48;
+  background: var(--red);
 }
 .hero h1 {
   font-family: "Oswald", sans-serif;
@@ -54,7 +54,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
   letter-spacing: 0.01em;
   margin-bottom: 1.5rem;
 }
-.hero h1 em { color: #E11D48; font-style: normal; }
+.hero h1 em { color: var(--red); font-style: normal; }
 .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; }
 .hero-meta span {
   font-family: "Oswald", sans-serif;
@@ -88,16 +88,16 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
   max-width: 700px;
 }
 .article-body a {
-  color: #E11D48;
+  color: var(--red);
   text-decoration: none;
-  border-bottom: 1px solid rgba(225,29,72,0.25);
+  border-bottom: 1px solid rgba(192,23,15,0.25);
 }
 .article-body strong { color: #e0e0e0; font-weight: 500; }
 
 .divider { height: 1px; background: #1e1e1e; margin: 3rem 0; }
 
 .pullquote {
-  border-left: 4px solid #E11D48;
+  border-left: 4px solid var(--red);
   padding: 1.2rem 2rem;
   margin: 2.5rem 0;
   font-family: "Oswald", sans-serif;
@@ -120,7 +120,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
 .highlight-box {
   background: #111;
   border: 1px solid #1e1e1e;
-  border-left: 4px solid #E11D48;
+  border-left: 4px solid var(--red);
   border-radius: 12px;
   padding: 2rem;
   margin: 2rem 0;
@@ -130,7 +130,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
   font-size: 0.75rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #E11D48;
+  color: var(--red);
   margin-bottom: 0.75rem;
 }
 .highlight-box p {
@@ -152,7 +152,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
 }
 .checklist li::before {
   content: "→";
-  color: #E11D48;
+  color: var(--red);
   font-family: "Oswald", sans-serif;
   font-weight: 600;
   flex-shrink: 0;
@@ -161,7 +161,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
 .cta-block {
   background: #111;
   border: 1px solid #1e1e1e;
-  border-left: 4px solid #E11D48;
+  border-left: 4px solid var(--red);
   border-radius: 12px;
   padding: 2.5rem;
   margin: 3rem 0;
@@ -182,7 +182,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
 }
 .btn-primary {
   display: inline-block;
-  background: #E11D48;
+  background: var(--red);
   color: var(--white);
   font-family: "Oswald", sans-serif;
   font-size: 0.75rem;
@@ -207,7 +207,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
 .tool-cta-section {
   background: #111;
   border: 1px solid #1e1e1e;
-  border-left: 4px solid #E11D48;
+  border-left: 4px solid var(--red);
   border-radius: 12px;
   padding: 2rem;
   margin: 2rem 0;
@@ -229,7 +229,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
 
 .related {
   background: #151515;
-  border-top: 3px solid #E11D48;
+  border-top: 3px solid var(--red);
   padding: 3rem;
 }
 .related-inner { max-width: 860px; margin: 0 auto; }
@@ -238,7 +238,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
   font-size: 0.6rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: #E11D48;
+  color: var(--red);
   margin-bottom: 1.5rem;
 }
 .related-grid {
@@ -255,13 +255,13 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
   display: block;
   transition: background 0.2s;
 }
-.related-item:hover { background: rgba(225,29,72,0.08); border: none; }
+.related-item:hover { background: rgba(192,23,15,0.08); border: none; }
 .related-item-tag {
   font-family: "Oswald", sans-serif;
   font-size: 0.55rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #E11D48;
+  color: var(--red);
   margin-bottom: 0.5rem;
 }
 .related-item-title {
@@ -279,7 +279,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
   font-size: 0.6rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: #E11D48;
+  color: var(--red);
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -290,7 +290,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
   display: inline-block;
   width: 20px;
   height: 1px;
-  background: #E11D48;
+  background: var(--red);
 }
 .video-wrapper {
   position: relative;
@@ -361,7 +361,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
     <li><a href="/senior-strength.html">Senior Strength</a></li>
     <li><a href="/locations/">Locations</a></li>
     <li><a href="/blog/">Blog</a></li>
-    <li><a href="/programs/">Member Sign In</a></li>
+    <li><a href="/members/">Member Sign In</a></li>
     <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Book a Call</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -375,7 +375,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
   <a href="/senior-strength.html" onclick="toggleMenu()">Senior Strength</a>
   <a href="/locations/" onclick="toggleMenu()">Locations</a>
   <a href="/blog/" onclick="toggleMenu()">Blog</a>
-  <a href="/programs/" onclick="toggleMenu()">Member Sign In</a>
+  <a href="/members/" onclick="toggleMenu()">Member Sign In</a>
   <a href="mailto:chsstrengthclub@gmail.com" class="mob-cta" onclick="toggleMenu()">Book a Call</a>
 </div>
 
