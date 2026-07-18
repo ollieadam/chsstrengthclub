@@ -117,10 +117,10 @@
 
 <script>
 var PROG_MAP = {
-  'senior-strength': {name:'Senior Strength Club',icon:'i-dumbbell',desc:'AI-powered strength training for senior athletes at Carner Ave, Dorchester Road, and Northwoods.'},
-  'adult-strength': {name:'Adult Strength Club',icon:'i-zap',desc:'General strength and conditioning with AI-driven workout logging and feedback.'},
-  'gym-orientation': {name:'Gym Orientation',icon:'i-map-pin',desc:'Self-guided video tour of all three senior center gyms.', free:true},
-  'sport-performance': {name:'Sport Performance',icon:'i-run',desc:'Pro-level speed, strength, and agility training for youth athletes.'}
+  'senior-strength': {name:'Senior Strength Club',slug:'senior-strength',icon:'i-dumbbell',desc:'AI-powered strength training for senior athletes at Carner Ave, Dorchester Road, and Northwoods.'},
+  'adult-strength': {name:'Adult Strength Club',slug:'adult-strength',icon:'i-zap',desc:'General strength and conditioning with AI-driven workout logging and feedback.'},
+  'gym-orientation': {name:'Gym Orientation',slug:'gym-orientation',icon:'i-map-pin',desc:'Self-guided video tour of all three senior center gyms.', free:true},
+  'sport-performance': {name:'Sport Performance',slug:'sport-performance',icon:'i-run',desc:'Pro-level speed, strength, and agility training for youth athletes.'}
 };
 
 function switchLoginTab(type) {
@@ -157,8 +157,9 @@ function showMemberDashboard(nickname, programs, homeUrl) {
   var progEl = document.getElementById('dashPrograms');
   var hq = homeUrl ? '&homeUrl=' + encodeURIComponent(homeUrl) : '';
   progEl.innerHTML = programs.map(function(p) {
-    var info = PROG_MAP[p] || {name:p,icon:'i-dumbbell',desc:''};
-    return '<a href="https://strengthclubai.com/?client=1&program=' + encodeURIComponent(p) + hq + '" target="_blank" class="prog-card" style="text-decoration:none;display:block;text-align:left">' +
+    var info = PROG_MAP[p] || {name:p,slug:p,icon:'i-dumbbell',desc:''};
+    var slug = info.slug || encodeURIComponent(p);
+    return '<a href="https://chsstrengthclub.com/' + slug + '/" target="_blank" class="prog-card" style="text-decoration:none;display:block;text-align:left">' +
       '<div class="prog-card-header"><svg style="width:24px;height:24px;color:#E11D48"><use href="#' + info.icon + '"/></svg>' +
       '<h2 style="font-size:18px">' + info.name + (info.free?' <span class="free-badge">FREE</span>':'') + '</h2></div>' +
       '<p>' + info.desc + '</p>' +
@@ -233,7 +234,7 @@ async function doCoachLogin() {
     </div>
     <p>Self-guided video tour of all three senior center gyms — Carner Ave, Dorchester Road, and Northwoods. Learn the equipment layout and get started with confidence. No sign-in required.</p>
     <div class="prog-actions">
-      <a href="https://strengthclubai.com/?client=1&program=gym-orientation" target="_blank" class="btn-red">Start the Tour &#8594;</a>
+      <a href="/gym-orientation/" class="btn-red">Start the Tour &#8594;</a>
     </div>
   </div>
 
