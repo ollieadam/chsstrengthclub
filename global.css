@@ -13,7 +13,7 @@
   --charcoal:#1e1e1e;
   --grey:#2a2a2a;
   --mid-grey:#444;
-  --muted:#777;
+  --muted:#999;
   --light:#aaa;
   --cream:#f0ece4;
   --white:#ffffff;
@@ -63,10 +63,10 @@ nav{
 @media(max-width:960px){.nav-logo img{height:32px}}
 .nav-logo-text{font-family:"Oswald",sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);line-height:1}
 .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
-.nav-links a{color:rgba(240,236,228,0.55);text-decoration:none;font-family:"Oswald",sans-serif;font-size:0.72rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a{color:rgba(240,236,228,0.75);text-decoration:none;font-family:"Oswald",sans-serif;font-size:0.72rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover,.nav-links a.active{color:var(--red-bright)}
-.nav-cta{border:1px solid var(--red)!important;color:var(--red-bright)!important;padding:0.5rem 1.4rem;transition:all 0.2s!important}
-.nav-cta:hover{background:var(--red)!important;color:var(--white)!important}
+.nav-cta{background:var(--red)!important;color:var(--white)!important;padding:0.5rem 1.4rem;transition:all 0.2s!important}
+.nav-cta:hover{background:var(--red-bright)!important;color:var(--white)!important}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none}
 .hamburger span{display:block;width:24px;height:1.5px;background:var(--cream)}
 
@@ -83,12 +83,12 @@ nav{
 .btn-red{background:var(--red);color:var(--white)}
 .btn-red:hover{background:var(--red-bright);transform:translateY(-2px);box-shadow:0 8px 30px rgba(192,23,15,0.4)}
 .btn-red:visited{color:var(--white)}
-.btn-ghost{border:1px solid rgba(240,236,228,0.2);color:var(--cream);background:transparent}
-.btn-ghost:hover{border-color:var(--red);color:var(--red-bright);transform:translateY(-2px)}
-.btn-ghost:visited{color:var(--cream)}
-.btn-outline-red{border:1px solid var(--red);color:var(--red-bright);background:transparent}
-.btn-outline-red:hover{background:var(--red);color:var(--white)}
-.btn-outline-red:visited{color:var(--red-bright)}
+.btn-ghost{background:var(--red);color:var(--white)}
+.btn-ghost:hover{background:var(--red-bright);transform:translateY(-2px)}
+.btn-ghost:visited{color:var(--white)}
+.btn-outline-red{background:var(--red);color:var(--white)}
+.btn-outline-red:hover{background:var(--red-bright);color:var(--white)}
+.btn-outline-red:visited{color:var(--white)}
 
 /* SECTION UTILITIES */
 .eyebrow{font-family:"Oswald",sans-serif;font-size:0.65rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--red-bright);margin-bottom:1rem;display:flex;align-items:center;gap:0.7rem}
@@ -124,9 +124,9 @@ nav{
 footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(192,23,15,0.15);flex-wrap:wrap;gap:1.5rem}
 .foot-logo{font-family:"Oswald",sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,236,228,0.35);text-decoration:none;display:flex;align-items:center;gap:0.6rem}
 .foot-logo img{height:26px}
-.foot-copy{font-size:0.72rem;color:rgba(255,255,255,0.2)}
+.foot-copy{font-size:0.72rem;color:rgba(255,255,255,0.45)}
 .foot-links{display:flex;gap:1.5rem}
-.foot-links a{font-family:"Oswald",sans-serif;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s}
+.foot-links a{font-family:"Oswald",sans-serif;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
 .foot-links a:hover{color:var(--red-bright)}
 
 /* RESPONSIVE */
