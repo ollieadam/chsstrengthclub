@@ -419,3 +419,60 @@ All in `coaching-ai-tools.html`:
 - Users can enter jump height in cm (converts to inches) OR inches (no conversion)
 - All reports and displays show both metric and standard
 - Old data wiped on first load — clean slate with new format
+
+---
+
+## Session: Senior Gym Orientation Blog — YouTube Playlists + Embedded Tour (2026-07-22)
+
+### Files Changed
+- `blog/senior-gym-orientation.html`
+
+### Changes
+1. **Added YouTube playlist embeds** — Two full workout playlists embedded below each center's existing single video:
+   - Dorchester Road: `videoseries?list=PLaf8DSUa7JPg`
+   - Carner Ave: `videoseries?list=PLOZmGq__ePXo`
+2. **Removed individual full-length video embeds** — Kept descriptive text + Facebook links
+3. **Replaced static CTA box** with interactive gym orientation iframe embedding the self-guided tour app (`strengthclubai.com/?client=1&program=gym-orientation`) with auth token passthrough from localStorage
+4. **Button contrast fix** — Changed `.btn-red` → `.btn.btn-red` so CSS specificity beats `.post-body a`
+5. **Body text whiter** — Paragraph text `#999` → `#bbb`, muted `#888` → `#aaa`, breadcrumbs `#555` → `#777`
+6. **Global CSS updates** — `--muted` variable `#777` → `#999`, nav link opacity 55% → 75%, footer text 20-25% → 45-50%
+7. **Button redesign** — All CTA buttons (`nav-cta`, `btn-ghost`, `btn-outline-red`) changed from outlined to solid red background with white text for readability
+8. **Removed unsupported Firefox feature names** from iframe `allow` attributes (accelerometer, clipboard-write, gyroscope, picture-in-picture)
+
+---
+
+## Session: Full Lucide Icon Migration + Kiosk Overhaul (2026-07-22)
+
+### Files Changed (strengthclubai app)
+- `app/index.html` — primary
+- `app/ecosystem.html`, `app/landing.html`, `app/tools.html`, `app/coach.html`, `app/demo.html`
+
+### Lucide Migration
+1. **Added Lucide CDN** (later changed to local `/lucide.min.js`) to all 6 pages
+2. **Replaced ~300+** `<svg class="icon"><use href="#i-{name}"/>` with `<i data-lucide="{name}" class="icon"></i>`
+3. **Removed SVG sprite sheets** — 48 symbols from index.html, plus sprite defs from 5 other pages
+4. **Removed legacy bubble icon JS** — `_bubbleIconPaths`, `bubbleSvg()`, `convertBubbleIcons()`
+5. **Converted 11 remaining inline `<use href>`** in JS template literals (clock, check, wrench, sparkles, mic)
+6. **Fixed `</script>` in template literals** — Escaped to `<\/script>` to prevent HTML parser from prematurely closing the outer script tag
+7. **Hosted lucide locally** — Downloaded `lucide@1.25.0` UMD bundle to `app/lucide.min.js`, added route to `server.py` `_static` dict
+
+### Kiosk Profile Overhaul
+1. **Rewrote `showKioskProfile()`** — Exercises now grouped by section (Warm-up, Power & Core, Strength, Conditioning, Cool-down) with colored left borders
+2. **Added checkboxes** — Mark exercise complete without entering weights (saves reps=1)
+3. **YouTube thumbnails** — Auto-generated from exercise video URLs (`img.youtube.com/vi/ID/mqdefault.jpg`)
+4. **Expandable detail panels** — Description, setup, execution, coaching cues, video link via `.kiosk-ex-detail`
+5. **Removed "Complete Session" button** — Only "Save Progress" remains
+6. **`toggleKioskDetail()`** — Helper to expand/collapse exercise details
+7. **`saveKioskProfile()` updated** — Now saves checkbox-completed exercises too
+
+### CSP / Server Fixes
+1. **Added `frame-ancestors 'self' https://chsstrengthclub.com`** — Allows embedding gym orientation in iframe
+2. **Added `/lucide.min.js` to `_static`** — Server was returning 404 for local lucide file
+3. **Fixed `/results.html` path** — Pointed to `../default apps/results.html` (was pointing to non-existent file)
+4. **Added `return` after index.html handler** — Prevented fall-through
+5. **Pinned lucide CDN to v1.25.0** — Avoids jsdelivr-header.js CDN edge script issues
+6. **Bumped service worker v13 → v14** — Forces re-cache of all assets; cache name matches SW version
+
+### Color Fixes
+1. **Admin theme** — Changed from purple (`#a855f7`) to CHS brand red (`#c0170f`)
+2. **Sleep section on calendar** — Changed purple progress bar + heading to `var(--red)`
