@@ -182,7 +182,7 @@ h1{font-family:"Oswald",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:
     var t=localStorage.getItem('coachAuthToken')||'';
     var u=localStorage.getItem('coachUserId')||'';
     var h=localStorage.getItem('coachTenantHomeUrl')||'';
-    var src='https://strengthclubai.com/?client=1&program=gym-orientation';
+    var src='https://strengthclubai.com/gym-orientation';
     if(t) src+='&t='+encodeURIComponent(t);
     else if(u) src+='&uid='+encodeURIComponent(u);
     if(h) src+='&homeUrl='+encodeURIComponent(h);
