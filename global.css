@@ -130,11 +130,27 @@ footer{background:var(--black);padding:2.5rem 3rem;display:flex;align-items:cent
 .foot-links a:hover{color:var(--red-bright)}
 
 /* RESPONSIVE */
+@media(max-width:1100px){
+  .hero{min-height:80vh;padding:0 2rem 4rem;padding-top:80px}
+  .hero-title .line1{font-size:clamp(3.5rem,8vw,6rem)}
+  .hero-title .line2{font-size:clamp(3.5rem,8vw,6rem)}
+  .hero-title .line3{font-size:clamp(1.5rem,3.5vw,2.5rem)}
+  .hero-corner{width:50px;height:50px}
+  .hero-corner.tl{top:5rem;left:1.5rem}
+  .hero-corner.tr{top:5rem;right:1.5rem}
+  .hero-corner.bl{bottom:2rem;left:1.5rem}
+  .hero-corner.br{bottom:2rem;right:1.5rem}
+  .hero-logo-right{display:none}
+  .stats-bar{grid-template-columns:repeat(3,1fr)}
+  .programs-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:960px){
   nav{padding:1rem 1.5rem}
   .nav-links{display:none}
   .hamburger{display:flex}
   footer{flex-direction:column;text-align:center;align-items:center}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .programs-grid{grid-template-columns:1fr}
 }
 @media(max-width:600px){
   .modal{padding:2.5rem 1.5rem}
