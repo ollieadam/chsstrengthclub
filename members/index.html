@@ -139,11 +139,14 @@ async function doMemberLogin() {
     var r = await fetch('https://strengthclubai.com/api/coach/user/verify-auth', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({firstName:fn,lastInitial:li,pin})});
     var d = await r.json();
     if (d.ok) {
+      if (d.authToken) {
+        window.location = 'https://strengthclubai.com/?client=1&t=' + encodeURIComponent(d.authToken);
+        return;
+      }
       localStorage.setItem('coachNickname',d.nickname||'');
       localStorage.setItem('coachUserId',d.userId);
       localStorage.setItem('coachPrograms',JSON.stringify(d.programs||[]));
       if (d.homeUrl) localStorage.setItem('coachTenantHomeUrl',d.homeUrl);
-      if (d.authToken) localStorage.setItem('coachAuthToken',d.authToken);
       showMemberDashboard(d.nickname||fn,d.programs||[],d.homeUrl||'');
     } else { err.textContent = d.error || 'Invalid credentials'; }
   } catch(e) { err.textContent = 'Connection error'; }
@@ -190,8 +193,15 @@ async function doCoachLogin() {
     var r = await fetch('https://strengthclubai.com/admin/login', {method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify({firstName:fn,lastInitial:li,pin})});
     if (r.ok && r.status < 300) {
       var d = await r.json().catch(function(){return{}});
+      // Clear any stale member session so the coach lands cleanly on the dash
+      localStorage.removeItem('coachNickname');
+      localStorage.removeItem('coachUserId');
+      localStorage.removeItem('coachPrograms');
       var redirectUrl = 'https://strengthclubai.com/?admin=1&token=' + encodeURIComponent(d.token || '');
-      if (d.homeUrl) { redirectUrl += '&homeUrl=' + encodeURIComponent(d.homeUrl); }
+      if (d.homeUrl) {
+        redirectUrl += '&homeUrl=' + encodeURIComponent(d.homeUrl);
+        localStorage.setItem('coachTenantHomeUrl', d.homeUrl);
+      }
       window.location = redirectUrl;
     }
     else { var d = await r.json().catch(function(){return{}}); err.textContent = d.error || 'Invalid credentials'; }
@@ -199,11 +209,8 @@ async function doCoachLogin() {
 }
 
 (function() {
-  var uid = localStorage.getItem('coachUserId');
-  var nick = localStorage.getItem('coachNickname');
-  var progs = (function(){try{return JSON.parse(localStorage.getItem('coachPrograms')||'[]')}catch(e){return[]}})();
-  var hu = localStorage.getItem('coachTenantHomeUrl') || '';
-  if (uid && nick) { showMemberDashboard(nick, progs, hu); }
+  // Always show the sign-in form. A stale coach/admin session in localStorage
+  // must never hijack the member portal.
 })();
 </script>
 
