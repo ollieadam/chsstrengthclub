@@ -13,8 +13,8 @@
   --charcoal:#1e1e1e;
   --grey:#2a2a2a;
   --mid-grey:#444;
-  --muted:#999;
-  --light:#aaa;
+  --muted:#b8b8b8;
+  --light:#cfcfcf;
   --cream:#f0ece4;
   --white:#ffffff;
   --border:rgba(255,255,255,0.08);
@@ -32,6 +32,7 @@ body{
   font-weight:300;
   overflow-x:hidden;
 }
+p{color:var(--muted)}
 
 /* NOISE OVERLAY */
 body::before{
