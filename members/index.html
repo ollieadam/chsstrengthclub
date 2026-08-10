@@ -140,7 +140,9 @@ async function doMemberLogin() {
     var d = await r.json();
     if (d.ok) {
       if (d.authToken) {
-        window.location = 'https://strengthclubai.com/?client=1&t=' + encodeURIComponent(d.authToken);
+        var memberUrl = 'https://strengthclubai.com/?client=1&t=' + encodeURIComponent(d.authToken);
+        if (d.homeUrl) memberUrl += '&homeUrl=' + encodeURIComponent(d.homeUrl);
+        window.location = memberUrl;
         return;
       }
       localStorage.setItem('coachNickname',d.nickname||'');
@@ -159,7 +161,6 @@ function showMemberDashboard(nickname, programs, homeUrl) {
   document.getElementById('dashGreeting').textContent = 'Welcome, ' + nickname;
   document.getElementById('dashSub').textContent = programs.length ? 'Your Programs' : 'No programs assigned yet — contact Coach Adam to get started.';
   var progEl = document.getElementById('dashPrograms');
-  var hq = homeUrl ? '&homeUrl=' + encodeURIComponent(homeUrl) : '';
   progEl.innerHTML = programs.map(function(p) {
     var info = PROG_MAP[p] || {name:p,slug:p,icon:'i-dumbbell',desc:''};
     var slug = info.slug || encodeURIComponent(p);
