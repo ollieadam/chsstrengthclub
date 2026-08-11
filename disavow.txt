@@ -1,0 +1,4 @@
+# Disavow spam backlinks from toplist.co.in
+# Generated from Google Search Console - August 2026
+# 68 toxic links found
+domain:toplist.co.in
