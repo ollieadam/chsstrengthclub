@@ -1,1 +1,4 @@
 backups/
+
+# print masters live in docs/ — ignore regenerated root copies
+/*.pdf
