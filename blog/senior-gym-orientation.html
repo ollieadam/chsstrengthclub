@@ -43,8 +43,8 @@ h1{font-family:"Oswald",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:
 .post-body ol{list-style:none;margin-bottom:1.4rem;counter-reset:ol-counter}
 .post-body ol li{font-size:0.92rem;line-height:1.75;color:#bbb;padding:0.4rem 0 0.4rem 2rem;border-bottom:1px solid rgba(255,255,255,0.04);position:relative;counter-increment:ol-counter}
 .post-body ol li::before{content:counter(ol-counter);position:absolute;left:0;font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:600;color:var(--red);top:0.55rem}
-.post-body a{color:var(--red);text-decoration:none;border-bottom:1px solid rgba(192,23,15,0.25);transition:border-color 0.2s}
-.post-body a:hover{border-color:var(--red)}
+.post-body a:not(.btn){color:var(--red);text-decoration:none;border-bottom:1px solid rgba(192,23,15,0.25);transition:border-color 0.2s}
+.post-body a:not(.btn):hover{border-color:var(--red)}
 .post-body strong{font-weight:500;color:var(--white)}
 .post-rule{width:60px;height:2px;background:var(--red);margin:2.5rem 0}
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:transparent;margin:1.5rem 0}

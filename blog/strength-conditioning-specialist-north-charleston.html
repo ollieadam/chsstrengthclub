@@ -35,8 +35,8 @@ h1{font-family:"Black Han Sans",sans-serif;font-size:clamp(2.2rem,5vw,4rem);font
 .post-body ul{list-style:none;margin-bottom:1.4rem}
 .post-body ul li{font-size:0.92rem;line-height:1.75;color:rgba(240,236,228,0.75);padding:0.35rem 0 0.35rem 1.4rem;border-bottom:1px solid rgba(255,255,255,0.04);position:relative}
 .post-body ul li::before{content:"";position:absolute;left:0;top:0.85rem;width:5px;height:5px;background:var(--red);transform:rotate(45deg)}
-.post-body a{color:var(--red-bright);text-decoration:none;border-bottom:1px solid rgba(192,23,15,0.3);transition:border-color 0.2s}
-.post-body a:hover{border-color:var(--red-bright)}
+.post-body a:not(.btn){color:var(--red-bright);text-decoration:none;border-bottom:1px solid rgba(192,23,15,0.3);transition:border-color 0.2s}
+.post-body a:not(.btn):hover{border-color:var(--red-bright)}
 .post-body strong{font-weight:500;color:var(--cream)}
 .post-rule{width:60px;height:2px;background:var(--red);margin:2.5rem 0}
 .pullquote{border-left:3px solid var(--red);padding:0.4rem 0 0.4rem 1.8rem;margin:2.8rem 0;font-family:"DM Sans",sans-serif;font-style:italic;font-size:1.3rem;line-height:1.55;color:var(--cream)}

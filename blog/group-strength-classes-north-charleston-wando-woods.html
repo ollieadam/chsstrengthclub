@@ -92,12 +92,12 @@
   margin-bottom: 1.1rem;
   max-width: 680px;
 }
-.article-body a {
+.article-body a:not(.cta-btn):not(.cta-email) {
   color: var(--red-bright);
   text-decoration: none;
   border-bottom: 1px solid rgba(192,23,15,0.3);
 }
-.article-body a:hover { border-color: var(--red-bright); }
+.article-body a:not(.cta-btn):not(.cta-email):hover { border-color: var(--red-bright); }
 .article-body strong { color: var(--cream); font-weight: 500; }
 
 /* SECTION DIVIDER */
