@@ -5,21 +5,21 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHS Programs — Charleston Strength Club</title>
-    <meta name="description" content="Sign in to your CHS Strength Club account — log workouts, track progress, message your coach, and view your training program. Member portal powered by Strength Club AI.">
-<meta name="keywords" content="CHS Strength Club member sign in, workout log app, Charleston Strength Club portal, Strength Club AI member login">
+<title>CHS Member Portal — Charleston Strength Club</title>
+    <meta name="description" content="Your CHS Strength Club member portal — personalize workouts, track progress, log every set, and message your coach. Your coach is in your pocket, powered by Strength Club AI.">
+<meta name="keywords" content="CHS Strength Club member portal, workout log app, Charleston Strength Club, Strength Club AI, personalized training, track progress, strength coach">
 <meta name="robots" content="index, follow">
 <meta property="og:locale" content="en_US">
 <meta name="author" content="Adam Oliver CSCS">
 <meta name="google-site-verification" content="AZARyyE8J5HHIR4LWg9kQ3GLJs9ZxmV6ROiU2mTINRQ">
-<meta property="og:title" content="CHS Programs — Charleston Strength Club">
-<meta property="og:description" content="CHS programs powered by Strength Club AI — senior strength training, adult strength coaching, gym orientation, and sport performance in North Charleston, SC.">
+<meta property="og:title" content="CHS Member Portal — Your Coach in Your Pocket">
+<meta property="og:description" content="Personalized programs, progress tracking, set logging, and direct messaging with your coach — all in one member portal powered by Strength Club AI.">
 <meta property="og:image" content="https://chsstrengthclub.com/preview.webp">
 <meta property="og:url" content="https://chsstrengthclub.com/members/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CHS Programs — Charleston Strength Club">
-<meta name="twitter:description" content="CHS programs powered by Strength Club AI — senior strength training, adult strength coaching, gym orientation, and sport performance in North Charleston, SC.">
+<meta name="twitter:title" content="CHS Member Portal — Charleston Strength Club">
+<meta name="twitter:description" content="Personalized programs, progress tracking, set logging, and direct messaging with your coach — all in one member portal.">
   <meta name="twitter:image" content="https://chsstrengthclub.com/preview.webp">
   <link rel="canonical" href="https://chsstrengthclub.com/members/">
   <link rel="stylesheet" href="/global.css">
@@ -28,7 +28,7 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Charleston Strength Club",
-  "description": "Sign in to your CHS Strength Club account — log workouts, track progress, message your coach, and view your training program.",
+  "description": "CHS member portal — personalized training programs, progress tracking, workout logging, and coach messaging powered by Strength Club AI.",
   "url": "https://chsstrengthclub.com/members/",
   "telephone": "(978) 604-5920",
   "email": "chsstrengthclub@gmail.com",
@@ -52,18 +52,48 @@
 }
 </script>
   <style>
-.page-header{background:var(--black);padding:7rem 2rem 4rem;text-align:center;max-width:900px;margin:0 auto}
-.page-header h1{font-family:'Oswald',sans-serif;font-size:36px;color:#fff;text-transform:uppercase;margin-bottom:8px}
-.page-header p{font-size:16px;color:#bbb;margin-bottom:0}
-.prog-card{background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:24px;margin-bottom:16px;text-align:left}
-.prog-card-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.member-hero{background:var(--black);padding:7rem 2rem 4rem;text-align:center;max-width:900px;margin:0 auto}
+.member-hero .hero-eyebrow{color:var(--red-bright);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:12px;margin-bottom:12px}
+.member-hero h1{font-family:'Oswald',sans-serif;font-size:42px;color:#fff;text-transform:uppercase;margin-bottom:12px}
+.member-hero p{font-size:17px;color:#cfcfcf;line-height:1.7;max-width:640px;margin:0 auto 26px}
+.member-hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.member-hero-actions .btn{min-width:200px;justify-content:center}
+.member-hero-note{font-size:13px;color:var(--muted);margin-top:18px}
+.feature-grid{max-width:1080px;margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.feat-card{background:var(--near-black);border:1px solid var(--border);border-radius:12px;padding:26px;text-align:center;transition:border-color .2s}
+.feat-card:hover{border-color:var(--border-red)}
+.feat-icon{font-size:28px;margin-bottom:10px}
+.feat-card h3{font-family:'Oswald',sans-serif;font-size:18px;color:#fff;text-transform:uppercase;letter-spacing:.02em;margin-bottom:8px}
+.feat-card p{font-size:14px;color:#bbb;line-height:1.6}
+.section-wrap{max-width:1080px;margin:0 auto;padding:0 24px 10px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;padding:0 0 60px}
+.step-card{background:var(--near-black);border:1px solid var(--border);border-radius:12px;padding:26px}
+.step-num{font-family:'Oswald',sans-serif;font-size:13px;color:var(--red-bright);font-weight:700;letter-spacing:.1em}
+.step-card h3{font-family:'Oswald',sans-serif;font-size:18px;color:#fff;text-transform:uppercase;margin:6px 0 8px}
+.step-card p{font-size:14px;color:#bbb;line-height:1.6}
+.testimonials{margin:0 auto 70px}
+.test-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.test-card{background:var(--near-black);border:1px solid var(--border);border-radius:12px;padding:24px}
+.test-stars{color:#f5b301;font-size:15px;letter-spacing:2px;margin-bottom:10px}
+.test-text{font-size:14px;color:#cfcfcf;line-height:1.6;margin-bottom:16px}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-initial{width:38px;height:38px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700}
+.test-name{font-size:14px;color:#fff;font-weight:600}
+.test-role{font-size:12px;color:var(--muted)}
+.programs{max-width:900px;margin:0 auto 20px}
+.prog-card{background:var(--near-black);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px;text-align:left}
+.prog-card-header{display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap}
 .prog-card h2{font-family:'Oswald',sans-serif;font-size:20px;color:#fff;text-transform:uppercase;margin:0}
 .prog-card p{font-size:14px;color:#bbb;line-height:1.6;margin-bottom:12px}
 .prog-card .prog-actions{display:flex;gap:8px;flex-wrap:wrap}
-.btn-red{display:inline-block;padding:10px 24px;background:#E11D48;color:#fff;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:none}
-.btn-outline-sm{display:inline-block;padding:10px 24px;border:1px solid #1e1e1e;color:#ffffff;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none}
 .free-badge{font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(63,185,80,0.15);color:#3fb950;font-weight:600;margin-left:8px}
-.helper-text{font-size:12px;color:#aaa;padding:10px 0}
+.member-cta{background:var(--black);text-align:center;padding:70px 24px;margin-top:20px}
+.member-cta .cta-title{font-family:'Oswald',sans-serif;font-size:34px;color:#fff;text-transform:uppercase;margin:0 0 12px}
+.member-cta p{color:#cfcfcf;font-size:15px;max-width:520px;margin:0 auto 24px;line-height:1.7}
+.member-cta .btn{min-width:220px;justify-content:center}
+.btn-outline-sm{display:inline-block;padding:1rem 2rem;border:1px solid var(--border);color:#ffffff;border-radius:8px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;font-family:'Oswald',sans-serif}
+.btn-outline-sm:hover{border-color:var(--red-bright);color:var(--red-bright)}
 </style>
 </head>
 <body>
@@ -84,7 +114,7 @@
     <li><a href="/senior-strength.html">Senior Strength</a></li>
     <li><a href="/locations/">Locations</a></li>
     <li><a href="/blog/">Blog</a></li>
-    <li><a href="/members/">Member Sign In</a></li>
+    <li><a href="/members/" class="active">Member Portal</a></li>
     <li><a href="mailto:chsstrengthclub@gmail.com" class="nav-cta">Book a Call</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -100,21 +130,131 @@
   <a href="/senior-strength.html" onclick="toggleMenu()">Senior Strength</a>
   <a href="/locations/" onclick="toggleMenu()">Locations</a>
   <a href="/blog/" onclick="toggleMenu()">Blog</a>
-  <a href="/members/" onclick="toggleMenu()">Member Sign In</a>
+  <a href="/members/" onclick="toggleMenu()">Member Portal</a>
   <a href="mailto:chsstrengthclub@gmail.com" class="mob-cta" onclick="toggleMenu()">Book a Call</a>
 </div>
 
- <style>
-  .login-section { max-width: 480px; margin: 90px auto 40px; text-align: center; }
-  .login-btn { display:block; width:100%; padding:16px; background:#E11D48; color:#fff; border:none; border-radius:8px; font-size:16px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; text-align:center; text-decoration:none; margin-bottom:12px; box-sizing:border-box }
-  .login-btn:hover { background:#c91a3e }
-  .login-btn-outline { display:block; width:100%; padding:14px; border:1px solid #1e1e1e; color:#ffffff; border-radius:8px; font-size:14px; font-weight:500; cursor:pointer; font-family:'Inter',sans-serif; text-align:center; text-decoration:none; box-sizing:border-box }
-  .login-btn-outline:hover { border-color:#E11D48; color:#E11D48 }
-</style>
+<div class="member-hero">
+  <div class="hero-eyebrow">Charleston Strength Club</div>
+  <h1>Your Coach. In Your Pocket.</h1>
+  <p>Log every set, watch your strength climb, and stay dialed into your program — with your CSCS-certified coach a message away. The CHS member portal puts your whole training plan where you already live: your phone.</p>
+  <div class="member-hero-actions">
+    <a href="https://strengthclubai.com/login.html" class="btn btn-red">Member Sign In</a>
+    <a href="https://chsstrengthclub.com/index.html" class="btn btn-ghost">Explore Programs</a>
+  </div>
+  <div class="member-hero-note">Already training at CHS? Sign in to pick up exactly where you left off.</div>
+</div>
 
-<div class="login-section">
-  <a href="https://strengthclubai.com/login.html" class="login-btn">Member Sign In</a>
-  <a href="https://strengthclubai.com/login.html" class="login-btn-outline">Coach / Staff Login</a>
+<div class="feature-grid">
+  <div class="feat-card">
+    <div class="feat-icon">&#127947;&#65039;</div>
+    <h3>Your Program</h3>
+    <p>Your personalized workout plan, built for your body and goals, is always one tap away — updated as you get stronger.</p>
+  </div>
+  <div class="feat-card">
+    <div class="feat-icon">&#9997;&#65039;</div>
+    <h3>Log Every Set</h3>
+    <p>Record weight, reps, and how each set felt. Watch the numbers go up and know exactly where you left off last session.</p>
+  </div>
+  <div class="feat-card">
+    <div class="feat-icon">&#128200;</div>
+    <h3>Track Progress</h3>
+    <p>Progress charts show your strength trending across weeks and months — so you can see it working even on the hard days.</p>
+  </div>
+  <div class="feat-card">
+    <div class="feat-icon">&#128172;</div>
+    <h3>Message Your Coach</h3>
+    <p>Questions on form, nutrition, or what to push today? Message Adam directly and get a real coach, not an app-bot.</p>
+  </div>
+</div>
+
+<section class="section-wrap">
+  <div style="text-align:center;margin-bottom:28px">
+    <p class="eyebrow">How It Works</p>
+    <h2 class="sec-title">Simple as <em>Iron.</em></h2>
+  </div>
+  <div class="steps">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h3>Sign In</h3>
+      <p>Use the member sign-in to unlock your portal. No apps to install, no downloads — it works right in your browser.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h3>Your Program Waits</h3>
+      <p>Your current workout and what's coming next are loaded and waiting. Just walk in and train.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h3>Log &amp; Progress</h3>
+      <p>Log your sets as you go. Adam sees your numbers and keeps your program moving toward your goals.</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials section-wrap" id="testimonials">
+  <div class="test-header">
+    <div><p class="eyebrow">Results</p><h2 class="sec-title">They Put in <em>The Work.</em></h2></div>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="test-text">I have took many classes from Adam and he is amazing willing to do anything to help you achieve your goals. Great job coach Adam.</p>
+      <div class="test-author"><div class="test-initial">D</div><div><div class="test-name">Dennis Connolly</div><div class="test-role">Google Review &middot; 2 months ago</div></div></div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="test-text">Adam provides a quality workout session that isn&#39;t boring or too difficult to do. A very enjoyable work out.</p>
+      <div class="test-author"><div class="test-initial">L</div><div><div class="test-name">Laura Dygert</div><div class="test-role">Google Review &middot; 2 months ago</div></div></div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="test-text">A dedicated coach who puts real effort into every session. Adam keeps things focused and gets results.</p>
+      <div class="test-author"><div class="test-initial">E</div><div><div class="test-name">Elvin Kennedy</div><div class="test-role">Google Review &middot; 2 months ago</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="programs">
+  <div style="text-align:center;margin-bottom:24px">
+    <p class="eyebrow">Find Your Program</p>
+    <h2 class="sec-title">Train with <em>Purpose.</em></h2>
+  </div>
+  <div class="prog-card">
+    <div class="prog-card-header">
+      <h2>Senior Strength</h2><span class="free-badge">$10 Flat</span>
+    </div>
+    <p>Strength training designed for older adults — build strength, balance, and confidence to keep living on your terms.</p>
+    <div class="prog-actions">
+      <a href="https://chsstrengthclub.com/senior-strength.html" class="btn btn-outline-sm">Learn More</a>
+      <a href="https://strengthclubai.com/login.html" class="btn btn-red">Member Sign In</a>
+    </div>
+  </div>
+  <div class="prog-card">
+    <div class="prog-card-header"><h2>Adult Strength Coaching</h2></div>
+    <p>One-on-one and small-group coaching for adults who want real, structured strength — programs built around your schedule.</p>
+    <div class="prog-actions">
+      <a href="https://chsstrengthclub.com/adult-strength.html" class="btn btn-outline-sm">Learn More</a>
+      <a href="https://strengthclubai.com/login.html" class="btn btn-red">Member Sign In</a>
+    </div>
+  </div>
+  <div class="prog-card">
+    <div class="prog-card-header"><h2>Sport Performance</h2></div>
+    <p>For athletes chasing jumps, speed, and strength — with baseline testing and a program built to move the number.</p>
+    <div class="prog-actions">
+      <a href="https://chsstrengthclub.com/sport-performance.html" class="btn btn-outline-sm">Learn More</a>
+      <a href="https://strengthclubai.com/login.html" class="btn btn-red">Member Sign In</a>
+    </div>
+  </div>
+</section>
+
+<div class="member-cta">
+  <h2 class="cta-title">Ready to Train?</h2>
+  <p>Not a member yet? Book a free call and find out exactly how we'd get you stronger. Already in the club? Get back to work.</p>
+  <div class="member-hero-actions">
+    <a href="https://chsstrengthclub.com/index.html" class="btn btn-red">Book a Free Call</a>
+    <a href="https://strengthclubai.com/login.html" class="btn btn-ghost">Member Sign In</a>
+  </div>
 </div>
 
 <footer>
