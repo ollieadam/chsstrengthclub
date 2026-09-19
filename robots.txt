@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# App bounce / personal-result surfaces — not public marketing pages
+Disallow: /adult-sc/
+Disallow: /senior-sc/
+Disallow: /tools/
+Disallow: /gym-orientation/
+Disallow: /invite/
+Disallow: /results/
+
 Sitemap: https://chsstrengthclub.com/sitemap.xml

@@ -44,6 +44,12 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://chsstrengthclub.com/members/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
   <!-- Blog -->
   <url>
@@ -67,13 +73,6 @@
   <url>
     <loc>https://chsstrengthclub.com/blog/group-strength-classes-north-charleston-wando-woods.html</loc>
     <lastmod>2026-06-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://chsstrengthclub.com/blog/the-4-ps.html</loc>
-    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
