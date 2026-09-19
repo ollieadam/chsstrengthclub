@@ -441,8 +441,10 @@
         <li>Injury prevention</li>
         <li>In-season &amp; off-season plans</li>
         <li>All sports welcome</li>
+        <li>Golf strength, mobility &amp; swing speed</li>
       </ul>
       <a href="/sport-performance.html" class="prog-link">View Program →</a>
+      <a href="/golf-strength.html" class="prog-link" style="margin-left:1.25rem">Golf Strength →</a>
       <div class="prog-video"><iframe loading="lazy" src="https://www.youtube.com/embed/6wNpH84IhA8?si=5mUv0iNHNqc5C3eX" title="Sport Performance Training" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
     </div>
   </div>
@@ -699,7 +701,7 @@
       <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="(xxx) xxx-xxxx" required></div>
       <div class="fg"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
       <div class="fg"><label>Program Interest</label>
-        <select name="program"><option value="">Select a program</option><option>Adult Training</option><option>Senior Fitness</option><option>Sport Performance</option><option>Not sure yet</option></select>
+        <select name="program"><option value="">Select a program</option><option>Adult Training</option><option>Senior Fitness</option><option>Sport Performance</option><option>Golf Strength &amp; Mobility</option><option>Not sure yet</option></select>
       </div>
       <div class="fg"><label>Anything Else</label><textarea name="message" placeholder="Goals, questions, your current situation..."></textarea></div>
       <button type="submit" class="btn btn-red form-sub">Send to Adam</button>
@@ -712,7 +714,7 @@
 <script>
 document.querySelectorAll('.prog-card').forEach(card => {
   card.addEventListener('click', function(e) {
-    if (e.target.closest('iframe') || e.target.closest('.prog-video')) return;
+    if (e.target.closest('iframe') || e.target.closest('.prog-video') || e.target.closest('a')) return;
     const link = card.querySelector('.prog-link');
     if (link) window.location.href = link.href;
   });
