@@ -88,8 +88,8 @@
 .programs-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;flex-wrap:wrap;gap:2rem}
 .programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04)}
 .prog-card{background:var(--near-black);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background 0.3s;cursor:pointer}
-.prog-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red-dark),var(--red-bright));transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1)}
-.prog-card::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,23,15,0.04) 0%,transparent 60%);opacity:0;transition:opacity 0.3s}
+.prog-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red-dark),var(--red-bright));transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1);pointer-events:none}
+.prog-card::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,23,15,0.04) 0%,transparent 60%);opacity:0;transition:opacity 0.3s;pointer-events:none}
 .prog-card:hover{background:#1a1414}
 .prog-card:hover::before{transform:scaleX(1)}
 .prog-card:hover::after{opacity:1}
@@ -100,7 +100,9 @@
 .prog-list{list-style:none;margin-bottom:2rem}
 .prog-list li{font-size:0.8rem;color:var(--light);padding:0.35rem 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;gap:0.6rem}
 .prog-list li::before{content:"";display:inline-block;width:4px;height:4px;background:var(--red);flex-shrink:0}
-.prog-link{font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--red-bright);text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.2s,color 0.2s}
+.prog-link{font-family:"Oswald",sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--red-bright);text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.2s,color 0.2s;position:relative;z-index:1}
+.prog-links{display:flex;flex-wrap:wrap;gap:0.75rem 1.5rem;margin-bottom:0.25rem;position:relative;z-index:1}
+.prog-list a{color:var(--red-bright);text-decoration:none;border-bottom:1px solid rgba(192,23,15,0.3);position:relative;z-index:1}
 .prog-video{position:relative;width:100%;padding-bottom:56.25%;margin:1.5rem 0;overflow:hidden;border:1px solid var(--border-red)}
 .prog-video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
 .yt-section{background:var(--black);padding:5rem 3rem;border-top:1px solid var(--border-red)}
@@ -441,8 +443,12 @@
         <li>Injury prevention</li>
         <li>In-season &amp; off-season plans</li>
         <li>All sports welcome</li>
+        <li><a href="/golf-strength.html">Golf strength, mobility &amp; swing speed</a></li>
       </ul>
-      <a href="/sport-performance.html" class="prog-link">View Program →</a>
+      <div class="prog-links">
+        <a href="/sport-performance.html" class="prog-link">View Program →</a>
+        <a href="/golf-strength.html" class="prog-link">Golf Strength →</a>
+      </div>
       <div class="prog-video"><iframe loading="lazy" src="https://www.youtube.com/embed/6wNpH84IhA8?si=5mUv0iNHNqc5C3eX" title="Sport Performance Training" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
     </div>
   </div>
@@ -699,7 +705,7 @@
       <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="(xxx) xxx-xxxx" required></div>
       <div class="fg"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
       <div class="fg"><label>Program Interest</label>
-        <select name="program"><option value="">Select a program</option><option>Adult Training</option><option>Senior Fitness</option><option>Sport Performance</option><option>Not sure yet</option></select>
+        <select name="program"><option value="">Select a program</option><option>Adult Training</option><option>Senior Fitness</option><option>Sport Performance</option><option>Golf Strength &amp; Mobility</option><option>Not sure yet</option></select>
       </div>
       <div class="fg"><label>Anything Else</label><textarea name="message" placeholder="Goals, questions, your current situation..."></textarea></div>
       <button type="submit" class="btn btn-red form-sub">Send to Adam</button>
@@ -713,6 +719,12 @@
 document.querySelectorAll('.prog-card').forEach(card => {
   card.addEventListener('click', function(e) {
     if (e.target.closest('iframe') || e.target.closest('.prog-video')) return;
+    const clicked = e.target.closest('a');
+    if (clicked && clicked.href) {
+      e.preventDefault();
+      window.location.href = clicked.href;
+      return;
+    }
     const link = card.querySelector('.prog-link');
     if (link) window.location.href = link.href;
   });
