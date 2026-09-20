@@ -25,13 +25,13 @@
 <meta name="twitter:image" content="https://chsstrengthclub.com/preview.webp">
 <style>
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:5rem 4rem;position:relative;overflow:hidden;background:var(--black)}
+.hero{display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:var(--hero-pad-top) 4rem 4rem;position:relative;overflow:hidden;background:var(--black)}
 .hero-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.01) 4px);pointer-events:none}
 .hero-glow{position:absolute;top:0;right:-10%;width:65%;height:100%;background:radial-gradient(ellipse at 70% 40%,rgba(192,23,15,0.15) 0%,transparent 65%);pointer-events:none}
 .hero-bg-num{position:absolute;right:-0.05em;top:50%;transform:translateY(-50%);font-family:"Black Han Sans",sans-serif;font-size:clamp(20rem,40vw,38rem);color:transparent;-webkit-text-stroke:1px rgba(192,23,15,0.06);pointer-events:none;user-select:none;line-height:1}
 
 .hero-corner{position:absolute;width:60px;height:60px}
-.hero-corner.tl{top:2rem;left:2rem;border-top:1px solid var(--border-red);border-left:1px solid var(--border-red)}
+.hero-corner.tl{top:calc(var(--nav-height) + 0.75rem);left:2rem;border-top:1px solid var(--border-red);border-left:1px solid var(--border-red)}
 .hero-corner.br{bottom:2rem;right:2rem;border-bottom:1px solid var(--border-red);border-right:1px solid var(--border-red)}
 
 .hero-content{position:relative;max-width:700px}
@@ -133,7 +133,7 @@
 
 /* MOBILE */
 @media(max-width:768px){
-  .hero{padding:3rem 1.5rem 4rem;align-items:center;text-align:center}
+  .hero{padding:var(--hero-pad-top) 1.5rem 4rem;align-items:center;text-align:center}
   .hero-content{width:100%}
   .hero-title{font-size:clamp(3.5rem,16vw,7rem)}
   .hero-bg-num{display:none}
