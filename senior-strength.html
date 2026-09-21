@@ -22,10 +22,9 @@
 /* HERO */
 .hero {
   background: var(--black);
-  min-height: 90vh;
   display: flex;
-  align-items: flex-end;
-  padding: 0 3rem 4rem;
+  align-items: flex-start;
+  padding: var(--hero-pad-top) 3rem 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -478,7 +477,7 @@
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 0 1.5rem 3rem; min-height: 80vh; }
+  .hero { padding: var(--hero-pad-top) 1.5rem 3rem; }
   .section { padding: 3rem 1.5rem; }
   .program-grid { grid-template-columns: 1fr; }
   .price-grid { grid-template-columns: 1fr; }

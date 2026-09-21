@@ -26,7 +26,7 @@
 <style>
 
 /* HERO */
-.hero{min-height:100vh;background:var(--black);display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 6rem;position:relative;overflow:hidden;padding-top:80px}
+.hero{min-height:100vh;background:var(--black);display:flex;flex-direction:column;justify-content:flex-start;padding:var(--hero-pad-top) 3rem 6rem;position:relative;overflow:hidden}
 .hero-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.012) 4px);pointer-events:none}
 .hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 85% 75% at 50% 50%,transparent 30%,rgba(0,0,0,0.75) 100%)}
 .hero-glow{position:absolute;top:-10%;left:-10%;width:60%;height:70%;background:radial-gradient(ellipse,rgba(192,23,15,0.12) 0%,transparent 65%);pointer-events:none}
@@ -36,8 +36,8 @@
 .hero-bg-word{position:absolute;bottom:-4rem;left:-0.05em;font-family:"Oswald",sans-serif;font-size:clamp(18rem,38vw,36rem);font-weight:700;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(192,23,15,0.07);letter-spacing:-0.04em;pointer-events:none;user-select:none;line-height:1}
 
 .hero-corner{position:absolute;width:70px;height:70px}
-.hero-corner.tl{top:5.5rem;left:3rem;border-top:1px solid var(--border-red);border-left:1px solid var(--border-red)}
-.hero-corner.tr{top:5.5rem;right:3rem;border-top:1px solid var(--border-red);border-right:1px solid var(--border-red)}
+.hero-corner.tl{top:var(--hero-pad-top);left:3rem;border-top:1px solid var(--border-red);border-left:1px solid var(--border-red)}
+.hero-corner.tr{top:var(--hero-pad-top);right:3rem;border-top:1px solid var(--border-red);border-right:1px solid var(--border-red)}
 .hero-corner.bl{bottom:3rem;left:3rem;border-bottom:1px solid var(--border-red);border-left:1px solid var(--border-red)}
 .hero-corner.br{bottom:3rem;right:3rem;border-bottom:1px solid var(--border-red);border-right:1px solid var(--border-red)}
 
@@ -200,8 +200,8 @@
 /* RESPONSIVE */
 @media(max-width:960px){
   section{padding:5rem 1.5rem}
-  .hero{padding:5rem 1.5rem 5rem}
-  .hero-corner.tl{top:5rem;left:1.5rem} .hero-corner.tr{top:5rem;right:1.5rem}
+  .hero{padding:var(--hero-pad-top) 1.5rem 5rem}
+  .hero-corner.tl{top:var(--hero-pad-top);left:1.5rem} .hero-corner.tr{top:var(--hero-pad-top);right:1.5rem}
   .hero-corner.bl{bottom:2rem;left:1.5rem} .hero-corner.br{bottom:2rem;right:1.5rem}
   .hero-logo-right{display:none} .hero-bg-word{font-size:22rem}
   .stats-bar{grid-template-columns:1fr 1fr} .stat-item{border-bottom:1px solid rgba(255,255,255,0.08)}
